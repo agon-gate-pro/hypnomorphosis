@@ -1,11 +1,11 @@
-# HypnoMophosis · Fonctionnement technique
+# HypnoMorphosis · Fonctionnement technique
 
 ## Stack
 
 - Next.js 16 (App Router), React 19, TypeScript
 - Tailwind CSS 4
 - pnpm
-- Hébergement : Vercel (projet `hypnomophosis`, équipe Agon-gate), déploiement automatique depuis GitHub (`agon-gate-pro/hypnomophosis`, branche `main`)
+- Hébergement : Vercel (projet `hypnomorphosis`, équipe Agon-gate), déploiement automatique depuis GitHub (`agon-gate-pro/hypnomorphosis`, branche `main`)
 
 ## Structure
 
