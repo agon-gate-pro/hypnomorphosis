@@ -1,6 +1,6 @@
-# HypnoMorphosis
+# HypnoMophosis
 
-Site de HypnoMorphosis. Next.js (App Router), TypeScript, Tailwind CSS, déployé sur Vercel.
+Site de HypnoMophosis. Next.js (App Router), TypeScript, Tailwind CSS, déployé sur Vercel.
 
 ```bash
 pnpm install

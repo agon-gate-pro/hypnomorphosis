@@ -1,4 +1,4 @@
-# HypnoMorphosis · Avancement
+# HypnoMophosis · Avancement
 
 ## Journal
 
