@@ -84,6 +84,16 @@ Le site enregistre la date et l'heure de l'accord pour chaque achat, comme preuv
 
 Cette exclusion ne couvre pas tout : un contenu inaccessible ou défectueux reste à remplacer ou à rembourser, et un client peut toujours contester un paiement auprès de sa banque. L'expérience découverte, gratuite, n'est pas concernée.
 
+### Factures
+
+Une facture est émise automatiquement pour chaque achat, même si la loi ne l'impose pas toujours pour une vente à un particulier (elle est due au moins sur demande du client) : c'est plus simple et plus rassurant.
+
+- Stripe la génère et l'envoie par e-mail après le paiement (option `invoice_creation` de la page de paiement), avec un PDF téléchargeable. Numérotation continue gérée par Stripe.
+- Mentions ajoutées dans le pied de facture : nom, adresse, SIRET de Bérénice, et « TVA non applicable, art. 293 B du CGI » si elle est en franchise de TVA.
+- Coût : Stripe facture ce service en plus des frais de paiement (petit pourcentage par facture, à vérifier sur la grille tarifaire Stripe au moment de l'activation).
+- Le lien vers la facture est aussi disponible dans l'espace client.
+- À anticiper : la réforme de la facturation électronique impose aux micro-entreprises, à partir de septembre 2027, de transmettre les données de leurs ventes aux particuliers (e-reporting) via une plateforme agréée. À vérifier avec le comptable de Bérénice le moment venu.
+
 ## 6. Expérience découverte gratuite
 
 Ce que dit le brief : 5 jours, 2 audios guidés, une « ordalie », un exercice par jour, un « engagement à signer » ; photo et bouton « Je découvre HypnoMorphosis gratuitement » sur l'accueil. Bérénice ne sait pas encore comment la présenter (page produit ou non).
@@ -161,7 +171,7 @@ Même socle que Set et Brique, déjà maîtrisé par Agon Gate :
 
 13. E-mail de bienvenue après l'achat : oui, et avez-vous un texte en tête ?
 14. Préférez-vous ajouter vous-même vos expériences (interface d'administration), ou nous les confier ?
-15. Statut juridique, SIRET, TVA (franchise en base ou non) : nécessaires pour les factures et les mentions légales.
+15. Statut juridique, SIRET, TVA (franchise en base ou non) : nécessaires pour les factures et les mentions légales. Le statut actuel (activité d'hypnothérapeute) couvre-t-il la vente de contenus en ligne ? Avez-vous un comptable ? Vendrez-vous à des clients hors de France ?
 16. Avez-vous déjà un compte Stripe ?
 17. Nom de domaine : en avez-vous déjà un (hypnomorphosis.fr, .com) ?
 18. Qui rédige les CGV et la politique de confidentialité : vous, un juriste, ou une base que nous proposons et que vous faites valider ?
