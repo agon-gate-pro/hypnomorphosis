@@ -67,15 +67,18 @@
   .ouverture h1 em { font-style: italic; color: var(--olive); }
   .ouverture p.chapo { font-size: 19px; color: var(--gris); max-width: 480px; margin-bottom: 32px; }
   .ouverture .actions { display: flex; flex-wrap: wrap; gap: 14px; }
-  .lumiere { position: relative; aspect-ratio: 4 / 5; border-radius: 220px 220px 6px 6px; overflow: hidden; color: rgba(255,255,255,.75);
-    background: radial-gradient(90% 70% at 70% 22%, #f7e2b0 0%, #d9b679 26%, #a9a275 52%, #6f7650 80%, #555a40 100%); }
-  .lumiere .boussole { width: 78%; aspect-ratio: 1; left: 11%; top: 16%; }
-  .lumiere img { position: absolute; width: 56%; left: 22%; top: 24%; filter: grayscale(1) invert(1) brightness(1.2); mix-blend-mode: screen; clip-path: inset(13% 0 25% 0); opacity: .9; }
-  .lumiere .legende { position: absolute; bottom: 16px; left: 0; right: 0; text-align: center; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+  /* le logo en grand, sur le papier, avec un halo doré discret et sa boussole prolongée */
+  .logo-hero { position: relative; aspect-ratio: 1; width: 100%; max-width: 500px; justify-self: center; color: var(--filet);
+    background: radial-gradient(closest-side, rgba(228, 190, 120, .55) 0%, rgba(228, 190, 120, .22) 55%, rgba(232, 200, 140, 0) 100%); }
+  .logo-hero .boussole { inset: 0; width: 100%; }
+  .logo-hero .boussole.petite { inset: 9%; width: auto; opacity: .8; }
+  .logo-hero .boussole.petite::after { display: none; }
+  /* le JPG passe par un filtre SVG qui rend le blanc transparent ; le viewBox cadre le cercle du scarabée */
+  .logo-hero .scarabee { position: absolute; inset: 15%; width: 70%; height: 70%; }
   @media (max-width: 860px) {
     .ouverture .wrap { grid-template-columns: 1fr; gap: 40px; }
     .ouverture h1 { font-size: 46px; }
-    .lumiere { max-width: 380px; width: 100%; justify-self: center; }
+    .logo-hero { max-width: 340px; }
   }
 
   /* ---------- Phrase d'impulsion ---------- */
@@ -161,7 +164,7 @@
 </head>
 <body>
 
-<div class="note-maquette">Maquette de travail : piste « Le carnet » réchauffée par la piste « Lumière de garrigue ». Les zones dorées remplacent des photos qui pourront venir plus tard.</div>
+<div class="note-maquette">Maquette de travail : piste « Le carnet » réchauffée par la piste « Lumière de garrigue ». Le logo de Bérénice porte l'ouverture ; des photos pourront s'ajouter plus tard.</div>
 
 <header class="site">
   <div class="wrap">
@@ -182,10 +185,16 @@
         <a class="btn btn-trait" href="#experiences">Voir les expériences</a>
       </div>
     </div>
-    <div class="lumiere">
+    <div class="logo-hero" aria-hidden="true">
       <div class="boussole"></div>
-      <img src="1787297365435.jpg" alt="">
-      <div class="legende">emplacement photo · facultatif</div>
+      <div class="boussole petite"></div>
+      <svg class="scarabee" viewBox="139 197 680 680">
+        <filter id="encre-olive" color-interpolation-filters="sRGB">
+          <!-- couleur fixée au vert olive, opacité = assombrissement du pixel (le blanc devient transparent) -->
+          <feColorMatrix type="matrix" values="0 0 0 0 .333  0 0 0 0 .353  0 0 0 0 .251  -1.5 -1.5 -1.5 0 4.2"/>
+        </filter>
+        <image href="1787297365435.jpg" width="958" height="1120" filter="url(#encre-olive)"/>
+      </svg>
     </div>
   </div>
 </section>
