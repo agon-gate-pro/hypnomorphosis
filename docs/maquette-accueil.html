@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquette accueil HypnoMorphosis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Marcellus&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --papier: #fbf9f4;
+    --pierre: #f1ece1;
+    --filet: #e3dfd2;
+    --sauge: #8b9173;
+    --sauge-clair: #dfe1d2;
+    --olive: #555a40;
+    --olive-nuit: #2f3425;
+    --dore: #c9a46a;
+    --encre: #33352a;
+    --gris: #6d6c5d;
+    --titre: "Cormorant Garamond", Georgia, serif;
+    --citation: "Newsreader", Georgia, serif;
+    --capitales: "Marcellus", Georgia, serif;
+    --texte: "Jost", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--papier); color: var(--encre); font: 300 17px/1.65 var(--texte); }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  .caps { font-family: var(--capitales); font-size: 12px; letter-spacing: .24em; text-transform: uppercase; }
+  .btn { display: inline-block; font: 400 13px var(--texte); letter-spacing: .14em; text-transform: uppercase; padding: 15px 26px; transition: background .2s, color .2s; }
+  .btn-plein { background: var(--olive); color: var(--papier); }
+  .btn-plein:hover { background: var(--olive-nuit); }
+  .btn-trait { border: 1px solid var(--olive); color: var(--olive); }
+  .btn-trait:hover { background: var(--olive); color: var(--papier); }
+  h2.section { font: 300 44px/1.1 var(--titre); margin: 10px 0 16px; }
+  .intro-section { max-width: 620px; color: var(--gris); }
+
+  /* grain de papier, sans image externe */
+  .grain { position: relative; isolation: isolate; }
+  .grain::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .35; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .42 0 0 0 0 .32 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  /* motif du logo : cercles et graduations */
+  .boussole { position: absolute; border-radius: 50%; border: 1px solid currentColor; pointer-events: none; }
+  .boussole::before { content: ""; position: absolute; inset: 7%; border-radius: 50%; border: 1px dashed currentColor; opacity: .7; }
+  .boussole::after { content: ""; position: absolute; left: 50%; top: -6%; bottom: -6%; border-left: 1px solid currentColor; opacity: .6; }
+
+  /* ---------- En-tête ---------- */
+  header.site { border-bottom: 1px solid var(--filet); background: var(--papier); position: sticky; top: 0; z-index: 10; }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
+  .marque { display: flex; align-items: center; gap: 12px; }
+  .marque .embleme { width: 46px; height: 46px; background: url("1787297365435.jpg") 50% 43% / 165% auto no-repeat; mix-blend-mode: multiply; }
+  .marque span { font-family: var(--capitales); font-size: 15px; letter-spacing: .22em; color: var(--olive); }
+  header.site nav { display: flex; gap: 28px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
+  header.site nav a:hover { color: var(--encre); }
+  .menu-mobile { display: none; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
+  @media (max-width: 860px) { header.site nav { display: none; } .menu-mobile { display: block; } }
+
+  /* ---------- Ouverture ---------- */
+  .ouverture { padding: 64px 0 72px; }
+  .ouverture .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+  .ouverture h1 { font: 300 66px/1.02 var(--titre); margin: 18px 0 22px; }
+  .ouverture h1 em { font-style: italic; color: var(--olive); }
+  .ouverture p.chapo { font-size: 19px; color: var(--gris); max-width: 480px; margin-bottom: 32px; }
+  .ouverture .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .lumiere { position: relative; aspect-ratio: 4 / 5; border-radius: 220px 220px 6px 6px; overflow: hidden; color: rgba(255,255,255,.75);
+    background: radial-gradient(90% 70% at 70% 22%, #f7e2b0 0%, #d9b679 26%, #a9a275 52%, #6f7650 80%, #555a40 100%); }
+  .lumiere .boussole { width: 78%; aspect-ratio: 1; left: 11%; top: 16%; }
+  .lumiere img { position: absolute; width: 56%; left: 22%; top: 24%; filter: grayscale(1) invert(1) brightness(1.2); mix-blend-mode: screen; clip-path: inset(13% 0 25% 0); opacity: .9; }
+  .lumiere .legende { position: absolute; bottom: 16px; left: 0; right: 0; text-align: center; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+  @media (max-width: 860px) {
+    .ouverture .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .ouverture h1 { font-size: 46px; }
+    .lumiere { max-width: 380px; width: 100%; justify-self: center; }
+  }
+
+  /* ---------- Phrase d'impulsion ---------- */
+  .impulsion { background: var(--pierre); padding: 64px 0; text-align: center; position: relative; overflow: hidden; color: var(--sauge); }
+  .impulsion .boussole { width: 420px; aspect-ratio: 1; left: 50%; top: 50%; transform: translate(-50%, -50%); opacity: .35; }
+  .impulsion blockquote { position: relative; font: 300 36px/1.3 var(--citation); font-style: italic; color: var(--encre); max-width: 760px; margin: 14px auto 12px; }
+  .impulsion .source { color: var(--gris); font-size: 14px; }
+  @media (max-width: 600px) { .impulsion blockquote { font-size: 27px; } .impulsion .boussole { width: 300px; } }
+
+  /* ---------- Expériences ---------- */
+  .experiences { padding: 88px 0; }
+  .carnets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 44px; }
+  @media (max-width: 960px) { .carnets { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 620px) { .carnets { grid-template-columns: 1fr; } }
+  .carnet .couv { position: relative; aspect-ratio: 3 / 4; border-radius: 3px 10px 10px 3px; overflow: hidden; padding: 28px 26px; display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: inset 6px 0 0 rgba(0,0,0,.08), 0 22px 40px -28px rgba(40,40,25,.6); transition: transform .3s; }
+  .carnet:hover .couv { transform: translateY(-4px); }
+  .carnet .couv .boussole { width: 120%; aspect-ratio: 1; right: -45%; bottom: -30%; opacity: .45; }
+  .carnet .couv .cat { font-family: var(--capitales); font-size: 11px; letter-spacing: .24em; text-transform: uppercase; opacity: .85; }
+  .carnet .couv h3 { font: 400 38px/1.05 var(--titre); position: relative; }
+  .carnet .couv .duree { font-family: var(--citation); font-style: italic; font-size: 16px; opacity: .9; }
+  .couv-noeud { background: linear-gradient(160deg, #6e7552, #555a40); color: #f1ecdd; }
+  .couv-apres { background: linear-gradient(160deg, #e3d3b3, #cdb68d); color: #3e3a2a; }
+  .couv-decouverte { background: linear-gradient(160deg, #dfe1d2, #c3c8ad); color: #33352a; }
+  .carnet .infos { padding: 18px 4px 0; }
+  .carnet .infos p { color: var(--gris); font-size: 15.5px; margin-bottom: 10px; }
+  .carnet .infos .ligne { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--filet); padding-top: 10px; }
+  .carnet .infos .prix { font: 400 22px var(--titre); }
+  .carnet .infos .lien { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
+
+  /* ---------- Comment ça se vit ---------- */
+  .comment { background: var(--sauge-clair); padding: 88px 0; }
+  .etapes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 44px; }
+  @media (max-width: 860px) { .etapes { grid-template-columns: 1fr; gap: 28px; } }
+  .etape svg { width: 44px; height: 44px; stroke: var(--olive); fill: none; stroke-width: 1.2; margin-bottom: 16px; }
+  .etape h3 { font: 400 26px var(--titre); margin-bottom: 6px; }
+  .etape p { color: #57584a; font-size: 15.5px; }
+
+  /* ---------- Expérience découverte ---------- */
+  .decouverte { padding: 88px 0; }
+  .decouverte .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
+  @media (max-width: 860px) { .decouverte .wrap { grid-template-columns: 1fr; gap: 36px; } }
+  .decouverte p.chapo { color: var(--gris); margin-bottom: 26px; }
+  .page-carnet { background: #fff; border: 1px solid var(--filet); box-shadow: 0 24px 50px -36px rgba(40,40,25,.5); }
+  .jours { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid var(--filet); }
+  .jours div { padding: 16px 6px 18px; text-align: center; border-right: 1px solid var(--filet); }
+  .jours div:last-child { border-right: 0; }
+  .jours div.actif { background: var(--pierre); }
+  .jours small { display: block; font: 400 10.5px var(--capitales); letter-spacing: .2em; color: var(--sauge); }
+  .jours span { font: 400 17px var(--citation); font-style: italic; }
+  @media (max-width: 520px) { .jours span { font-size: 13px; } .jours small { font-size: 9px; letter-spacing: .1em; } }
+  .feuille { padding: 26px 28px 30px; }
+  .feuille .caps { color: var(--sauge); }
+  .feuille .question { font: 400 21px/1.4 var(--citation); margin: 10px 0 14px; }
+  .feuille .reponse { font: 300 italic 18px/34px var(--citation); color: var(--olive);
+    background: repeating-linear-gradient(transparent 0 33px, #cfcab8 33px 34px); min-height: 102px; }
+  .feuille .enregistre { margin-top: 12px; font-size: 13px; color: var(--sauge); }
+
+  /* ---------- À propos ---------- */
+  .apropos { background: var(--pierre); padding: 80px 0; position: relative; overflow: hidden; }
+  .apropos .wrap { display: grid; grid-template-columns: 260px 1fr; gap: 56px; align-items: center; }
+  @media (max-width: 760px) { .apropos .wrap { grid-template-columns: 1fr; gap: 28px; } }
+  .portrait { width: 240px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; outline: 1px solid var(--sauge); outline-offset: 10px; }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 38%; transform: scale(1.35); transform-origin: 32% 40%; }
+  .apropos blockquote { font: 300 30px/1.35 var(--titre); font-style: italic; margin: 12px 0 18px; }
+  .apropos p { color: var(--gris); max-width: 620px; margin-bottom: 22px; }
+  .rameau { position: absolute; right: 2%; top: 50%; transform: translateY(-50%) rotate(-8deg); width: 300px; stroke: var(--sauge); fill: none; stroke-width: 1.1; opacity: .55; }
+  .apropos .wrap { position: relative; }
+  @media (max-width: 760px) { .rameau { width: 170px; opacity: .4; } }
+
+  /* ---------- Pied de page ---------- */
+  footer.site { background: var(--olive-nuit); color: #d8d3c0; padding: 64px 0 36px; }
+  footer.site .haut { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+  @media (max-width: 760px) { footer.site .haut { grid-template-columns: 1fr; } }
+  footer.site .nom { font-family: var(--capitales); letter-spacing: .24em; font-size: 16px; color: #ece6d6; margin-bottom: 8px; }
+  footer.site .devise { font: 300 italic 19px var(--citation); color: var(--dore); }
+  footer.site h4 { font: 400 11px var(--capitales); letter-spacing: .22em; text-transform: uppercase; color: #9fa385; margin-bottom: 12px; }
+  footer.site ul { list-style: none; font-size: 15px; line-height: 2; }
+  footer.site .bas { margin-top: 48px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; font-size: 13px; color: #9fa385; }
+
+  .note-maquette { background: #fff8e6; border-bottom: 1px solid #ecdcb4; color: #6b5a30; font-size: 13.5px; text-align: center; padding: 8px 16px; }
+</style>
+</head>
+<body>
+
+<div class="note-maquette">Maquette de travail : piste « Le carnet » réchauffée par la piste « Lumière de garrigue ». Les zones dorées remplacent des photos qui pourront venir plus tard.</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="marque" href="#"><span class="embleme" role="img" aria-label="Logo HypnoMorphosis"></span><span>HYPNOMORPHOSIS</span></a>
+    <nav><a href="#experiences">Les expériences</a><a href="#decouverte">Découverte</a><a href="#apropos">À propos</a><a href="#">Mon espace</a></nav>
+    <span class="menu-mobile">Menu</span>
+  </div>
+</header>
+
+<section class="ouverture grain">
+  <div class="wrap">
+    <div>
+      <span class="caps" style="color:var(--sauge)">Expériences guidées · carnets et audios d'hypnose</span>
+      <h1>Ouvrir le champ<br>de <em>vos possibles</em></h1>
+      <p class="chapo">Des parcours de quelques jours, à vivre chez vous et à votre rythme, pour comprendre ce qui se joue en vous et laisser place à ce que vous êtes.</p>
+      <div class="actions">
+        <a class="btn btn-plein" href="#decouverte">Je découvre gratuitement</a>
+        <a class="btn btn-trait" href="#experiences">Voir les expériences</a>
+      </div>
+    </div>
+    <div class="lumiere">
+      <div class="boussole"></div>
+      <img src="1787297365435.jpg" alt="">
+      <div class="legende">emplacement photo · facultatif</div>
+    </div>
+  </div>
+</section>
+
+<section class="impulsion">
+  <div class="boussole"></div>
+  <span class="caps">Phrase d'impulsion</span>
+  <blockquote>« Ce n'est pas parce qu'une porte est ouverte que tout doit entrer. »</blockquote>
+  <div class="source">Expérience découverte · Jour 2, Je comprends</div>
+</section>
+
+<section class="experiences" id="experiences">
+  <div class="wrap">
+    <span class="caps" style="color:var(--sauge)">Les expériences</span>
+    <h2 class="section">Un carnet, des audios, quelques jours pour vous</h2>
+    <p class="intro-section">Chaque expérience vous accompagne sur un thème précis. Tout est disponible dès le premier jour : vous avancez à votre rythme, sur papier ou directement en ligne.</p>
+    <div class="carnets">
+      <a class="carnet" href="#">
+        <div class="couv couv-noeud"><div class="boussole"></div><span class="cat">Universelle</span><div><h3>Le Nœud</h3><span class="duree">21 jours</span></div></div>
+        <div class="infos"><p>21 jours pour dénouer, comprendre et se reconnecter à soi.</p><div class="ligne"><span class="prix">49 €</span><span class="lien">Découvrir</span></div></div>
+      </a>
+      <a class="carnet" href="#">
+        <div class="couv couv-apres"><div class="boussole"></div><span class="cat">Miroir</span><div><h3>Après nous</h3><span class="duree">21 jours</span></div></div>
+        <div class="infos"><p>21 jours pour revenir à soi après une séparation.</p><div class="ligne"><span class="prix">49 €</span><span class="lien">Découvrir</span></div></div>
+      </a>
+      <a class="carnet" href="#decouverte">
+        <div class="couv couv-decouverte"><div class="boussole"></div><span class="cat">Pour commencer</span><div><h3>Expérience découverte</h3><span class="duree">5 jours</span></div></div>
+        <div class="infos"><p>5 jours pour ouvrir le champ de vos possibles.</p><div class="ligne"><span class="prix">Offerte</span><span class="lien">Commencer</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="comment grain">
+  <div class="wrap">
+    <span class="caps" style="color:var(--olive)">Comment ça se vit</span>
+    <h2 class="section">Trois façons d'avancer, ensemble</h2>
+    <div class="etapes">
+      <div class="etape">
+        <svg viewBox="0 0 44 44"><path d="M8 6h22l6 6v26H8z"/><path d="M30 6v6h6M14 18h16M14 24h16M14 30h10"/></svg>
+        <h3>Le carnet</h3>
+        <p>Un carnet à imprimer, jour après jour : une phrase d'impulsion le matin, des exercices le soir, une ordalie à vivre dans votre quotidien.</p>
+      </div>
+      <div class="etape">
+        <svg viewBox="0 0 44 44"><path d="M8 26v-4a14 14 0 0 1 28 0v4"/><rect x="6" y="26" width="7" height="11" rx="2"/><rect x="31" y="26" width="7" height="11" rx="2"/></svg>
+        <h3>Les audios</h3>
+        <p>Des séances d'hypnose d'une quinzaine de minutes, à écouter au calme, et à réécouter aussi souvent que vous le souhaitez.</p>
+      </div>
+      <div class="etape">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="22" rx="2"/><path d="M16 36h12M22 30v6M12 16h20M12 22h12"/></svg>
+        <h3>Le carnet en ligne</h3>
+        <p>Vous préférez écrire à l'écran ? Répondez aux exercices dans votre espace : vos réponses sont enregistrées et n'appartiennent qu'à vous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="decouverte" id="decouverte">
+  <div class="wrap">
+    <div>
+      <span class="caps" style="color:var(--sauge)">Expérience découverte · offerte</span>
+      <h2 class="section">Cinq jours pour ouvrir le champ de vos possibles</h2>
+      <p class="chapo">Deux audios d'hypnose, une ordalie et un exercice chaque jour, pour découvrir ma voix, ma façon de travailler et la construction de mes carnets, avant de choisir une expérience complète.</p>
+      <a class="btn btn-plein" href="#">Je découvre HypnoMorphosis gratuitement</a>
+    </div>
+    <div class="page-carnet">
+      <div class="jours">
+        <div><small>Jour 1</small><span>Je vois</span></div>
+        <div><small>Jour 2</small><span>Je comprends</span></div>
+        <div class="actif"><small>Jour 3</small><span>J'apprivoise</span></div>
+        <div><small>Jour 4</small><span>Je choisis</span></div>
+        <div><small>Jour 5</small><span>J'ancre</span></div>
+      </div>
+      <div class="feuille">
+        <span class="caps">Retour d'expérience</span>
+        <p class="question">Si je n'avais rien à prouver, qu'est-ce que je voudrais ?</p>
+        <div class="reponse">Prendre le temps de dessiner à nouveau, sans me demander si c'est utile…</div>
+        <p class="enregistre">✓ Réponse enregistrée dans votre carnet en ligne</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="apropos" id="apropos">
+  <svg class="rameau" viewBox="0 0 260 200" aria-hidden="true">
+    <path d="M10 190 C 80 150, 150 110, 250 20"/>
+    <g>
+      <ellipse cx="60" cy="158" rx="18" ry="6" transform="rotate(-50 60 158)"/>
+      <ellipse cx="78" cy="160" rx="18" ry="6" transform="rotate(20 78 160)"/>
+      <ellipse cx="110" cy="128" rx="20" ry="6.5" transform="rotate(-55 110 128)"/>
+      <ellipse cx="128" cy="132" rx="20" ry="6.5" transform="rotate(15 128 132)"/>
+      <ellipse cx="160" cy="96" rx="20" ry="6.5" transform="rotate(-60 160 96)"/>
+      <ellipse cx="178" cy="100" rx="20" ry="6.5" transform="rotate(10 178 100)"/>
+      <ellipse cx="206" cy="62" rx="18" ry="6" transform="rotate(-62 206 62)"/>
+      <ellipse cx="222" cy="66" rx="17" ry="5.5" transform="rotate(5 222 66)"/>
+      <circle cx="140" cy="122" r="6"/><circle cx="192" cy="86" r="5.5"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="portrait"><img src="Photo_Berenice.jpg" alt="Bérénice"></div>
+    <div>
+      <span class="caps" style="color:var(--sauge)">À propos</span>
+      <blockquote>« Commencez là où vous en êtes. Là où je suis, moi, je crois déjà en vous. »</blockquote>
+      <p>Ancienne infirmière urgentiste devenue hypnothérapeute, Bérénice a imaginé HypnoMorphosis pour que chacun puisse vivre, chez soi, un vrai temps de transformation.</p>
+      <a class="btn btn-trait" href="#">Faire connaissance</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="haut">
+      <div><div class="nom">HYPNOMORPHOSIS</div><div class="devise">Ouvrir le champ de tes possibles</div></div>
+      <div><h4>Le site</h4><ul><li>Les expériences</li><li>Expérience découverte</li><li>À propos</li><li>Mon espace</li></ul></div>
+      <div><h4>Suivre Bérénice</h4><ul><li>Instagram</li><li>TikTok</li><li>YouTube</li></ul></div>
+    </div>
+    <div class="bas">Mentions légales · CGV · Confidentialité</div>
+  </div>
+</footer>
+
+</body>
+</html>

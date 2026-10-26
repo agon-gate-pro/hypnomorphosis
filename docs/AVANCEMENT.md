@@ -11,6 +11,7 @@
 - 2026-10-26 : plugin maison `agon-gate` (marketplace privée `agon-gate-pro/agon-gate-outils`) ajouté aux réglages du projet, pour qu'il soit proposé sur chaque poste. Installé et chargé sur le poste d'Alexis. Branche `plugin-agon-gate`.
 - 2026-10-26 : réponse de Bérénice reçue (`docs/Echange Mail 01.txt`), avec le carnet de l'expérience découverte (`docs/HYPNOMORPHOSIS.pdf`), 4 versions de son logo et sa photo. Spécification mise à jour : accès complet dès le premier jour, carnet en PDF à imprimer et carnet en ligne où le client écrit ses réponses aux exercices (réponse à la question sur les exercices du premier mail), ajouts d'expériences, packs et promotions faits par Agon Gate (pas d'interface d'administration), e-mails automatiques et annonces avec consentement, compte Stripe existant, clientèle francophone internationale, activité rattachée à une société espagnole (TVA et mentions légales à voir avec Cédric). Nouvelle section sur l'identité visuelle et les éléments fournis ; 18 questions restantes.
 - 2026-10-26 : trois pistes de direction artistique préparées (`docs/direction-artistique.html`, à ouvrir dans un navigateur) : « Lumière de garrigue » (photos nature dorées), « Le carnet » (papier, encre olive, phrases d'impulsion), « Le jardin intérieur » (aplats olive profond, doré). Choix à faire avec Alexis, puis maquette de l'accueil.
+- 2026-10-26 : Alexis retient un mélange des pistes 1 et 2 (la piste 2 seule risquait de paraître vide, et les belles photos sont difficiles à trouver). Maquette de la page d'accueil (`docs/maquette-accueil.html`) : structure « carnet », lumières dorées à la place des photos (remplaçables plus tard), expériences en couvertures de carnet, jours de l'expérience découverte, aperçu du carnet en ligne, portrait de Bérénice, pied de page olive foncé. Vérifiée sur PC et mobile. Avis d'Alexis en attente.
 
 ## État par module
 
@@ -18,7 +19,7 @@
 | --- | --- |
 | Socle technique (Next.js, Tailwind, Vercel) | Fait |
 | Spécification fonctionnelle | Mise à jour avec les réponses de Bérénice, à valider avec elle |
-| Direction artistique | 3 pistes proposées (`docs/direction-artistique.html`), choix en attente |
+| Direction artistique | Mélange pistes 1 et 2 retenu, maquette d'accueil (`docs/maquette-accueil.html`) à valider |
 | Page d'accueil | Vide, à concevoir |
 | Outils Claude Code | Testés et fusionnés dans `main` : MCP et skills OK, plugins `frontend-design` et `agon-gate` installés sur le poste d'Alexis (à installer une fois par poste) |
 
