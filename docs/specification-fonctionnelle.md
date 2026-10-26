@@ -66,15 +66,31 @@ Le catalogue doit pouvoir accueillir plus tard : de nouvelles expériences, des 
 
 1. Le client clique sur « Acheter » depuis une fiche expérience.
 2. Il paie sur la page de paiement sécurisée Stripe (carte bancaire, Apple Pay, Google Pay).
-3. Avant de payer, il coche la case obligatoire de renonciation au droit de rétractation (contenu numérique fourni immédiatement, article L221-28 du Code de la consommation).
+3. Avant de payer, il coche la case obligatoire de renonciation au droit de rétractation (voir ci-dessous).
 4. Le paiement confirmé, le site crée son compte s'il n'en a pas et lui ouvre l'accès à l'expérience.
-5. Il reçoit un e-mail de confirmation avec le lien vers son espace et sa facture.
+5. Il reçoit un e-mail de confirmation avec le lien vers son espace, sa facture et la confirmation de sa renonciation.
 
 Tout se fait sans intervention de Bérénice.
 
+### Renonciation au droit de rétractation
+
+Un achat en ligne ouvre normalement un délai de 14 jours pour changer d'avis et être remboursé. Les contenus numériques fournis immédiatement en sont exclus (article L221-28 13° du Code de la consommation), à trois conditions cumulatives. Si l'une manque, le client peut se faire rembourser, et le délai passe à 12 mois si l'information sur la rétractation n'a pas été donnée.
+
+1. **Accord exprès avant le paiement** : une case à cocher, jamais cochée par défaut, sans laquelle le bouton de paiement reste inactif. Texte proposé : « Je demande l'accès immédiat à mon expérience et je reconnais perdre mon droit de rétractation dès cet accès. »
+2. **Confirmation sur un support durable** : l'e-mail de confirmation d'achat reprend cet accord.
+3. **Information dans les CGV** : un article dédié à l'absence de droit de rétractation pour les expériences.
+
+Le site enregistre la date et l'heure de l'accord pour chaque achat, comme preuve en cas de contestation. La page de paiement Stripe ne propose qu'une case d'acceptation des conditions générales : la case de renonciation est donc affichée sur le site, avant l'envoi vers Stripe.
+
+Cette exclusion ne couvre pas tout : un contenu inaccessible ou défectueux reste à remplacer ou à rembourser, et un client peut toujours contester un paiement auprès de sa banque. L'expérience découverte, gratuite, n'est pas concernée.
+
 ## 6. Expérience découverte gratuite
 
-Le visiteur s'inscrit avec son e-mail (création de compte), puis accède à l'expérience dans son espace client, comme pour une expérience payante. C'est aussi la porte d'entrée pour constituer une liste de contacts, si Bérénice le souhaite et avec le consentement des personnes.
+Ce que dit le brief : 5 jours, 2 audios guidés, une « ordalie », un exercice par jour, un « engagement à signer » ; photo et bouton « Je découvre HypnoMorphosis gratuitement » sur l'accueil. Bérénice ne sait pas encore comment la présenter (page produit ou non).
+
+Proposition, à valider : le visiteur s'inscrit avec son e-mail (création de compte), puis accède à l'expérience dans son espace client, comme pour une expérience payante. C'est aussi la porte d'entrée pour constituer une liste de contacts, si Bérénice le souhaite et avec le consentement des personnes.
+
+À préciser avec Bérénice : son objectif (faire découvrir, récolter des contacts), la forme des contenus (carnet PDF ou non), ce qu'est concrètement l'ordalie, et la façon de « signer » l'engagement.
 
 ## 7. Espace client
 
@@ -90,7 +106,7 @@ Point à trancher (voir questions) : soit Bérénice dispose d'une interface d'a
 ## 9. Pages légales et obligations
 
 - Mentions légales : identité de Bérénice, statut, SIRET, hébergeur (Vercel)
-- CGV de vente de contenus numériques, avec la renonciation au droit de rétractation
+- CGV de vente de contenus numériques, avec l'article sur la renonciation au droit de rétractation (voir section 5)
 - Politique de confidentialité (RGPD) : données collectées, durée de conservation, droits des personnes
 - Bandeau cookies seulement si des outils de mesure d'audience non exemptés sont ajoutés
 - Avertissement recommandé : les expériences ne remplacent pas un avis ou un traitement médical ou psychologique
@@ -138,7 +154,7 @@ Même socle que Set et Brique, déjà maîtrisé par Agon Gate :
 
 **Expérience gratuite et contacts**
 
-11. Pour l'expérience découverte, souhaitez-vous constituer une liste d'abonnés (newsletter) ? Avec quel outil, si vous en utilisez déjà un ?
+11. L'expérience découverte : quel est son but pour vous, comment se présentent ses contenus, qu'est-ce que l'ordalie concrètement ? Souhaitez-vous constituer une liste d'abonnés (newsletter) ? Avec quel outil, si vous en utilisez déjà un ?
 12. Souhaitez-vous des e-mails automatiques pendant l'expérience (rappel de l'exercice du jour, par exemple) ?
 
 **Vente et gestion**
