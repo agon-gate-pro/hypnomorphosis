@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pistes visuelles HypnoMorphosis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Tenor+Sans&family=Jost:wght@300;400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page: #f6f4ef;
+    --ink: #2b2b26;
+    --muted: #6b6a61;
+    --line: #dcd8cc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--page); color: var(--ink); font: 400 16px/1.6 Jost, system-ui, sans-serif; padding: 48px 16px 96px; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  header.intro { max-width: 760px; margin-bottom: 56px; }
+  header.intro h1 { font: 400 15px/1.2 "Tenor Sans", sans-serif; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  header.intro p.lead { font: 300 34px/1.25 "Cormorant Garamond", serif; margin-bottom: 18px; }
+  header.intro p { color: var(--muted); }
+  .common { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 28px 0 0; }
+  .common div { border-top: 1px solid var(--line); padding-top: 12px; font-size: 14px; color: var(--muted); }
+  .common b { display: block; color: var(--ink); font-weight: 500; margin-bottom: 4px; }
+
+  section.piste { margin-top: 72px; }
+  .piste-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; border-bottom: 1px solid var(--line); padding-bottom: 14px; margin-bottom: 24px; }
+  .piste-head .num { font: 400 13px "Tenor Sans", sans-serif; letter-spacing: .2em; color: var(--muted); }
+  .piste-head h2 { font: 400 34px/1.1 "Cormorant Garamond", serif; }
+  .piste-head p { flex-basis: 100%; color: var(--muted); max-width: 760px; }
+
+  .grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+
+  .mock { border-radius: 10px; overflow: hidden; box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 18px 40px -24px rgba(40,40,30,.35); }
+  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding: 14px 22px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+  .bar > span { letter-spacing: .18em !important; }
+  .bar nav { display: flex; gap: 12px; white-space: nowrap; font-size: 10.5px; letter-spacing: .1em; }
+  /* le JPG du logo a une bande grise en haut : on la masque */
+  img[src="1787297365435.jpg"] { clip-path: inset(13% 0 0 0); }
+  @media (max-width: 560px) { .bar nav { display: none; } }
+  .logo-mini { width: 40px; height: 40px; object-fit: contain; }
+  .photo { display: flex; align-items: flex-end; justify-content: flex-start; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; padding: 10px 12px; color: rgba(255,255,255,.85); }
+  .btn { display: inline-block; padding: 12px 22px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; }
+
+  .side h3 { font: 400 12px "Tenor Sans", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .side > div + div { margin-top: 26px; }
+  .swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .sw { aspect-ratio: 1; border-radius: 6px; border: 1px solid rgba(0,0,0,.08); }
+  .sw-labels { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; font-size: 10.5px; color: var(--muted); margin-top: 5px; line-height: 1.3; }
+  .type-sample { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; background: #fff; }
+  .type-sample .t { font-size: 26px; line-height: 1.15; margin-bottom: 6px; }
+  .type-sample .s { font-size: 14px; color: var(--muted); }
+  ul.pc { list-style: none; font-size: 14.5px; }
+  ul.pc li { padding: 5px 0 5px 20px; position: relative; }
+  ul.pc li::before { position: absolute; left: 0; top: 5px; }
+  ul.pc li.plus::before { content: "+"; color: #5c7a4a; font-weight: 500; }
+  ul.pc li.moins::before { content: "–"; color: #a0623f; font-weight: 500; }
+
+  /* ---------- Piste 1 : Lumière de garrigue ---------- */
+  .p1 { background: #f3eee4; color: #3c3d2c; }
+  .p1 .bar { color: #5c6142; }
+  .p1 .hero { position: relative; min-height: 340px; display: grid; align-items: end;
+    background: linear-gradient(180deg, rgba(40,38,25,0) 30%, rgba(40,38,25,.55) 100%),
+                radial-gradient(120% 90% at 78% 18%, #f2d9a0 0%, #c9a46a 28%, #8d8f62 58%, #5d6644 100%); }
+  .p1 .hero .txt { padding: 28px 30px; color: #fbf7ee; }
+  .p1 .hero h4 { font: 300 44px/1.05 "Cormorant Garamond", serif; margin-bottom: 10px; }
+  .p1 .hero p { font: 400 12px "Tenor Sans", sans-serif; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 20px; }
+  .p1 .hero .btn { background: #fbf7ee; color: #4a4e33; }
+  .p1 .hero .photo-tag { position: absolute; top: 12px; right: 14px; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.8); }
+  .p1 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 26px 30px 30px; }
+  .p1 .card .img { height: 110px; border-radius: 4px; background: linear-gradient(135deg, #b7a37a, #7e8a60); margin-bottom: 12px; }
+  .p1 .card .img.b { background: linear-gradient(135deg, #cdb894, #9a8a6a); }
+  .p1 .card h5 { font: 400 22px "Cormorant Garamond", serif; color: #3c3d2c; }
+  .p1 .card p { font-size: 13px; color: #6f6c58; }
+  .p1 .card .price { font: 400 12px "Tenor Sans", sans-serif; letter-spacing: .16em; margin-top: 6px; color: #8a6d3b; }
+
+  /* ---------- Piste 2 : Le carnet ---------- */
+  .p2 { background: #fbf9f4; color: #33352a; }
+  .p2 .bar { border-bottom: 1px solid #e3dfd2; color: #555a40; }
+  .p2 .hero { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 10px; padding: 40px 30px 30px; position: relative; }
+  @media (max-width: 560px) { .p2 .hero { grid-template-columns: 1fr; } }
+  .p2 .hero h4 { font: 400 15px "Marcellus", serif; letter-spacing: .24em; text-transform: uppercase; color: #6b7150; margin-bottom: 14px; }
+  .p2 .hero .quote { font: 300 30px/1.25 "Newsreader", serif; font-style: italic; margin-bottom: 20px; }
+  .p2 .hero .btn { border: 1px solid #555a40; color: #555a40; }
+  .p2 .hero .compass { justify-self: center; width: 210px; aspect-ratio: 1; position: relative; }
+  .p2 .hero .compass img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; opacity: .9; }
+  .p2 .days { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid #e3dfd2; }
+  .p2 .days div { padding: 16px 10px 20px; text-align: center; border-right: 1px solid #e3dfd2; }
+  .p2 .days div:last-child { border-right: 0; }
+  .p2 .days small { display: block; font: 400 10.5px "Marcellus", serif; letter-spacing: .2em; color: #8b8f73; }
+  .p2 .days span { font: 400 17px "Newsreader", serif; font-style: italic; }
+  .p2 .lined { padding: 18px 30px 28px; border-top: 1px solid #e3dfd2; font: 300 16px "Newsreader", serif; }
+  .p2 .lined .q { margin-bottom: 8px; }
+  .p2 .lined .l { height: 26px; border-bottom: 1px dotted #b9b49f; }
+
+  /* ---------- Piste 3 : Le jardin intérieur ---------- */
+  .p3 { background: #2f3425; color: #ece6d6; }
+  .p3 .bar { color: #c9c2a8; }
+  .p3 .hero { padding: 46px 30px 34px; text-align: center; position: relative; }
+  .p3 .hero img { width: 150px; height: 150px; object-fit: contain; filter: grayscale(1) invert(1) brightness(1.15); mix-blend-mode: screen; margin-bottom: 14px; }
+  .p3 .hero h4 { font: 400 13px "Tenor Sans", sans-serif; letter-spacing: .32em; text-transform: uppercase; color: #d4b77a; margin-bottom: 14px; }
+  .p3 .hero p.big { font: 300 36px/1.15 "Cormorant Garamond", serif; max-width: 520px; margin: 0 auto 22px; }
+  .p3 .hero .btn { background: #d4b77a; color: #2f3425; }
+  .p3 .band { background: #e9e3d3; color: #2f3425; display: grid; grid-template-columns: 1fr 1fr; }
+  .p3 .band > div { padding: 22px 26px; }
+  .p3 .band > div + div { border-left: 1px solid #cfc8b4; }
+  .p3 .band small { font: 400 11px "Tenor Sans", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #7a7f5c; }
+  .p3 .band h5 { font: 400 24px "Cormorant Garamond", serif; margin: 4px 0 2px; }
+  .p3 .band p { font-size: 13px; color: #5d5f4c; }
+
+  footer.next { margin-top: 80px; border-top: 1px solid var(--line); padding-top: 22px; color: var(--muted); max-width: 760px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="intro">
+  <h1>HypnoMorphosis · pistes visuelles</h1>
+  <p class="lead">Trois directions pour le site, toutes tirées du logo, du carnet de l'expérience découverte et du brief de Bérénice.</p>
+  <p>Les maquettes montrent l'ambiance, pas la page définitive. Les zones colorées marquées « photo » remplacent des photos qui restent à choisir. Les textes sont ceux de Bérénice.</p>
+  <div class="common">
+    <div><b>Commun aux trois</b>Vert olive du logo, beige pierre, aucune image ésotérique.</div>
+    <div><b>Expériences d'abord</b>Le visiteur voit tout de suite ce qu'il peut vivre, pas un cabinet.</div>
+    <div><b>Logo</b>Scarabée au trait fin, réutilisé comme motif graphique.</div>
+  </div>
+</header>
+
+<!-- Piste 1 -->
+<section class="piste">
+  <div class="piste-head">
+    <span class="num">PISTE 1</span>
+    <h2>Lumière de garrigue</h2>
+    <p>Dans la continuité de la couverture du carnet : grandes photos de nature en lumière dorée, beige pierre, titres fins et élégants. Un site qui ressemble à un beau magazine.</p>
+  </div>
+  <div class="grid">
+    <div class="mock p1">
+      <div class="bar"><img class="logo-mini" src="1787297365435.jpg" alt="" style="mix-blend-mode:multiply"><nav><span>Expériences</span><span>Découverte</span><span>À propos</span><span>Mon espace</span></nav></div>
+      <div class="hero">
+        <span class="photo-tag">photo nature, lumière dorée</span>
+        <div class="txt">
+          <h4>Ouvrir le champ<br>de vos possibles</h4>
+          <p>Des expériences guidées · carnets et audios</p>
+          <a class="btn">Je découvre gratuitement</a>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="img"></div><h5>Le Nœud</h5><p>21 jours pour dénouer, comprendre et se reconnecter à soi</p><div class="price">49 €</div></div>
+        <div class="card"><div class="img b"></div><h5>Après nous</h5><p>21 jours pour revenir à soi après une séparation</p><div class="price">49 €</div></div>
+      </div>
+    </div>
+    <div class="side">
+      <div>
+        <h3>Couleurs</h3>
+        <div class="swatches"><div class="sw" style="background:#f3eee4"></div><div class="sw" style="background:#5c6142"></div><div class="sw" style="background:#8d8f62"></div><div class="sw" style="background:#c9a46a"></div><div class="sw" style="background:#3c3d2c"></div></div>
+        <div class="sw-labels"><span>Pierre</span><span>Olive</span><span>Sauge</span><span>Doré</span><span>Encre</span></div>
+      </div>
+      <div>
+        <h3>Typographie</h3>
+        <div class="type-sample"><div class="t" style="font-family:'Cormorant Garamond';font-weight:300">Ouvrir le champ de vos possibles</div><div class="s" style="font-family:'Tenor Sans';letter-spacing:.14em;text-transform:uppercase;font-size:12px">Cormorant Garamond · Tenor Sans</div></div>
+      </div>
+      <div>
+        <h3>Pour et contre</h3>
+        <ul class="pc">
+          <li class="plus">La plus chaleureuse, prolonge directement son carnet</li>
+          <li class="plus">Donne très vite envie, idéal pour les visiteurs venus d'Instagram</li>
+          <li class="moins">Repose entièrement sur de belles photos, qu'il faut trouver (droits à vérifier)</li>
+          <li class="moins">Risque de ressembler à un site de bien-être classique</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Piste 2 -->
+<section class="piste">
+  <div class="piste-head">
+    <span class="num">PISTE 2</span>
+    <h2>Le carnet</h2>
+    <p>Le site comme un carnet qu'on ouvre : papier clair, encre vert olive, filets fins du logo, citations en italique. Les phrases d'impulsion et les jours (« Je vois », « Je choisis »…) deviennent la signature visuelle. Cohérent avec le carnet en ligne.</p>
+  </div>
+  <div class="grid">
+    <div class="mock p2">
+      <div class="bar"><span style="font-family:Marcellus;letter-spacing:.24em">HYPNOMORPHOSIS</span><nav><span>Expériences</span><span>Découverte</span><span>À propos</span><span>Mon espace</span></nav></div>
+      <div class="hero">
+        <div>
+          <h4>Phrase d'impulsion</h4>
+          <p class="quote">« Ce n'est pas parce qu'une porte est ouverte que tout doit entrer. »</p>
+          <a class="btn">Commencer l'expérience découverte</a>
+        </div>
+        <div class="compass"><img src="1787297365435.jpg" alt=""></div>
+      </div>
+      <div class="days">
+        <div><small>JOUR 1</small><span>Je vois</span></div>
+        <div><small>JOUR 2</small><span>Je comprends</span></div>
+        <div><small>JOUR 3</small><span>J'apprivoise</span></div>
+        <div><small>JOUR 4</small><span>Je choisis</span></div>
+        <div><small>JOUR 5</small><span>J'ancre</span></div>
+      </div>
+      <div class="lined">
+        <p class="q">Si je n'avais rien à prouver, qu'est-ce que je voudrais ?</p>
+        <div class="l"></div><div class="l"></div>
+      </div>
+    </div>
+    <div class="side">
+      <div>
+        <h3>Couleurs</h3>
+        <div class="swatches"><div class="sw" style="background:#fbf9f4"></div><div class="sw" style="background:#e3dfd2"></div><div class="sw" style="background:#555a40"></div><div class="sw" style="background:#8b8f73"></div><div class="sw" style="background:#33352a"></div></div>
+        <div class="sw-labels"><span>Papier</span><span>Filet</span><span>Olive</span><span>Sauge grisé</span><span>Encre</span></div>
+      </div>
+      <div>
+        <h3>Typographie</h3>
+        <div class="type-sample"><div class="t" style="font-family:Newsreader;font-style:italic;font-weight:300">Je vois. Je comprends. J'ancre.</div><div class="s" style="font-family:Marcellus;letter-spacing:.14em;text-transform:uppercase;font-size:12px">Newsreader · Marcellus</div></div>
+      </div>
+      <div>
+        <h3>Pour et contre</h3>
+        <ul class="pc">
+          <li class="plus">La plus originale : ne ressemble à aucun site d'hypnose</li>
+          <li class="plus">Tient sans photos, met en valeur ses textes et sa méthode</li>
+          <li class="plus">Le carnet en ligne en découle naturellement</li>
+          <li class="moins">Plus sobre, demande de bons textes courts pour accrocher</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Piste 3 -->
+<section class="piste">
+  <div class="piste-head">
+    <span class="num">PISTE 3</span>
+    <h2>Le jardin intérieur</h2>
+    <p>Une marque haut de gamme et affirmée : grands aplats vert olive profond, logo en clair, touches dorées, alternance avec des bandes beige. L'esprit d'une maison de cosmétiques naturels plutôt que d'un cabinet.</p>
+  </div>
+  <div class="grid">
+    <div class="mock p3">
+      <div class="bar"><span style="font-family:'Tenor Sans';letter-spacing:.24em">HYPNOMORPHOSIS</span><nav><span>Expériences</span><span>Découverte</span><span>À propos</span><span>Mon espace</span></nav></div>
+      <div class="hero">
+        <img src="1787297365435.jpg" alt="">
+        <h4>Expériences guidées · carnets et audios</h4>
+        <p class="big">Ouvrir le champ de vos possibles, à votre rythme</p>
+        <a class="btn">Je découvre gratuitement</a>
+      </div>
+      <div class="band">
+        <div><small>Universelle · 21 jours</small><h5>Le Nœud</h5><p>Dénouer, comprendre et se reconnecter à soi · 49 €</p></div>
+        <div><small>Miroir · 21 jours</small><h5>Après nous</h5><p>Revenir à soi après une séparation · 49 €</p></div>
+      </div>
+    </div>
+    <div class="side">
+      <div>
+        <h3>Couleurs</h3>
+        <div class="swatches"><div class="sw" style="background:#2f3425"></div><div class="sw" style="background:#4a5138"></div><div class="sw" style="background:#e9e3d3"></div><div class="sw" style="background:#d4b77a"></div><div class="sw" style="background:#ece6d6"></div></div>
+        <div class="sw-labels"><span>Olive nuit</span><span>Olive</span><span>Beige</span><span>Doré</span><span>Crème</span></div>
+      </div>
+      <div>
+        <h3>Typographie</h3>
+        <div class="type-sample" style="background:#2f3425;border-color:#2f3425"><div class="t" style="font-family:'Cormorant Garamond';font-weight:300;color:#ece6d6">Le jardin intérieur</div><div class="s" style="font-family:'Tenor Sans';letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:#d4b77a">Cormorant Garamond · Tenor Sans</div></div>
+      </div>
+      <div>
+        <h3>Pour et contre</h3>
+        <ul class="pc">
+          <li class="plus">La plus « marque » et la plus mémorable</li>
+          <li class="plus">Le logo ressort très bien en clair sur le vert</li>
+          <li class="moins">Le fond sombre peut glisser vers le mystique si on n'y prend pas garde</li>
+          <li class="moins">Moins proche du vert clair et du beige demandés dans son brief</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="next">
+  On peut aussi mélanger : par exemple l'accueil de la piste 1 avec l'espace client et le carnet en ligne de la piste 2. Une fois la piste choisie, je prépare une vraie maquette de la page d'accueil.
+</footer>
+
+</div>
+</body>
+</html>
