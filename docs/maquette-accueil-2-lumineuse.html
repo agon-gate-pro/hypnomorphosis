@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accueil · proposition 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blanc: #fdfcf9;
+    --sable: #f2ede3;
+    --sauge: #a4ad91;
+    --sauge-fonce: #7f8a6a;
+    --sauge-pale: #e7ebdd;
+    --olive: #4d5439;
+    --creme: #fbf8f0;
+    --dore: #c79d5f;
+    --encre: #2f3326;
+    --gris: #6b6e5e;
+    --titre: "Tenor Sans", "Optima", Candara, sans-serif;
+    --texte: "Jost", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--blanc); color: var(--encre); font: 300 17px/1.7 var(--texte); }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .surtitre { display: inline-flex; align-items: center; gap: 12px; font: 400 12px var(--texte); letter-spacing: .26em; text-transform: uppercase; color: var(--sauge-fonce); }
+  .surtitre::before { content: ""; width: 32px; height: 1px; background: currentColor; }
+  h2 { font: 400 46px/1.12 var(--titre); letter-spacing: -.005em; margin: 16px 0 20px; }
+  @media (max-width: 640px) { h2 { font-size: 34px; } }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 999px; font: 400 14px var(--texte); letter-spacing: .06em; transition: background .2s, color .2s, transform .2s; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-olive { background: var(--olive); color: var(--creme); }
+  .btn-olive:hover { background: var(--encre); }
+  .btn-creme { background: var(--creme); color: var(--olive); }
+  .btn-contour { border: 1px solid currentColor; }
+  .fleche { font-size: 18px; line-height: 1; }
+
+  .proposition { display: inline-block; vertical-align: middle; margin-left: 12px; padding: 2px 10px; border: 1px dashed var(--dore); border-radius: 99px;
+    font: 400 11px var(--texte); letter-spacing: .04em; text-transform: none; color: #8a6d3b; background: rgba(199, 157, 95, .08); }
+  .note-maquette { background: #fff8e6; border-bottom: 1px solid #ecdcb4; color: #6b5a30; font-size: 13.5px; text-align: center; padding: 8px 16px; }
+  .icone { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+  /* ---------- Ouverture : grand aplat sauge, logo surdimensionné qui déborde à droite ---------- */
+  .ouverture { background: var(--sauge); color: var(--creme); position: relative; overflow: hidden; }
+  .ouverture header { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 84px; position: relative; z-index: 2; }
+  .marque { font: 400 16px var(--titre); letter-spacing: .3em; }
+  .ouverture nav { display: flex; gap: 30px; font-size: 14px; letter-spacing: .04em; }
+  .ouverture nav a { opacity: .9; }
+  .ouverture nav a:hover { opacity: 1; }
+  .ouverture nav .espace { border: 1px solid rgba(251, 248, 240, .6); border-radius: 99px; padding: 6px 16px; margin: -7px 0; }
+  .menu-mobile { display: none; font-size: 14px; }
+  @media (max-width: 900px) { .ouverture nav { display: none; } .menu-mobile { display: block; } }
+  .ouverture .contenu { position: relative; z-index: 2; padding: 56px 0 104px; max-width: 610px; }
+  .ouverture h1 { font: 400 76px/1.02 var(--titre); letter-spacing: -.01em; margin-bottom: 34px; }
+  .ouverture h1 span { color: var(--olive); }
+  .ouverture .forte { font: 400 21px/1.45 var(--titre); }
+  .ouverture .douce { opacity: .88; margin: 14px 0; max-width: 520px; }
+  .ouverture .actions { margin-top: 38px; }
+  .logo-geant { position: absolute; z-index: 1; width: 720px; height: 720px; right: -200px; top: 104px; opacity: .95; }
+  .halo { position: absolute; z-index: 0; width: 900px; height: 900px; right: -290px; top: 14px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(250, 226, 170, .55), rgba(250, 226, 170, 0)); }
+  @media (max-width: 1080px) { .logo-geant { width: 560px; height: 560px; right: -200px; opacity: .45; } }
+  @media (max-width: 640px) {
+    .ouverture h1 { font-size: 48px; }
+    .ouverture .contenu { padding: 24px 0 72px; }
+    .logo-geant { width: 420px; height: 420px; right: -170px; top: 120px; transform: none; opacity: .2; }
+  }
+
+  /* ---------- Expérience découverte : grand « 5 » et frise des jours ---------- */
+  .decouverte { padding: 110px 0; }
+  .decouverte .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; align-items: start; }
+  @media (max-width: 900px) { .decouverte .wrap { grid-template-columns: 1fr; gap: 48px; } }
+  .chiffre { position: relative; }
+  .chiffre .cinq { font: 400 300px/.8 var(--titre); color: var(--sauge-pale); letter-spacing: -.04em; }
+  .chiffre .jours-mot { position: absolute; left: 150px; top: 120px; font: 400 26px var(--titre); color: var(--sauge-fonce); }
+  .frise { list-style: none; margin-top: 28px; border-left: 1px solid var(--sauge); }
+  .frise li { position: relative; padding: 8px 0 8px 26px; display: flex; gap: 16px; align-items: baseline; }
+  .frise li::before { content: ""; position: absolute; left: -5px; top: 18px; width: 9px; height: 9px; border-radius: 50%; background: var(--blanc); border: 1px solid var(--sauge-fonce); }
+  .frise small { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--sauge-fonce); width: 64px; }
+  .frise span { font: 400 20px var(--titre); }
+  .photo-note { margin-top: 26px; font-size: 13px; color: var(--gris); max-width: 300px; }
+  .decouverte .question { font: 400 24px/1.35 var(--titre); color: var(--olive); margin-bottom: 12px; }
+  .decouverte .chapo { color: var(--gris); max-width: 600px; }
+  .acces-titre { margin: 34px 0 16px; font-weight: 400; }
+  .acces { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 38px; }
+  @media (max-width: 640px) { .acces { grid-template-columns: 1fr; } }
+  .acces div { background: var(--sauge-pale); border-radius: 18px; padding: 22px 22px 20px; color: #4f5443; font-size: 15.5px; }
+  .acces .icone { color: var(--olive); margin-bottom: 12px; }
+  .acces b { display: block; font: 400 18px/1.3 var(--titre); color: var(--encre); margin-bottom: 4px; }
+
+  /* ---------- Expériences : index éditorial ---------- */
+  .experiences { background: var(--sable); padding: 110px 0; }
+  .experiences .intro { color: var(--gris); max-width: 620px; }
+  .formats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .formats span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 99px; background: var(--blanc); font-size: 14.5px; color: var(--olive); }
+  .formats .icone { width: 20px; height: 20px; }
+  .index { margin-top: 52px; border-top: 1px solid #d9d1bf; }
+  .ligne-exp { display: grid; grid-template-columns: 170px 1fr 120px 90px 44px; gap: 24px; align-items: center; padding: 30px 0; border-bottom: 1px solid #d9d1bf; transition: background .25s, padding .25s; }
+  a.ligne-exp:hover { background: rgba(255, 255, 255, .55); padding-left: 16px; padding-right: 16px; }
+  .ligne-exp .cat { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--sauge-fonce); }
+  .ligne-exp h3 { font: 400 40px/1.05 var(--titre); }
+  .ligne-exp p { color: var(--gris); font-size: 15.5px; margin-top: 4px; }
+  .ligne-exp .duree { font-size: 15px; color: var(--gris); }
+  .ligne-exp .prix { font: 400 24px var(--titre); }
+  .ligne-exp .rond { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--olive); display: grid; place-items: center; color: var(--olive); }
+  .ligne-exp.avenir { opacity: .55; }
+  .ligne-exp.avenir .rond { border-style: dashed; }
+  @media (max-width: 860px) {
+    .ligne-exp { grid-template-columns: 1fr auto; gap: 6px 16px; }
+    .ligne-exp .cat { grid-column: 1 / -1; }
+    .ligne-exp .duree, .ligne-exp .rond { display: none; }
+    .ligne-exp h3 { font-size: 32px; }
+  }
+
+  /* ---------- À propos ---------- */
+  .apropos { padding: 110px 0; }
+  .apropos .wrap { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: center; }
+  @media (max-width: 860px) { .apropos .wrap { grid-template-columns: 1fr; gap: 40px; } }
+  .portrait { position: relative; max-width: 380px; }
+  .portrait::before { content: ""; position: absolute; inset: 22px -22px -22px 22px; border-radius: 200px 200px 18px 18px; background: var(--sauge-pale); }
+  .portrait .cadre { position: relative; aspect-ratio: 4 / 5; border-radius: 200px 200px 18px 18px; overflow: hidden; }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 28% 30%; transform: scale(1.4); transform-origin: 22% 42%; }
+  .apropos blockquote { font: 400 40px/1.2 var(--titre); color: var(--olive); margin: 18px 0 24px; }
+  .apropos p { color: var(--gris); max-width: 560px; margin-bottom: 30px; }
+  @media (max-width: 640px) { .apropos blockquote { font-size: 30px; } }
+
+  /* ---------- Réseaux sociaux ---------- */
+  .reseaux { padding: 0 0 110px; }
+  .bandeau { background: var(--sauge); color: var(--creme); border-radius: 28px; padding: 64px 56px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; position: relative; overflow: hidden; }
+  @media (max-width: 860px) { .bandeau { grid-template-columns: 1fr; padding: 44px 28px; } }
+  .bandeau h2 { margin-top: 0; }
+  .bandeau p { opacity: .9; }
+  .bandeau .liens { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+  @media (max-width: 860px) { .bandeau .liens { justify-content: flex-start; } }
+  .bandeau .icone { width: 18px; height: 18px; }
+
+  /* ---------- Pied de page clair ---------- */
+  footer { border-top: 1px solid #e4dfd2; padding: 56px 0 32px; color: var(--olive); }
+  footer .haut { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+  @media (max-width: 760px) { footer .haut { grid-template-columns: 1fr; } }
+  footer .marque { display: block; margin-bottom: 8px; }
+  footer .devise { color: var(--gris); }
+  footer h4 { font: 400 12px var(--texte); letter-spacing: .2em; text-transform: uppercase; color: var(--sauge-fonce); margin-bottom: 12px; }
+  footer ul { list-style: none; line-height: 2; font-size: 15px; }
+  footer .icones { display: flex; gap: 10px; }
+  footer .icones a { width: 42px; height: 42px; border-radius: 50%; border: 1px solid #d5cfbf; display: grid; place-items: center; }
+  footer .icones .icone { width: 20px; height: 20px; }
+  footer .bas { margin-top: 44px; padding-top: 18px; border-top: 1px solid #e4dfd2; font-size: 13px; color: var(--gris); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- rend le blanc du JPG transparent et colore le trait en crème -->
+    <filter id="encre-creme" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="0 0 0 0 .984  0 0 0 0 .973  0 0 0 0 .941  -1.5 -1.5 -1.5 0 4.2"/>
+    </filter>
+  </defs>
+  <symbol id="i-casque" viewBox="0 0 26 26"><path d="M4 16v-3a9 9 0 0 1 18 0v3"/><rect x="3" y="15.5" width="4.5" height="7" rx="1.5"/><rect x="18.5" y="15.5" width="4.5" height="7" rx="1.5"/></symbol>
+  <symbol id="i-chemin" viewBox="0 0 26 26"><circle cx="5" cy="21" r="1.6"/><path d="M7 19.5c4-1 3-6 7-7s5-4 6-6"/><path d="M17 5.5h4v4"/></symbol>
+  <symbol id="i-plume" viewBox="0 0 26 26"><path d="M20 4c-7 1-11 6-13 14"/><path d="M20 4c0 6-4 10-11 11"/><path d="M4 22h18"/></symbol>
+  <symbol id="i-sceau" viewBox="0 0 26 26"><path d="M5 4h11l5 5v13H5z"/><path d="M8 11h8M8 15h5"/><circle cx="17" cy="19" r="3"/></symbol>
+  <symbol id="i-carnet" viewBox="0 0 26 26"><path d="M6 3h11l4 4v16H6z"/><path d="M10 10h7M10 14h7M10 18h4"/></symbol>
+  <symbol id="i-ecran" viewBox="0 0 26 26"><rect x="3" y="5" width="20" height="13" rx="1.5"/><path d="M9 22h8M13 18v4M7 10h12M7 14h7"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 26 26"><rect x="4" y="4" width="18" height="18" rx="5"/><circle cx="13" cy="13" r="4"/><circle cx="18.5" cy="7.5" r=".6"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 26 26"><path d="M14 4v12.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.5 3 2.5 5 5.5 5"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 26 26"><rect x="3" y="6" width="20" height="14" rx="4"/><path d="M11 10v6l5-3z"/></symbol>
+</svg>
+
+<div class="note-maquette">Proposition 2 « Moderne et lumineuse » · Maquette de la page d'accueil. Les textes sont ceux de Bérénice ; les éléments marqués <span class="proposition" style="margin:0">Proposition</span> sont des suggestions d'Agon Gate, à valider.</div>
+
+<!-- Brief : en haut le logo, puis « Ouvrir le champ de tes possibles », puis le texte d'introduction -->
+<section class="ouverture">
+  <div class="halo"></div>
+  <svg class="logo-geant" viewBox="139 197 680 680" aria-hidden="true">
+    <image href="1787297365435.jpg" width="958" height="1120" filter="url(#encre-creme)"/>
+  </svg>
+  <div class="wrap">
+    <header>
+      <a class="marque" href="#">HYPNOMORPHOSIS</a>
+      <nav><a href="#experiences">Les expériences</a><a href="#decouverte">Expérience découverte</a><a href="#apropos">À propos</a><a class="espace" href="#">Mon espace</a></nav>
+      <span class="menu-mobile">Menu</span>
+    </header>
+    <div class="contenu">
+      <h1>Ouvrir le champ <span>de tes possibles</span></h1>
+      <p class="forte">Vous avez en vous un pouvoir que vous ne connaissez peut-être pas encore.</p>
+      <p class="douce">Vous portez déjà en vous des ressources insoupçonnées, des possibilités qui ne demandent qu'à être découvertes.</p>
+      <p class="forte">À travers l'hypnose, venez à la rencontre de vous-même et découvrez tout ce qui peut encore s'ouvrir à vous.</p>
+      <div class="actions"><a class="btn btn-creme" href="#decouverte">Je découvre HypnoMorphosis gratuitement <span class="fleche">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Brief : redirection vers l'expérience découverte, avec sa photo et ses textes -->
+<section class="decouverte" id="decouverte">
+  <div class="wrap">
+    <div>
+      <div class="chiffre"><div class="cinq">5</div><div class="jours-mot">jours</div></div>
+      <ol class="frise">
+        <li><small>Jour 1</small><span>Je vois</span></li>
+        <li><small>Jour 2</small><span>Je comprends</span></li>
+        <li><small>Jour 3</small><span>J'apprivoise</span></li>
+        <li><small>Jour 4</small><span>Je choisis</span></li>
+        <li><small>Jour 5</small><span>J'ancre</span></li>
+      </ol>
+      <p class="photo-note">Emplacement possible pour la photo de l'expérience, selon les droits d'utilisation.</p>
+    </div>
+    <div>
+      <span class="surtitre">Expérience découverte · gratuite</span>
+      <h2>Vivez votre première expérience HypnoMorphosis gratuitement</h2>
+      <p class="question">Et si, pendant 5 jours, vous tentiez HypnoMorphosis ?</p>
+      <p class="chapo">Laissez-vous guider, jour après jour, dans une première découverte qui pourrait bien faire émerger des possibilités que vous n'aviez pas envisagées.</p>
+      <p class="acces-titre">Vous aurez accès à :</p>
+      <div class="acces">
+        <div><svg class="icone"><use href="#i-casque"/></svg><b>2 expériences audio guidées</b>pour vous laisser guider autrement</div>
+        <div><svg class="icone"><use href="#i-chemin"/></svg><b>Une ordalie</b>pour expérimenter plutôt que simplement réfléchir</div>
+        <div><svg class="icone"><use href="#i-plume"/></svg><b>Un exercice chaque jour pendant 5 jours</b>pour avancer pas à pas dans l'expérience</div>
+        <div><svg class="icone"><use href="#i-sceau"/></svg><b>Un engagement à signer</b>pour marquer votre décision d'aller jusqu'au bout de ces 5 jours</div>
+      </div>
+      <a class="btn btn-olive" href="#">Je découvre HypnoMorphosis gratuitement <span class="fleche">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="experiences" id="experiences">
+  <div class="wrap">
+    <span class="surtitre">Les expériences HypnoMorphosis</span><span class="proposition">Proposition : aperçu de la boutique sur l'accueil</span>
+    <h2>Une véritable expérience personnelle à vivre</h2>
+    <p class="intro">Un carnet à imprimer, des exercices d'introspection, des audios d'hypnose et une progression sur plusieurs jours.</p>
+    <div class="formats">
+      <span><svg class="icone"><use href="#i-carnet"/></svg>Carnet à imprimer</span>
+      <span><svg class="icone"><use href="#i-casque"/></svg>Audios dans votre espace</span>
+      <span><svg class="icone"><use href="#i-ecran"/></svg>Exercices à remplir en ligne <span class="proposition" style="margin-left:4px">Carnet en ligne</span></span>
+    </div>
+    <div class="index">
+      <a class="ligne-exp" href="#">
+        <span class="cat">Expérience universelle</span>
+        <div><h3>Le Nœud</h3><p>21 jours pour dénouer, comprendre et se reconnecter à soi</p></div>
+        <span class="duree">21 jours</span>
+        <span class="prix">49 €</span>
+        <span class="rond">→</span>
+      </a>
+      <a class="ligne-exp" href="#">
+        <span class="cat">Expérience miroir</span>
+        <div><h3>Après nous</h3><p>21 jours pour revenir à soi après une séparation</p></div>
+        <span class="duree">21 jours</span>
+        <span class="prix">49 €</span>
+        <span class="rond">→</span>
+      </a>
+      <div class="ligne-exp avenir">
+        <span class="cat">Grandes expériences</span>
+        <div><h3>Bientôt</h3><p>Des thèmes qui demandent davantage de temps et d'introspection</p></div>
+        <span class="duree"></span>
+        <span class="prix"></span>
+        <span class="rond">·</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="apropos" id="apropos">
+  <div class="wrap">
+    <div class="portrait"><div class="cadre"><img src="Photo_Berenice.jpg" alt="Bérénice"></div></div>
+    <div>
+      <span class="surtitre">À propos</span><span class="proposition">Proposition : lien vers la page À propos</span>
+      <blockquote>« L'hypnose, ça sert à rien et pourtant ça change tout. »</blockquote>
+      <p>Derrière HypnoMorphosis, il y a moi. Je suis Bérénice, ancienne infirmière urgentiste et aujourd'hui hypnothérapeute.</p>
+      <a class="btn btn-olive btn-contour" style="background:transparent;color:var(--olive)" href="#">Lire mon histoire <span class="fleche">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Brief : bloc réseaux sociaux sur l'accueil -->
+<section class="reseaux">
+  <div class="wrap">
+    <div class="bandeau">
+      <div>
+        <h2>Vous voulez découvrir HypnoMorphosis autrement ?</h2>
+        <p>Retrouvez-moi sur TikTok, Instagram et YouTube pour découvrir mes réflexions, mes expériences et une autre façon de parler de l'hypnose.</p>
+      </div>
+      <div class="liens">
+        <a class="btn btn-creme" href="#"><svg class="icone"><use href="#i-tiktok"/></svg>TikTok</a>
+        <a class="btn btn-creme" href="#"><svg class="icone"><use href="#i-instagram"/></svg>Instagram</a>
+        <a class="btn btn-creme" href="#"><svg class="icone"><use href="#i-youtube"/></svg>YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="haut">
+      <div><span class="marque">HYPNOMORPHOSIS</span><span class="devise">Ouvrir le champ de tes possibles</span></div>
+      <div><h4>Le site</h4><ul><li>Les expériences</li><li>Expérience découverte</li><li>À propos</li><li>Mon espace</li></ul></div>
+      <div><h4>Retrouvez HypnoMorphosis</h4>
+        <div class="icones">
+          <a href="#" aria-label="TikTok"><svg class="icone"><use href="#i-tiktok"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="icone"><use href="#i-instagram"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg class="icone"><use href="#i-youtube"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="bas">Mentions légales · CGV · Politique de confidentialité · Paiement et vente en ligne</div>
+  </div>
+</footer>
+
+</body>
+</html>
