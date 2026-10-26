@@ -16,3 +16,17 @@
 ## Décisions
 
 - 2026-10-25 : création du projet sur le modèle de Set et Brique (même stack, même organisation GitHub, même équipe Vercel). Page d'accueil vide pour le moment.
+
+## Outils Claude Code
+
+Partagés par le dépôt : chacun les récupère en ouvrant le projet dans Claude Code (une approbation est demandée la première fois).
+
+| Fichier | Contenu |
+| --- | --- |
+| `.mcp.json` | Serveurs MCP : Playwright (navigateur piloté, captures et tests de parcours, sur Microsoft Edge) et Context7 (documentation à jour des bibliothèques) |
+| `.claude/settings.json` | Plugin `frontend-design` (marketplace officielle Anthropic) |
+| `.claude/skills/` et `skills-lock.json` | Skills Clerk (setup, Next.js, webhooks, API), Neon Postgres, Stripe, web-design-guidelines (Vercel) |
+
+- Les skills sont installés en copies réelles (`npx skills add <source> -s <skill> -a claude-code --copy -y`) : les liens symboliques créés par défaut ne fonctionnent pas sous Windows (constaté sur Set et Brique, où `.claude/skills` contient des fichiers de 38 octets à la place des skills).
+- Playwright est lancé via `cmd /c npx`, nécessaire sous Windows. Sur macOS ou Linux, remplacer par `"command": "npx"` et retirer `/c` dans `.claude/settings.local.json` ou un `.mcp.json` local. Le navigateur est Edge (`--browser msedge`), car Chrome n'est pas installé sur le poste d'Alexis.
+- Context7 fonctionne sans clé, avec un quota limité. Une clé gratuite (context7.com/dashboard) peut être ajoutée plus tard.
