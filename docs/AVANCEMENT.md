@@ -5,6 +5,7 @@
 - 2026-10-25 : création du dépôt GitHub et du projet Vercel. Squelette Next.js avec une page vide.
 - 2026-10-26 : outils Claude Code partagés dans le dépôt (MCP Playwright et Context7, plugin frontend-design, skills Clerk, Neon, Stripe et web-design-guidelines). Branche `outils-claude`.
 - 2026-10-26 : test des outils depuis le dossier du projet. MCP Playwright (captures mobile et PC d'agon-gate.com) et Context7 chargés, 7 skills présents. Plugin `frontend-design` absent de la session : installation manuelle via `/plugin` documentée. Dossier de sortie `.playwright-mcp/` ajouté au `.gitignore`.
+- 2026-10-26 : nouvelle vérification complète avant la spécification. Playwright (capture de hypnomorphosis.vercel.app, fichiers bien ignorés par Git), Context7 (documentation Next.js 16.2.9), plugin `frontend-design` chargé, 7 skills du dépôt détectés et complets. Seule erreur relevée sur le site : `favicon.ico` absent (404), à traiter avec la charte graphique.
 
 ## État par module
 
