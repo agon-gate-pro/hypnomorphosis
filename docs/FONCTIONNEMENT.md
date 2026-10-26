@@ -11,11 +11,12 @@
 
 - `app/` : pages et layout (App Router)
 - `public/` : fichiers statiques
-- `docs/` : documentation du projet
+- `docs/` : documentation du projet (`SITE INTERNET.pdf` : brief du client ; `specification-fonctionnelle.md` : ce que le site doit faire)
 
 ## Décisions
 
 - 2026-10-25 : création du projet sur le modèle de Set et Brique (même stack, même organisation GitHub, même équipe Vercel). Page d'accueil vide pour le moment.
+- 2026-10-26 : stack proposée pour la boutique, à confirmer après validation de la spécification : Clerk (comptes), Neon Postgres (expériences, achats, accès), Stripe Checkout (paiement, codes promo), Resend (e-mails), Vercel Blob en accès protégé (carnets PDF et audios). Les expériences sont des fiches en base, pas des pages codées, pour pouvoir en ajouter sans toucher au code.
 
 ## Outils Claude Code
 
