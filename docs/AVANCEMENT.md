@@ -9,7 +9,7 @@
 - 2026-10-26 : branche `outils-claude` fusionnée dans `main`. Branche `specification` : brief de Bérénice ajouté (`docs/SITE INTERNET.pdf`) et spécification fonctionnelle rédigée (`docs/specification-fonctionnelle.md`), avec 18 questions pour Bérénice.
 - 2026-10-26 : mail envoyé à Bérénice par Alexis : compréhension du projet à valider, lien vers set-et-brique.com en exemple, renonciation au droit de rétractation, fourchette de tarif (abonnement mensuel, nom de domaine à part), 11 questions (expérience découverte, déblocage jour par jour, exercices en ligne, administration, e-mails automatiques, date de lancement, logo et photos, Stripe, statut, TVA, ventes hors de France). En attente de sa réponse ou d'un appel. Les prochains échanges partent de contact@agon-gate.com.
 - 2026-10-26 : plugin maison `agon-gate` (marketplace privée `agon-gate-pro/agon-gate-outils`) ajouté aux réglages du projet, pour qu'il soit proposé sur chaque poste. Installé et chargé sur le poste d'Alexis. Branche `plugin-agon-gate`.
-- 2026-10-26 : réponse de Bérénice reçue (`docs/Echange Mail 01.txt`), avec le carnet de l'expérience découverte (`docs/HYPNOMORPHOSIS.pdf`), 4 versions de son logo et sa photo. Spécification mise à jour : accès complet dès le premier jour, carnet numérique et imprimable, ajouts d'expériences, packs et promotions faits par Agon Gate (pas d'interface d'administration), e-mails automatiques et annonces avec consentement, compte Stripe existant, clientèle francophone internationale, activité rattachée à une société espagnole (TVA et mentions légales à voir avec Cédric). Nouvelle section sur l'identité visuelle et les éléments fournis ; 16 questions restantes.
+- 2026-10-26 : réponse de Bérénice reçue (`docs/Echange Mail 01.txt`), avec le carnet de l'expérience découverte (`docs/HYPNOMORPHOSIS.pdf`), 4 versions de son logo et sa photo. Spécification mise à jour : accès complet dès le premier jour, carnet en PDF à imprimer et carnet en ligne où le client écrit ses réponses aux exercices (réponse à la question sur les exercices du premier mail), ajouts d'expériences, packs et promotions faits par Agon Gate (pas d'interface d'administration), e-mails automatiques et annonces avec consentement, compte Stripe existant, clientèle francophone internationale, activité rattachée à une société espagnole (TVA et mentions légales à voir avec Cédric). Nouvelle section sur l'identité visuelle et les éléments fournis ; 18 questions restantes.
 
 ## État par module
 
@@ -23,7 +23,7 @@
 
 ## Questions ouvertes
 
-- Questions pour Bérénice : voir la section 13 de `docs/specification-fonctionnelle.md` (logo en SVG et version officielle, droits de la photo de couverture, tutoiement ou vouvoiement, forme du carnet numérique, accès permanent, téléchargement des audios, société espagnole et TVA, domaine, CGV).
+- Questions pour Bérénice : voir la section 13 de `docs/specification-fonctionnelle.md` (logo en SVG et version officielle, droits de la photo de couverture, tutoiement ou vouvoiement, carnet en ligne et exercices de dessin, accès de Bérénice aux réponses, accès permanent, téléchargement des audios, société espagnole et TVA, domaine, CGV).
 - Fichiers du logo : les versions « transparentes » sont des JPG avec un damier dessiné, inutilisables sur fond coloré. Fichier d'origine demandé.
 - Audios de l'expérience découverte : liens à recevoir de Bérénice. À stocker hors Git.
 - Devis : à établir une fois la spécification validée.

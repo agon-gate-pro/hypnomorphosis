@@ -17,7 +17,7 @@
 
 - 2026-10-25 : création du projet sur le modèle de Set et Brique (même stack, même organisation GitHub, même équipe Vercel). Page d'accueil vide pour le moment.
 - 2026-10-26 : stack proposée pour la boutique, à confirmer après validation de la spécification : Clerk (comptes), Neon Postgres (expériences, achats, accès), Stripe Checkout (paiement, codes promo), Resend (e-mails), Vercel Blob en accès protégé (carnets PDF et audios). Les expériences sont des fiches en base, pas des pages codées, pour pouvoir en ajouter sans toucher au code.
-- 2026-10-26 : après la réponse de Bérénice. Pas d'interface d'administration : Agon Gate ajoute les expériences, packs et promotions. Tout le contenu d'une expérience est accessible dès l'achat (pas de déblocage jour par jour). Paiements sur le compte Stripe existant de Bérénice. Les audios et les carnets des expériences payantes ne sont pas versionnés dans Git : ils iront dans le stockage protégé.
+- 2026-10-26 : après la réponse de Bérénice. Pas d'interface d'administration : Agon Gate ajoute les expériences, packs et promotions. Tout le contenu d'une expérience est accessible dès l'achat (pas de déblocage jour par jour).  Carnet en ligne : le contenu de chaque carnet (textes et questions par jour) est saisi en base, et les réponses des clients y sont enregistrées, visibles par eux seuls. Paiements sur le compte Stripe existant de Bérénice. Les audios et les carnets des expériences payantes ne sont pas versionnés dans Git : ils iront dans le stockage protégé.
 
 ## Outils Claude Code
 

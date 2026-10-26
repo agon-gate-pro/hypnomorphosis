@@ -61,10 +61,12 @@ Trois catégories, chacune avec un texte de présentation fourni :
 
 Une expérience est un ensemble composé :
 
-- d'un carnet PDF, en deux versions : une version **numérique** et une version **adaptée à l'impression** (forme exacte à préciser, voir question 7) ;
+- d'un carnet, en deux versions : un **PDF à imprimer** et une **version en ligne**, où le client écrit ses réponses aux exercices directement sur le site (voir section 7) ;
 - des audios d'hypnose qui l'accompagnent (environ 15 minutes chacun) ;
-- d'exercices d'introspection, intégrés au carnet ;
+- d'exercices d'introspection, un ou plusieurs par jour ;
 - d'une durée en jours.
+
+Bérénice a répondu à la question « les exercices se font-ils seulement sur le carnet imprimé, ou aussi sur le site ? » en demandant les deux versions.
 
 **Tout est accessible dès le premier jour**, sans déblocage progressif : certains clients impriment leur carnet dès le départ et avancent à leur rythme.
 
@@ -145,10 +147,24 @@ Le visiteur s'inscrit avec son e-mail (création de compte), puis accède à l'e
 
 - Connexion par e-mail (lien ou code de connexion, sans mot de passe à retenir), éventuellement avec Google
 - Liste des expériences achetées ou ouvertes
-- Pour chaque expérience : téléchargement du carnet (version numérique et version à imprimer), écoute des audios dans le navigateur
+- Pour chaque expérience : téléchargement du carnet PDF à imprimer, écoute des audios dans le navigateur, carnet en ligne
 - Tout le contenu est disponible dès l'achat
 - Les fichiers ne sont accessibles qu'aux personnes connectées qui y ont droit
 - Lien vers les factures
+
+### Carnet en ligne
+
+Le carnet est repris sur le site, jour par jour : texte du jour, phrase d'impulsion, audio à écouter, consignes, et un champ de réponse sous chaque question.
+
+- Les réponses sont enregistrées automatiquement dans le compte du client, qui peut s'arrêter et reprendre plus tard, sur n'importe quel appareil.
+- Le client peut relire ses réponses à tout moment et les télécharger ou les imprimer (avec les questions).
+- Les exercices de dessin (le « jardin » de l'expérience découverte, par exemple) restent sur papier : le site donne la consigne et propose un champ de notes. Envoyer une photo de son dessin est une option possible, à confirmer (question 8).
+- Personne d'autre que le client ne lit ses réponses, pas même Bérénice. Si elle souhaite y avoir accès, cela demande l'accord explicite du client (question 9).
+
+Conséquences :
+
+- Le contenu de chaque expérience (textes et questions de chaque jour) doit être saisi dans le site, en plus du PDF. Ce travail est fait par Agon Gate à chaque nouvelle expérience, à partir du carnet fourni par Bérénice : il pèse sur le temps passé et donc sur le tarif de l'abonnement.
+- Les réponses sont des confidences (émotions, séparation, histoire personnelle). Elles sont protégées en conséquence : accès réservé au client, mention dans la politique de confidentialité, suppression possible par le client, suppression avec le compte.
 
 ## 8. E-mails automatiques
 
@@ -167,7 +183,7 @@ Les e-mails d'annonce et de promotion sont de la prospection : ils demandent l'a
 
 - Mentions légales : identité de la société espagnole qui porte l'activité, ses coordonnées et son numéro fiscal, hébergeur (Vercel). Informations à transmettre par Bérénice au moment voulu.
 - CGV de vente de contenus numériques, avec l'article sur la renonciation au droit de rétractation (voir section 5)
-- Politique de confidentialité (RGPD) : données collectées, durée de conservation, droits des personnes, liste d'envoi des e-mails
+- Politique de confidentialité (RGPD) : données collectées, durée de conservation, droits des personnes, liste d'envoi des e-mails, réponses du carnet en ligne
 - Bandeau cookies seulement si des outils de mesure d'audience non exemptés sont ajoutés
 - Avertissement recommandé : les expériences ne remplacent pas un avis ou un traitement médical ou psychologique
 
@@ -200,7 +216,7 @@ Même socle que Set et Brique, déjà maîtrisé par Agon Gate :
 | --- | --- |
 | Site | Next.js sur Vercel (déjà en place) |
 | Comptes clients | Clerk |
-| Base de données (expériences, achats, accès, inscrits) | Neon Postgres |
+| Base de données (expériences et contenu des carnets, achats, accès, inscrits, réponses des clients) | Neon Postgres |
 | Paiement, factures, codes promo | Stripe Checkout, sur le compte Stripe de Bérénice |
 | E-mails automatiques et annonces | Resend |
 | Stockage des carnets PDF et audios | Vercel Blob, accès protégé (coût du stockage et des téléchargements à vérifier avec Madus) |
@@ -216,7 +232,7 @@ Même socle que Set et Brique, déjà maîtrisé par Agon Gate :
 
 ## 13. Questions pour Bérénice
 
-Réponses déjà reçues le 2026-10-26 : but de l'expérience découverte et ordalie, accès complet dès le premier jour, carnet numérique et imprimable, ajout des expériences par Agon Gate, e-mails automatiques, pas de date de lancement, logo et photo, compte Stripe existant, clientèle francophone internationale, renonciation par case à cocher.
+Réponses déjà reçues le 2026-10-26 : but de l'expérience découverte et ordalie, accès complet dès le premier jour, carnet à imprimer et carnet en ligne, ajout des expériences par Agon Gate, e-mails automatiques, pas de date de lancement, logo et photo, compte Stripe existant, clientèle francophone internationale, renonciation par case à cocher.
 
 **Identité et contenus**
 
@@ -229,16 +245,18 @@ Réponses déjà reçues le 2026-10-26 : but de l'expérience découverte et ord
 
 **Fonctionnement des expériences**
 
-7. Carnet numérique et carnet à imprimer : forme exacte à confirmer (voir la proposition faite dans le premier mail).
-8. L'accès est-il permanent, ou limité dans le temps ?
-9. Les audios : écoute en ligne uniquement, ou aussi téléchargement ?
-10. Souhaitez-vous des e-mails pendant l'expérience (rappel de l'exercice du jour, par exemple) ?
-11. Le mot de bienvenue de l'e-mail d'achat : avez-vous un texte en tête ?
-12. Utilisez-vous déjà un outil de newsletter ou une liste de contacts à reprendre ?
+7. Carnet en ligne : confirmer la compréhension de la section 7 (le client écrit ses réponses sur le site, en plus du PDF à imprimer).
+8. Exercices de dessin : le client doit-il pouvoir envoyer une photo de son dessin dans son carnet en ligne ?
+9. Souhaitez-vous pouvoir lire les réponses de vos clients (avec leur accord), ou restent-elles strictement privées ?
+10. L'accès est-il permanent, ou limité dans le temps ?
+11. Les audios : écoute en ligne uniquement, ou aussi téléchargement ?
+12. Souhaitez-vous des e-mails pendant l'expérience (rappel de l'exercice du jour, par exemple) ?
+13. Le mot de bienvenue de l'e-mail d'achat : avez-vous un texte en tête ?
+14. Utilisez-vous déjà un outil de newsletter ou une liste de contacts à reprendre ?
 
 **Administratif (en attente de Cédric)**
 
-13. Société espagnole : raison sociale, adresse, numéro fiscal, numéro de TVA intracommunautaire. La vente de contenus en ligne entre-t-elle dans son activité ?
-14. TVA sur les ventes en ligne aux particuliers de différents pays : qui suit la question (comptable de la société) ?
-15. Nom de domaine : quel nom souhaitez-vous (hypnomorphosis.com, .fr) ?
-16. Qui rédige les CGV et la politique de confidentialité : vous, un juriste, ou une base que nous proposons et que vous faites valider ?
+15. Société espagnole : raison sociale, adresse, numéro fiscal, numéro de TVA intracommunautaire. La vente de contenus en ligne entre-t-elle dans son activité ?
+16. TVA sur les ventes en ligne aux particuliers de différents pays : qui suit la question (comptable de la société) ?
+17. Nom de domaine : quel nom souhaitez-vous (hypnomorphosis.com, .fr) ?
+18. Qui rédige les CGV et la politique de confidentialité : vous, un juriste, ou une base que nous proposons et que vous faites valider ?
