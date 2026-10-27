@@ -41,11 +41,11 @@ L'architecture doit permettre d'ajouter de nouvelles expériences sans refaire l
 | Expérience découverte | Présentation des 5 jours, ce qu'elle contient, inscription (« Je découvre HypnoMorphosis gratuitement »). Page vers laquelle renvoient les réseaux sociaux. |
 | Boutique | Les expériences en vignettes : couverture du carnet, titre, sous-titre, prix. Filtrable par catégorie quand il y en aura assez. |
 | Fiche expérience (une par produit) | Présentation commerciale, « Votre expérience en un coup d'œil », « Comment cela fonctionne ? », prix, bouton d'achat. |
-| À propos | Texte de Bérénice (fourni dans le PDF), avec sa photo. |
+| Derrière HypnoMorphosis (« À propos » dans le brief) | Texte de Bérénice (fourni dans le PDF), avec sa photo. Nom tiré de la première phrase de son texte, préféré à « À propos » qui sonnait trop générique ; à faire valider par Bérénice. |
 | Espace client | Connexion, liste des expériences achetées ou ouvertes, accès aux contenus. |
 | Pages légales | Mentions légales, CGV, politique de confidentialité, informations sur le paiement et la vente en ligne. |
 
-Le menu principal regrouperait : Accueil, Les expériences (boutique), Expérience découverte, À propos, Mon espace.
+Le menu principal regrouperait : Accueil, Les expériences (boutique), Expérience découverte, Derrière HypnoMorphosis, Mon espace.
 
 ## 4. Les expériences
 

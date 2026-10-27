@@ -113,7 +113,7 @@ export default function Accueil() {
               <Image src="/images/berenice.jpg" alt="Bérénice" fill sizes="240px" />
             </div>
             <div className="revele" style={delai(1)}>
-              <span className="caps">À propos</span>
+              <span className="caps">Derrière HypnoMorphosis</span>
               <blockquote>«&nbsp;L’hypnose, ça sert à rien et pourtant ça change tout.&nbsp;»</blockquote>
               <p>Derrière HypnoMorphosis, il y a moi. Je suis Bérénice, ancienne infirmière urgentiste et aujourd’hui hypnothérapeute.</p>
               <div className="actions">
@@ -148,7 +148,7 @@ export default function Accueil() {
               <ul>
                 <li><a href="#experiences">Les expériences</a></li>
                 <li><a href="#decouverte">Expérience découverte</a></li>
-                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#apropos">Derrière HypnoMorphosis</a></li>
                 <li><a href="#">Mon espace</a></li>
               </ul>
             </div>

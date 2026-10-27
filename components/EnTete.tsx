@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 const liens = [
   { href: "#experiences", texte: "Les expériences", etiquette: "Boutique" },
   { href: "#decouverte", texte: "Expérience découverte", etiquette: "Gratuite" },
-  { href: "#apropos", texte: "À propos" },
+  { href: "#apropos", texte: "Derrière HypnoMorphosis" },
   { href: "#", texte: "Mon espace" },
 ];
 

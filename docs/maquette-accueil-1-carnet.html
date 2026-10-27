@@ -73,7 +73,8 @@
   header.site nav a:hover { color: var(--encre); }
   .menu-mobile { display: none; align-items: center; gap: 10px; background: none; border: 0; cursor: pointer; padding: 10px 0; font: 400 13px var(--texte); letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
   .menu-mobile .traits { width: 22px; height: 9px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
-  @media (max-width: 900px) { header.site nav { display: none; } .menu-mobile { display: inline-flex; } }
+  header.site nav a { white-space: nowrap; }
+  @media (max-width: 1080px) { header.site nav { display: none; } .menu-mobile { display: inline-flex; } }
 
   /* menu plein écran sur téléphone, sur le papier, avec l'emblème qui tourne en fond */
   .menu-plein { position: fixed; inset: 0; z-index: 30; background: var(--papier); display: flex; flex-direction: column; overflow: hidden;
@@ -239,7 +240,7 @@
 <header class="site">
   <div class="wrap">
     <a class="marque" href="#"><img class="embleme" src="logo/hypnomorphosis-embleme.svg" alt="Logo HypnoMorphosis" width="46" height="46"><span translate="no">HYPNOMORPHOSIS</span></a>
-    <nav><a href="#experiences">Les expériences</a><a href="#decouverte">Expérience découverte</a><a href="#apropos">À propos</a><a href="#">Mon espace</a></nav>
+    <nav><a href="#experiences">Les expériences</a><a href="#decouverte">Expérience découverte</a><a href="#apropos">Derrière HypnoMorphosis</a><a href="#">Mon espace</a></nav>
     <button class="menu-mobile" type="button" aria-expanded="false" aria-controls="menu-plein"><span class="traits" aria-hidden="true"></span>Menu</button>
   </div>
 </header>
@@ -254,7 +255,7 @@
   <nav>
     <a href="#experiences">Les expériences <small>Boutique</small></a>
     <a href="#decouverte">Expérience découverte <small>Gratuite</small></a>
-    <a href="#apropos">À propos</a>
+    <a href="#apropos">Derrière HypnoMorphosis</a>
     <a href="#">Mon espace</a>
   </nav>
   <p class="pied">Ouvrir le champ de vos possibles</p>
@@ -351,7 +352,7 @@
   <div class="wrap">
     <div class="portrait"><img src="Photo_Berenice.jpg" alt="Bérénice"></div>
     <div>
-      <span class="caps">À propos</span>
+      <span class="caps">Derrière HypnoMorphosis</span>
       <blockquote>«&nbsp;L’hypnose, ça sert à rien et pourtant ça change tout.&nbsp;»</blockquote>
       <p>Derrière HypnoMorphosis, il y a moi. Je suis Bérénice, ancienne infirmière urgentiste et aujourd’hui hypnothérapeute.</p>
       <div class="actions">
@@ -380,7 +381,7 @@
   <div class="wrap">
     <div class="haut">
       <div><div class="nom">HYPNOMORPHOSIS</div><div class="devise">Ouvrir le champ de vos possibles</div></div>
-      <div><h4>Le site</h4><ul><li>Les expériences</li><li>Expérience découverte</li><li>À propos</li><li>Mon espace</li></ul></div>
+      <div><h4>Le site</h4><ul><li>Les expériences</li><li>Expérience découverte</li><li>Derrière HypnoMorphosis</li><li>Mon espace</li></ul></div>
       <div><h4>Retrouvez HypnoMorphosis</h4>
         <div class="icones">
           <a href="#" aria-label="TikTok"><svg class="icone"><use href="#i-tiktok"/></svg></a>
