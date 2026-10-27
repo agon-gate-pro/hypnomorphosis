@@ -61,7 +61,7 @@
   header.site { border-bottom: 1px solid var(--filet); background: var(--papier); position: sticky; top: 0; z-index: 10; }
   header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
   .marque { display: flex; align-items: center; gap: 12px; }
-  .marque .embleme { width: 46px; height: 46px; background: url("1787297365435.jpg") 50% 43% / 165% auto no-repeat; mix-blend-mode: multiply; }
+  .marque .embleme { width: 46px; height: 46px; }
   .marque span { font-family: var(--capitales); font-size: 15px; letter-spacing: .22em; color: var(--olive); }
   header.site nav { display: flex; gap: 28px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
   header.site nav a:hover { color: var(--encre); }
@@ -69,7 +69,7 @@
   @media (max-width: 900px) { header.site nav { display: none; } .menu-mobile { display: block; } }
 
   /* ---------- Ouverture ---------- */
-  .ouverture { padding: 56px 0 72px; }
+  .ouverture { padding: 56px 0 72px; overflow: hidden; } /* les cercles qui tournent ne doivent pas élargir la page */
   .ouverture .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
   .ouverture h1 { font: 300 66px/1.02 var(--titre); margin: 0 0 28px; }
   .ouverture h1 em { font-style: italic; color: var(--olive); }
@@ -84,8 +84,11 @@
   .logo-hero .boussole { inset: 0; width: 100%; }
   .logo-hero .boussole.petite { inset: 9%; width: auto; opacity: .8; }
   .logo-hero .boussole.petite::after { display: none; }
-  /* le JPG passe par un filtre SVG qui rend le blanc transparent ; le viewBox cadre le cercle du scarabée */
   .logo-hero .scarabee { position: absolute; inset: 15%; width: 70%; height: 70%; }
+  /* mouvement : les cercles de la boussole tournent lentement, en sens contraires */
+  .logo-hero .boussole { animation: tourne 90s linear infinite; }
+  .logo-hero .boussole.petite { animation-duration: 60s; animation-direction: reverse; }
+  @keyframes tourne { to { transform: rotate(360deg); } }
   @media (max-width: 860px) {
     .ouverture .wrap { grid-template-columns: 1fr; gap: 40px; }
     .ouverture h1 { font-size: 46px; }
@@ -104,19 +107,19 @@
   ul.acces li:last-child { border-bottom: 1px solid rgba(85, 90, 64, .18); }
   ul.acces .icone { color: var(--olive); margin-top: 1px; }
   ul.acces b { font-weight: 500; color: var(--encre); }
-  .couverture { position: relative; max-width: 380px; width: 100%; justify-self: center; }
-  .couverture .couv { position: relative; aspect-ratio: 3 / 4; border-radius: 3px 10px 10px 3px; overflow: hidden; padding: 30px 28px; display: flex; flex-direction: column; justify-content: space-between;
-    background: linear-gradient(160deg, #fbf9f4, #ece6d6); color: var(--olive); box-shadow: inset 6px 0 0 rgba(0,0,0,.06), 0 30px 50px -30px rgba(40,40,25,.55); }
-  .couverture .couv .boussole { width: 110%; aspect-ratio: 1; left: -5%; top: 18%; color: #d8d1bc; }
-  .couverture .couv h3 { position: relative; font: 400 34px/1.05 var(--titre); color: var(--encre); }
-  .couverture .couv .sous { position: relative; font: 300 italic 17px/1.35 var(--citation); margin-top: 8px; }
-  .couverture .couv .gratuit { position: relative; font-family: var(--capitales); font-size: 11px; letter-spacing: .24em; }
-  .couverture .remarque { margin-top: 12px; font-size: 12.5px; color: #7a7b68; text-align: center; }
-  .jours { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 18px; border: 1px solid rgba(85, 90, 64, .2); background: rgba(251, 249, 244, .6); }
-  .jours div { padding: 10px 2px 12px; text-align: center; border-right: 1px solid rgba(85, 90, 64, .2); white-space: nowrap; }
-  .jours div:last-child { border-right: 0; }
-  .jours small { display: block; font: 400 10px var(--capitales); letter-spacing: .16em; color: var(--sauge); }
-  .jours span { font: 400 italic 13px var(--citation); }
+  .couverture { position: relative; max-width: 360px; width: 100%; justify-self: center; }
+  /* la couverture du carnet de Bérénice, qui flotte doucement ; un reflet la traverse de temps en temps */
+  .couverture .couv { position: relative; display: block; aspect-ratio: 800 / 1280; border-radius: 3px 10px 10px 3px; overflow: hidden;
+    box-shadow: inset 6px 0 0 rgba(0,0,0,.08), 0 30px 50px -30px rgba(40,40,25,.6); animation: flotte 7s ease-in-out infinite; }
+  /* l'image extraite du PDF a une marge blanche en bas : on la coupe */
+  .couverture .couv img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .couverture .couv::after { content: ""; position: absolute; inset: 0; pointer-events: none; transform: translateX(-120%);
+    background: linear-gradient(105deg, transparent 35%, rgba(255, 244, 214, .45) 50%, transparent 65%); animation: reflet 7s ease-in-out infinite; }
+  .couverture .gratuit { position: absolute; top: 18px; left: 50%; transform: translateX(-50%); z-index: 1; white-space: nowrap; padding: 7px 16px; border-radius: 99px;
+    background: rgba(251, 249, 244, .92); color: var(--olive); font-family: var(--capitales); font-size: 11px; letter-spacing: .22em; box-shadow: 0 6px 18px -8px rgba(40,40,25,.5); }
+  @keyframes flotte { 0%, 100% { transform: translateY(0) rotate(-.6deg); } 50% { transform: translateY(-10px) rotate(.4deg); } }
+  @keyframes reflet { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+  @media (prefers-reduced-motion: reduce) { .logo-hero .boussole, .couverture .couv, .couverture .couv::after { animation: none; } }
 
   /* ---------- Expériences ---------- */
   .experiences { padding: 88px 0; }
@@ -189,21 +192,21 @@
   <symbol id="i-youtube" viewBox="0 0 26 26"><rect x="3" y="6" width="20" height="14" rx="4"/><path d="M11 10v6l5-3z"/></symbol>
 </svg>
 
-<div class="note-maquette">Proposition 1 « Le carnet » · Maquette de la page d'accueil. Les textes sont ceux de Bérénice ; les éléments marqués <span class="proposition" style="margin:0">Proposition</span> sont des suggestions d'Agon Gate, à valider.</div>
+<div class="note-maquette">Proposition 1 « Le carnet », version 2 · Maquette de la page d'accueil, avec les retours de Bérénice du 27 octobre. Les couvertures de LE NŒUD et APRÈS NOUS sont en attente.</div>
 
 <header class="site">
   <div class="wrap">
-    <a class="marque" href="#"><span class="embleme" role="img" aria-label="Logo HypnoMorphosis"></span><span>HYPNOMORPHOSIS</span></a>
+    <a class="marque" href="#"><img class="embleme" src="logo/hypnomorphosis-embleme.svg" alt="Logo HypnoMorphosis"><span>HYPNOMORPHOSIS</span></a>
     <nav><a href="#experiences">Les expériences</a><a href="#decouverte">Expérience découverte</a><a href="#apropos">À propos</a><a href="#">Mon espace</a></nav>
     <span class="menu-mobile">Menu</span>
   </div>
 </header>
 
-<!-- Brief : en haut le logo, puis « Ouvrir le champ de tes possibles », puis le texte d'introduction -->
+<!-- Brief : en haut le logo, puis « Ouvrir le champ de vos possibles » (vouvoiement sur le site), puis le texte d'introduction -->
 <section class="ouverture grain">
   <div class="wrap">
     <div>
-      <h1>Ouvrir le champ<br>de <em>tes possibles</em></h1>
+      <h1>Ouvrir le champ<br>de <em>vos possibles</em></h1>
       <div class="accroche">
         <p class="forte">Vous avez en vous un pouvoir que vous ne connaissez peut-être pas encore.</p>
         <p class="douce">Vous portez déjà en vous des ressources insoupçonnées, des possibilités qui ne demandent qu'à être découvertes.</p>
@@ -216,13 +219,7 @@
     <div class="logo-hero" aria-hidden="true">
       <div class="boussole"></div>
       <div class="boussole petite"></div>
-      <svg class="scarabee" viewBox="139 197 680 680">
-        <filter id="encre-olive" color-interpolation-filters="sRGB">
-          <!-- couleur fixée au vert olive, opacité = assombrissement du pixel (le blanc devient transparent) -->
-          <feColorMatrix type="matrix" values="0 0 0 0 .333  0 0 0 0 .353  0 0 0 0 .251  -1.5 -1.5 -1.5 0 4.2"/>
-        </filter>
-        <image href="1787297365435.jpg" width="958" height="1120" filter="url(#encre-olive)"/>
-      </svg>
+      <img class="scarabee" src="logo/hypnomorphosis-embleme.svg" alt="">
     </div>
   </div>
 </section>
@@ -231,19 +228,8 @@
 <section class="decouverte grain" id="decouverte">
   <div class="wrap">
     <div class="couverture">
-      <div class="couv">
-        <div class="boussole"></div>
-        <span class="gratuit">EXPÉRIENCE DÉCOUVERTE · GRATUITE</span>
-        <div><h3>Cinq jours pour ouvrir le champ de tes possibles</h3></div>
-      </div>
-      <div class="jours">
-        <div><small>Jour 1</small><span>Je vois</span></div>
-        <div><small>Jour 2</small><span>Je comprends</span></div>
-        <div><small>Jour 3</small><span>J'apprivoise</span></div>
-        <div><small>Jour 4</small><span>Je choisis</span></div>
-        <div><small>Jour 5</small><span>J'ancre</span></div>
-      </div>
-      <p class="remarque">Emplacement de la photo de l'expérience (couverture du carnet), selon les droits d'utilisation.</p>
+      <span class="gratuit">EXPÉRIENCE DÉCOUVERTE · GRATUITE</span>
+      <a class="couv" href="#"><img src="couverture-decouverte.jpg" alt="Couverture du carnet de l'expérience découverte"></a>
     </div>
     <div>
       <span class="caps">Expérience découverte</span>
@@ -264,13 +250,13 @@
 
 <section class="experiences" id="experiences">
   <div class="wrap">
-    <span class="caps">Les expériences HypnoMorphosis</span><span class="proposition">Proposition : aperçu de la boutique sur l'accueil</span>
+    <span class="caps">Les expériences HypnoMorphosis</span>
     <h2 class="section">Une véritable expérience personnelle à vivre</h2>
     <p class="intro-section">Un carnet à imprimer, des exercices d'introspection, des audios d'hypnose et une progression sur plusieurs jours.</p>
     <div class="formats">
       <span><svg class="icone"><use href="#i-carnet"/></svg>Carnet à imprimer</span>
       <span><svg class="icone"><use href="#i-casque"/></svg>Audios dans votre espace</span>
-      <span><svg class="icone"><use href="#i-ecran"/></svg>Ou exercices à remplir en ligne <span class="proposition">Carnet en ligne</span></span>
+      <span><svg class="icone"><use href="#i-ecran"/></svg>Ou carnet en ligne</span>
     </div>
     <div class="carnets">
       <a class="carnet" href="#">
@@ -307,7 +293,7 @@
   <div class="wrap">
     <div class="portrait"><img src="Photo_Berenice.jpg" alt="Bérénice"></div>
     <div>
-      <span class="caps">À propos</span><span class="proposition">Proposition : lien vers la page À propos</span>
+      <span class="caps">À propos</span>
       <blockquote>« L'hypnose, ça sert à rien et pourtant ça change tout. »</blockquote>
       <p>Derrière HypnoMorphosis, il y a moi. Je suis Bérénice, ancienne infirmière urgentiste et aujourd'hui hypnothérapeute.</p>
       <a class="btn btn-trait" href="#">Lire mon histoire</a>
@@ -332,7 +318,7 @@
 <footer class="site">
   <div class="wrap">
     <div class="haut">
-      <div><div class="nom">HYPNOMORPHOSIS</div><div class="devise">Ouvrir le champ de tes possibles</div></div>
+      <div><div class="nom">HYPNOMORPHOSIS</div><div class="devise">Ouvrir le champ de vos possibles</div></div>
       <div><h4>Le site</h4><ul><li>Les expériences</li><li>Expérience découverte</li><li>À propos</li><li>Mon espace</li></ul></div>
       <div><h4>Retrouvez HypnoMorphosis</h4>
         <div class="icones">

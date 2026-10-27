@@ -11,13 +11,14 @@
 
 - `app/` : pages et layout (App Router)
 - `public/` : fichiers statiques
-- `docs/` : documentation du projet (`SITE INTERNET.pdf` : brief du client ; `specification-fonctionnelle.md` : ce que le site doit faire ; `Echange Mail 01.txt` : réponses de Bérénice ; `HYPNOMORPHOSIS.pdf` : carnet de l'expérience découverte ; logos en JPG et `Photo_Berenice.jpg`, détaillés dans la section 10 de la spécification)
+- `docs/` : documentation du projet (`SITE INTERNET.pdf` : brief du client ; `specification-fonctionnelle.md` : ce que le site doit faire ; `Echange Mail 01.txt` et `Echange Mail 02.txt` : réponses de Bérénice ; `HYPNOMORPHOSIS.pdf` : carnet de l'expérience découverte ; logos en JPG, logo vectorisé dans `logo/`, `couverture-decouverte.jpg`, photos de Bérénice, détaillés dans la section 10 de la spécification ; `maquette-accueil-1-carnet.html` : maquette d'accueil retenue)
 
 ## Décisions
 
 - 2026-10-25 : création du projet sur le modèle de Set et Brique (même stack, même organisation GitHub, même équipe Vercel). Page d'accueil vide pour le moment.
 - 2026-10-26 : stack proposée pour la boutique, à confirmer après validation de la spécification : Clerk (comptes), Neon Postgres (expériences, achats, accès), Stripe Checkout (paiement, codes promo), Resend (e-mails), Vercel Blob en accès protégé (carnets PDF et audios). Les expériences sont des fiches en base, pas des pages codées, pour pouvoir en ajouter sans toucher au code.
 - 2026-10-26 : après la réponse de Bérénice. Pas d'interface d'administration : Agon Gate ajoute les expériences, packs et promotions. Tout le contenu d'une expérience est accessible dès l'achat (pas de déblocage jour par jour).  Carnet en ligne : le contenu de chaque carnet (textes et questions par jour) est saisi en base, et les réponses des clients y sont enregistrées, visibles par eux seuls. Paiements sur le compte Stripe existant de Bérénice. Les audios et les carnets des expériences payantes ne sont pas versionnés dans Git : ils iront dans le stockage protégé.
+- 2026-10-27 : maquette d'accueil 1 « Le carnet » retenue par Bérénice. Site au vouvoiement (slogan « Ouvrir le champ de vos possibles »). Logo : pas de fichier vectoriel d'origine (créé avec Gemini), donc vectorisé par Agon Gate par tracé automatique (potrace, image agrandie trois fois avant le tracé pour des courbes douces) : `docs/logo/hypnomorphosis-logo.svg` (complet) et `docs/logo/hypnomorphosis-embleme.svg` (emblème seul, cadré et masqué pour exclure le texte). Ces SVG remplacent le JPG filtré dans la maquette et serviront au site. Les couvertures des carnets (images générées avec ChatGPT) servent de visuels à l'expérience découverte et aux expériences de la boutique. Mouvement discret : cercles de boussole qui tournent dans l'ouverture, couverture de l'expérience découverte qui flotte avec un reflet ; coupés si l'appareil demande moins d'animations (`prefers-reduced-motion`).
 
 ## Outils Claude Code
 

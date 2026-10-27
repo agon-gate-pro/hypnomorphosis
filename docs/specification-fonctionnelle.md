@@ -8,7 +8,7 @@ Sources :
 
 Ce document décrit ce que le site doit faire ; les questions encore ouvertes sont regroupées à la fin.
 
-Rédigé le 2026-10-26, mis à jour le même jour avec les réponses de Bérénice. Statut : brouillon, à valider avec Bérénice.
+Rédigé le 2026-10-26, mis à jour le même jour puis le 2026-10-27 avec les réponses de Bérénice. Statut : brouillon, à valider avec Bérénice.
 
 ## 1. Le projet
 
@@ -37,9 +37,9 @@ L'architecture doit permettre d'ajouter de nouvelles expériences sans refaire l
 
 | Page | Contenu |
 | --- | --- |
-| Accueil | Logo, sous-titre, texte d'introduction, mise en avant des expériences et de l'expérience découverte gratuite, bloc réseaux sociaux (ou dans le pied de page si l'accueil est trop chargé). Page épurée. |
+| Accueil | Logo, sous-titre, texte d'introduction, mise en avant de l'expérience découverte gratuite (avec la couverture de son carnet, sans les titres des jours), aperçu de la boutique avec les couvertures des carnets, lien vers À propos, bloc réseaux sociaux. Page épurée, avec un peu de mouvement pour attirer vers l'expérience gratuite. Maquette retenue : `docs/maquette-accueil-1-carnet.html`. |
 | Expérience découverte | Présentation des 5 jours, ce qu'elle contient, inscription (« Je découvre HypnoMorphosis gratuitement »). Page vers laquelle renvoient les réseaux sociaux. |
-| Boutique | Les expériences en vignettes : photo, titre, sous-titre, prix. Filtrable par catégorie quand il y en aura assez. |
+| Boutique | Les expériences en vignettes : couverture du carnet, titre, sous-titre, prix. Filtrable par catégorie quand il y en aura assez. |
 | Fiche expérience (une par produit) | Présentation commerciale, « Votre expérience en un coup d'œil », « Comment cela fonctionne ? », prix, bouton d'achat. |
 | À propos | Texte de Bérénice (fourni dans le PDF), avec sa photo. |
 | Espace client | Connexion, liste des expériences achetées ou ouvertes, accès aux contenus. |
@@ -193,20 +193,26 @@ Les e-mails d'annonce et de promotion sont de la prospection : ils demandent l'a
 
 | Élément | Fichier | Remarques |
 | --- | --- | --- |
-| Logo vert olive sur fond blanc | `docs/1787297365435.jpg` | Scarabée ailé dans un cercle de boussole, au trait, avec « HYPNOMORPHOSIS / Ouvrir le champ de tes possibles » |
+| Logo vert olive sur fond blanc | `docs/1787297365435.jpg` (renvoyé le 2026-10-27 sous le nom `docs/Logo officiel.jpg`, fichier identique) | **Version officielle.** Scarabée ailé dans un cercle de boussole, au trait, avec « HYPNOMORPHOSIS / Ouvrir le champ de tes possibles ». Créé avec Gemini : pas de fichier d'origine |
+| Logo vectorisé par Agon Gate | `docs/logo/hypnomorphosis-logo.svg`, `docs/logo/hypnomorphosis-embleme.svg` | Tracé automatique du logo officiel (potrace), même dessin, fond transparent. Logo complet et emblème seul, en vert olive `#555a40` |
 | Logo vert olive, faux fond transparent | `docs/1787297506412.jpg` | Le damier est dessiné dans l'image (un JPG ne peut pas être transparent) : inutilisable sur un fond coloré |
 | Logo blanc, faux fond transparent | `docs/1787305085342.jpg` | Même problème. Dessin plein, différent de la version au trait |
 | Logo blanc sur fond vert sauge | `docs/1787832286697.jpg` | Variante où le corps du scarabée est quadrillé |
 | Photo de Bérénice | `docs/Photo_Berenice.jpg` | Selfie, environ 800 px de large, diplômes encadrés en arrière-plan |
+| Deuxième photo de Bérénice | `docs/Photo Bérénice 02.jpg` | Photo professionnelle 4200 × 2800, en pied, veste olive, mur blanc, diplômes à droite (recadrage possible). Origine et droits à confirmer |
 | Carnet de l'expérience découverte | `docs/HYPNOMORPHOSIS.pdf` | Couverture photo en garrigue (rochers, lavande, lumière dorée), pages blanches, titres en capitales gris-vert, logo en bas de page |
-| Audios de l'expérience découverte | À venir | Bérénice envoie les liens de téléchargement |
+| Couverture de l'expérience découverte | `docs/couverture-decouverte.jpg` | Extraite du PDF (800 × 1301). Image générée avec ChatGPT, utilisable sur le site |
+| Couvertures de LE NŒUD et APRÈS NOUS | À venir | Demandées en grand format |
+| Audios de l'expérience découverte | Hors dépôt | Bérénice les retravaille (balance gauche-droite voulue, effet hypnotique) et les renvoie en MP3 |
 
 ### Remarques pour la direction artistique
 
 - Le logo, la couverture du carnet et le brief convergent vers un univers nature et lumineux : verts olive et sauge, beige pierre, blanc cassé, lumière dorée, capitales fines comme dans le logo, trait fin du logo (cercle, boussole) réutilisable comme motif.
 - La métaphore du jardin, centrale dans l'expérience découverte, est une piste d'identité pour le site.
 - La photo de Bérénice convient à un portrait de taille modeste sur la page À propos. Les diplômes en arrière-plan évoquent le cabinet qu'elle ne veut pas montrer : un recadrage ou une nouvelle photo serait préférable pour une mise en avant plus grande.
-- La couverture du carnet montre une autre personne que Bérénice, avec un halo lumineux sur la poitrine : origine et droits d'utilisation à vérifier avant toute reprise sur le site, et effet de halo à éviter (côté ésotérique).
+- Les couvertures des carnets sont des images générées avec ChatGPT : les conditions d'OpenAI en laissent l'usage à Bérénice. Une image entièrement générée n'est sans doute pas protégée par le droit d'auteur (pas d'exclusivité), sans conséquence pour le site. Bérénice veut les voir sur l'accueil et dans la boutique : elles apportent le « peps » qui manquait.
+- Les photos de l'article de Madame Figaro (https://adresses-incontournables.madame.lefigaro.fr/prendre-soin-soi/berenice-hervet/) appartiennent au photographe ou au magazine : pas de reprise sans accord écrit. Une mention « Vu dans Madame Figaro » avec lien est possible, sur la page À propos.
+- Le site vouvoie, y compris le slogan : « Ouvrir le champ de vos possibles ». Le tutoiement reste pour TikTok. Le logo garde son texte d'origine.
 
 ## 11. Choix techniques proposés
 
@@ -234,12 +240,14 @@ Même socle que Set et Brique, déjà maîtrisé par Agon Gate :
 
 Réponses déjà reçues le 2026-10-26 : but de l'expérience découverte et ordalie, accès complet dès le premier jour, carnet à imprimer et carnet en ligne, ajout des expériences par Agon Gate, e-mails automatiques, pas de date de lancement, logo et photo, compte Stripe existant, clientèle francophone internationale, renonciation par case à cocher.
 
+Réponses reçues le 2026-10-27 (`docs/Echange Mail 02.txt`) : proposition d'accueil 1 retenue, questions 1, 2 et 4 ci-dessous, formulation « carnet en ligne », lien vers À propos gardé, titres des jours retirés de l'accueil. Pour les choix techniques et stratégiques, Bérénice s'en remet aux conseils d'Agon Gate.
+
 **Identité et contenus**
 
-1. Logo : pouvez-vous nous envoyer le fichier d'origine (SVG, ou PNG à fond vraiment transparent), ou le contact de la personne qui l'a créé ? Quelle version est la version officielle : au trait, pleine, ou quadrillée ?
-2. La photo de couverture du carnet : d'où vient-elle (banque d'images, image générée, photographe) et peut-on l'utiliser sur le site ?
-3. Avez-vous d'autres photos de vous, sans les diplômes en arrière-plan, et des visuels pour chaque expérience ?
-4. Le sous-titre tutoie (« tes possibles ») alors que les carnets vouvoient : sur le site, tutoiement ou vouvoiement ?
+1. ~~Logo : fichier d'origine et version officielle ?~~ Répondu : version au trait, faite avec Gemini, pas d'autre fichier. Agon Gate l'a vectorisée.
+2. ~~Photo de couverture du carnet ?~~ Répondu : générée avec ChatGPT, utilisable. Fichiers en grand format des trois couvertures demandés.
+3. Une deuxième photo est arrivée (`docs/Photo Bérénice 02.jpg`) : d'où vient-elle et peut-on l'utiliser ? Les visuels des expériences sont leurs couvertures.
+4. ~~Tutoiement ou vouvoiement ?~~ Répondu : vouvoiement sur le site. Slogan « Ouvrir le champ de vos possibles » à lui faire confirmer.
 5. Nombre de pages du carnet d'Après nous.
 6. Les adresses de vos comptes TikTok, Instagram et YouTube.
 

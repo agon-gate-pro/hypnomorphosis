@@ -16,6 +16,7 @@
 - 2026-10-26 : deux propositions d'accueil à présenter à Bérénice, mêmes textes et même ordre : proposition 1 « Le carnet » (`docs/maquette-accueil-1-carnet.html`, papier, serif, couvertures de carnet) et proposition 2 « Moderne et lumineuse » (`docs/maquette-accueil-2-lumineuse.html`, aplat sauge, scarabée géant en crème, typographie Tenor Sans proche du logo, boutons arrondis, expériences en index éditorial, pied de page clair). Vérifiées sur PC et mobile.
 - 2026-10-26 : PDF de présentation pour Bérénice (`D:/Agon-Gate_Espace-de-Travail/HypnoMorphosis-propositions-accueil.pdf`, hors dépôt) : introduction, les deux propositions sur ordinateur et sur téléphone, page de 6 questions (choix de la proposition, couleurs et écritures, éléments « Proposition », tu ou vous, logo d'origine, photos). À envoyer par Alexis.
 - 2026-10-26 : audios de l'expérience découverte reçus de Bérénice sous forme de projets Audacity (`.aup3`), rangés hors dépôt dans `D:/Agon-Gate_Espace-de-Travail/HypnoMorphosis-audios/`. Convertis en MP3 192 kb/s sans installer Audacity (lecture directe du fichier, qui est une base SQLite : une piste stéréo 48 kHz, sans effet ni montage) : audio 1 de 14 min 33 s (21 Mo), audio 2 de 15 min 27 s (22 Mo). Niveau sonore bas (crête à environ -14 dB) et, sur l'audio 1, canal droit plus faible que le gauche : à faire valider par Bérénice à l'écoute.
+- 2026-10-27 : réponse de Bérénice (`docs/Echange Mail 02.txt`). Proposition 1 « Le carnet » retenue ; couvertures de ses carnets (générées avec ChatGPT) voulues pour l'expérience découverte et la boutique ; « un petit peps » ; titres des jours retirés de l'accueil ; « carnet en ligne » et lien vers À propos gardés ; vouvoiement sur le site ; logo fait avec Gemini, sans fichier d'origine ; article de Madame Figaro proposé (photos non reprises sans accord, mention possible) ; audios retravaillés par elle en MP3 (la balance gauche-droite est voulue). Elle s'en remet à Agon Gate pour les choix techniques et stratégiques. Maquette 1, version 2 : couverture réelle de l'expérience découverte (extraite du PDF), jours retirés, « vos possibles », étiquettes « Proposition » retirées, deux animations discrètes, logo SVG. Logo vectorisé (`docs/logo/`). Spécification mise à jour. Vérifiée sur PC et mobile (défilement horizontal causé par les cercles qui tournent, corrigé).
 
 ## État par module
 
@@ -23,13 +24,17 @@
 | --- | --- |
 | Socle technique (Next.js, Tailwind, Vercel) | Fait |
 | Spécification fonctionnelle | Mise à jour avec les réponses de Bérénice, à valider avec elle |
-| Direction artistique | Deux propositions d'accueil prêtes à montrer à Bérénice (`docs/maquette-accueil-1-carnet.html`, `docs/maquette-accueil-2-lumineuse.html`) |
+| Direction artistique | Proposition 1 « Le carnet » retenue, version 2 faite avec ses retours (`docs/maquette-accueil-1-carnet.html`). Couvertures de LE NŒUD et APRÈS NOUS en attente |
+| Logo | Vectorisé en SVG par Agon Gate (`docs/logo/`), à montrer à Bérénice |
 | Page d'accueil | Vide, à concevoir |
 | Outils Claude Code | Testés et fusionnés dans `main` : MCP et skills OK, plugins `frontend-design` et `agon-gate` installés sur le poste d'Alexis (à installer une fois par poste) |
 
 ## Questions ouvertes
 
 - Questions pour Bérénice : voir la section 13 de `docs/specification-fonctionnelle.md` (logo en SVG et version officielle, droits de la photo de couverture, tutoiement ou vouvoiement, carnet en ligne et exercices de dessin, accès de Bérénice aux réponses, accès permanent, téléchargement des audios, société espagnole et TVA, domaine, CGV).
-- Fichiers du logo : les versions « transparentes » sont des JPG avec un damier dessiné, inutilisables sur fond coloré. Fichier d'origine demandé.
-- Audios de l'expérience découverte : reçus et convertis en MP3, à faire écouter à Bérénice (niveau sonore bas, déséquilibre gauche/droite sur l'audio 1 : normaliser ou garder tels quels ?). À stocker hors Git.
+- Logo : réglé, vectorisé par Agon Gate à partir du JPG officiel.
+- Couvertures en grand format (expérience découverte, LE NŒUD, APRÈS NOUS) : demandées à Bérénice.
+- Slogan au vouvoiement « Ouvrir le champ de vos possibles » : à faire confirmer par Bérénice.
+- `docs/Photo Bérénice 02.jpg` : origine et droits à confirmer (séance du Figaro ?), non versionnée en attendant.
+- Audios de l'expérience découverte : Bérénice les retravaille et les renvoie en MP3 (conseil donné : normaliser à -1 dB avant export). Deux MP3 déposés dans `docs/` le 2026-10-27 : à sortir du dépôt (hors Git).
 - Devis : à établir une fois la spécification validée.
