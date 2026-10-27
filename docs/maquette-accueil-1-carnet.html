@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Accueil · proposition 1</title>
+<script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Marcellus&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
@@ -58,15 +59,42 @@
   .icone { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 
   /* ---------- En-tête ---------- */
-  header.site { border-bottom: 1px solid var(--filet); background: var(--papier); position: sticky; top: 0; z-index: 10; }
+  /* verre dépoli : le papier reste lisible, la page défile en flou derrière ; une ombre légère apparaît après le haut de page */
+  header.site { border-bottom: 1px solid var(--filet); background: rgba(251, 249, 244, .78); -webkit-backdrop-filter: blur(14px) saturate(1.15); backdrop-filter: blur(14px) saturate(1.15);
+    position: sticky; top: 0; z-index: 10; transition: box-shadow .3s; }
+  header.site.defile { box-shadow: 0 10px 28px -20px rgba(40, 40, 25, .45); }
+  /* les ancres du menu s'arrêtent sous l'en-tête fixe, pas derrière */
+  section[id] { scroll-margin-top: 76px; }
   header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
   .marque { display: flex; align-items: center; gap: 12px; }
   .marque .embleme { width: 46px; height: 46px; }
   .marque span { font-family: var(--capitales); font-size: 15px; letter-spacing: .22em; color: var(--olive); }
   header.site nav { display: flex; gap: 28px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
   header.site nav a:hover { color: var(--encre); }
-  .menu-mobile { display: none; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
-  @media (max-width: 900px) { header.site nav { display: none; } .menu-mobile { display: block; } }
+  .menu-mobile { display: none; align-items: center; gap: 10px; background: none; border: 0; cursor: pointer; padding: 10px 0; font: 400 13px var(--texte); letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
+  .menu-mobile .traits { width: 22px; height: 9px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
+  @media (max-width: 900px) { header.site nav { display: none; } .menu-mobile { display: inline-flex; } }
+
+  /* menu plein écran sur téléphone, sur le papier, avec l'emblème qui tourne en fond */
+  .menu-plein { position: fixed; inset: 0; z-index: 30; background: var(--papier); display: flex; flex-direction: column; overflow: hidden;
+    opacity: 0; visibility: hidden; transform: translateY(-12px); transition: opacity .35s ease, transform .35s ease, visibility 0s .35s; }
+  .menu-plein.ouvert { opacity: 1; visibility: visible; transform: none; transition: opacity .35s ease, transform .35s ease; }
+  .menu-plein .barre { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
+  .menu-plein .barre .marque span { font-size: 13px; letter-spacing: .18em; }
+  .menu-plein nav { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 24px; }
+  .menu-plein nav a { font: 300 34px/1.15 var(--titre); gap: 16px; color: var(--encre); padding: 14px 0; border-bottom: 1px solid var(--filet); display: flex; justify-content: space-between; align-items: baseline; }
+  .menu-plein nav a small { font: 400 10.5px var(--capitales); letter-spacing: .2em; text-transform: uppercase; color: var(--sauge); white-space: nowrap; }
+  .menu-plein .pied { padding: 0 24px 34px; font: 300 italic 19px var(--citation); color: var(--olive); }
+  .menu-plein .fond { position: absolute; width: 520px; right: -190px; bottom: -150px; opacity: .08; pointer-events: none; animation: tourne 80s linear infinite; }
+  .menu-plein nav, .menu-plein .barre, .menu-plein .pied { position: relative; }
+  body.menu-ouvert { overflow: hidden; }
+
+  /* contour visible au clavier */
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--dore); outline-offset: 3px; }
+
+  /* apparition douce au défilement : seulement si le script tourne, pour que la page reste lisible sans lui */
+  .js .revele { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--delai, 0s); }
+  .js .revele.visible { opacity: 1; transform: none; }
 
   /* ---------- Ouverture ---------- */
   .ouverture { padding: 56px 0 72px; overflow: hidden; } /* les cercles qui tournent ne doivent pas élargir la page */
@@ -122,7 +150,10 @@
     background: rgba(251, 249, 244, .92); color: var(--olive); font-family: var(--capitales); font-size: 11px; letter-spacing: .22em; box-shadow: 0 6px 18px -8px rgba(40,40,25,.5); }
   @keyframes flotte { 0%, 100% { transform: translateY(0) rotate(-.6deg); } 50% { transform: translateY(-10px) rotate(.4deg); } }
   @keyframes reflet { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
-  @media (prefers-reduced-motion: reduce) { .logo-hero .boussole, .couverture .couv, .couverture .couv::after { animation: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-hero .boussole, .couverture .couv, .couverture .couv::after, .menu-plein .fond { animation: none; }
+    .js .revele { opacity: 1; transform: none; transition: none; }
+  }
 
   /* ---------- Expériences ---------- */
   .experiences { padding: 88px 0; }
@@ -158,6 +189,12 @@
   .apropos blockquote { font: 300 italic 34px/1.25 var(--titre); margin: 12px 0 18px; }
   @media (min-width: 1000px) { .apropos blockquote { white-space: nowrap; } }
   .apropos p { color: var(--gris); max-width: 620px; margin-bottom: 22px; }
+  .apropos .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+  /* mention presse : discrète, en capitales, comme une signature */
+  .presse { display: inline-flex; align-items: center; gap: 12px; font: 400 11.5px var(--capitales); letter-spacing: .2em; text-transform: uppercase; color: var(--olive); }
+  .presse::before { content: ""; width: 28px; border-top: 1px solid var(--dore); }
+  .presse i { font: italic 400 17px var(--titre); letter-spacing: .02em; text-transform: none; color: var(--encre); }
+  .presse:hover i { text-decoration: underline; text-decoration-color: var(--dore); text-underline-offset: 4px; }
   .rameau { position: absolute; right: 2%; top: 50%; transform: translateY(-50%) rotate(-8deg); width: 300px; stroke: var(--sauge); fill: none; stroke-width: 1.1; opacity: .55; }
   @media (max-width: 760px) { .rameau { width: 170px; opacity: .4; } .apropos blockquote { font-size: 29px; } }
 
@@ -197,25 +234,41 @@
   <symbol id="i-youtube" viewBox="0 0 26 26"><rect x="3" y="6" width="20" height="14" rx="4"/><path d="M11 10v6l5-3z"/></symbol>
 </svg>
 
-<div class="note-maquette">Proposition 1 « Le carnet », version 2 · Maquette de la page d'accueil, avec les retours de Bérénice du 27 octobre. Les couvertures de LE NŒUD et APRÈS NOUS sont en attente.</div>
+<div class="note-maquette">Proposition 1 «&nbsp;Le carnet&nbsp;», version 2 · Maquette de la page d’accueil, avec les retours de Bérénice du 27 octobre. Les couvertures de LE NŒUD et APRÈS NOUS sont en attente.</div>
 
 <header class="site">
   <div class="wrap">
-    <a class="marque" href="#"><img class="embleme" src="logo/hypnomorphosis-embleme.svg" alt="Logo HypnoMorphosis"><span>HYPNOMORPHOSIS</span></a>
+    <a class="marque" href="#"><img class="embleme" src="logo/hypnomorphosis-embleme.svg" alt="Logo HypnoMorphosis" width="46" height="46"><span translate="no">HYPNOMORPHOSIS</span></a>
     <nav><a href="#experiences">Les expériences</a><a href="#decouverte">Expérience découverte</a><a href="#apropos">À propos</a><a href="#">Mon espace</a></nav>
-    <span class="menu-mobile">Menu</span>
+    <button class="menu-mobile" type="button" aria-expanded="false" aria-controls="menu-plein"><span class="traits" aria-hidden="true"></span>Menu</button>
   </div>
 </header>
 
-<!-- Brief : en haut le logo, puis « Ouvrir le champ de vos possibles » (vouvoiement sur le site), puis le texte d'introduction -->
+<!-- menu plein écran, hors de l'en-tête : son flou d'arrière-plan enfermerait un élément fixe -->
+<div class="menu-plein grain" id="menu-plein" role="dialog" aria-modal="true" aria-label="Menu">
+  <img class="fond" src="logo/hypnomorphosis-embleme.svg" alt="">
+  <div class="barre wrap">
+    <a class="marque" href="#"><img class="embleme" src="logo/hypnomorphosis-embleme.svg" alt="Logo HypnoMorphosis" width="46" height="46"><span translate="no">HYPNOMORPHOSIS</span></a>
+    <button class="menu-mobile" type="button" data-fermer><span aria-hidden="true">✕</span>Fermer</button>
+  </div>
+  <nav>
+    <a href="#experiences">Les expériences <small>Boutique</small></a>
+    <a href="#decouverte">Expérience découverte <small>Gratuite</small></a>
+    <a href="#apropos">À propos</a>
+    <a href="#">Mon espace</a>
+  </nav>
+  <p class="pied">Ouvrir le champ de vos possibles</p>
+</div>
+
+<!-- Brief : en haut le logo, puis « Ouvrir le champ de vos possibles » (vouvoiement sur le site), puis le texte d’introduction -->
 <section class="ouverture grain">
   <div class="wrap">
     <div>
       <h1>Ouvrir le champ<br>de <em>vos possibles</em></h1>
       <div class="accroche">
         <p class="forte">Vous avez en vous un pouvoir que vous ne connaissez peut-être pas encore.</p>
-        <p class="douce">Vous portez déjà en vous des ressources insoupçonnées, des possibilités qui ne demandent qu'à être découvertes.</p>
-        <p class="forte">À travers l'hypnose, venez à la rencontre de vous-même et découvrez tout ce qui peut encore s'ouvrir à vous.</p>
+        <p class="douce">Vous portez déjà en vous des ressources insoupçonnées, des possibilités qui ne demandent qu’à être découvertes.</p>
+        <p class="forte">À travers l’hypnose, venez à la rencontre de vous-même et découvrez tout ce qui peut encore s’ouvrir à vous.</p>
       </div>
       <div class="actions">
         <a class="btn btn-plein" href="#decouverte">Je découvre HypnoMorphosis gratuitement</a>
@@ -229,24 +282,24 @@
   </div>
 </section>
 
-<!-- Brief : redirection vers l'expérience découverte, avec sa photo et ses textes -->
+<!-- Brief : redirection vers l’expérience découverte, avec sa photo et ses textes -->
 <section class="decouverte grain" id="decouverte">
   <div class="wrap">
     <div class="couverture">
       <span class="gratuit">EXPÉRIENCE DÉCOUVERTE · GRATUITE</span>
-      <a class="couv" href="#"><img src="couverture-decouverte.jpg" alt="Couverture du carnet de l'expérience découverte"></a>
+      <a class="couv" href="#"><img src="couverture-decouverte.jpg" alt="Couverture du carnet de l’expérience découverte"></a>
     </div>
     <div>
       <span class="caps">Expérience découverte</span>
       <h2 class="section">Vivez votre première expérience HypnoMorphosis gratuitement</h2>
-      <p class="question-titre">Et si, pendant 5 jours, vous tentiez HypnoMorphosis ?</p>
-      <p class="chapo">Laissez-vous guider, jour après jour, dans une première découverte qui pourrait bien faire émerger des possibilités que vous n'aviez pas envisagées.</p>
-      <p class="acces-titre">Vous aurez accès à :</p>
+      <p class="question-titre">Et si, pendant 5 jours, vous tentiez HypnoMorphosis&nbsp;?</p>
+      <p class="chapo">Laissez-vous guider, jour après jour, dans une première découverte qui pourrait bien faire émerger des possibilités que vous n’aviez pas envisagées.</p>
+      <p class="acces-titre">Vous aurez accès à&nbsp;:</p>
       <ul class="acces">
         <li><svg class="icone"><use href="#i-casque"/></svg><span><b>2 expériences audio guidées</b> pour vous laisser guider autrement</span></li>
         <li><svg class="icone"><use href="#i-chemin"/></svg><span><b>Une ordalie</b>, pour expérimenter plutôt que simplement réfléchir</span></li>
-        <li><svg class="icone"><use href="#i-plume"/></svg><span><b>Un exercice chaque jour pendant 5 jours</b>, pour avancer pas à pas dans l'expérience</span></li>
-        <li><svg class="icone"><use href="#i-sceau"/></svg><span><b>Un engagement à signer</b>, pour marquer votre décision d'aller jusqu'au bout de ces 5 jours</span></li>
+        <li><svg class="icone"><use href="#i-plume"/></svg><span><b>Un exercice chaque jour pendant 5 jours</b>, pour avancer pas à pas dans l’expérience</span></li>
+        <li><svg class="icone"><use href="#i-sceau"/></svg><span><b>Un engagement à signer</b>, pour marquer votre décision d’aller jusqu’au bout de ces 5 jours</span></li>
       </ul>
       <a class="btn btn-plein" href="#">Je découvre HypnoMorphosis gratuitement</a>
     </div>
@@ -257,7 +310,7 @@
   <div class="wrap">
     <span class="caps">Les expériences HypnoMorphosis</span>
     <h2 class="section">Une véritable expérience personnelle à vivre</h2>
-    <p class="intro-section">Un carnet à imprimer, des exercices d'introspection, des audios d'hypnose et une progression sur plusieurs jours.</p>
+    <p class="intro-section">Un carnet à imprimer, des exercices d’introspection, des audios d’hypnose et une progression sur plusieurs jours.</p>
     <div class="formats">
       <span><svg class="icone"><use href="#i-casque"/></svg>Audios dans votre espace</span>
       <span><svg class="icone"><use href="#i-carnet"/></svg>Carnet à imprimer</span>
@@ -266,15 +319,15 @@
     <div class="carnets">
       <a class="carnet" href="#">
         <div class="couv couv-noeud"><div class="boussole"></div><span class="cat">Expérience universelle</span><div><h3>Le Nœud</h3><span class="duree">21 jours</span></div></div>
-        <div class="infos"><p>21 jours pour dénouer, comprendre et se reconnecter à soi.</p><div class="ligne"><span class="prix">49 €</span><span class="lien">Découvrir</span></div></div>
+        <div class="infos"><p>21 jours pour dénouer, comprendre et se reconnecter à soi.</p><div class="ligne"><span class="prix">49&nbsp;€</span><span class="lien">Découvrir</span></div></div>
       </a>
       <a class="carnet" href="#">
         <div class="couv couv-apres"><div class="boussole"></div><span class="cat">Expérience miroir</span><div><h3>Après nous</h3><span class="duree">21 jours</span></div></div>
-        <div class="infos"><p>21 jours pour revenir à soi après une séparation.</p><div class="ligne"><span class="prix">49 €</span><span class="lien">Découvrir</span></div></div>
+        <div class="infos"><p>21 jours pour revenir à soi après une séparation.</p><div class="ligne"><span class="prix">49&nbsp;€</span><span class="lien">Découvrir</span></div></div>
       </a>
       <div class="carnet">
         <div class="couv couv-avenir"><span class="cat">Grandes expériences</span><div><h3>Bientôt</h3><span class="duree">Des thèmes qui demandent davantage de temps</span></div></div>
-        <div class="infos"><p>Pour aller à la rencontre de soi et découvrir ce qui peut émerger lorsque l'on prend vraiment le temps d'explorer.</p></div>
+        <div class="infos"><p>Pour aller à la rencontre de soi et découvrir ce qui peut émerger lorsque l’on prend vraiment le temps d’explorer.</p></div>
       </div>
     </div>
   </div>
@@ -299,19 +352,22 @@
     <div class="portrait"><img src="Photo_Berenice.jpg" alt="Bérénice"></div>
     <div>
       <span class="caps">À propos</span>
-      <blockquote>« L'hypnose, ça sert à rien et pourtant ça change tout. »</blockquote>
-      <p>Derrière HypnoMorphosis, il y a moi. Je suis Bérénice, ancienne infirmière urgentiste et aujourd'hui hypnothérapeute.</p>
-      <a class="btn btn-trait" href="#">Lire mon histoire</a>
+      <blockquote>«&nbsp;L’hypnose, ça sert à rien et pourtant ça change tout.&nbsp;»</blockquote>
+      <p>Derrière HypnoMorphosis, il y a moi. Je suis Bérénice, ancienne infirmière urgentiste et aujourd’hui hypnothérapeute.</p>
+      <div class="actions">
+        <a class="btn btn-trait" href="#">Lire mon histoire</a>
+        <a class="presse" href="https://adresses-incontournables.madame.lefigaro.fr/prendre-soin-soi/berenice-hervet/" target="_blank" rel="noopener">Vu dans <i>Madame Figaro</i></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Brief : bloc réseaux sociaux sur l'accueil -->
+<!-- Brief : bloc réseaux sociaux sur l’accueil -->
 <section class="reseaux">
   <div class="boussole"></div>
   <div class="contenu wrap">
-    <h2 class="section">Vous voulez découvrir HypnoMorphosis autrement ?</h2>
-    <p>Retrouvez-moi sur TikTok, Instagram et YouTube pour découvrir mes réflexions, mes expériences et une autre façon de parler de l'hypnose.</p>
+    <h2 class="section">Vous voulez découvrir HypnoMorphosis autrement&nbsp;?</h2>
+    <p>Retrouvez-moi sur TikTok, Instagram et YouTube pour découvrir mes réflexions, mes expériences et une autre façon de parler de l’hypnose.</p>
     <div class="liens">
       <a class="btn btn-trait" href="#"><svg class="icone"><use href="#i-tiktok"/></svg>TikTok</a>
       <a class="btn btn-trait" href="#"><svg class="icone"><use href="#i-instagram"/></svg>Instagram</a>
@@ -337,5 +393,38 @@
   </div>
 </footer>
 
+<script>
+  // en-tête : ombre légère dès qu'on quitte le haut de page
+  const entete = document.querySelector('header.site');
+  const ombre = () => entete.classList.toggle('defile', scrollY > 8);
+  addEventListener('scroll', ombre, { passive: true });
+  ombre();
+
+  // menu plein écran sur téléphone
+  const menu = document.getElementById('menu-plein');
+  const bouton = document.querySelector('header.site .menu-mobile');
+  const basculer = ouvrir => {
+    menu.classList.toggle('ouvert', ouvrir);
+    document.body.classList.toggle('menu-ouvert', ouvrir);
+    bouton.setAttribute('aria-expanded', ouvrir);
+    (ouvrir ? menu.querySelector('[data-fermer]') : bouton).focus();
+  };
+  bouton.addEventListener('click', () => basculer(true));
+  menu.querySelector('[data-fermer]').addEventListener('click', () => basculer(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => basculer(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('ouvert')) basculer(false); });
+
+  // apparition douce des blocs au défilement ; les éléments d'une même rangée arrivent l'un après l'autre
+  const groupes = ['.decouverte .couverture', '.decouverte .wrap > div:last-child', '.experiences .caps', '.experiences h2', '.experiences .intro-section',
+    '.experiences .formats', '.carnet', '.portrait', '.apropos .wrap > div:last-child', '.reseaux .contenu > *', 'footer.site .haut > div'];
+  const observateur = new IntersectionObserver(entrees => entrees.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observateur.unobserve(e.target); }
+  }), { rootMargin: '0px 0px -8% 0px' });
+  groupes.forEach(sel => document.querySelectorAll(sel).forEach((el, i) => {
+    el.classList.add('revele');
+    el.style.setProperty('--delai', (i * .12) + 's');
+    observateur.observe(el);
+  }));
+</script>
 </body>
 </html>
