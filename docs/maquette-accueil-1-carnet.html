@@ -93,7 +93,7 @@
   a:focus-visible, button:focus-visible { outline: 2px solid var(--dore); outline-offset: 3px; }
 
   /* apparition douce au défilement : seulement si le script tourne, pour que la page reste lisible sans lui */
-  .js .revele { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--delai, 0s); }
+  .js .revele { opacity: 0; transform: translateY(28px); transition: opacity 1.5s ease, transform 1.5s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--delai, 0s); }
   .js .revele.visible { opacity: 1; transform: none; }
 
   /* ---------- Ouverture ---------- */
@@ -419,10 +419,10 @@
     '.experiences .formats', '.carnet', '.portrait', '.apropos .wrap > div:last-child', '.reseaux .contenu > *', 'footer.site .haut > div'];
   const observateur = new IntersectionObserver(entrees => entrees.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); observateur.unobserve(e.target); }
-  }), { rootMargin: '0px 0px -8% 0px' });
+  }), { rootMargin: '0px 0px -12% 0px' });
   groupes.forEach(sel => document.querySelectorAll(sel).forEach((el, i) => {
     el.classList.add('revele');
-    el.style.setProperty('--delai', (i * .12) + 's');
+    el.style.setProperty('--delai', (i * .25) + 's');
     observateur.observe(el);
   }));
 </script>
