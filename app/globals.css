@@ -1,1 +1,208 @@
 @import "tailwindcss";
+
+/* Styles de l'accueil, repris de la maquette validée par Bérénice (docs/maquette-accueil-1-carnet.html).
+   Les polices viennent de next/font (variables posées sur <html> dans app/layout.tsx). */
+
+:root {
+  --papier: #fbf9f4;
+  --pierre: #f1ece1;
+  --filet: #e3dfd2;
+  --sauge: #8b9173;
+  --sauge-clair: #dfe1d2;
+  --olive: #555a40;
+  --olive-nuit: #2f3425;
+  --dore: #c9a46a;
+  --encre: #33352a;
+  --gris: #6d6c5d;
+  --titre: var(--font-cormorant), Georgia, serif;
+  --capitales: var(--font-marcellus), Georgia, serif;
+  --texte: var(--font-jost), system-ui, sans-serif;
+  color-scheme: light;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--papier); color: var(--encre); font: 300 17px/1.65 var(--texte); }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.caps { font-family: var(--capitales); font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--sauge); }
+.btn { display: inline-flex; align-items: center; gap: 10px; font: 400 13px var(--texte); letter-spacing: .14em; text-transform: uppercase; padding: 15px 26px; transition: background .2s, color .2s; }
+.btn-plein { background: var(--olive); color: var(--papier); }
+.btn-plein:hover { background: var(--olive-nuit); }
+.btn-trait { border: 1px solid var(--olive); color: var(--olive); }
+.btn-trait:hover { background: var(--olive); color: var(--papier); }
+h2.section { font: 300 44px/1.1 var(--titre); margin: 10px 0 16px; }
+@media (max-width: 600px) { h2.section { font-size: 36px; } }
+.intro-section { max-width: 640px; color: var(--gris); }
+
+/* grain de papier, sans image externe */
+.grain { position: relative; isolation: isolate; }
+.grain::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .35; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .42 0 0 0 0 .32 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/* motif du logo : cercles et graduations */
+.boussole { position: absolute; border-radius: 50%; border: 1px solid currentColor; pointer-events: none; }
+.boussole::before { content: ""; position: absolute; inset: 7%; border-radius: 50%; border: 1px dashed currentColor; opacity: .7; }
+.boussole::after { content: ""; position: absolute; left: 50%; top: -6%; bottom: -6%; border-left: 1px solid currentColor; opacity: .6; }
+
+.icone { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* ---------- En-tête ---------- */
+/* verre dépoli : le papier reste lisible, la page défile en flou derrière ; une ombre légère apparaît après le haut de page */
+header.site { border-bottom: 1px solid var(--filet); background: rgba(251, 249, 244, .78); -webkit-backdrop-filter: blur(14px) saturate(1.15); backdrop-filter: blur(14px) saturate(1.15);
+  position: sticky; top: 0; z-index: 10; transition: box-shadow .3s; }
+header.site.defile { box-shadow: 0 10px 28px -20px rgba(40, 40, 25, .45); }
+/* les ancres du menu s'arrêtent sous l'en-tête fixe, pas derrière */
+section[id] { scroll-margin-top: 76px; }
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
+.marque { display: flex; align-items: center; gap: 12px; }
+.marque .embleme { width: 46px; height: 46px; }
+.marque span { font-family: var(--capitales); font-size: 15px; letter-spacing: .22em; color: var(--olive); }
+header.site nav { display: flex; gap: 28px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
+header.site nav a:hover { color: var(--encre); }
+.menu-mobile { display: none; align-items: center; gap: 10px; background: none; border: 0; cursor: pointer; padding: 10px 0; font: 400 13px var(--texte); letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
+.menu-mobile .traits { width: 22px; height: 9px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
+@media (max-width: 900px) { header.site nav { display: none; } .menu-mobile { display: inline-flex; } }
+
+/* menu plein écran sur téléphone, sur le papier, avec l'emblème qui tourne en fond */
+.menu-plein { position: fixed; inset: 0; z-index: 30; background: var(--papier); display: flex; flex-direction: column; overflow: hidden;
+  opacity: 0; visibility: hidden; transform: translateY(-12px); transition: opacity .35s ease, transform .35s ease, visibility 0s .35s; }
+.menu-plein.ouvert { opacity: 1; visibility: visible; transform: none; transition: opacity .35s ease, transform .35s ease; }
+.menu-plein .barre { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
+.menu-plein .barre .marque span { font-size: 13px; letter-spacing: .18em; }
+.menu-plein nav { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 24px; }
+.menu-plein nav a { font: 300 34px/1.15 var(--titre); gap: 16px; color: var(--encre); padding: 14px 0; border-bottom: 1px solid var(--filet); display: flex; justify-content: space-between; align-items: baseline; }
+.menu-plein nav a small { font: 400 10.5px var(--capitales); letter-spacing: .2em; text-transform: uppercase; color: var(--sauge); white-space: nowrap; }
+.menu-plein .pied { padding: 0 24px 34px; font: 300 italic 21px var(--titre); color: var(--olive); }
+.menu-plein .fond { position: absolute; width: 520px; height: 520px; right: -190px; bottom: -150px; opacity: .08; pointer-events: none; animation: tourne 80s linear infinite; }
+.menu-plein nav, .menu-plein .barre, .menu-plein .pied { position: relative; }
+body.menu-ouvert { overflow: hidden; }
+
+/* contour visible au clavier */
+a:focus-visible, button:focus-visible { outline: 2px solid var(--dore); outline-offset: 3px; }
+
+/* apparition douce au défilement : seulement si le script tourne (classe js posée dans le <head>), pour que la page reste lisible sans lui */
+.js .revele { opacity: 0; transform: translateY(28px); transition: opacity 1.5s ease, transform 1.5s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--delai, 0s); }
+.js .revele.visible { opacity: 1; transform: none; }
+
+/* ---------- Ouverture ---------- */
+.ouverture { padding: 56px 0 72px; overflow: hidden; } /* les cercles qui tournent ne doivent pas élargir la page */
+.ouverture .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.ouverture h1 { font: 300 66px/1.02 var(--titre); margin: 0 0 28px; }
+.ouverture h1 em { font-style: italic; color: var(--olive); }
+.accroche { max-width: 500px; margin-bottom: 34px; }
+.accroche .forte { font: 400 23px/1.35 var(--titre); color: var(--encre); }
+.accroche p + p { margin-top: 12px; }
+.accroche .douce { color: var(--gris); }
+.ouverture .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+/* le logo en grand, sur le papier, avec un halo doré discret et sa boussole prolongée */
+.logo-hero { position: relative; aspect-ratio: 1; width: 100%; max-width: 500px; justify-self: center; color: var(--filet);
+  background: radial-gradient(closest-side, rgba(228, 190, 120, .55) 0%, rgba(228, 190, 120, .22) 55%, rgba(232, 200, 140, 0) 100%); }
+.logo-hero .boussole { inset: 0; width: 100%; }
+.logo-hero .boussole.petite { inset: 9%; width: auto; opacity: .8; }
+.logo-hero .boussole.petite::after { display: none; }
+.logo-hero .scarabee { position: absolute; inset: 15%; width: 70%; height: 70%; }
+/* mouvement : les cercles de la boussole tournent en sens contraires ; leurs points dorés rendent la rotation visible */
+.logo-hero .boussole { animation: tourne 40s linear infinite; color: #d6cdb5; }
+.logo-hero .boussole.petite { animation-duration: 28s; animation-direction: reverse; }
+.logo-hero .point { position: absolute; width: 9px; height: 9px; margin: -4.5px; border-radius: 50%; background: var(--dore); box-shadow: 0 0 10px 2px rgba(201, 164, 106, .55); }
+.logo-hero .point.haut { left: 50%; top: 0; }
+.logo-hero .point.bas { left: 50%; top: 100%; width: 6px; height: 6px; margin: -3px; }
+@keyframes tourne { to { transform: rotate(360deg); } }
+@media (max-width: 860px) {
+  .ouverture .wrap { grid-template-columns: 1fr; gap: 40px; }
+  .ouverture h1 { font-size: 46px; }
+  .logo-hero { max-width: 340px; grid-row: 1; }
+}
+
+/* ---------- Expérience découverte ---------- */
+.decouverte { background: var(--sauge-clair); padding: 88px 0; }
+.decouverte .wrap { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: center; }
+@media (max-width: 860px) { .decouverte .wrap { grid-template-columns: 1fr; gap: 40px; } }
+.decouverte .question-titre { font: 300 italic 28px/1.3 var(--titre); margin-bottom: 10px; }
+.decouverte .chapo { color: #57584a; margin-bottom: 22px; }
+.decouverte .acces-titre { font-weight: 400; margin-bottom: 10px; }
+ul.acces { list-style: none; margin-bottom: 30px; }
+ul.acces li { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-top: 1px solid rgba(85, 90, 64, .18); color: #57584a; }
+ul.acces li:last-child { border-bottom: 1px solid rgba(85, 90, 64, .18); }
+ul.acces .icone { color: var(--olive); margin-top: 1px; }
+ul.acces b { font-weight: 500; color: var(--encre); }
+.couverture { position: relative; max-width: 360px; width: 100%; justify-self: center; }
+/* la couverture du carnet de Bérénice, qui flotte doucement ; un reflet la traverse de temps en temps */
+.couverture .couv { position: relative; display: block; aspect-ratio: 800 / 1280; border-radius: 3px 10px 10px 3px; overflow: hidden;
+  box-shadow: inset 6px 0 0 rgba(0,0,0,.08), 0 30px 50px -30px rgba(40,40,25,.6); animation: flotte 7s ease-in-out infinite; }
+/* l'image extraite du PDF a une marge blanche en bas : on la coupe */
+.couverture .couv img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.couverture .couv::after { content: ""; position: absolute; inset: 0; pointer-events: none; transform: translateX(-120%);
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 244, 214, .45) 50%, transparent 65%); animation: reflet 7s ease-in-out infinite; }
+.couverture .gratuit { position: absolute; top: 18px; left: 50%; transform: translateX(-50%); z-index: 1; white-space: nowrap; padding: 7px 16px; border-radius: 99px;
+  background: rgba(251, 249, 244, .92); color: var(--olive); font-family: var(--capitales); font-size: 11px; letter-spacing: .22em; box-shadow: 0 6px 18px -8px rgba(40,40,25,.5); }
+@keyframes flotte { 0%, 100% { transform: translateY(0) rotate(-.6deg); } 50% { transform: translateY(-10px) rotate(.4deg); } }
+@keyframes reflet { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+@media (prefers-reduced-motion: reduce) {
+  .logo-hero .boussole, .couverture .couv, .couverture .couv::after, .menu-plein .fond { animation: none; }
+  .js .revele { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Expériences ---------- */
+.experiences { padding: 88px 0; }
+.formats { display: flex; flex-wrap: wrap; gap: 10px 34px; margin-top: 22px; color: var(--olive); font-size: 15px; }
+.formats span { display: inline-flex; align-items: center; gap: 10px; }
+.formats .icone { width: 22px; height: 22px; }
+.carnets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }
+@media (max-width: 960px) { .carnets { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .carnets { grid-template-columns: 1fr; } }
+.carnet .couv { position: relative; aspect-ratio: 3 / 4; border-radius: 3px 10px 10px 3px; overflow: hidden; padding: 28px 26px; display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: inset 6px 0 0 rgba(0,0,0,.08), 0 22px 40px -28px rgba(40,40,25,.6); transition: transform .3s; }
+.carnet:hover .couv { transform: translateY(-4px); }
+.carnet .couv .boussole { width: 120%; aspect-ratio: 1; right: -45%; bottom: -30%; opacity: .45; }
+.carnet .couv .cat { font-family: var(--capitales); font-size: 11px; letter-spacing: .24em; text-transform: uppercase; opacity: .85; }
+.carnet .couv h3 { font: 400 38px/1.05 var(--titre); position: relative; }
+.carnet .couv .duree { font-family: var(--titre); font-style: italic; font-size: 18px; opacity: .9; }
+.couv-noeud { background: linear-gradient(160deg, #6e7552, #555a40); color: #f1ecdd; }
+.couv-apres { background: linear-gradient(160deg, #e3d3b3, #cdb68d); color: #3e3a2a; }
+.couv-avenir { background: transparent; border: 1px dashed #c9c3ad; color: var(--sauge); box-shadow: none !important; }
+.carnet .infos { padding: 18px 4px 0; }
+.carnet .infos p { color: var(--gris); font-size: 15.5px; margin-bottom: 10px; }
+.carnet .infos .ligne { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--filet); padding-top: 10px; }
+.carnet .infos .prix { font: 400 22px var(--titre); }
+.carnet .infos .lien { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
+
+/* ---------- À propos ---------- */
+.apropos { background: var(--pierre); padding: 80px 0; position: relative; overflow: hidden; }
+.apropos .wrap { position: relative; display: grid; grid-template-columns: 260px 1fr; gap: 56px; align-items: center; }
+@media (max-width: 760px) { .apropos .wrap { grid-template-columns: 1fr; gap: 28px; } }
+.portrait { position: relative; width: 240px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; outline: 1px solid var(--sauge); outline-offset: 10px; }
+.portrait img { object-fit: cover; object-position: 30% 38%; transform: scale(1.35); transform-origin: 32% 40%; }
+/* la phrase tient sur une seule ligne dès que la largeur le permet */
+.apropos blockquote { font: 300 italic 34px/1.25 var(--titre); margin: 12px 0 18px; }
+@media (min-width: 1000px) { .apropos blockquote { white-space: nowrap; } }
+.apropos p { color: var(--gris); max-width: 620px; margin-bottom: 22px; }
+.apropos .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+/* mention presse : discrète, en capitales, comme une signature */
+.presse { display: inline-flex; align-items: center; gap: 12px; font: 400 11.5px var(--capitales); letter-spacing: .2em; text-transform: uppercase; color: var(--olive); }
+.presse::before { content: ""; width: 28px; border-top: 1px solid var(--dore); }
+.presse i { font: italic 400 17px var(--titre); letter-spacing: .02em; text-transform: none; color: var(--encre); }
+.presse:hover i { text-decoration: underline; text-decoration-color: var(--dore); text-underline-offset: 4px; }
+.rameau { position: absolute; right: 2%; top: 50%; transform: translateY(-50%) rotate(-8deg); width: 300px; stroke: var(--sauge); fill: none; stroke-width: 1.1; opacity: .55; }
+@media (max-width: 760px) { .rameau { width: 170px; opacity: .4; } .apropos blockquote { font-size: 29px; } }
+
+/* ---------- Réseaux sociaux ---------- */
+.reseaux { padding: 80px 0; text-align: center; position: relative; overflow: hidden; color: var(--filet); }
+.reseaux .boussole { width: 460px; aspect-ratio: 1; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.reseaux .contenu { position: relative; color: var(--encre); }
+.reseaux p { max-width: 560px; margin: 0 auto 26px; color: var(--gris); }
+.reseaux .liens { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.reseaux .icone { width: 18px; height: 18px; }
+
+/* ---------- Pied de page ---------- */
+footer.site { background: var(--olive-nuit); color: #d8d3c0; padding: 64px 0 36px; }
+footer.site .haut { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+@media (max-width: 760px) { footer.site .haut { grid-template-columns: 1fr; } }
+footer.site .nom { font-family: var(--capitales); letter-spacing: .24em; font-size: 16px; color: #ece6d6; margin-bottom: 8px; }
+footer.site .devise { font: 300 italic 21px var(--titre); color: var(--dore); }
+footer.site h2 { font: 400 11px var(--capitales); letter-spacing: .22em; text-transform: uppercase; color: #9fa385; margin-bottom: 12px; }
+footer.site ul { list-style: none; font-size: 15px; line-height: 2; }
+footer.site ul a:hover { color: #fff; }
+footer.site .icones { display: flex; gap: 16px; color: #ece6d6; }
+footer.site .icones .icone { width: 22px; height: 22px; }
+footer.site .bas { margin-top: 48px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; font-size: 13px; color: #9fa385; }

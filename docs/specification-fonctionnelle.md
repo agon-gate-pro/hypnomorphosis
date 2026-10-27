@@ -231,10 +231,10 @@ Même socle que Set et Brique, déjà maîtrisé par Agon Gate :
 
 Relevé le 2026-10-27 en passant la maquette au crible des règles d'interface web de Vercel (skill `web-design-guidelines`) :
 
-- Favicon tiré de l'emblème SVG (absent aujourd'hui, erreur 404) et image d'aperçu pour les partages (Open Graph) : le public arrive surtout par TikTok et Instagram, la carte affichée au partage d'un lien compte.
+- ~~Favicon et image d'aperçu pour les partages~~ : faits sur l'accueil Next.js (`app/icon.svg`, `app/opengraph-image.tsx`).
 - Accessibilité : contour visible au clavier (fait dans la maquette), petites capitales vert sauge à foncer légèrement (contraste insuffisant à 12 px), icônes décoratives masquées aux lecteurs d'écran, hiérarchie des titres du pied de page.
-- Performance : trois polices au lieu de quatre (Newsreader et Cormorant Garamond font double emploi), images avec dimensions fixes et chargement différé sous la ligne de flottaison (`next/image`).
-- Liens du pied de page cliquables, `theme-color` et `color-scheme` déclarés.
+- ~~Performance : trois polices au lieu de quatre, images via `next/image`~~ : fait sur l'accueil Next.js.
+- ~~Liens du pied de page cliquables, `theme-color` et `color-scheme` déclarés~~ : fait.
 - Typographie française : apostrophes courbes et espaces insécables (avant « ? : ! ; », dans les guillemets, avant « € ») dans tous les textes, y compris ceux saisis en base.
 - Mention « Vu dans Madame Figaro » : vérifier sur la page de l'article qu'il s'agit bien d'un contenu éditorial (rubrique « Adresses incontournables ») avant la mise en ligne.
 
