@@ -42,3 +42,6 @@ next-env.d.ts
 
 # playwright mcp (captures, journaux)
 .playwright-mcp/
+
+# réglages Claude Code propres à chaque poste
+.claude/settings.local.json
