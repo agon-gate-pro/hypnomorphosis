@@ -85,9 +85,12 @@
   .logo-hero .boussole.petite { inset: 9%; width: auto; opacity: .8; }
   .logo-hero .boussole.petite::after { display: none; }
   .logo-hero .scarabee { position: absolute; inset: 15%; width: 70%; height: 70%; }
-  /* mouvement : les cercles de la boussole tournent lentement, en sens contraires */
-  .logo-hero .boussole { animation: tourne 90s linear infinite; }
-  .logo-hero .boussole.petite { animation-duration: 60s; animation-direction: reverse; }
+  /* mouvement : les cercles de la boussole tournent en sens contraires ; leurs points dorés rendent la rotation visible */
+  .logo-hero .boussole { animation: tourne 40s linear infinite; color: #d6cdb5; }
+  .logo-hero .boussole.petite { animation-duration: 28s; animation-direction: reverse; }
+  .logo-hero .point { position: absolute; width: 9px; height: 9px; margin: -4.5px; border-radius: 50%; background: var(--dore); box-shadow: 0 0 10px 2px rgba(201, 164, 106, .55); }
+  .logo-hero .point.haut { left: 50%; top: 0; }
+  .logo-hero .point.bas { left: 50%; top: 100%; width: 6px; height: 6px; margin: -3px; }
   @keyframes tourne { to { transform: rotate(360deg); } }
   @media (max-width: 860px) {
     .ouverture .wrap { grid-template-columns: 1fr; gap: 40px; }
@@ -151,7 +154,9 @@
   @media (max-width: 760px) { .apropos .wrap { grid-template-columns: 1fr; gap: 28px; } }
   .portrait { width: 240px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; outline: 1px solid var(--sauge); outline-offset: 10px; }
   .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 38%; transform: scale(1.35); transform-origin: 32% 40%; }
-  .apropos blockquote { font: 300 italic 36px/1.25 var(--titre); margin: 12px 0 18px; max-width: 640px; }
+  /* la phrase tient sur une seule ligne dès que la largeur le permet */
+  .apropos blockquote { font: 300 italic 34px/1.25 var(--titre); margin: 12px 0 18px; }
+  @media (min-width: 1000px) { .apropos blockquote { white-space: nowrap; } }
   .apropos p { color: var(--gris); max-width: 620px; margin-bottom: 22px; }
   .rameau { position: absolute; right: 2%; top: 50%; transform: translateY(-50%) rotate(-8deg); width: 300px; stroke: var(--sauge); fill: none; stroke-width: 1.1; opacity: .55; }
   @media (max-width: 760px) { .rameau { width: 170px; opacity: .4; } .apropos blockquote { font-size: 29px; } }
@@ -217,8 +222,8 @@
       </div>
     </div>
     <div class="logo-hero" aria-hidden="true">
-      <div class="boussole"></div>
-      <div class="boussole petite"></div>
+      <div class="boussole"><span class="point haut"></span><span class="point bas"></span></div>
+      <div class="boussole petite"><span class="point haut"></span></div>
       <img class="scarabee" src="logo/hypnomorphosis-embleme.svg" alt="">
     </div>
   </div>
@@ -254,9 +259,9 @@
     <h2 class="section">Une véritable expérience personnelle à vivre</h2>
     <p class="intro-section">Un carnet à imprimer, des exercices d'introspection, des audios d'hypnose et une progression sur plusieurs jours.</p>
     <div class="formats">
-      <span><svg class="icone"><use href="#i-carnet"/></svg>Carnet à imprimer</span>
       <span><svg class="icone"><use href="#i-casque"/></svg>Audios dans votre espace</span>
-      <span><svg class="icone"><use href="#i-ecran"/></svg>Ou carnet en ligne</span>
+      <span><svg class="icone"><use href="#i-carnet"/></svg>Carnet à imprimer</span>
+      <span><svg class="icone"><use href="#i-ecran"/></svg>Carnet en ligne dans votre espace</span>
     </div>
     <div class="carnets">
       <a class="carnet" href="#">
