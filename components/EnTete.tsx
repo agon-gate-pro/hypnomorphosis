@@ -55,7 +55,7 @@ export default function EnTete() {
             {liens.map((l) => <a key={l.texte} href={l.href}>{l.texte}</a>)}
           </nav>
           <button ref={boutonMenu} className="menu-mobile" type="button" aria-expanded={ouvert} aria-controls="menu-plein" onClick={() => setOuvert(true)}>
-            <span className="traits" aria-hidden="true" />Menu
+            <span className="traits" aria-hidden="true" /><span className="mot">Menu</span>
           </button>
         </div>
       </header>
@@ -66,7 +66,7 @@ export default function EnTete() {
         <div className="barre wrap">
           <Marque />
           <button ref={boutonFermer} className="menu-mobile" type="button" onClick={() => setOuvert(false)}>
-            <span aria-hidden="true">✕</span>Fermer
+            <span aria-hidden="true">✕</span><span className="mot">Fermer</span>
           </button>
         </div>
         <nav>

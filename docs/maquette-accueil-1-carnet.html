@@ -80,7 +80,8 @@
   .menu-plein { position: fixed; inset: 0; z-index: 30; background: var(--papier); display: flex; flex-direction: column; overflow: hidden;
     opacity: 0; visibility: hidden; transform: translateY(-12px); transition: opacity .35s ease, transform .35s ease, visibility 0s .35s; }
   .menu-plein.ouvert { opacity: 1; visibility: visible; transform: none; transition: opacity .35s ease, transform .35s ease; }
-  .menu-plein .barre { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
+  /* width : dans la colonne flex, les marges auto du .wrap la réduisaient à son contenu, centré */
+  .menu-plein .barre { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; width: 100%; }
   .menu-plein .barre .marque span { font-size: 13px; letter-spacing: .18em; }
   .menu-plein nav { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 24px; }
   .menu-plein nav a { font: 300 34px/1.15 var(--titre); gap: 16px; color: var(--encre); padding: 14px 0; border-bottom: 1px solid var(--filet); display: flex; justify-content: space-between; align-items: baseline; }
@@ -89,6 +90,20 @@
   .menu-plein .fond { position: absolute; width: 520px; right: -190px; bottom: -150px; opacity: .08; pointer-events: none; animation: tourne 80s linear infinite; }
   .menu-plein nav, .menu-plein .barre, .menu-plein .pied { position: relative; }
   body.menu-ouvert { overflow: hidden; }
+  .menu-mobile { flex-shrink: 0; }
+
+  /* sur téléphone, le nom à la taille du PC passait sous le bouton Menu (dès 360 px) : nom, emblème et en-tête plus compacts */
+  @media (max-width: 640px) {
+    header.site .wrap, .menu-plein .barre { height: 64px; }
+    section[id] { scroll-margin-top: 64px; }
+    .marque { gap: 10px; }
+    .marque .embleme { width: 38px; height: 38px; }
+    .marque span, .menu-plein .barre .marque span { font-size: 12.5px; letter-spacing: .16em; }
+  }
+  /* petits téléphones (320 px) : le bouton ne garde que son icône, le mot reste lu par les lecteurs d'écran */
+  @media (max-width: 380px) {
+    .menu-mobile .mot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  }
 
   /* contour visible au clavier */
   a:focus-visible, button:focus-visible { outline: 2px solid var(--dore); outline-offset: 3px; }
@@ -245,7 +260,7 @@
   <div class="wrap">
     <a class="marque" href="#"><img class="embleme" src="logo/hypnomorphosis-embleme.svg" alt="Logo HypnoMorphosis" width="46" height="46"><span translate="no">HYPNOMORPHOSIS</span></a>
     <nav><a href="#experiences">Les expériences</a><a href="#decouverte">Expérience découverte</a><a href="#apropos">Derrière HypnoMorphosis</a><a href="#">Mon espace</a></nav>
-    <button class="menu-mobile" type="button" aria-expanded="false" aria-controls="menu-plein"><span class="traits" aria-hidden="true"></span>Menu</button>
+    <button class="menu-mobile" type="button" aria-expanded="false" aria-controls="menu-plein"><span class="traits" aria-hidden="true"></span><span class="mot">Menu</span></button>
   </div>
 </header>
 
@@ -254,7 +269,7 @@
   <img class="fond" src="logo/hypnomorphosis-embleme.svg" alt="">
   <div class="barre wrap">
     <a class="marque" href="#"><img class="embleme" src="logo/hypnomorphosis-embleme.svg" alt="Logo HypnoMorphosis" width="46" height="46"><span translate="no">HYPNOMORPHOSIS</span></a>
-    <button class="menu-mobile" type="button" data-fermer><span aria-hidden="true">✕</span>Fermer</button>
+    <button class="menu-mobile" type="button" data-fermer><span aria-hidden="true">✕</span><span class="mot">Fermer</span></button>
   </div>
   <nav>
     <a href="#experiences">Les expériences <small>Boutique</small></a>
