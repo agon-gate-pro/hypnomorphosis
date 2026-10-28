@@ -161,20 +161,24 @@
   .formats { display: flex; flex-wrap: wrap; gap: 10px 34px; margin-top: 22px; color: var(--olive); font-size: 15px; }
   .formats span { display: inline-flex; align-items: center; gap: 10px; }
   .formats .icone { width: 22px; height: 22px; }
-  .carnets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }
-  @media (max-width: 960px) { .carnets { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 620px) { .carnets { grid-template-columns: 1fr; } }
+  /* deux carnets au lancement : centrés, à la largeur qu'ils avaient sur trois colonnes */
+  .carnets { display: grid; grid-template-columns: repeat(2, minmax(0, 360px)); justify-content: center; gap: 28px; margin-top: 40px; }
+  @media (max-width: 620px) { .carnets { grid-template-columns: minmax(0, 420px); } }
+  /* la couverture de Bérénice en fond, voilée en haut et en bas pour lire la catégorie et le titre */
   .carnet .couv { position: relative; aspect-ratio: 3 / 4; border-radius: 3px 10px 10px 3px; overflow: hidden; padding: 28px 26px; display: flex; flex-direction: column; justify-content: space-between;
-    box-shadow: inset 6px 0 0 rgba(0,0,0,.08), 0 22px 40px -28px rgba(40,40,25,.6); transition: transform .3s; }
+    background: var(--olive); color: #f6f1e4; box-shadow: inset 6px 0 0 rgba(0,0,0,.08), 0 22px 40px -28px rgba(40,40,25,.6); transition: transform .3s; }
+  .carnet .couv img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .carnet .couv::before { content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, rgba(34,36,24,.5) 0%, rgba(34,36,24,0) 30%, rgba(34,36,24,0) 50%, rgba(34,36,24,.75) 100%); }
+  .carnet .couv > span, .carnet .couv > div { position: relative; z-index: 2; }
   .carnet:hover .couv { transform: translateY(-4px); }
-  .carnet .couv .boussole { width: 120%; aspect-ratio: 1; right: -45%; bottom: -30%; opacity: .45; }
-  .carnet .couv .cat { font-family: var(--capitales); font-size: 11px; letter-spacing: .24em; text-transform: uppercase; opacity: .85; }
+  .carnet .couv .cat { font-family: var(--capitales); font-size: 11px; letter-spacing: .24em; text-transform: uppercase; opacity: .9; }
   .carnet .couv h3 { font: 400 38px/1.05 var(--titre); position: relative; }
   .carnet .couv .duree { font-family: var(--citation); font-style: italic; font-size: 16px; opacity: .9; }
-  .couv-noeud { background: linear-gradient(160deg, #6e7552, #555a40); color: #f1ecdd; }
-  .couv-apres { background: linear-gradient(160deg, #e3d3b3, #cdb68d); color: #3e3a2a; }
-  .couv-avenir { background: transparent; border: 1px dashed #c9c3ad; color: var(--sauge); box-shadow: none !important; }
-  .carnet .infos { padding: 18px 4px 0; }
+  /* prix alignés en bas, même si une description passe sur deux lignes */
+  .carnet { display: flex; flex-direction: column; }
+  .carnet .infos { padding: 18px 4px 0; flex: 1; display: flex; flex-direction: column; }
+  .carnet .infos .ligne { margin-top: auto; }
   .carnet .infos p { color: var(--gris); font-size: 15.5px; margin-bottom: 10px; }
   .carnet .infos .ligne { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--filet); padding-top: 10px; }
   .carnet .infos .prix { font: 400 22px var(--titre); }
@@ -319,17 +323,13 @@
     </div>
     <div class="carnets">
       <a class="carnet" href="#">
-        <div class="couv couv-noeud"><div class="boussole"></div><span class="cat">Expérience universelle</span><div><h3>Le Nœud</h3><span class="duree">21 jours</span></div></div>
+        <div class="couv"><img src="../public/images/couverture-noeud.jpg" alt=""><span class="cat">Expérience universelle</span><div><h3>Le Nœud</h3><span class="duree">21 jours</span></div></div>
         <div class="infos"><p>21 jours pour dénouer, comprendre et se reconnecter à soi.</p><div class="ligne"><span class="prix">49&nbsp;€</span><span class="lien">Découvrir</span></div></div>
       </a>
       <a class="carnet" href="#">
-        <div class="couv couv-apres"><div class="boussole"></div><span class="cat">Expérience miroir</span><div><h3>Après nous</h3><span class="duree">21 jours</span></div></div>
+        <div class="couv"><img src="../public/images/couverture-apres-nous.jpg" alt=""><span class="cat">Expérience miroir</span><div><h3>Après nous</h3><span class="duree">21 jours</span></div></div>
         <div class="infos"><p>21 jours pour revenir à soi après une séparation.</p><div class="ligne"><span class="prix">49&nbsp;€</span><span class="lien">Découvrir</span></div></div>
       </a>
-      <div class="carnet">
-        <div class="couv couv-avenir"><span class="cat">Grandes expériences</span><div><h3>Bientôt</h3><span class="duree">Des thèmes qui demandent davantage de temps</span></div></div>
-        <div class="infos"><p>Pour aller à la rencontre de soi et découvrir ce qui peut émerger lorsque l’on prend vraiment le temps d’explorer.</p></div>
-      </div>
     </div>
   </div>
 </section>

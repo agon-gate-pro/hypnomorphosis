@@ -21,6 +21,7 @@
 - 2026-10-27 : revue de la maquette avec les règles d'interface web de Vercel. Faits dans la maquette : apparition douce des blocs au défilement, mention « Vu dans Madame Figaro » dans À propos, vrai menu plein écran sur téléphone, ancres qui s'arrêtent sous l'en-tête, typographie française (apostrophes, espaces insécables), en-tête en verre dépoli, contour visible au clavier. Le reste (favicon, aperçu de partage, contrastes, polices, images) est noté dans la section 11 de la spécification pour le vrai site. Vérifiée sur PC et mobile. Doublon `docs/Logo officiel.jpg` supprimé.
 - 2026-10-27 : la maquette validée devient la vraie page d'accueil Next.js (branche `accueil`, partie de `specification`) : composants, polices next/font, images optimisées, favicon (emblème), carte de partage pour les réseaux, site marqué « noindex ». `pnpm lint` et `pnpm build` passent ; vérifiée en mode production sur PC et mobile (menu, ancres, apparitions, image de partage). Mise en ligne : Alexis pousse `accueil` (prévisualisation Vercel), puis fusion dans `main` pour hypnomorphosis.vercel.app.
 - 2026-10-27 : « À propos » renommé « Derrière HypnoMorphosis » (première phrase du texte de Bérénice) dans le menu, l'accueil et le pied de page, sur le site et la maquette. Le menu complet passant moins facilement à côté du nom, l'en-tête bascule sur le bouton Menu sous 1080 px (au lieu de 900). Nom à faire valider par Bérénice.
+- 2026-10-28 : réponse de Bérénice (`docs/Echange Mail 03.txt`) : couvertures de LE NŒUD et APRÈS NOUS, CIF de la société (B75995084), IVA à 21 %, vente de contenus en ligne « pas précisée » dans l'activité de la société selon Cédric, retrait des « Grandes expériences » (vides), 3 photos du studio TikTok (non gardées). Accueil et maquette : carte « Grandes expériences » retirée, deux carnets centrés, couvertures en fond des cartes avec un voile en haut et en bas pour le texte, prix alignés en bas. Couvertures recadrées au format 3:4 dans `public/images/` (logo Gemini du Nœud retiré par recadrage). Spécification mise à jour (sections 4, 10 et 13). `pnpm lint` et `pnpm build` passent ; vérifiée sur PC et mobile.
 
 ## État par module
 
@@ -28,7 +29,7 @@
 | --- | --- |
 | Socle technique (Next.js, Tailwind, Vercel) | Fait |
 | Spécification fonctionnelle | Mise à jour avec les réponses de Bérénice, à valider avec elle |
-| Direction artistique | Proposition 1 « Le carnet » retenue, version 2 faite avec ses retours (`docs/maquette-accueil-1-carnet.html`). Couvertures de LE NŒUD et APRÈS NOUS en attente |
+| Direction artistique | Proposition 1 « Le carnet » retenue, version 2 faite avec ses retours (`docs/maquette-accueil-1-carnet.html`). Couvertures des trois carnets en place |
 | Logo | Vectorisé en SVG par Agon Gate (`docs/logo/`), à montrer à Bérénice |
 | Page d'accueil | Faite en Next.js d'après la maquette validée (branche `accueil`), à mettre en ligne. Liens vers l'inscription, l'espace client, les fiches et les réseaux à brancher |
 | Outils Claude Code | Testés et fusionnés dans `main` : MCP et skills OK, plugins `frontend-design` et `agon-gate` installés sur le poste d'Alexis (à installer une fois par poste) |
@@ -37,7 +38,9 @@
 
 - Questions pour Bérénice : voir la section 13 de `docs/specification-fonctionnelle.md` (logo en SVG et version officielle, droits de la photo de couverture, tutoiement ou vouvoiement, carnet en ligne et exercices de dessin, accès de Bérénice aux réponses, accès permanent, téléchargement des audios, société espagnole et TVA, domaine, CGV).
 - Logo : réglé, vectorisé par Agon Gate à partir du JPG officiel.
-- Couvertures en grand format (expérience découverte, LE NŒUD, APRÈS NOUS) : demandées à Bérénice.
+- Couvertures : reçues. APRÈS NOUS n'existe qu'en paysage 1376 × 768 ; une version plus grande sera utile pour sa fiche.
+- TVA : Bérénice prévoit l'IVA à 21 % partout. À faire confirmer par Cédric (seuil de 10 000 € par an pour les ventes aux particuliers des autres pays de l'UE, puis TVA du pays du client via le guichet OSS ; hors UE, règles locales). Stripe Tax possible.
+- Société : la vente de contenus en ligne n'est pas précisée dans son activité (Cédric) ; raison sociale et adresse à recevoir pour les mentions légales.
 - Slogan au vouvoiement « Ouvrir le champ de vos possibles » : à faire confirmer par Bérénice.
 - `docs/Photo Bérénice 02.jpg` : origine et droits à confirmer (séance du Figaro ?), non versionnée en attendant.
 - Audios de l'expérience découverte : Bérénice les retravaille et les renvoie en MP3 (conseil donné : normaliser à -1 dB avant export). Ses MP3 du 2026-10-27 sont rangés hors dépôt dans `HypnoMorphosis-audios/`, pas encore écoutés.

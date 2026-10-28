@@ -55,7 +55,7 @@ Trois catégories, chacune avec un texte de présentation fourni :
 
 - **Universelles** : mécanismes humains partagés par tous
 - **Miroir** : situations de vie particulières
-- **Grandes expériences** : thèmes demandant plus de temps et d'introspection (aucun produit au lancement)
+- **Grandes expériences** : thèmes demandant plus de temps et d'introspection. Aucun produit au lancement : à la demande de Bérénice (2026-10-28), la catégorie n'est affichée nulle part tant qu'elle est vide. Elle reste prévue en base pour être ajoutée sans toucher au code.
 
 ### Contenu d'une expérience
 
@@ -202,7 +202,8 @@ Les e-mails d'annonce et de promotion sont de la prospection : ils demandent l'a
 | Deuxième photo de Bérénice | `docs/Photo Bérénice 02.jpg` | Photo professionnelle 4200 × 2800, en pied, veste olive, mur blanc, diplômes à droite (recadrage possible). Origine et droits à confirmer |
 | Carnet de l'expérience découverte | `docs/HYPNOMORPHOSIS.pdf` | Couverture photo en garrigue (rochers, lavande, lumière dorée), pages blanches, titres en capitales gris-vert, logo en bas de page |
 | Couverture de l'expérience découverte | `docs/couverture-decouverte.jpg` | Extraite du PDF (800 × 1301). Image générée avec ChatGPT, utilisable sur le site |
-| Couvertures de LE NŒUD et APRÈS NOUS | À venir | Demandées en grand format |
+| Couverture de LE NŒUD | `docs/LE NOEUD.png` | Reçue le 2026-10-28, portrait 848 × 1264. Logo Gemini en bas à droite retiré par recadrage : `public/images/couverture-noeud.jpg` (832 × 1110, format 3:4 des cartes) |
+| Couverture d'APRÈS NOUS | `docs/APRES NOUS.jpg` | Reçue le 2026-10-28, paysage 1376 × 768. Recadrée en portrait sur la femme assise : `public/images/couverture-apres-nous.jpg` (576 × 768). Assez pour les cartes de l'accueil ; une version plus grande serait utile pour une fiche en grand |
 | Audios de l'expérience découverte | Hors dépôt | Bérénice les retravaille (balance gauche-droite voulue, effet hypnotique) et les renvoie en MP3 |
 
 ### Remarques pour la direction artistique
@@ -253,10 +254,12 @@ Réponses déjà reçues le 2026-10-26 : but de l'expérience découverte et ord
 
 Réponses reçues le 2026-10-27 (`docs/Echange Mail 02.txt`) : proposition d'accueil 1 retenue, questions 1, 2 et 4 ci-dessous, formulation « carnet en ligne », lien vers À propos gardé, titres des jours retirés de l'accueil. Pour les choix techniques et stratégiques, Bérénice s'en remet aux conseils d'Agon Gate.
 
+Réponses reçues le 2026-10-28 (`docs/Echange Mail 03.txt`) : couvertures de LE NŒUD et APRÈS NOUS, retrait des « Grandes expériences », CIF de la société et taux d'IVA (questions 15 et 16).
+
 **Identité et contenus**
 
 1. ~~Logo : fichier d'origine et version officielle ?~~ Répondu : version au trait, faite avec Gemini, pas d'autre fichier. Agon Gate l'a vectorisée.
-2. ~~Photo de couverture du carnet ?~~ Répondu : générée avec ChatGPT, utilisable. Fichiers en grand format des trois couvertures demandés.
+2. ~~Photo de couverture du carnet ?~~ Répondu : générée avec ChatGPT, utilisable. Couvertures de LE NŒUD et APRÈS NOUS reçues le 2026-10-28 et en place sur l'accueil.
 3. Une deuxième photo est arrivée (`docs/Photo Bérénice 02.jpg`) : d'où vient-elle et peut-on l'utiliser ? Les visuels des expériences sont leurs couvertures.
 4. ~~Tutoiement ou vouvoiement ?~~ Répondu : vouvoiement sur le site. Slogan « Ouvrir le champ de vos possibles » à lui faire confirmer.
 5. Nombre de pages du carnet d'Après nous.
@@ -275,7 +278,7 @@ Réponses reçues le 2026-10-27 (`docs/Echange Mail 02.txt`) : proposition d'acc
 
 **Administratif (en attente de Cédric)**
 
-15. Société espagnole : raison sociale, adresse, numéro fiscal, numéro de TVA intracommunautaire. La vente de contenus en ligne entre-t-elle dans son activité ?
-16. TVA sur les ventes en ligne aux particuliers de différents pays : qui suit la question (comptable de la société) ?
+15. Société espagnole : raison sociale, adresse, numéro fiscal, numéro de TVA intracommunautaire. La vente de contenus en ligne entre-t-elle dans son activité ? Réponse partielle (2026-10-28) : CIF **B75995084**. Selon Cédric, la vente de contenus en ligne n'est pas précisée dans l'activité de la société : à régulariser avec lui avant le lancement si nécessaire. Raison sociale et adresse encore à recevoir.
+16. TVA sur les ventes en ligne aux particuliers de différents pays : qui suit la question (comptable de la société) ? Réponse partielle (2026-10-28) : Bérénice facturera l'IVA à 21 %. À faire confirmer par Cédric : 21 % vaut pour l'Espagne, et pour les autres pays de l'UE tant que les ventes aux particuliers de l'UE hors Espagne restent sous 10 000 € par an ; au-delà, TVA du pays du client déclarée par le guichet OSS. Hors UE (Suisse, Canada…), règles propres à chaque pays. Stripe Tax peut calculer le bon taux automatiquement.
 17. Nom de domaine : quel nom souhaitez-vous (hypnomorphosis.com, .fr) ?
 18. Qui rédige les CGV et la politique de confidentialité : vous, un juriste, ou une base que nous proposons et que vous faites valider ?

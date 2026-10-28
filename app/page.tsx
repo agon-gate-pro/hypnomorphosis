@@ -78,17 +78,19 @@ export default function Accueil() {
             </div>
             <div className="carnets">
               <a className="carnet revele" href="#">
-                <div className="couv couv-noeud"><div className="boussole" /><span className="cat">Expérience universelle</span><div><h3>Le Nœud</h3><span className="duree">21 jours</span></div></div>
+                <div className="couv">
+                  <Image src="/images/couverture-noeud.jpg" alt="" fill sizes="(max-width: 620px) 92vw, 360px" />
+                  <span className="cat">Expérience universelle</span><div><h3>Le Nœud</h3><span className="duree">21 jours</span></div>
+                </div>
                 <div className="infos"><p>21 jours pour dénouer, comprendre et se reconnecter à soi.</p><div className="ligne"><span className="prix">49&nbsp;€</span><span className="lien">Découvrir</span></div></div>
               </a>
               <a className="carnet revele" href="#" style={delai(1)}>
-                <div className="couv couv-apres"><div className="boussole" /><span className="cat">Expérience miroir</span><div><h3>Après nous</h3><span className="duree">21 jours</span></div></div>
+                <div className="couv">
+                  <Image src="/images/couverture-apres-nous.jpg" alt="" fill sizes="(max-width: 620px) 92vw, 360px" />
+                  <span className="cat">Expérience miroir</span><div><h3>Après nous</h3><span className="duree">21 jours</span></div>
+                </div>
                 <div className="infos"><p>21 jours pour revenir à soi après une séparation.</p><div className="ligne"><span className="prix">49&nbsp;€</span><span className="lien">Découvrir</span></div></div>
               </a>
-              <div className="carnet revele" style={delai(2)}>
-                <div className="couv couv-avenir"><span className="cat">Grandes expériences</span><div><h3>Bientôt</h3><span className="duree">Des thèmes qui demandent davantage de temps</span></div></div>
-                <div className="infos"><p>Pour aller à la rencontre de soi et découvrir ce qui peut émerger lorsque l’on prend vraiment le temps d’explorer.</p></div>
-              </div>
             </div>
           </div>
         </section>
