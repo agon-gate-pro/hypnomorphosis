@@ -110,11 +110,13 @@ Cette exclusion ne couvre pas tout : un contenu inaccessible ou défectueux rest
 
 ### Factures et TVA
 
-Une facture est émise automatiquement pour chaque achat : c'est plus simple et plus rassurant pour le client.
+**Mis à jour le 2026-10-28, en attente de la réponse de Cédric.** Le site ne produit pas de factures lui-même. En Espagne, les factures (même simplifiées, sans nom ni adresse de la cliente, sous 400 €) devront passer par un logiciel conforme Verifactu à partir de 2027 (date à confirmer). Proposition envoyée à Bérénice :
 
-- Stripe la génère et l'envoie par e-mail après le paiement (option `invoice_creation` de la page de paiement), avec un PDF téléchargeable. Numérotation continue gérée par Stripe.
-- Le lien vers la facture est aussi disponible dans l'espace client.
-- Coût : Stripe facture ce service en plus des frais de paiement (petit pourcentage par facture, à vérifier sur la grille tarifaire Stripe au moment de l'activation).
+- Stripe encaisse le paiement et envoie automatiquement un reçu à l'acheteuse (option des réglages Stripe, rien à développer) ;
+- Cédric établit les factures avec son propre logiciel, à partir de la liste des ventes téléchargée depuis le tableau de bord Stripe (rien à développer sur le site non plus) ;
+- pas de lien vers des factures dans l'espace client.
+
+**TVA au lancement** : Bérénice facture l'IVA à 21 % (mail du 2026-10-28). Le site part sur un **taux unique de 21 %, compris dans les prix affichés TTC** (49 €), sans calcul selon le pays de la cliente. Hors UE, l'IVA espagnole n'est en principe pas due : l'appliquer quand même coûte un peu à Bérénice, sans autre conséquence. À surveiller par Cédric : au-delà de 10 000 € de ventes par an à des particuliers d'autres pays de l'UE, la TVA du pays de chaque cliente s'applique (guichet OSS), et Stripe Tax deviendrait utile.
 
 **Point à éclaircir avec Cédric** : l'activité est rattachée à une société en Espagne (celle du mari de Bérénice), pas à une micro-entreprise française. Les mentions de facture et la TVA suivent donc les règles espagnoles et européennes :
 
