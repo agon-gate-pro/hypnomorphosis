@@ -55,7 +55,9 @@ export const organisation = {
 export const berenice = {
   "@type": "Person",
   "@id": `${urlSite}/derriere-hypnomorphosis#berenice`,
-  name: "Bérénice",
+  name: "Bérénice Hervet",
+  givenName: "Bérénice",
+  familyName: "Hervet",
   jobTitle: "Hypnothérapeute",
   description: "Ancienne infirmière urgentiste, aujourd’hui hypnothérapeute, créatrice d’HypnoMorphosis.",
   image: `${urlSite}/images/berenice.jpg`,

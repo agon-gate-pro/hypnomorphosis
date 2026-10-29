@@ -12,7 +12,7 @@ export function GET() {
 
 > ${descriptionSite}
 
-HypnoMorphosis est une marque d’expériences d’hypnose à vivre chez soi, créée par Bérénice, ancienne infirmière urgentiste devenue hypnothérapeute. Chaque expérience associe un carnet PDF à imprimer ou à remplir sur tablette, des audios d’hypnose guidés enregistrés par Bérénice et un exercice d’introspection par jour. Tout est accessible dès l’achat, chacun avance à son rythme. Le site est en français.
+HypnoMorphosis est une marque d’expériences d’hypnose à vivre chez soi, créée par Bérénice Hervet, ancienne infirmière urgentiste devenue hypnothérapeute. Chaque expérience associe un carnet PDF à imprimer ou à remplir sur tablette, des audios d’hypnose guidés enregistrés par Bérénice et un exercice d’introspection par jour. Tout est accessible dès l’achat, chacun avance à son rythme. Le site est en français.
 
 ## Expériences
 
@@ -25,7 +25,7 @@ ${Object.entries(categories).map(([nom, texte]) => `- ${nom} : ${texte}`).join("
 
 ## À propos
 
-- [Derrière HypnoMorphosis](${urlSite}/derriere-hypnomorphosis) : le parcours de Bérénice, des urgences à l’hypnose, et son studio d’enregistrement.
+- [Derrière HypnoMorphosis](${urlSite}/derriere-hypnomorphosis) : le parcours de Bérénice Hervet, des urgences à l’hypnose, et son studio d’enregistrement.
 `;
   return new Response(texte, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
 }

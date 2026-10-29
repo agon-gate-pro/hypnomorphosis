@@ -10,8 +10,8 @@ import DonneesStructurees from "@/components/DonneesStructurees";
 import { berenice, lienFigaro, metaPage, organisation, urlSite } from "@/lib/site";
 
 export const metadata: Metadata = metaPage({
-  titre: "Derrière HypnoMorphosis · Bérénice, ancienne infirmière urgentiste et hypnothérapeute",
-  description: "L’histoire de Bérénice, ancienne infirmière urgentiste devenue hypnothérapeute : des urgences au cabinet, puis la création d’HypnoMorphosis, des expériences d’hypnose à vivre chez soi.",
+  titre: "Derrière HypnoMorphosis · Bérénice Hervet, ancienne infirmière urgentiste et hypnothérapeute",
+  description: "L’histoire de Bérénice Hervet, ancienne infirmière urgentiste devenue hypnothérapeute : des urgences au cabinet, puis la création d’HypnoMorphosis, des expériences d’hypnose à vivre chez soi.",
   chemin: "/derriere-hypnomorphosis",
 });
 
@@ -39,10 +39,10 @@ export default function DerriereHypnoMorphosis() {
         <section className="histoire-ouverture grain">
           <div className="wrap">
             <div className="portrait revele">
-              <Image src="/images/berenice.jpg" alt="Bérénice" fill sizes="240px" priority />
+              <Image src="/images/berenice.jpg" alt="Bérénice Hervet, hypnothérapeute" fill sizes="240px" priority />
             </div>
             <div className="revele" style={delai(1)}>
-              <span className="caps">Derrière HypnoMorphosis</span>
+              <span className="caps">Bérénice Hervet · Hypnothérapeute</span>
               <h1>Derrière HypnoMorphosis, <em>il y a moi.</em></h1>
               <p>Je suis Bérénice, ancienne infirmière urgentiste et aujourd’hui hypnothérapeute.</p>
             </div>

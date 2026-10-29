@@ -134,7 +134,7 @@ export default function Accueil() {
           </svg>
           <div className="wrap">
             <div className="portrait revele">
-              <Image src="/images/berenice.jpg" alt="Bérénice" fill sizes="240px" />
+              <Image src="/images/berenice.jpg" alt="Bérénice Hervet, hypnothérapeute" fill sizes="240px" />
             </div>
             <div className="revele" style={delai(1)}>
               <span className="caps">Derrière HypnoMorphosis</span>
