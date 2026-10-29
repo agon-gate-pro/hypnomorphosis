@@ -61,12 +61,12 @@ Trois catégories, chacune avec un texte de présentation fourni :
 
 Une expérience est un ensemble composé :
 
-- d'un carnet, en deux versions : un **PDF à imprimer** et une **version en ligne**, où le client écrit ses réponses aux exercices directement sur le site (voir section 7) ;
+- d'un **carnet PDF**, à imprimer ou à remplir directement sur tablette avec une application d'annotation (pas de carnet à remplir sur le site, voir section 7) ;
 - des audios d'hypnose qui l'accompagnent : 5 audios d'environ 30 minutes pour chaque expérience payante (2 d'environ 15 minutes pour l'expérience découverte), écoutés sur le site uniquement, sans téléchargement (réponse du 2026-10-29) ;
 - d'exercices d'introspection, un ou plusieurs par jour ;
 - d'une durée en jours.
 
-Bérénice a répondu à la question « les exercices se font-ils seulement sur le carnet imprimé, ou aussi sur le site ? » en demandant les deux versions.
+Bérénice avait d'abord demandé une version en ligne en plus du PDF. Ses carnets demandant aussi de dessiner, colorier, entourer et signer, un carnet numérique adapté serait trop long et trop coûteux à développer : **décision d'Alexis (2026-10-29), carnets PDF uniquement**, comme Bérénice le préférait à défaut de carnet numérique avec dessin.
 
 **Tout est accessible dès le premier jour**, sans déblocage progressif : certains clients impriment leur carnet dès le départ et avancent à leur rythme.
 
@@ -151,26 +151,14 @@ Le visiteur s'inscrit avec son e-mail (création de compte), puis accède à l'e
 
 - Connexion par e-mail (lien ou code de connexion, sans mot de passe à retenir), éventuellement avec Google
 - Liste des expériences achetées ou ouvertes
-- Pour chaque expérience : téléchargement du carnet PDF à imprimer, écoute des audios dans le navigateur, carnet en ligne
+- Pour chaque expérience : carnet PDF (à imprimer ou à remplir sur tablette), écoute des audios dans le navigateur, date de fin d'accès (un an après l'achat)
 - Tout le contenu est disponible dès l'achat
 - Les fichiers ne sont accessibles qu'aux personnes connectées qui y ont droit
 - Lien vers les factures
 
-### Carnet en ligne
+### Carnet en ligne : abandonné (2026-10-29)
 
-> **À revoir (2026-10-29).** Bérénice élargit la question : ses carnets demandent aussi de dessiner, colorier, tracer des flèches, entourer et signer. Elle souhaite un carnet numérique où l'on écrit et dessine librement sur le document, en couleurs ; sinon, elle préfère rester sur des carnets à imprimer. Le carnet en ligne « champs de réponse » décrit ci-dessous ne couvre pas ces exercices. Choix en cours avec Agon Gate (voir `docs/AVANCEMENT.md`).
-
-Le carnet est repris sur le site, jour par jour : texte du jour, phrase d'impulsion, audio à écouter, consignes, et un champ de réponse sous chaque question.
-
-- Les réponses sont enregistrées automatiquement dans le compte du client, qui peut s'arrêter et reprendre plus tard, sur n'importe quel appareil.
-- Le client peut relire ses réponses à tout moment et les télécharger ou les imprimer (avec les questions).
-- Les exercices de dessin (le « jardin » de l'expérience découverte, par exemple) restent sur papier : le site donne la consigne et propose un champ de notes. Envoyer une photo de son dessin est une option possible, à confirmer (question 8).
-- Personne d'autre que le client ne lit ses réponses, pas même Bérénice. Si elle souhaite y avoir accès, cela demande l'accord explicite du client (question 9).
-
-Conséquences :
-
-- Le contenu de chaque expérience (textes et questions de chaque jour) doit être saisi dans le site, en plus du PDF. Ce travail est fait par Agon Gate à chaque nouvelle expérience, à partir du carnet fourni par Bérénice : il pèse sur le temps passé et donc sur le tarif de l'abonnement.
-- Les réponses sont des confidences (émotions, séparation, histoire personnelle). Elles sont protégées en conséquence : accès réservé au client, mention dans la politique de confidentialité, suppression possible par le client, suppression avec le compte.
+Prévu au départ (réponses tapées sur le site, jour par jour), puis élargi par Bérénice à un carnet où l'on écrit, dessine en couleurs et signe sur le document. Abandonné par Alexis : trop long et trop lourd à mettre en place, avec un impact trop fort sur le prix. Les carnets restent des PDF ; une page d'aide pourra expliquer comment les remplir sur tablette (Notes ou Fichiers sur iPad, Xodo sur Android, lecteur PDF d'Edge sur PC). Conséquence : pas de saisie du contenu des carnets dans le site, et pas de réponses intimes des clientes à stocker.
 
 ## 8. E-mails automatiques
 
@@ -190,7 +178,7 @@ Les e-mails d'annonce et de promotion sont de la prospection : ils demandent l'a
 
 - Mentions légales : identité de la société espagnole qui porte l'activité, ses coordonnées et son numéro fiscal, hébergeur (Vercel). Informations à transmettre par Bérénice au moment voulu.
 - CGV de vente de contenus numériques, avec l'article sur la renonciation au droit de rétractation (voir section 5)
-- Politique de confidentialité (RGPD) : données collectées, durée de conservation, droits des personnes, liste d'envoi des e-mails, réponses du carnet en ligne
+- Politique de confidentialité (RGPD) : données collectées, durée de conservation, droits des personnes, liste d'envoi des e-mails
 - Bandeau cookies seulement si des outils de mesure d'audience non exemptés sont ajoutés
 - Avertissement recommandé : les expériences ne remplacent pas un avis ou un traitement médical ou psychologique
 
@@ -230,7 +218,7 @@ Même socle que Set et Brique, déjà maîtrisé par Agon Gate :
 | --- | --- |
 | Site | Next.js sur Vercel (déjà en place) |
 | Comptes clients | Clerk |
-| Base de données (expériences et contenu des carnets, achats, accès, inscrits, réponses des clients) | Neon Postgres |
+| Base de données (expériences, achats et dates de fin d'accès, inscrits) | Neon Postgres |
 | Paiement, factures, codes promo | Stripe Checkout, sur le compte Stripe de Bérénice |
 | E-mails automatiques et annonces | Resend |
 | Stockage des carnets PDF et audios | Vercel Blob, accès protégé (coût du stockage et des téléchargements à vérifier avec Madus) |
@@ -276,9 +264,9 @@ Réponses reçues le 2026-10-29 (`docs/Echange Mail 04.txt`) : format commun des
 
 **Fonctionnement des expériences**
 
-7. Carnet en ligne : confirmer la compréhension de la section 7 (le client écrit ses réponses sur le site, en plus du PDF à imprimer).
-8. Exercices de dessin : le client doit-il pouvoir envoyer une photo de son dessin dans son carnet en ligne ?
-9. Souhaitez-vous pouvoir lire les réponses de vos clients (avec leur accord), ou restent-elles strictement privées ?
+7. ~~Carnet en ligne ?~~ Sans objet : carnets PDF uniquement (2026-10-29).
+8. ~~Exercices de dessin dans le carnet en ligne ?~~ Sans objet.
+9. ~~Lecture des réponses des clients ?~~ Sans objet : aucune réponse n'est stockée sur le site.
 10. ~~L'accès est-il permanent, ou limité dans le temps ?~~ Répondu : un an à compter de l'achat.
 11. ~~Les audios : écoute en ligne uniquement, ou aussi téléchargement ?~~ Répondu : écoute sur le site uniquement.
 12. ~~Souhaitez-vous des e-mails pendant l'expérience ?~~ Répondu : pas d'e-mail quotidien ; un e-mail de soutien 15 jours après l'achat.
@@ -289,5 +277,5 @@ Réponses reçues le 2026-10-29 (`docs/Echange Mail 04.txt`) : format commun des
 
 15. Société espagnole : raison sociale, adresse, numéro fiscal, numéro de TVA intracommunautaire. La vente de contenus en ligne entre-t-elle dans son activité ? Réponse partielle (2026-10-28) : CIF **B75995084**. Selon Cédric, la vente de contenus en ligne n'est pas précisée dans l'activité de la société : à régulariser avec lui avant le lancement si nécessaire. Raison sociale et adresse encore à recevoir.
 16. TVA sur les ventes en ligne aux particuliers de différents pays : qui suit la question (comptable de la société) ? Réponse partielle (2026-10-28) : Bérénice facturera l'IVA à 21 %. À faire confirmer par Cédric : 21 % vaut pour l'Espagne, et pour les autres pays de l'UE tant que les ventes aux particuliers de l'UE hors Espagne restent sous 10 000 € par an ; au-delà, TVA du pays du client déclarée par le guichet OSS. Hors UE (Suisse, Canada…), règles propres à chaque pays. Stripe Tax peut calculer le bon taux automatiquement.
-17. ~~Nom de domaine ?~~ Répondu : au choix d'Agon Gate. hypnomorphosis.com et hypnomorphosis.fr sont libres (vérifié le 2026-10-29).
+17. ~~Nom de domaine ?~~ Répondu : au choix d'Agon Gate. **hypnomorphosis.com** retenu par Alexis (2026-10-29), libre à cette date.
 18. ~~Qui rédige les CGV et la politique de confidentialité ?~~ Répondu (rapporté par Alexis le 2026-10-28) : Agon Gate les rédige, Bérénice les valide.
