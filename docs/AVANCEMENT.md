@@ -47,6 +47,16 @@
 | Comptes clients | Inscription, connexion, Mon espace et Mon compte faits avec Clerk. Expérience découverte ouverte dans l'espace (carnet et audios, store privé). Reste : achats en base, carnet en ligne, réglages de production de Clerk |
 | Outils Claude Code | Testés et fusionnés dans `main` : MCP et skills OK, plugins `frontend-design` et `agon-gate` installés sur le poste d'Alexis (à installer une fois par poste) |
 
+## Jour de la bascule en production
+
+Réglages faits sur l'instance Clerk de développement, à reproduire à l'identique sur l'instance de production :
+
+- Nom de l'application : « HypnoMorphosis » (apparaît dans les e-mails de code).
+- Inscription : prénom et nom obligatoires, adresse e-mail vérifiée par code, **sans mot de passe**.
+- Connexion : code par e-mail et Google (identifiants Google propres à HypnoMorphosis en production, ceux de Clerk ne valent qu'en développement).
+- Mot de passe (choix d'Alexis, 2026-10-29) : **facultatif**, créé par la cliente dans Mon compte si elle le souhaite ; **connexion par mot de passe activée** pour qu'il serve ; longueur minimale de 8 caractères (15 par défaut, jugé dissuasif).
+- Supprimer l'utilisateur de test `alexis+clerk_test@example.com` (instance de développement seulement).
+
 ## Questions ouvertes
 
 - Questions pour Bérénice : voir la section 13 de `docs/specification-fonctionnelle.md` (logo en SVG et version officielle, droits de la photo de couverture, tutoiement ou vouvoiement, carnet en ligne et exercices de dessin, accès de Bérénice aux réponses, accès permanent, téléchargement des audios, société espagnole et TVA, domaine, CGV).
