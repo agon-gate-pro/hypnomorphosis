@@ -1,19 +1,39 @@
 import type { CSSProperties } from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Apparitions from "@/components/Apparitions";
+import DonneesStructurees from "@/components/DonneesStructurees";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import { Icone, SpriteIcones } from "@/components/Icones";
-import { lienFigaro, reseaux } from "@/lib/site";
+import { experiencesADecouvrir } from "@/lib/experiences";
+import { berenice, descriptionSite, lienFigaro, metaPage, organisation, reseaux, urlSite } from "@/lib/site";
 
 // décalage d'apparition du n-ième élément d'une même rangée
 const delai = (rang: number) => ({ "--delai": `${rang * 0.25}s` }) as CSSProperties;
 
+export const metadata: Metadata = metaPage({ titre: "HypnoMorphosis · Ouvrir le champ de vos possibles", description: descriptionSite, chemin: "/" });
+
+// la marque, son site, Bérénice et le catalogue des expériences, pour les moteurs de recherche et les IA
+const donnees = {
+  "@context": "https://schema.org",
+  "@graph": [
+    organisation,
+    { "@type": "WebSite", "@id": `${urlSite}/#site`, url: urlSite, name: "HypnoMorphosis", inLanguage: "fr", publisher: { "@id": organisation["@id"] } },
+    berenice,
+    {
+      "@type": "ItemList",
+      name: "Les expériences HypnoMorphosis",
+      itemListElement: experiencesADecouvrir().map((e, i) => ({ "@type": "ListItem", position: i + 1, name: e.titre, url: `${urlSite}/experiences/${e.slug}` })),
+    },
+  ],
+};
 
 export default function Accueil() {
   return (
     <>
+      <DonneesStructurees donnees={donnees} />
       <SpriteIcones />
       <EnTete />
 
@@ -22,7 +42,7 @@ export default function Accueil() {
         <section className="ouverture grain">
           <div className="wrap">
             <div>
-              <h1>Ouvrir le champ<br />de <em>vos possibles</em></h1>
+              <h1>Ouvrir le champ{" "}<br />de <em>vos possibles</em></h1>
               <div className="accroche">
                 <p className="forte">Vous avez en vous un pouvoir que vous ne connaissez peut-être pas encore.</p>
                 <p className="douce">Vous portez déjà en vous des ressources insoupçonnées, des possibilités qui ne demandent qu’à être découvertes.</p>

@@ -4,10 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Apparitions from "@/components/Apparitions";
+import DonneesStructurees from "@/components/DonneesStructurees";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import { Icone, SpriteIcones } from "@/components/Icones";
 import { categories, experience, experiencesADecouvrir } from "@/lib/experiences";
+import { metaPage, organisation, urlSite } from "@/lib/site";
 
 const delai = (rang: number) => ({ "--delai": `${rang * 0.25}s` }) as CSSProperties;
 
@@ -20,8 +22,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/experiences/[slug]">): Promise<Metadata> {
   const e = experience((await params).slug);
   if (!e) return {};
-  return { title: `${e.titre} · HypnoMorphosis`, description: e.resume };
+  return metaPage({
+    titre: `${e.titre} · ${e.categorie} HypnoMorphosis`,
+    description: `${e.resume} Une expérience d’hypnose de ${e.jours} jours à vivre chez soi : carnet à imprimer, 5 audios guidés et ${e.jours} exercices, par Bérénice, hypnothérapeute.`,
+    chemin: `/experiences/${e.slug}`,
+  });
 }
+
+// l'achat n'est pas encore ouvert (Stripe) : l'offre est annoncée en précommande, à passer en InStock à l'ouverture
+const disponibilite = "https://schema.org/PreOrder";
 
 // passages entre ** du brief, mis en valeur
 function Paragraphe({ texte }: { texte: string }) {
@@ -35,6 +44,26 @@ export default async function FicheExperience({ params }: PageProps<"/experience
   if (!e?.fiche || !e.prix) notFound();
   const { fiche } = e;
 
+  // l'expérience comme produit numérique de la marque, avec son prix
+  const donnees = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `${e.titre} · ${e.categorie} HypnoMorphosis`,
+    description: `${e.resume} ${fiche.explorer[0].replaceAll("**", "")}`,
+    image: `${urlSite}${e.couverture}`,
+    url: `${urlSite}/experiences/${e.slug}`,
+    category: e.categorie,
+    brand: { "@type": "Brand", name: "HypnoMorphosis" },
+    offers: {
+      "@type": "Offer",
+      price: e.prix.replace(/[^\d,.]/g, "").replace(",", "."),
+      priceCurrency: "EUR",
+      availability: disponibilite,
+      url: `${urlSite}/experiences/${e.slug}`,
+      seller: { "@id": organisation["@id"] },
+    },
+  };
+
   const achat = (
     <div className="fiche-achat">
       <span className="prix">{e.prix}</span>
@@ -44,6 +73,7 @@ export default async function FicheExperience({ params }: PageProps<"/experience
 
   return (
     <>
+      <DonneesStructurees donnees={donnees} />
       <SpriteIcones />
       <EnTete />
       <main>

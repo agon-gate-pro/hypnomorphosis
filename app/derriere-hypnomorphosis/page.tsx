@@ -6,11 +6,23 @@ import Apparitions from "@/components/Apparitions";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import { SpriteIcones } from "@/components/Icones";
-import { lienFigaro } from "@/lib/site";
+import DonneesStructurees from "@/components/DonneesStructurees";
+import { berenice, lienFigaro, metaPage, organisation, urlSite } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Derrière HypnoMorphosis · Bérénice, ancienne infirmière urgentiste et hypnothérapeute",
-  description: "L’histoire de Bérénice : des urgences à l’hypnose, et la naissance d’HypnoMorphosis.",
+export const metadata: Metadata = metaPage({
+  titre: "Derrière HypnoMorphosis · Bérénice, ancienne infirmière urgentiste et hypnothérapeute",
+  description: "L’histoire de Bérénice, ancienne infirmière urgentiste devenue hypnothérapeute : des urgences au cabinet, puis la création d’HypnoMorphosis, des expériences d’hypnose à vivre chez soi.",
+  chemin: "/derriere-hypnomorphosis",
+});
+
+// page de profil : Bérénice, créatrice de la marque
+const donnees = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "ProfilePage", "@id": `${urlSite}/derriere-hypnomorphosis`, url: `${urlSite}/derriere-hypnomorphosis`, inLanguage: "fr", mainEntity: { "@id": berenice["@id"] } },
+    berenice,
+    organisation,
+  ],
 };
 
 const delai = (rang: number) => ({ "--delai": `${rang * 0.25}s` }) as CSSProperties;
@@ -20,6 +32,7 @@ const delai = (rang: number) => ({ "--delai": `${rang * 0.25}s` }) as CSSPropert
 export default function DerriereHypnoMorphosis() {
   return (
     <>
+      <DonneesStructurees donnees={donnees} />
       <SpriteIcones />
       <EnTete />
       <main>

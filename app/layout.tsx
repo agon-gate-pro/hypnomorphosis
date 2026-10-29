@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Jost, Marcellus } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { frFR } from "@clerk/localizations";
+import { descriptionSite as description, urlSite } from "@/lib/site";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -13,11 +14,8 @@ const cormorant = Cormorant_Garamond({
 const jost = Jost({ subsets: ["latin"], weight: ["300", "400", "500"], variable: "--font-jost" });
 const marcellus = Marcellus({ subsets: ["latin"], weight: "400", variable: "--font-marcellus" });
 
-const description =
-  "Expériences d’hypnose à vivre chez soi : carnets, audios guidés et exercices pour ouvrir le champ de vos possibles. Commencez par l’expérience découverte gratuite.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hypnomorphosis.vercel.app"),
+  metadataBase: new URL(urlSite),
   title: "HypnoMorphosis · Ouvrir le champ de vos possibles",
   description,
   openGraph: {
