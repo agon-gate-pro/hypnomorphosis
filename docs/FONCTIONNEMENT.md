@@ -10,8 +10,9 @@
 
 ## Structure
 
-- `app/` : pages et layout (App Router). `page.tsx` : accueil ; `connexion/` et `inscription/` : formulaires Clerk ; `espace/` : Mon espace, et `espace/compte/` : gestion du compte (écran Clerk) ; `layout.tsx` : polices (next/font : Cormorant Garamond, Jost, Marcellus), métadonnées, `noindex`, `ClerkProvider` avec les textes français et l'habillage ; `globals.css` : styles de l'accueil repris de la maquette ; `icon.svg` : favicon (emblème) ; `opengraph-image.tsx` : carte de partage générée au build
+- `app/` : pages et layout (App Router). `page.tsx` : accueil ; `derriere-hypnomorphosis/` : page « Derrière HypnoMorphosis » (texte de Bérénice et studio) ; `connexion/` et `inscription/` : formulaires Clerk ; `espace/` : Mon espace, et `espace/compte/` : gestion du compte (écran Clerk) ; `layout.tsx` : polices (next/font : Cormorant Garamond, Jost, Marcellus), métadonnées, `noindex`, `ClerkProvider` avec les textes français et l'habillage ; `globals.css` : styles de l'accueil repris de la maquette ; `icon.svg` : favicon (emblème) ; `opengraph-image.tsx` : carte de partage générée au build
 - `components/` : `EnTete.tsx` (en-tête et menu plein écran, composant client, pastille au prénom une fois connectée), `PiedDePage.tsx`, `Apparitions.tsx` (apparition au défilement), `Icones.tsx` (icônes au trait), `CadreConnexion.tsx` (écran de connexion et d'inscription), `GardeClerk.tsx` (rechargement si Clerk ne s'affiche pas), `BoutonDeconnexion.tsx`
+- `lib/site.ts` : liens partagés (article Madame Figaro)
 - `lib/experiences.ts` : liste provisoire des expériences, en attendant la base de données
 - `proxy.ts` : contexte d'authentification Clerk (aucune route n'y est protégée)
 - `assets/` : fichiers lus côté serveur, non publiés (police Marcellus et sa licence OFL pour l'image de partage)

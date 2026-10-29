@@ -5,11 +5,11 @@ import Apparitions from "@/components/Apparitions";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import { Icone, SpriteIcones } from "@/components/Icones";
+import { lienFigaro } from "@/lib/site";
 
 // décalage d'apparition du n-ième élément d'une même rangée
 const delai = (rang: number) => ({ "--delai": `${rang * 0.25}s` }) as CSSProperties;
 
-const lienFigaro = "https://adresses-incontournables.madame.lefigaro.fr/prendre-soin-soi/berenice-hervet/";
 
 export default function Accueil() {
   return (
@@ -121,30 +121,9 @@ export default function Accueil() {
               <blockquote>«&nbsp;L’hypnose, ça sert à rien et pourtant ça change tout.&nbsp;»</blockquote>
               <p>Derrière HypnoMorphosis, il y a moi. Je suis Bérénice, ancienne infirmière urgentiste et aujourd’hui hypnothérapeute.</p>
               <div className="actions">
-                <a className="btn btn-trait" href="#">Lire mon histoire</a>
+                <Link className="btn btn-trait" href="/derriere-hypnomorphosis">Lire mon histoire</Link>
                 <a className="presse" href={lienFigaro} target="_blank" rel="noopener">Vu dans <i>Madame Figaro</i></a>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Le studio où Bérénice enregistre : montrer une vraie personne et un vrai lieu (idée d'Alexis, 2026-10-29).
-            Photo et texte provisoires, en attendant sa photo dans le fauteuil et ses propres mots. */}
-        <section className="studio" id="studio">
-          <div className="wrap">
-            <div className="studio-photo revele">
-              <Image src="/images/studio-fauteuil.jpg" alt="Le fauteuil du studio où Bérénice enregistre ses audios" fill sizes="(max-width: 820px) 92vw, 460px" />
-              <span className="legende">Le fauteuil où naissent les audios</span>
-            </div>
-            <div className="revele" style={delai(1)}>
-              <span className="caps">Là où naissent vos audios</span>
-              <h2 className="section">Une vraie voix, <em>un vrai lieu</em></h2>
-              <p>Chaque carnet est écrit par moi, et chaque audio est enregistré ici, dans mon studio, avec ma propre voix.</p>
-              <ul className="preuves">
-                <li><b>Parcours</b><span>Ancienne infirmière urgentiste</span></li>
-                <li><b>Aujourd’hui</b><span>Hypnothérapeute</span></li>
-                <li><b>Création</b><span>Textes, exercices et voix&nbsp;: tout est de Bérénice</span></li>
-              </ul>
             </div>
           </div>
         </section>

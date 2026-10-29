@@ -8,7 +8,7 @@ import { SignOutButton, useUser } from "@clerk/nextjs";
 const liens = [
   { href: "/#experiences", texte: "Les expériences", etiquette: "Boutique" },
   { href: "/#decouverte", texte: "Expérience découverte", etiquette: "Gratuite" },
-  { href: "/#apropos", texte: "Derrière HypnoMorphosis" },
+  { href: "/derriere-hypnomorphosis", texte: "Derrière HypnoMorphosis" },
 ];
 
 function Marque() {
