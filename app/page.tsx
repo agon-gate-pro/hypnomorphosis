@@ -1,7 +1,9 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Apparitions from "@/components/Apparitions";
 import EnTete from "@/components/EnTete";
+import PiedDePage from "@/components/PiedDePage";
 import { Icone, SpriteIcones } from "@/components/Icones";
 
 // décalage d'apparition du n-ième élément d'une même rangée
@@ -43,9 +45,9 @@ export default function Accueil() {
           <div className="wrap">
             <div className="couverture revele">
               <span className="gratuit">EXPÉRIENCE DÉCOUVERTE · GRATUITE</span>
-              <a className="couv" href="#">
+              <Link className="couv" href="/inscription">
                 <Image src="/images/couverture-decouverte.jpg" alt="Couverture du carnet de l’expérience découverte" width={800} height={1301} sizes="360px" />
-              </a>
+              </Link>
             </div>
             <div className="revele" style={delai(1)}>
               <span className="caps">Expérience découverte</span>
@@ -59,7 +61,7 @@ export default function Accueil() {
                 <li><Icone nom="plume" /><span><b>Un exercice chaque jour pendant 5 jours</b>, pour avancer pas à pas dans l’expérience</span></li>
                 <li><Icone nom="sceau" /><span><b>Un engagement à signer</b>, pour marquer votre décision d’aller jusqu’au bout de ces 5 jours</span></li>
               </ul>
-              <a className="btn btn-plein" href="#">Je découvre HypnoMorphosis gratuitement</a>
+              <Link className="btn btn-plein" href="/inscription">Je découvre HypnoMorphosis gratuitement</Link>
             </div>
           </div>
         </section>
@@ -141,31 +143,7 @@ export default function Accueil() {
         </section>
       </main>
 
-      <footer className="site">
-        <div className="wrap">
-          <div className="haut">
-            <div><div className="nom" translate="no">HYPNOMORPHOSIS</div><div className="devise">Ouvrir le champ de vos possibles</div></div>
-            <div>
-              <h2>Le site</h2>
-              <ul>
-                <li><a href="#experiences">Les expériences</a></li>
-                <li><a href="#decouverte">Expérience découverte</a></li>
-                <li><a href="#apropos">Derrière HypnoMorphosis</a></li>
-                <li><a href="#">Mon espace</a></li>
-              </ul>
-            </div>
-            <div>
-              <h2>Retrouvez HypnoMorphosis</h2>
-              <div className="icones">
-                <a href="#" aria-label="TikTok"><Icone nom="tiktok" /></a>
-                <a href="#" aria-label="Instagram"><Icone nom="instagram" /></a>
-                <a href="#" aria-label="YouTube"><Icone nom="youtube" /></a>
-              </div>
-            </div>
-          </div>
-          <div className="bas">Mentions légales · CGV · Politique de confidentialité · Paiement et vente en ligne</div>
-        </div>
-      </footer>
+      <PiedDePage />
 
       <Apparitions />
     </>
