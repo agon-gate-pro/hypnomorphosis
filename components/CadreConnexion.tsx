@@ -12,7 +12,7 @@ export default function CadreConnexion({ children }: { children: ReactNode }) {
   return (
     <>
       <EnTete />
-      <main className="acces grain">
+      <main className="acces-page grain">
         <div className="acces-cadre">
           <aside className="acces-visuel" aria-hidden="true">
             <Image src="/images/couverture-decouverte.jpg" alt="" fill sizes="(max-width: 900px) 0px, 480px" priority />

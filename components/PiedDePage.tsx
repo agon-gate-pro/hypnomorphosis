@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Icone } from "@/components/Icones";
+import { reseaux } from "@/lib/site";
 
 // liens en « /#ancre » : le pied de page sert aussi aux pages de compte, hors de l'accueil
 export default function PiedDePage() {
@@ -17,14 +18,16 @@ export default function PiedDePage() {
               <li><Link href="/espace">Mon espace</Link></li>
             </ul>
           </div>
-          <div>
-            <h2>Retrouvez HypnoMorphosis</h2>
-            <div className="icones">
-              <a href="#" aria-label="TikTok"><Icone nom="tiktok" /></a>
-              <a href="#" aria-label="Instagram"><Icone nom="instagram" /></a>
-              <a href="#" aria-label="YouTube"><Icone nom="youtube" /></a>
+          {reseaux.length > 0 && (
+            <div>
+              <h2>Retrouvez HypnoMorphosis</h2>
+              <div className="icones">
+                {reseaux.map((r) => (
+                  <a key={r.nom} href={r.url} target="_blank" rel="noopener" aria-label={r.nom}><Icone nom={r.icone} /></a>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div className="bas">Mentions légales · CGV · Politique de confidentialité · Paiement et vente en ligne</div>
       </div>

@@ -1,6 +1,6 @@
 // Icônes au trait, déclarées une fois dans la page puis réutilisées avec <Icone nom="..." />
 
-export type NomIcone = "casque" | "chemin" | "plume" | "sceau" | "carnet" | "ecran" | "instagram" | "tiktok" | "youtube";
+export type NomIcone = "casque" | "chemin" | "plume" | "sceau" | "carnet" | "ecran" | "sablier" | "spirale" | "instagram" | "tiktok" | "youtube";
 
 export function SpriteIcones() {
   return (
@@ -11,6 +11,8 @@ export function SpriteIcones() {
       <symbol id="i-sceau" viewBox="0 0 26 26"><path d="M5 4h11l5 5v13H5z" /><path d="M8 11h8M8 15h5" /><circle cx="17" cy="19" r="3" /></symbol>
       <symbol id="i-carnet" viewBox="0 0 26 26"><path d="M6 3h11l4 4v16H6z" /><path d="M10 10h7M10 14h7M10 18h4" /></symbol>
       <symbol id="i-ecran" viewBox="0 0 26 26"><rect x="3" y="5" width="20" height="13" rx="1.5" /><path d="M9 22h8M13 18v4M7 10h12M7 14h7" /></symbol>
+      <symbol id="i-sablier" viewBox="0 0 26 26"><path d="M7 3h12M7 23h12" /><path d="M8 3v2c0 4 5 6 5 8s-5 4-5 8v2M18 3v2c0 4-5 6-5 8s5 4 5 8v2" /></symbol>
+      <symbol id="i-spirale" viewBox="0 0 26 26"><path d="M13 13a1.5 1.5 0 0 1 3 0a3 3 0 0 1-6 0a4.5 4.5 0 0 1 9 0a6 6 0 0 1-12 0a7.5 7.5 0 0 1 15 0" /></symbol>
       <symbol id="i-instagram" viewBox="0 0 26 26"><rect x="4" y="4" width="18" height="18" rx="5" /><circle cx="13" cy="13" r="4" /><circle cx="18.5" cy="7.5" r=".6" /></symbol>
       <symbol id="i-tiktok" viewBox="0 0 26 26"><path d="M14 4v12.5a3.5 3.5 0 1 1-3.5-3.5" /><path d="M14 4c.5 3 2.5 5 5.5 5" /></symbol>
       <symbol id="i-youtube" viewBox="0 0 26 26"><rect x="3" y="6" width="20" height="14" rx="4" /><path d="M11 10v6l5-3z" /></symbol>

@@ -30,6 +30,7 @@
 - 2026-10-29 : comptes clients fusionnés dans `main` après test d'Alexis sur la prévisualisation, en ligne sur hypnomorphosis.vercel.app.
 - 2026-10-29 : trois photos du studio d'enregistrement de Bérénice reçues (`docs/Cabinet 01.jpg` à `03.jpg`, non versionnées) : prises au téléphone, anneau lumineux et bureau au premier plan, local en sous-sol. Idée d'Alexis : montrer ce lieu pour paraître plus sérieux, éloigner l'image ésotérique et montrer que les contenus ne sont pas faits par une IA. Bloc « Là où naissent vos audios » ajouté sous Derrière HypnoMorphosis (branche `studio`), avec un recadrage serré du fauteuil réchauffé (`public/images/studio-fauteuil.jpg`) et un texte provisoire limité aux faits connus. Mail préparé pour Bérénice : photo d'elle dans le fauteuil, quelques lignes de sa main, intitulé exact de ses formations. Formulation retenue : « ancienne infirmière urgentiste » (pas « infirmière qualifiée »), et pas de « aucun contenu généré par IA » (les couvertures le sont).
 - 2026-10-29 : retour d'Alexis : sur l'accueil, la photo et le petit mot suffisent. Page dédiée `/derriere-hypnomorphosis` créée avec le texte « À propos » du brief de Bérénice, mot pour mot (typographie corrigée) : ouverture avec portrait, récit en colonne de lecture, citation « Oui. C'est possible. Et oui, ça existe. » mise en avant, bloc du studio (déplacé de l'accueil), « Une autre façon d'expérimenter l'hypnose », phrase finale en grand avec le bouton vers l'expérience découverte et la mention Madame Figaro. « Lire mon histoire » et les liens « Derrière HypnoMorphosis » du menu et du pied de page y mènent. Vérifiée sur PC et mobile. À relire avec les pages légales : « des résultats que je n'aurais pas imaginé possibles » reste un témoignage, pas une promesse.
+- 2026-10-29 : finitions avant la signature. Fiches des expériences `/experiences/le-noeud` et `/experiences/apres-nous`, avec les textes du brief mot pour mot (section 5, typographie corrigée) : couverture, catégorie et sa description, « Vous vous reconnaîtrez peut-être… », « Ce que vous allez explorer », « Ce que vous pouvez retrouver », « Votre expérience en un coup d'œil », « Comment cela fonctionne ? », prix, bouton « Achat bientôt disponible » (inactif jusqu'à Stripe) et renvoi vers l'expérience découverte gratuite. Les cartes de l'accueil et les suggestions de Mon espace y mènent. Réseaux sociaux masqués (accueil et pied de page) tant que leurs adresses ne sont pas renseignées dans `lib/site.ts`. Page 404 aux couleurs du site. Défaut corrigé : la classe `.acces` de l'écran de connexion (hauteur d'un écran) s'appliquait aussi à la liste « Vous aurez accès à » de l'accueil, renommée `.acces-page`. Clerk : application renommée « HypnoMorphosis » par Alexis. Vérifié sur PC et mobile, `pnpm lint` et `pnpm build` passent.
 
 ## État par module
 
@@ -39,7 +40,8 @@
 | Spécification fonctionnelle | Mise à jour avec les réponses de Bérénice, à valider avec elle |
 | Direction artistique | Proposition 1 « Le carnet » retenue, version 2 faite avec ses retours (`docs/maquette-accueil-1-carnet.html`). Couvertures des trois carnets en place |
 | Logo | Vectorisé en SVG par Agon Gate (`docs/logo/`), à montrer à Bérénice |
-| Page d'accueil | Faite en Next.js d'après la maquette validée (branche `accueil`), à mettre en ligne. Liens vers l'inscription, l'espace client, les fiches et les réseaux à brancher |
+| Page d'accueil | Faite et en ligne. Liens vers l'inscription, l'espace client et les fiches branchés ; réseaux sociaux masqués en attendant les adresses de Bérénice |
+| Fiches des expériences | Le Nœud et Après nous faites avec les textes du brief ; bouton d'achat à brancher sur Stripe |
 | Comptes clients | Inscription, connexion, Mon espace et Mon compte faits avec Clerk (branche `comptes`), vérifiés sur PC et mobile. Reste : page intérieure des expériences, achats en base, réglages de production de Clerk |
 | Outils Claude Code | Testés et fusionnés dans `main` : MCP et skills OK, plugins `frontend-design` et `agon-gate` installés sur le poste d'Alexis (à installer une fois par poste) |
 
@@ -47,6 +49,8 @@
 
 - Questions pour Bérénice : voir la section 13 de `docs/specification-fonctionnelle.md` (logo en SVG et version officielle, droits de la photo de couverture, tutoiement ou vouvoiement, carnet en ligne et exercices de dessin, accès de Bérénice aux réponses, accès permanent, téléchargement des audios, société espagnole et TVA, domaine, CGV).
 - Logo : réglé, vectorisé par Agon Gate à partir du JPG officiel.
+- Réseaux sociaux : adresses TikTok, Instagram et YouTube à recevoir (demandées dans le mail du 2026-10-28), à saisir dans `lib/site.ts`.
+- Après nous : nombre de pages du cahier à recevoir pour sa fiche (le Nœud : 59 pages).
 - Couvertures : reçues. APRÈS NOUS n'existe qu'en paysage 1376 × 768 ; une version plus grande sera utile pour sa fiche.
 - TVA : Bérénice prévoit l'IVA à 21 % partout. À faire confirmer par Cédric (seuil de 10 000 € par an pour les ventes aux particuliers des autres pays de l'UE, puis TVA du pays du client via le guichet OSS ; hors UE, règles locales). Stripe Tax possible.
 - Société : la vente de contenus en ligne n'est pas précisée dans son activité (Cédric) ; raison sociale et adresse à recevoir pour les mentions légales.

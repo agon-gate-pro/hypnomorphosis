@@ -66,7 +66,7 @@ export default async function Espace() {
             <ul className="espace-grille">
               {aDecouvrir.map((e) => (
                 <li key={e.slug}>
-                  <Link className="espace-suggestion" href="/#experiences">
+                  <Link className="espace-suggestion" href={`/experiences/${e.slug}`}>
                     <div className="couv-mini">
                       <Image src={e.couverture} alt="" fill sizes="96px" />
                     </div>

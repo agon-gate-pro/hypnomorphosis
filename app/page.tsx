@@ -5,7 +5,7 @@ import Apparitions from "@/components/Apparitions";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import { Icone, SpriteIcones } from "@/components/Icones";
-import { lienFigaro } from "@/lib/site";
+import { lienFigaro, reseaux } from "@/lib/site";
 
 // décalage d'apparition du n-ième élément d'une même rangée
 const delai = (rang: number) => ({ "--delai": `${rang * 0.25}s` }) as CSSProperties;
@@ -79,20 +79,20 @@ export default function Accueil() {
               <span><Icone nom="ecran" />Carnet en ligne dans votre espace</span>
             </div>
             <div className="carnets">
-              <a className="carnet revele" href="#">
+              <Link className="carnet revele" href="/experiences/le-noeud">
                 <div className="couv">
                   <Image src="/images/couverture-noeud.jpg" alt="" fill sizes="(max-width: 620px) 92vw, 360px" />
                   <span className="cat">Expérience universelle</span><div><h3>Le Nœud</h3><span className="duree">21 jours</span></div>
                 </div>
                 <div className="infos"><p>21 jours pour dénouer, comprendre et se reconnecter à soi.</p><div className="ligne"><span className="prix">49&nbsp;€</span><span className="lien">Découvrir</span></div></div>
-              </a>
-              <a className="carnet revele" href="#" style={delai(1)}>
+              </Link>
+              <Link className="carnet revele" href="/experiences/apres-nous" style={delai(1)}>
                 <div className="couv">
                   <Image src="/images/couverture-apres-nous.jpg" alt="" fill sizes="(max-width: 620px) 92vw, 360px" />
                   <span className="cat">Expérience miroir</span><div><h3>Après nous</h3><span className="duree">21 jours</span></div>
                 </div>
                 <div className="infos"><p>21 jours pour revenir à soi après une séparation.</p><div className="ligne"><span className="prix">49&nbsp;€</span><span className="lien">Découvrir</span></div></div>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -128,19 +128,21 @@ export default function Accueil() {
           </div>
         </section>
 
-        {/* Brief : bloc réseaux sociaux sur l'accueil */}
-        <section className="reseaux">
-          <div className="boussole" />
-          <div className="contenu wrap revele">
-            <h2 className="section">Vous voulez découvrir HypnoMorphosis autrement&nbsp;?</h2>
-            <p>Retrouvez-moi sur TikTok, Instagram et YouTube pour découvrir mes réflexions, mes expériences et une autre façon de parler de l’hypnose.</p>
-            <div className="liens">
-              <a className="btn btn-trait" href="#"><Icone nom="tiktok" />TikTok</a>
-              <a className="btn btn-trait" href="#"><Icone nom="instagram" />Instagram</a>
-              <a className="btn btn-trait" href="#"><Icone nom="youtube" />YouTube</a>
+        {/* Brief : bloc réseaux sociaux sur l'accueil ; affiché dès qu'une adresse est renseignée dans lib/site.ts */}
+        {reseaux.length > 0 && (
+          <section className="reseaux">
+            <div className="boussole" />
+            <div className="contenu wrap revele">
+              <h2 className="section">Vous voulez découvrir HypnoMorphosis autrement&nbsp;?</h2>
+              <p>Retrouvez-moi sur TikTok, Instagram et YouTube pour découvrir mes réflexions, mes expériences et une autre façon de parler de l’hypnose.</p>
+              <div className="liens">
+                {reseaux.map((r) => (
+                  <a key={r.nom} className="btn btn-trait" href={r.url} target="_blank" rel="noopener"><Icone nom={r.icone} />{r.nom}</a>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </main>
 
       <PiedDePage />
