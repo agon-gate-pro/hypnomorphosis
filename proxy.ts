@@ -12,5 +12,7 @@ export const config = {
   matcher: [
     // tout sauf les fichiers statiques et les internals Next.js
     "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest|mp3|pdf))(?:.*)|api|trpc)(.*)",
+    // tout l'espace client, y compris la route des fichiers privés (adresses en .mp3 et .pdf, exclues ci-dessus)
+    "/espace/:path*",
   ],
 };

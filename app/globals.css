@@ -388,6 +388,45 @@ header.site nav .pastille .initiale { display: grid; place-items: center; width:
 .espace-suggestion .prix { display: inline-block; margin-top: 8px; font: 400 20px var(--titre); color: var(--olive); }
 @media (max-width: 400px) { .espace-suggestion { grid-template-columns: 76px 1fr; gap: 16px; } }
 
+/* Intérieur d'une expérience : carnet et audios */
+.experience-tete { background: var(--pierre); padding: 48px 0 52px; border-bottom: 1px solid var(--filet); }
+.experience-tete .wrap { display: grid; grid-template-columns: 170px 1fr; gap: 44px; align-items: center; }
+.experience-tete .retour { display: inline-block; margin-bottom: 16px; font-size: 14px; color: var(--gris); }
+.experience-tete .retour:hover { color: var(--olive); }
+.experience-tete .caps { display: block; }
+.experience-tete h1 { font: 300 52px/1.05 var(--titre); margin: 10px 0 8px; }
+.experience-tete p { font: 300 italic 22px/1.4 var(--titre); color: var(--olive); margin-bottom: 24px; }
+.experience-tete .btn .icone { width: 20px; height: 20px; }
+@media (max-width: 640px) {
+  .experience-tete .wrap { grid-template-columns: 1fr; gap: 26px; }
+  .experience-tete .couv-mini { width: 130px; }
+  .experience-tete h1 { font-size: 40px; }
+}
+.experience-grille { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+@media (max-width: 900px) { .experience-grille { grid-template-columns: 1fr; gap: 40px; } }
+.lecteurs { list-style: none; display: grid; gap: 16px; }
+.lecteur { display: grid; grid-template-columns: 40px 1fr; gap: 18px; padding: 22px 24px; background: #fff; border: 1px solid var(--filet); box-shadow: 0 22px 40px -34px rgba(40,40,25,.55); transition: border-color .2s; }
+.lecteur.en-lecture { border-color: var(--dore); }
+.lecteur .numero { font: 300 38px/1 var(--titre); color: var(--dore); }
+.lecteur .titre-ligne { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.lecteur h3 { font: 400 26px/1.15 var(--titre); }
+.lecteur .duree { font-size: 14px; color: var(--gris); font-variant-numeric: tabular-nums; }
+.lecteur .commandes { display: flex; align-items: center; gap: 16px; }
+.lecteur .lire { flex: none; width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--olive); color: var(--papier); display: grid; place-items: center; cursor: pointer; transition: background .2s; }
+.lecteur .lire:hover { background: var(--olive-nuit); }
+.lecteur .lire svg { width: 22px; height: 22px; fill: currentColor; }
+.lecteur .temps { flex: none; min-width: 44px; text-align: right; font-size: 14px; color: var(--gris); font-variant-numeric: tabular-nums; }
+/* barre d'avance : filet doré jusqu'à la position, curseur olive */
+.lecteur .barre { flex: 1; min-width: 0; height: 24px; appearance: none; background: transparent; cursor: pointer; --avance: 0%; }
+.lecteur .barre::-webkit-slider-runnable-track { height: 3px; border-radius: 3px; background: linear-gradient(to right, var(--dore) var(--avance), var(--filet) var(--avance)); }
+.lecteur .barre::-moz-range-track { height: 3px; border-radius: 3px; background: linear-gradient(to right, var(--dore) var(--avance), var(--filet) var(--avance)); }
+.lecteur .barre::-webkit-slider-thumb { appearance: none; width: 14px; height: 14px; margin-top: -5.5px; border-radius: 50%; background: var(--olive); }
+.lecteur .barre::-moz-range-thumb { width: 14px; height: 14px; border: 0; border-radius: 50%; background: var(--olive); }
+.lecteur .erreur { margin-top: 10px; font-size: 14px; color: #8a4b36; }
+@media (max-width: 480px) { .lecteur { grid-template-columns: 1fr; gap: 6px; padding: 18px; } .lecteur .numero { font-size: 28px; } }
+.consigne { margin-top: 22px; padding-left: 16px; border-left: 2px solid var(--dore); font: 300 italic 19px/1.5 var(--titre); color: var(--gris); }
+.experience-guide ul.acces { margin-bottom: 0; }
+
 /* Mon compte : l'écran de Clerk dans la page */
 .compte { padding: 44px 0 80px; min-height: calc(100vh - 76px); }
 .compte .retour { font-size: 14px; letter-spacing: .06em; color: var(--olive); }

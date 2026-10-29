@@ -10,6 +10,12 @@ export type Fiche = {
   pages: number | null; // pages du cahier à imprimer, si Bérénice les a données
 };
 
+// fichiers rangés dans le store Vercel Blob privé, sous le dossier du slug (ex. decouverte/audio-1.mp3)
+export type Contenus = {
+  carnet: string;
+  audios: { titre: string; fichier: string }[];
+};
+
 export type Experience = {
   slug: string;
   titre: string;
@@ -20,6 +26,7 @@ export type Experience = {
   couverture: string;
   prix: string | null; // null : gratuite
   fiche?: Fiche;
+  contenus?: Contenus;
 };
 
 // descriptions des catégories, mot pour mot du brief (section 4)
@@ -38,6 +45,13 @@ export const experiences: Experience[] = [
     resume: "5 jours pour ouvrir le champ de vos possibles.",
     couverture: "/images/couverture-decouverte.jpg",
     prix: null,
+    contenus: {
+      carnet: "carnet-decouverte.pdf",
+      audios: [
+        { titre: "Expérience audio 1", fichier: "audio-1.mp3" },
+        { titre: "Expérience audio 2", fichier: "audio-2.mp3" },
+      ],
+    },
   },
   {
     slug: "le-noeud",
@@ -99,6 +113,11 @@ export function experience(slug: string) {
 // expériences ouvertes à la cliente connectée (aujourd'hui : la découverte, pour tout compte)
 export function experiencesOuvertes() {
   return experiences.filter((e) => e.prix === null);
+}
+
+// expérience ouverte à la cliente connectée, ou undefined (seule porte vers les fichiers privés)
+export function experienceOuverte(slug: string) {
+  return experiencesOuvertes().find((e) => e.slug === slug);
 }
 
 export function experiencesADecouvrir() {

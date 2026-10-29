@@ -52,8 +52,9 @@ export default async function Espace() {
                     <span><Icone nom="carnet" />Carnet à imprimer</span>
                     <span><Icone nom="ecran" />Carnet en ligne</span>
                   </div>
-                  {/* la page intérieure de l'expérience arrive à l'étape suivante */}
-                  <span className="btn btn-plein inactif" aria-disabled="true">Bientôt disponible</span>
+                  {e.contenus
+                    ? <Link className="btn btn-plein" href={`/espace/experiences/${e.slug}`}>Ouvrir mon expérience</Link>
+                    : <span className="btn btn-plein inactif" aria-disabled="true">Bientôt disponible</span>}
                 </div>
               </li>
             ))}
