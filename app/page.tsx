@@ -128,6 +128,27 @@ export default function Accueil() {
           </div>
         </section>
 
+        {/* Le studio où Bérénice enregistre : montrer une vraie personne et un vrai lieu (idée d'Alexis, 2026-10-29).
+            Photo et texte provisoires, en attendant sa photo dans le fauteuil et ses propres mots. */}
+        <section className="studio" id="studio">
+          <div className="wrap">
+            <div className="studio-photo revele">
+              <Image src="/images/studio-fauteuil.jpg" alt="Le fauteuil du studio où Bérénice enregistre ses audios" fill sizes="(max-width: 820px) 92vw, 460px" />
+              <span className="legende">Le fauteuil où naissent les audios</span>
+            </div>
+            <div className="revele" style={delai(1)}>
+              <span className="caps">Là où naissent vos audios</span>
+              <h2 className="section">Une vraie voix, <em>un vrai lieu</em></h2>
+              <p>Chaque carnet est écrit par moi, et chaque audio est enregistré ici, dans mon studio, avec ma propre voix.</p>
+              <ul className="preuves">
+                <li><b>Parcours</b><span>Ancienne infirmière urgentiste</span></li>
+                <li><b>Aujourd’hui</b><span>Hypnothérapeute</span></li>
+                <li><b>Création</b><span>Textes, exercices et voix&nbsp;: tout est de Bérénice</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Brief : bloc réseaux sociaux sur l'accueil */}
         <section className="reseaux">
           <div className="boussole" />

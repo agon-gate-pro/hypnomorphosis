@@ -15,7 +15,7 @@
 - `lib/experiences.ts` : liste provisoire des expériences, en attendant la base de données
 - `proxy.ts` : contexte d'authentification Clerk (aucune route n'y est protégée)
 - `assets/` : fichiers lus côté serveur, non publiés (police Marcellus et sa licence OFL pour l'image de partage)
-- `public/` : fichiers statiques (`logo/` : logo et emblème SVG ; `images/` : couvertures de l'expérience découverte, du Nœud et d'Après nous, portrait de Bérénice)
+- `public/` : fichiers statiques (`logo/` : logo et emblème SVG ; `images/` : couvertures de l'expérience découverte, du Nœud et d'Après nous, portrait de Bérénice, fauteuil du studio)
 - `docs/` : documentation du projet (`SITE INTERNET.pdf` : brief du client ; `specification-fonctionnelle.md` : ce que le site doit faire ; `Echange Mail 01.txt` et `Echange Mail 02.txt` : réponses de Bérénice ; `HYPNOMORPHOSIS.pdf` : carnet de l'expérience découverte ; logos en JPG, logo vectorisé dans `logo/`, `couverture-decouverte.jpg`, photos de Bérénice, détaillés dans la section 10 de la spécification ; `maquette-accueil-1-carnet.html` : maquette d'accueil retenue)
 
 ## Décisions
