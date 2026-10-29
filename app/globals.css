@@ -214,10 +214,12 @@ ul.acces b { font-weight: 500; color: var(--encre); }
 .histoire-ouverture h1 em { color: var(--olive); }
 .histoire-ouverture p { font: 300 italic 24px/1.45 var(--titre); color: var(--gris); max-width: 560px; }
 @media (max-width: 760px) {
-  .histoire-ouverture .wrap { grid-template-columns: 1fr; gap: 32px; }
+  .histoire-ouverture .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .histoire-ouverture .portrait { width: 200px; }
   .histoire-ouverture h1 { font-size: 42px; }
 }
+/* petits téléphones : « HypnoMorphosis, » ne tient pas en 42 px sur 272 px de texte */
+@media (max-width: 380px) { .histoire-ouverture h1 { font-size: 35px; } }
 /* colonne de lecture étroite, comme une page de carnet */
 .histoire-recit { padding: 72px 24px 8px; }
 .histoire-recit:has(+ .histoire-fin) { padding-bottom: 72px; }
@@ -403,7 +405,7 @@ header.site nav .pastille .initiale { display: grid; place-items: center; width:
   .experience-tete h1 { font-size: 40px; }
 }
 .experience-grille { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 56px; align-items: start; }
-@media (max-width: 900px) { .experience-grille { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 900px) { .experience-grille { grid-template-columns: minmax(0, 1fr); gap: 40px; } }
 .lecteurs { list-style: none; display: grid; gap: 16px; }
 .lecteur { display: grid; grid-template-columns: 40px 1fr; gap: 18px; padding: 22px 24px; background: #fff; border: 1px solid var(--filet); box-shadow: 0 22px 40px -34px rgba(40,40,25,.55); transition: border-color .2s; }
 .lecteur.en-lecture { border-color: var(--dore); }
@@ -417,7 +419,7 @@ header.site nav .pastille .initiale { display: grid; place-items: center; width:
 .lecteur .lire svg { width: 22px; height: 22px; fill: currentColor; }
 .lecteur .temps { flex: none; min-width: 44px; text-align: right; font-size: 14px; color: var(--gris); font-variant-numeric: tabular-nums; }
 /* barre d'avance : filet doré jusqu'à la position, curseur olive */
-.lecteur .barre { flex: 1; min-width: 0; height: 24px; appearance: none; background: transparent; cursor: pointer; --avance: 0%; }
+.lecteur .barre { flex: 1; width: 0; min-width: 0; height: 24px; appearance: none; background: transparent; cursor: pointer; --avance: 0%; }
 .lecteur .barre::-webkit-slider-runnable-track { height: 3px; border-radius: 3px; background: linear-gradient(to right, var(--dore) var(--avance), var(--filet) var(--avance)); }
 .lecteur .barre::-moz-range-track { height: 3px; border-radius: 3px; background: linear-gradient(to right, var(--dore) var(--avance), var(--filet) var(--avance)); }
 .lecteur .barre::-webkit-slider-thumb { appearance: none; width: 14px; height: 14px; margin-top: -5.5px; border-radius: 50%; background: var(--olive); }
