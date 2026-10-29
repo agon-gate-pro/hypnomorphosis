@@ -62,7 +62,7 @@ Trois catégories, chacune avec un texte de présentation fourni :
 Une expérience est un ensemble composé :
 
 - d'un carnet, en deux versions : un **PDF à imprimer** et une **version en ligne**, où le client écrit ses réponses aux exercices directement sur le site (voir section 7) ;
-- des audios d'hypnose qui l'accompagnent (environ 15 minutes chacun) ;
+- des audios d'hypnose qui l'accompagnent : 5 audios d'environ 30 minutes pour chaque expérience payante (2 d'environ 15 minutes pour l'expérience découverte), écoutés sur le site uniquement, sans téléchargement (réponse du 2026-10-29) ;
 - d'exercices d'introspection, un ou plusieurs par jour ;
 - d'une durée en jours.
 
@@ -70,12 +70,14 @@ Bérénice a répondu à la question « les exercices se font-ils seulement sur 
 
 **Tout est accessible dès le premier jour**, sans déblocage progressif : certains clients impriment leur carnet dès le départ et avancent à leur rythme.
 
+**Accès pendant un an à compter de l'achat** (réponse du 2026-10-29). Le format est le même pour toutes les expériences : 5 audios d'environ 30 minutes et un carnet PDF d'environ 60 pages.
+
 ### Produits au lancement
 
 | Expérience | Catégorie | Sous-titre (boutique) | Durée | Contenu | Prix |
 | --- | --- | --- | --- | --- | --- |
-| Le Nœud | Universelle | 21 jours pour dénouer, comprendre et se reconnecter à soi | 21 jours | carnet de 59 pages, 5 audios, 21 exercices | 49 € |
-| Après nous | Miroir | 21 jours pour revenir à soi après une séparation | 21 jours | carnet (nombre de pages à fournir), 5 audios, 21 exercices | 49 € |
+| Le Nœud | Universelle | 21 jours pour dénouer, comprendre et se reconnecter à soi | 21 jours | carnet de 59 pages, 5 audios d'environ 30 min, 21 exercices | 49 € |
+| Après nous | Miroir | 21 jours pour revenir à soi après une séparation | 21 jours | carnet d'environ 60 pages, 5 audios d'environ 30 min, 21 exercices | 49 € |
 | Expérience découverte | (aucune) | 5 jours pour ouvrir le champ de tes possibles | 5 jours | carnet, 2 audios, 1 ordalie, 5 exercices, 1 engagement | Gratuit |
 
 ### Ajout d'expériences, packs et promotions
@@ -156,6 +158,8 @@ Le visiteur s'inscrit avec son e-mail (création de compte), puis accède à l'e
 
 ### Carnet en ligne
 
+> **À revoir (2026-10-29).** Bérénice élargit la question : ses carnets demandent aussi de dessiner, colorier, tracer des flèches, entourer et signer. Elle souhaite un carnet numérique où l'on écrit et dessine librement sur le document, en couleurs ; sinon, elle préfère rester sur des carnets à imprimer. Le carnet en ligne « champs de réponse » décrit ci-dessous ne couvre pas ces exercices. Choix en cours avec Agon Gate (voir `docs/AVANCEMENT.md`).
+
 Le carnet est repris sur le site, jour par jour : texte du jour, phrase d'impulsion, audio à écouter, consignes, et un champ de réponse sous chaque question.
 
 - Les réponses sont enregistrées automatiquement dans le compte du client, qui peut s'arrêter et reprendre plus tard, sur n'importe quel appareil.
@@ -176,6 +180,7 @@ Demandés par Bérénice :
 | --- | --- | --- |
 | Confirmation d'achat, avec un petit mot de bienvenue | Automatique, après chaque paiement | L'acheteur |
 | Accès à l'expérience découverte | Automatique, après l'inscription | L'inscrit |
+| Mot de soutien | Automatique, 15 jours après l'achat (demandé le 2026-10-29) : encourager, rappeler qu'on avance à son rythme, sans pression. Pas d'e-mail quotidien | L'acheteur |
 | Annonce d'une nouvelle expérience | Ponctuel, à la sortie | Les personnes qui ont accepté de recevoir ces e-mails |
 | Promotions et packs | Ponctuel | Les personnes qui ont accepté de recevoir ces e-mails |
 
@@ -258,23 +263,25 @@ Réponses reçues le 2026-10-27 (`docs/Echange Mail 02.txt`) : proposition d'acc
 
 Réponses reçues le 2026-10-28 (`docs/Echange Mail 03.txt`) : couvertures de LE NŒUD et APRÈS NOUS, retrait des « Grandes expériences », CIF de la société et taux d'IVA (questions 15 et 16).
 
+Réponses reçues le 2026-10-29 (`docs/Echange Mail 04.txt`) : format commun des expériences (5 audios d'environ 30 min, PDF d'environ 60 pages), accès d'un an, écoute seule, carnets numériques avec dessin souhaités si possible, e-mail de soutien à 15 jours, pas encore de compte YouTube ni Instagram (vidéo de présentation proposée), domaine laissé au choix d'Agon Gate. Points société : après son échange avec Cédric.
+
 **Identité et contenus**
 
 1. ~~Logo : fichier d'origine et version officielle ?~~ Répondu : version au trait, faite avec Gemini, pas d'autre fichier. Agon Gate l'a vectorisée.
 2. ~~Photo de couverture du carnet ?~~ Répondu : générée avec ChatGPT, utilisable. Couvertures de LE NŒUD et APRÈS NOUS reçues le 2026-10-28 et en place sur l'accueil.
 3. Une deuxième photo est arrivée (`docs/Photo Bérénice 02.jpg`) : d'où vient-elle et peut-on l'utiliser ? Les visuels des expériences sont leurs couvertures.
 4. ~~Tutoiement ou vouvoiement ?~~ Répondu : vouvoiement sur le site. Slogan « Ouvrir le champ de vos possibles » à lui faire confirmer.
-5. Nombre de pages du carnet d'Après nous.
-6. Les adresses de vos comptes TikTok, Instagram et YouTube.
+5. ~~Nombre de pages du carnet d'Après nous.~~ Répondu : environ 60 pages, comme toutes les expériences.
+6. Les adresses de vos comptes TikTok, Instagram et YouTube. Réponse partielle (2026-10-29) : pas encore de compte YouTube ni Instagram ; TikTok non précisé. Vidéo de présentation proposée par Bérénice.
 
 **Fonctionnement des expériences**
 
 7. Carnet en ligne : confirmer la compréhension de la section 7 (le client écrit ses réponses sur le site, en plus du PDF à imprimer).
 8. Exercices de dessin : le client doit-il pouvoir envoyer une photo de son dessin dans son carnet en ligne ?
 9. Souhaitez-vous pouvoir lire les réponses de vos clients (avec leur accord), ou restent-elles strictement privées ?
-10. L'accès est-il permanent, ou limité dans le temps ?
-11. Les audios : écoute en ligne uniquement, ou aussi téléchargement ?
-12. Souhaitez-vous des e-mails pendant l'expérience (rappel de l'exercice du jour, par exemple) ?
+10. ~~L'accès est-il permanent, ou limité dans le temps ?~~ Répondu : un an à compter de l'achat.
+11. ~~Les audios : écoute en ligne uniquement, ou aussi téléchargement ?~~ Répondu : écoute sur le site uniquement.
+12. ~~Souhaitez-vous des e-mails pendant l'expérience ?~~ Répondu : pas d'e-mail quotidien ; un e-mail de soutien 15 jours après l'achat.
 13. Le mot de bienvenue de l'e-mail d'achat : avez-vous un texte en tête ?
 14. Utilisez-vous déjà un outil de newsletter ou une liste de contacts à reprendre ?
 
@@ -282,5 +289,5 @@ Réponses reçues le 2026-10-28 (`docs/Echange Mail 03.txt`) : couvertures de LE
 
 15. Société espagnole : raison sociale, adresse, numéro fiscal, numéro de TVA intracommunautaire. La vente de contenus en ligne entre-t-elle dans son activité ? Réponse partielle (2026-10-28) : CIF **B75995084**. Selon Cédric, la vente de contenus en ligne n'est pas précisée dans l'activité de la société : à régulariser avec lui avant le lancement si nécessaire. Raison sociale et adresse encore à recevoir.
 16. TVA sur les ventes en ligne aux particuliers de différents pays : qui suit la question (comptable de la société) ? Réponse partielle (2026-10-28) : Bérénice facturera l'IVA à 21 %. À faire confirmer par Cédric : 21 % vaut pour l'Espagne, et pour les autres pays de l'UE tant que les ventes aux particuliers de l'UE hors Espagne restent sous 10 000 € par an ; au-delà, TVA du pays du client déclarée par le guichet OSS. Hors UE (Suisse, Canada…), règles propres à chaque pays. Stripe Tax peut calculer le bon taux automatiquement.
-17. Nom de domaine : quel nom souhaitez-vous (hypnomorphosis.com, .fr) ?
+17. ~~Nom de domaine ?~~ Répondu : au choix d'Agon Gate. hypnomorphosis.com et hypnomorphosis.fr sont libres (vérifié le 2026-10-29).
 18. ~~Qui rédige les CGV et la politique de confidentialité ?~~ Répondu (rapporté par Alexis le 2026-10-28) : Agon Gate les rédige, Bérénice les valide.
