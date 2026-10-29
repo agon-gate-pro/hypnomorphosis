@@ -54,7 +54,7 @@ Réglages faits sur l'instance Clerk de développement, à reproduire à l'ident
 - Nom de l'application : « HypnoMorphosis » (apparaît dans les e-mails de code).
 - Inscription : prénom et nom obligatoires, adresse e-mail vérifiée par code, **sans mot de passe**.
 - Connexion : code par e-mail et Google (identifiants Google propres à HypnoMorphosis en production, ceux de Clerk ne valent qu'en développement).
-- Mot de passe (choix d'Alexis, 2026-10-29) : **facultatif**, créé par la cliente dans Mon compte si elle le souhaite ; **connexion par mot de passe activée** pour qu'il serve ; longueur minimale de 8 caractères (15 par défaut, jugé dissuasif).
+- Mot de passe (choix d'Alexis, 2026-10-29), dans Configure → User & authentication → Password : « Sign-up with password » **désactivé** (inscription sans mot de passe) ; « Add password to account » **activé** (la cliente peut en créer un dans Mon compte) ; longueur minimale de 8 caractères (15 par défaut, jugé dissuasif) ; « Reject compromised passwords » activé. Comportement vérifié : à la connexion, Clerk propose d'abord le code par e-mail, le mot de passe est dans « Utiliser une autre méthode » ; sur un nouvel appareil, « Device Trust » (activé par défaut) demande en plus un code par e-mail.
 - Supprimer l'utilisateur de test `alexis+clerk_test@example.com` (instance de développement seulement).
 
 ## Questions ouvertes
