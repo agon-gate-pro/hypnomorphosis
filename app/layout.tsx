@@ -53,7 +53,10 @@ const apparenceClerk = {
     headerTitle: { fontFamily: "var(--font-cormorant), Georgia, serif", fontWeight: 300, fontSize: "34px", lineHeight: 1.15, letterSpacing: 0 },
     headerSubtitle: { fontSize: "15px" },
     formButtonPrimary: { textTransform: "uppercase", letterSpacing: ".14em", fontWeight: 400, fontSize: "13px", padding: "13px 20px", boxShadow: "none" },
-    socialButtonsBlockButton: { borderColor: "#d9d4c4", backgroundColor: "#ffffff" },
+    socialButtonsBlockButton: { borderColor: "#d9d4c4", backgroundColor: "#ffffff", minHeight: "44px" },
+    // 16 px : sous cette taille, l'iPhone zoome sur le champ
+    formFieldInput: { fontSize: "16px" },
+    otpCodeFieldInput: { fontSize: "16px" },
     // « Vous n'avez pas de compte ? S'inscrire » : centré et passant à la ligne proprement sur téléphone
     footerAction: { flexWrap: "wrap", justifyContent: "center", textAlign: "center", columnGap: "6px" },
     // badge « Principal » de Mon compte : à peine lisible avec les couleurs par défaut

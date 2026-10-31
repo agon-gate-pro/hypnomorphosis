@@ -45,6 +45,7 @@
 - 2026-10-31 : devis et contrat envoyés à Bérénice par Alexis pour signature par Cédric Hervet. Demandés en même temps : inscription au ROI, numéro au Registro Mercantil, e-mail de contact du site.
 - 2026-10-31 : formulaire de contact ajouté à la demande d'Alexis (`/contact`, dans le menu et le pied de page, sitemap et `llms.txt`). Testé sans clé Resend : champs, message d'erreur, piège à robots, PC et téléphone. **Envoi réel pas encore testé** : Resend reste à installer.
 - 2026-10-31 : défaut signalé par Alexis corrigé : en changeant de page, le haut de la page Contact restait caché sous l'en-tête. Vérifié depuis le menu, le pied de page et sur téléphone ; les ancres s'arrêtent toujours sous l'en-tête.
+- 2026-10-31 : contrôle mobile complet en production (320, 360, 390, 768 et 1024 px, visiteuse et connectée, écran tactile simulé) : aucun débordement ni texte coupé, menu, ancres, lecture audio et préremplissage du contact corrects. Corrigé : bouton Menu à 44 px de zone tactile (29 à 39 avant), champs des écrans Clerk à 16 px pour éviter le zoom de l'iPhone, bouton Google à 44 px. Non testé sur de vrais appareils.
 
 ## État par module
 
