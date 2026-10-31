@@ -70,7 +70,7 @@ Bérénice avait d'abord demandé une version en ligne en plus du PDF. Ses carne
 
 **Tout est accessible dès le premier jour**, sans déblocage progressif : certains clients impriment leur carnet dès le départ et avancent à leur rythme.
 
-**Accès pendant un an à compter de l'achat** (réponse du 2026-10-29). Le format est le même pour toutes les expériences : 5 audios d'environ 30 minutes et un carnet PDF d'environ 60 pages.
+**Accès pendant un an à compter de l'achat** (réponse du 2026-10-29), **prolongeable d'un an pour 5,99 € TTC** ; l'expérience découverte reste accessible en permanence (réponse du 2026-10-31). Le format est le même pour toutes les expériences : 5 audios d'environ 30 minutes et un carnet PDF d'environ 60 pages.
 
 ### Produits au lancement
 
@@ -253,6 +253,8 @@ Réponses reçues le 2026-10-28 (`docs/Echange Mail 03.txt`) : couvertures de LE
 
 Réponses reçues le 2026-10-29 (`docs/Echange Mail 04.txt`) : format commun des expériences (5 audios d'environ 30 min, PDF d'environ 60 pages), accès d'un an, écoute seule, carnets numériques avec dessin souhaités si possible, e-mail de soutien à 15 jours, pas encore de compte YouTube ni Instagram (vidéo de présentation proposée), domaine laissé au choix d'Agon Gate. Points société : après son échange avec Cédric.
 
+Réponses reçues le 2026-10-31 (`docs/Echange Mail 05.txt`) : prolongation à 5,99 €, découverte permanente, identité de la société, prix de 49 € TTC avec IVA à 21 %, factures par Cédric, pas de médiateur.
+
 **Identité et contenus**
 
 1. ~~Logo : fichier d'origine et version officielle ?~~ Répondu : version au trait, faite avec Gemini, pas d'autre fichier. Agon Gate l'a vectorisée.
@@ -275,7 +277,7 @@ Réponses reçues le 2026-10-29 (`docs/Echange Mail 04.txt`) : format commun des
 
 **Administratif (en attente de Cédric)**
 
-15. Société espagnole : raison sociale, adresse, numéro fiscal, numéro de TVA intracommunautaire. La vente de contenus en ligne entre-t-elle dans son activité ? Réponse partielle (2026-10-28) : CIF **B75995084**. Selon Cédric, la vente de contenus en ligne n'est pas précisée dans l'activité de la société : à régulariser avec lui avant le lancement si nécessaire. Raison sociale et adresse encore à recevoir.
+15. Société espagnole : Patrimonio Hervet Inmeuble SL (PHI), Paseo Albert 13, 43850 Cambrils, CIF **B75995084**, représentée par Cédric Hervet, administrador (2026-10-31). Reste à recevoir : inscription au Registro Mercantil (Tarragona), contact pour les mentions légales, numéro de TVA intracommunautaire (ES B75995084 non valide sur VIES au 2026-10-31, inscription au ROI à vérifier). Selon Cédric, la vente de contenus en ligne n'est pas précisée dans l'activité de la société : à régulariser avant le lancement si nécessaire.
 16. TVA sur les ventes en ligne aux particuliers de différents pays : qui suit la question (comptable de la société) ? Réponse partielle (2026-10-28) : Bérénice facturera l'IVA à 21 %. À faire confirmer par Cédric : 21 % vaut pour l'Espagne, et pour les autres pays de l'UE tant que les ventes aux particuliers de l'UE hors Espagne restent sous 10 000 € par an ; au-delà, TVA du pays du client déclarée par le guichet OSS. Hors UE (Suisse, Canada…), règles propres à chaque pays. Stripe Tax peut calculer le bon taux automatiquement.
 17. ~~Nom de domaine ?~~ Répondu : au choix d'Agon Gate. **hypnomorphosis.com** retenu par Alexis (2026-10-29), libre à cette date.
 18. ~~Qui rédige les CGV et la politique de confidentialité ?~~ Répondu (rapporté par Alexis le 2026-10-28) : Agon Gate les rédige, Bérénice les valide.

@@ -7,7 +7,7 @@
 - pnpm
 - Hébergement : Vercel (projet `hypnomorphosis`, équipe Agon-gate), déploiement automatique depuis GitHub (`agon-gate-pro/hypnomorphosis`, branche `main`)
 - Comptes clients : Clerk (`@clerk/nextjs` 7), application `hypnomorphosis-clerk` créée par l'intégration Vercel Marketplace dans l'espace Clerk « Agon-gate ». L'intégration pose `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` et `CLERK_SECRET_KEY` dans Vercel (non sensibles, pour pouvoir les récupérer avec `vercel env pull`) ; ne pas les modifier à la main
-- Fichiers des expériences : Vercel Blob, store **privé** `hypnomorphosis-contenus` (région Paris `cdg1`), créé le 2026-10-29 et relié au projet dans les trois environnements (`BLOB_READ_WRITE_TOKEN`). Un fichier par expérience sous le dossier de son slug : `decouverte/audio-1.mp3`, `decouverte/audio-2.mp3`, `decouverte/carnet-decouverte.pdf`. Envoi d'un fichier : SDK `put(chemin, contenu, { access: "private", addRandomSuffix: false, allowOverwrite: true })` avec le jeton de `.env.local` (le découpage `multipart` restait bloqué ; `vercel blob put -t` est pris pour l'option `--token` du CLI)
+- Fichiers des expériences : Vercel Blob, store **privé** `hypnomorphosis-contenus` (région Paris `cdg1`), créé le 2026-10-29 et relié au projet dans les trois environnements (`BLOB_READ_WRITE_TOKEN`). Un fichier par expérience sous le dossier de son slug : `decouverte/audio-1.mp3`, `decouverte/audio-2.mp3`, `decouverte/carnet-decouverte.pdf`. Envoi d'un fichier : SDK `put(chemin, contenu, { access: "private", addRandomSuffix: false, allowOverwrite: true })` avec le jeton de `.env.local` (`vercel blob put -t` est pris pour l'option `--token` du CLI)
 
 ## Structure
 
