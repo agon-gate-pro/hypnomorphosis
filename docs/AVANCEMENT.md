@@ -40,6 +40,7 @@
 - 2026-10-29 : audit référencement et IA à la demande d'Alexis, puis corrections : métadonnées et aperçu de partage propres à chaque page, adresses canoniques, données structurées (marque, Bérénice, expériences avec leur prix), `robots.txt`, `sitemap.xml`, `llms.txt`, espace manquant dans le titre de l'accueil. Le site reste en `noindex` jusqu'au lancement. Restent pour la crédibilité : mentions légales et mention « ne remplace pas un avis médical », prévues avec les pages légales.
 - 2026-10-29 : nom complet de Bérénice (Hervet) ajouté à la demande d'Alexis : données structurées, titre et description de Derrière HypnoMorphosis, surtitre « Bérénice Hervet · Hypnothérapeute », textes alternatifs du portrait, `llms.txt`. Son texte à la première personne n'est pas modifié.
 - 2026-10-31 : réponses de Bérénice (`docs/Echange Mail 05.txt`) : prolongation d'un an à 5,99 €, découverte accessible en permanence, société Patrimonio Hervet Inmeuble SL (PHI), Paseo Albert 13, 43850 Cambrils, signataire Cédric Hervet (administrador), 49 € TTC avec IVA à 21 %, factures par Cédric depuis les ventes Stripe, pas de médiateur, comptes YouTube et Instagram la semaine suivante, matériel commandé pour la vidéo. Devis et contrat mis à jour hors dépôt et PDF regénérés : identité du client, carnet en ligne retiré (9 modules), accès d'un an, prolongation, e-mail de soutien, écoute seule, prix TTC, factures hors du site. Contrôles : orthographe « Inmeuble » et adresse trouvées sur Iberinform ; ES B75995084 **non valide sur VIES**.
+- 2026-10-31 : décisions d'Alexis pour signer vite. Devis n° 2026-HM-001 ; mention « projet » retirée du contrat ; devis et contrat rédigés sans hypnose ni transformation personnelle ; signature sans attendre le numéro de TVA intracommunautaire (contrat limité au CIF, mention « Autoliquidation » seulement une fois un numéro valide communiqué). Médiateur et activité de la société laissés à la gestion du client.
 
 ## État par module
 
@@ -77,11 +78,11 @@ Réglages faits sur l'instance Clerk de développement, à reproduire à l'ident
 - Couvertures : reçues. APRÈS NOUS n'existe qu'en paysage 1376 × 768 ; une version plus grande sera utile pour sa fiche.
 - TVA : Bérénice prévoit l'IVA à 21 % partout. À faire confirmer par Cédric (seuil de 10 000 € par an pour les ventes aux particuliers des autres pays de l'UE, puis TVA du pays du client via le guichet OSS ; hors UE, règles locales). Stripe Tax possible.
 - Société : la vente de contenus en ligne n'est pas précisée dans son activité (Cédric) ; Registro Mercantil et contact à recevoir pour les mentions légales.
-- TVA intracommunautaire : ES B75995084 non valide sur VIES (2026-10-31). Cédric à vérifier l'inscription au ROI (modelo 036). Conditionne le numéro du contrat et la mention « Autoliquidation ».
-- Médiateur : Bérénice n'en prendra pas. À faire valider par le conseil de la société pour les ventes aux consommateurs, notamment français ; les CGV devront en tenir compte.
+- TVA intracommunautaire : ES B75995084 non valide sur VIES (2026-10-31). Ne bloque pas la signature ; à régulariser par la société, et à faire confirmer par le comptable d'Agon Gate pour la mention sur les factures.
+- Médiateur : Bérénice n'en prendra pas, choix du client. Les CGV devront en tenir compte.
 - Factures d'Agon Gate : libellé « Création, hébergement et maintenance de site internet », sans mention de l'hypnose (demande de Bérénice).
 - Prolongation à 5,99 € : prévenir la cliente avant la fin d'accès ? Pas demandé, à proposer.
 - Slogan au vouvoiement « Ouvrir le champ de vos possibles » : à faire confirmer par Bérénice.
 - `docs/Photo Bérénice 02.jpg` : origine et droits à confirmer (séance du Figaro ?), non versionnée en attendant.
 - Audios de l'expérience découverte : Bérénice les retravaille et les renvoie en MP3 (conseil donné : normaliser à -1 dB avant export). Ses MP3 du 2026-10-27 sont rangés hors dépôt dans `HypnoMorphosis-audios/`, pas encore écoutés.
-- Devis et contrat : à jour le 2026-10-31 (hors dépôt, `HypnoMorphosis-contrat/`). Restent le numéro de TVA du client, le numéro de devis et la relecture juridique avant l'envoi.
+- Devis et contrat : prêts à signer (hors dépôt, `HypnoMorphosis-contrat/`), PDF à relire visuellement avant l'envoi.
