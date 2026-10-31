@@ -44,6 +44,7 @@
 - 2026-10-31 : conditions fixées par Alexis dans le devis et le contrat. 35 € HT de frais de développement à la signature, une seule fois, rien pendant la création, puis abonnement de 35 € HT par mois à partir de la mise en ligne publique. Engagement de 12 mois à compter de la mise en ligne. Nom de domaine : forfait de 30 € HT par an, ou son coût d'achat s'il dépasse ce montant.
 - 2026-10-31 : devis et contrat envoyés à Bérénice par Alexis pour signature par Cédric Hervet. Demandés en même temps : inscription au ROI, numéro au Registro Mercantil, e-mail de contact du site.
 - 2026-10-31 : formulaire de contact ajouté à la demande d'Alexis (`/contact`, dans le menu et le pied de page, sitemap et `llms.txt`). Testé sans clé Resend : champs, message d'erreur, piège à robots, PC et téléphone. **Envoi réel pas encore testé** : Resend reste à installer.
+- 2026-10-31 : défaut signalé par Alexis corrigé : en changeant de page, le haut de la page Contact restait caché sous l'en-tête. Vérifié depuis le menu, le pied de page et sur téléphone ; les ancres s'arrêtent toujours sous l'en-tête.
 
 ## État par module
 

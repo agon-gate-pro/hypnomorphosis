@@ -84,7 +84,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     // la classe js est ajoutée avant l'hydratation, d'où suppressHydrationWarning
-    <html lang="fr" className={`${cormorant.variable} ${jost.variable} ${marcellus.variable}`} suppressHydrationWarning>
+    <html lang="fr" data-scroll-behavior="smooth" className={`${cormorant.variable} ${jost.variable} ${marcellus.variable}`} suppressHydrationWarning>
       <head>
         {/* les blocs ne sont masqués pour l'apparition au défilement que si le script tourne */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />

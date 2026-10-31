@@ -53,6 +53,8 @@ header.site { border-bottom: 1px solid var(--filet); background: rgba(251, 249, 
 header.site.defile { box-shadow: 0 10px 28px -20px rgba(40, 40, 25, .45); }
 /* les ancres du menu s'arrêtent sous l'en-tête fixe, pas derrière */
 section[id] { scroll-margin-top: 76px; }
+/* changement de page : Next.js ignore l'en-tête collant et cale la page sur <main>, qui finissait caché dessous ; cette marge ramène tout en haut */
+main { scroll-margin-top: 100px; }
 header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
 .marque { display: flex; align-items: center; gap: 12px; }
 .marque .embleme { width: 46px; height: 46px; }
