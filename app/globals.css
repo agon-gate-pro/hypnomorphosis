@@ -237,6 +237,8 @@ ul.acces b { font-weight: 500; color: var(--encre); }
 .histoire-fin { background: var(--sauge-clair); padding: 88px 0; text-align: center; }
 .histoire-fin blockquote { max-width: 760px; margin: 0 auto 30px; font: 300 italic 46px/1.2 var(--titre); }
 .histoire-fin .actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 18px 32px; }
+/* la phrase tient sur une seule ligne dès que la largeur le permet, comme sur l'accueil */
+@media (min-width: 1000px) { .histoire-fin blockquote { max-width: none; white-space: nowrap; } }
 @media (max-width: 600px) { .histoire-fin blockquote { font-size: 34px; } }
 
 /* ---------- Le studio (page Derrière HypnoMorphosis) ---------- */
