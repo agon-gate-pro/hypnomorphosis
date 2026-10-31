@@ -62,8 +62,8 @@ header.site nav a:hover { color: var(--encre); }
 .menu-mobile { display: none; align-items: center; gap: 10px; background: none; border: 0; cursor: pointer; padding: 10px 0; font: 400 13px var(--texte); letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
 .menu-mobile .traits { width: 22px; height: 9px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
 header.site nav a { white-space: nowrap; }
-/* sous 1080 px, le menu complet ne tient plus à côté du nom : on passe au bouton Menu */
-@media (max-width: 1080px) { header.site nav { display: none; } .menu-mobile { display: inline-flex; } }
+/* sous 1180 px, le menu complet ne tient plus à côté du nom : on passe au bouton Menu */
+@media (max-width: 1180px) { header.site nav { display: none; } .menu-mobile { display: inline-flex; } }
 .menu-mobile { flex-shrink: 0; }
 
 /* menu plein écran sur téléphone, sur le papier, avec l'emblème qui tourne en fond */
@@ -302,6 +302,33 @@ ul.acces b { font-weight: 500; color: var(--encre); }
 .introuvable p { max-width: 480px; margin: 0 auto 30px; color: var(--gris); }
 .introuvable .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 @media (max-width: 600px) { .introuvable { padding: 72px 0 88px; } .introuvable h1 { font-size: 42px; } .introuvable .boussole { width: 380px; } }
+
+/* ---------- Contact ---------- */
+.contact-tete { background: var(--pierre); padding: 64px 0 56px; border-bottom: 1px solid var(--filet); }
+.contact-tete h1 { font: 300 56px/1.05 var(--titre); margin: 12px 0 10px; }
+.contact-tete p { font: 300 italic 24px/1.4 var(--titre); color: var(--olive); }
+.contact-corps { padding-top: 56px; padding-bottom: 80px; }
+.contact-formulaire, .contact-merci { max-width: 720px; }
+.contact-formulaire { display: grid; gap: 22px; }
+.contact-formulaire .deux-colonnes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.contact-formulaire label { display: grid; gap: 7px; font-size: 15px; font-weight: 400; }
+/* 16 px : sous cette taille, l'iPhone zoome sur le champ */
+.contact-formulaire input, .contact-formulaire select, .contact-formulaire textarea { width: 100%; padding: 12px 14px; border: 1px solid #d9d4c4; border-radius: 2px; background: #fff; color: var(--encre); font: 300 16px/1.5 var(--texte); }
+.contact-formulaire textarea { resize: vertical; }
+.contact-formulaire input:focus, .contact-formulaire select:focus, .contact-formulaire textarea:focus { outline: 2px solid rgb(201 164 106 / .45); outline-offset: 1px; border-color: var(--olive); }
+.contact-formulaire .btn { justify-self: start; border: 0; cursor: pointer; }
+.contact-formulaire .btn:disabled { opacity: .6; cursor: wait; }
+.contact-formulaire .piege { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.contact-erreur { padding: 12px 14px; border-left: 2px solid #8a4b36; background: #f8efe9; color: #8a4b36; font-size: 15px; }
+.contact-note { color: var(--gris); font-size: 14px; }
+.contact-merci { padding: 34px; background: #fff; border: 1px solid var(--filet); }
+.contact-merci h2 { font: 300 34px/1.15 var(--titre); margin-bottom: 8px; }
+.contact-merci p { color: var(--gris); }
+@media (max-width: 600px) {
+  .contact-tete h1 { font-size: 44px; }
+  .contact-formulaire .deux-colonnes { grid-template-columns: minmax(0, 1fr); }
+  .contact-formulaire .btn { justify-self: stretch; justify-content: center; }
+}
 
 /* ---------- Réseaux sociaux ---------- */
 .reseaux { padding: 80px 0; text-align: center; position: relative; overflow: hidden; color: var(--filet); }

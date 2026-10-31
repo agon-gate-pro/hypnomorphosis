@@ -43,6 +43,7 @@
 - 2026-10-31 : décisions d'Alexis pour signer vite. Devis n° 2026-HM-001 ; mention « projet » retirée du contrat ; devis et contrat rédigés sans hypnose ni transformation personnelle ; signature sans attendre le numéro de TVA intracommunautaire (contrat limité au CIF, mention « Autoliquidation » seulement une fois un numéro valide communiqué). Médiateur et activité de la société laissés à la gestion du client.
 - 2026-10-31 : conditions fixées par Alexis dans le devis et le contrat. 35 € HT de frais de développement à la signature, une seule fois, rien pendant la création, puis abonnement de 35 € HT par mois à partir de la mise en ligne publique. Engagement de 12 mois à compter de la mise en ligne. Nom de domaine : forfait de 30 € HT par an, ou son coût d'achat s'il dépasse ce montant.
 - 2026-10-31 : devis et contrat envoyés à Bérénice par Alexis pour signature par Cédric Hervet. Demandés en même temps : inscription au ROI, numéro au Registro Mercantil, e-mail de contact du site.
+- 2026-10-31 : formulaire de contact ajouté à la demande d'Alexis (`/contact`, dans le menu et le pied de page, sitemap et `llms.txt`). Testé sans clé Resend : champs, message d'erreur, piège à robots, PC et téléphone. **Envoi réel pas encore testé** : Resend reste à installer.
 
 ## État par module
 
@@ -66,6 +67,7 @@ Réglages faits sur l'instance Clerk de développement, à reproduire à l'ident
 - Connexion : code par e-mail et Google (identifiants Google propres à HypnoMorphosis en production, ceux de Clerk ne valent qu'en développement).
 - Mot de passe (choix d'Alexis, 2026-10-29), dans Configure → User & authentication → Password : « Sign-up with password » **désactivé** (inscription sans mot de passe) ; « Add password to account » **activé** (la cliente peut en créer un dans Mon compte) ; longueur minimale de 8 caractères (15 par défaut, jugé dissuasif) ; « Reject compromised passwords » activé. Comportement vérifié : à la connexion, Clerk propose d'abord le code par e-mail, le mot de passe est dans « Utiliser une autre méthode » ; sur un nouvel appareil, « Device Trust » (activé par défaut) demande en plus un code par e-mail.
 - Référencement : dans `lib/site.ts`, `urlSite` passe à `https://hypnomorphosis.com` ; dans `app/layout.tsx`, retirer `robots: { index: false, follow: false }` ; sur les fiches, `disponibilite` passe de `PreOrder` à `InStock` à l'ouverture des achats ; déclarer le site et son sitemap dans Google Search Console et Bing Webmaster Tools (Bing alimente la recherche de ChatGPT) ; rediriger hypnomorphosis.vercel.app vers le domaine.
+- E-mails : vérifier hypnomorphosis.com dans Resend, poser `EMAIL_FROM` sur une adresse du domaine et `CONTACT_DESTINATAIRE` sur l'adresse de contact de Bérénice.
 - Supprimer l'utilisateur de test `alexis+clerk_test@example.com` (instance de développement seulement).
 
 ## Questions ouvertes

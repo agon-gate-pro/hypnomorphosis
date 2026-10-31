@@ -26,6 +26,7 @@ ${Object.entries(categories).map(([nom, texte]) => `- ${nom} : ${texte}`).join("
 ## À propos
 
 - [Derrière HypnoMorphosis](${urlSite}/derriere-hypnomorphosis) : le parcours de Bérénice Hervet, des urgences à l’hypnose, et son studio d’enregistrement.
+- [Contact](${urlSite}/contact) : formulaire pour écrire à Bérénice.
 `;
   return new Response(texte, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
 }

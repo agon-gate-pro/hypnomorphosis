@@ -9,6 +9,7 @@ const liens = [
   { href: "/#decouverte", texte: "Expérience découverte", etiquette: "Gratuite" },
   { href: "/#experiences", texte: "Les expériences", etiquette: "Boutique" },
   { href: "/derriere-hypnomorphosis", texte: "Derrière HypnoMorphosis" },
+  { href: "/contact", texte: "Contact" },
 ];
 
 function Marque() {

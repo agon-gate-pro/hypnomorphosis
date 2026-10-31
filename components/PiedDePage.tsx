@@ -15,6 +15,7 @@ export default function PiedDePage() {
               <li><Link href="/#decouverte">Expérience découverte</Link></li>
               <li><Link href="/#experiences">Les expériences</Link></li>
               <li><Link href="/derriere-hypnomorphosis">Derrière HypnoMorphosis</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
               <li><Link href="/espace">Mon espace</Link></li>
             </ul>
           </div>
