@@ -19,7 +19,7 @@ export default function CadreConnexion({ children }: { children: ReactNode }) {
             <div className="boussole" />
             <div className="acces-mots">
               <span className="caps">Mon espace HypnoMorphosis</span>
-              <p>Vos carnets, vos audios et votre carnet en ligne, réunis au même endroit.</p>
+              <p>Vos carnets et vos audios, réunis au même endroit.</p>
             </div>
           </aside>
           <div className="acces-formulaire">

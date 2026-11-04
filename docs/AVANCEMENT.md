@@ -46,6 +46,8 @@
 - 2026-10-31 : formulaire de contact ajouté à la demande d'Alexis (`/contact`, dans le menu et le pied de page, sitemap et `llms.txt`). Testé sans clé Resend : champs, message d'erreur, piège à robots, PC et téléphone. Le même jour, Resend activé (compte direct, équipe agon-gate ; `RESEND_API_KEY` et `CONTACT_DESTINATAIRE` dans les trois environnements Vercel, production redéployée). Envoi réel testé en production : accepté par Resend, message de remerciement affiché. Tant que `EMAIL_FROM` n'est pas posé, seule l'adresse du compte Resend peut recevoir.
 - 2026-10-31 : défaut signalé par Alexis corrigé : en changeant de page, le haut de la page Contact restait caché sous l'en-tête. Vérifié depuis le menu, le pied de page et sur téléphone ; les ancres s'arrêtent toujours sous l'en-tête.
 - 2026-10-31 : contrôle mobile complet en production (320, 360, 390, 768 et 1024 px, visiteuse et connectée, écran tactile simulé) : aucun débordement ni texte coupé, menu, ancres, lecture audio et préremplissage du contact corrects. Corrigé : bouton Menu à 44 px de zone tactile (29 à 39 avant), champs des écrans Clerk à 16 px pour éviter le zoom de l'iPhone, bouton Google à 44 px. Non testé sur de vrais appareils.
+- 2026-11-04 : devis et contrat signés reçus par Alexis. Le développement complet peut démarrer. Lien de la démo envoyé à Bérénice pour qu'elle fasse ses retours sur l'ensemble du site avant le gros chantier.
+- 2026-11-04 : dernières mentions du « carnet en ligne » retirées du site avant que Bérénice le découvre : formats de l'accueil et de Mon espace, phrase d'introduction de Mon espace, écran de connexion. Restent les audios et le carnet à imprimer.
 
 ## État par module
 
@@ -57,7 +59,7 @@
 | Logo | Vectorisé en SVG par Agon Gate (`docs/logo/`), à montrer à Bérénice |
 | Page d'accueil | Faite et en ligne. Liens vers l'inscription, l'espace client et les fiches branchés ; réseaux sociaux masqués en attendant les adresses de Bérénice |
 | Fiches des expériences | Le Nœud et Après nous faites avec les textes du brief ; bouton d'achat à brancher sur Stripe |
-| Comptes clients | Inscription, connexion, Mon espace et Mon compte faits avec Clerk. Expérience découverte ouverte dans l'espace (carnet et audios, store privé). Reste : achats en base, carnet en ligne, réglages de production de Clerk |
+| Comptes clients | Inscription, connexion, Mon espace et Mon compte faits avec Clerk. Expérience découverte ouverte dans l'espace (carnet et audios, store privé). Reste : achats en base, réglages de production de Clerk |
 | Outils Claude Code | Testés et fusionnés dans `main` : MCP et skills OK, plugins `frontend-design` et `agon-gate` installés sur le poste d'Alexis (à installer une fois par poste) |
 
 ## Jour de la bascule en production
@@ -77,7 +79,6 @@ Réglages faits sur l'instance Clerk de développement, à reproduire à l'ident
 - Questions pour Bérénice : voir la section 13 de `docs/specification-fonctionnelle.md` (logo en SVG et version officielle, droits de la photo de couverture, tutoiement ou vouvoiement, carnet en ligne et exercices de dessin, accès de Bérénice aux réponses, accès permanent, téléchargement des audios, société espagnole et TVA, domaine, CGV).
 - Logo : réglé, vectorisé par Agon Gate à partir du JPG officiel.
 - Réseaux sociaux : pas encore de compte YouTube ni Instagram (2026-10-29), TikTok non précisé ; liens masqués jusque-là. Vidéo de présentation proposée par Bérénice, à intégrer quand elle sera prête.
-- Mentions du « carnet en ligne » à retirer : sur le site (accueil, Mon espace, écran de connexion) et dans le devis (module 6, tests) et le contrat (données personnelles, export) avant leur envoi.
 - Volumes audio à revoir avec Madus : 5 audios de 30 min par expérience, environ 43 Mo chacun à 192 kb/s (29 Mo à 128 kb/s), soit environ 215 Mo par expérience au lieu des 0,3 Go prévus au lancement pour tout le site.
 - Audios : titres à recevoir (affichés « Expérience audio 1 » et « 2 »), écoute seule ou téléchargement à trancher, débit de 128 kb/s à valider à l'écoute (21 Mo à 192 kb/s aujourd'hui).
 - Facturation Vercel : plafond de dépenses et suivi du transfert Blob à poser (Madus).

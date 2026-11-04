@@ -12,7 +12,7 @@ import { experienceOuverte } from "@/lib/experiences";
 export const metadata: Metadata = { title: "Mon expérience · HypnoMorphosis", robots: { index: false } };
 
 // L'intérieur d'une expérience : carnet à imprimer et audios. Les fichiers passent par la route « fichiers »,
-// qui revérifie les droits à chaque chargement. Le carnet en ligne viendra avec la base de données.
+// qui revérifie les droits à chaque chargement.
 export default async function MonExperience({ params }: PageProps<"/espace/experiences/[slug]">) {
   await auth.protect();
   const e = experienceOuverte((await params).slug);

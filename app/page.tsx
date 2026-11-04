@@ -96,7 +96,6 @@ export default function Accueil() {
             <div className="formats revele" style={delai(1)}>
               <span><Icone nom="casque" />Audios dans votre espace</span>
               <span><Icone nom="carnet" />Carnet à imprimer</span>
-              <span><Icone nom="ecran" />Carnet en ligne dans votre espace</span>
             </div>
             <div className="carnets">
               <Link className="carnet revele" href="/experiences/le-noeud">

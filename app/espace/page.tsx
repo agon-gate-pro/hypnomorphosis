@@ -27,7 +27,7 @@ export default async function Espace() {
           <div className="wrap">
             <span className="caps">Mon espace</span>
             <h1>Bonjour{prenom ? <>, <em>{prenom}</em></> : null}</h1>
-            <p>Retrouvez ici vos expériences : les audios à écouter, le carnet à imprimer et votre carnet en ligne.</p>
+            <p>Retrouvez ici vos expériences : les audios à écouter et le carnet à imprimer.</p>
             <div className="espace-actions">
               <Link className="btn btn-trait" href="/espace/compte">Gérer mon compte</Link>
               <BoutonDeconnexion className="lien-discret" />
@@ -50,7 +50,6 @@ export default async function Espace() {
                   <div className="formats">
                     <span><Icone nom="casque" />Audios</span>
                     <span><Icone nom="carnet" />Carnet à imprimer</span>
-                    <span><Icone nom="ecran" />Carnet en ligne</span>
                   </div>
                   {e.contenus
                     ? <Link className="btn btn-plein" href={`/espace/experiences/${e.slug}`}>Ouvrir mon expérience</Link>
