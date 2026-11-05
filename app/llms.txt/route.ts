@@ -1,5 +1,5 @@
 import { categories, experiencesADecouvrir } from "@/lib/experiences";
-import { descriptionSite, urlSite } from "@/lib/site";
+import { descriptionSite, reseaux, urlSite } from "@/lib/site";
 
 // Résumé du site pour les IA (format llms.txt : https://llmstxt.org), généré à partir des mêmes données que les pages.
 export const dynamic = "force-static";
@@ -27,6 +27,10 @@ ${Object.entries(categories).map(([nom, texte]) => `- ${nom} : ${texte}`).join("
 
 - [Derrière HypnoMorphosis](${urlSite}/derriere-hypnomorphosis) : le parcours de Bérénice Hervet, des urgences à l’hypnose, et son studio d’enregistrement.
 - [Contact](${urlSite}/contact) : formulaire pour écrire à Bérénice.
+
+## Réseaux sociaux
+
+${reseaux.map((r) => `- [${r.nom}](${r.url})`).join("\n")}
 `;
   return new Response(texte, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
 }

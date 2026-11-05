@@ -37,9 +37,9 @@ export const sujetsContact = ["Une expérience", "Mon compte", "Autre"];
 
 // comptes de Bérénice : un réseau sans adresse n'est pas affiché, pour ne laisser aucun lien vide
 const tousLesReseaux: { nom: string; icone: NomIcone; url: string }[] = [
-  { nom: "TikTok", icone: "tiktok", url: "" },
-  { nom: "Instagram", icone: "instagram", url: "" },
-  { nom: "YouTube", icone: "youtube", url: "" },
+  { nom: "TikTok", icone: "tiktok", url: "https://www.tiktok.com/@hypnomorphosis" },
+  { nom: "Instagram", icone: "instagram", url: "https://www.instagram.com/hypnomorphosis.berenice/" },
+  { nom: "YouTube", icone: "youtube", url: "https://www.youtube.com/@hypnomorphosis.berenice" },
 ];
 
 export const reseaux = tousLesReseaux.filter((r) => r.url);
@@ -53,6 +53,8 @@ export const organisation = {
   logo: `${urlSite}/logo/hypnomorphosis-embleme.svg`,
   slogan: "Ouvrir le champ de vos possibles",
   description: descriptionSite,
+  // comptes de la marque, pour que moteurs de recherche et IA les rattachent à HypnoMorphosis et à Bérénice
+  sameAs: reseaux.map((r) => r.url),
 };
 
 export const berenice = {
