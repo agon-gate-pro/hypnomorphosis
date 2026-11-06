@@ -5,8 +5,10 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import BoutonDeconnexion from "@/components/BoutonDeconnexion";
+import CaseAnnonces from "@/components/CaseAnnonces";
 import { Icone, SpriteIcones } from "@/components/Icones";
 import { experiencesADecouvrir, experiencesOuvertes } from "@/lib/experiences";
+import type { ChoixAnnonces } from "./actions";
 
 export const metadata: Metadata = { title: "Mon espace · HypnoMorphosis", robots: { index: false } };
 
@@ -15,6 +17,7 @@ export default async function Espace() {
   await auth.protect();
   const utilisatrice = await currentUser();
   const prenom = utilisatrice?.firstName?.trim();
+  const annonces = utilisatrice?.privateMetadata.annonces as ChoixAnnonces | undefined;
   const ouvertes = experiencesOuvertes();
   const aDecouvrir = experiencesADecouvrir();
 
@@ -59,6 +62,11 @@ export default async function Espace() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className="wrap espace-bloc espace-annonces">
+          <h2 className="espace-titre">Nouvelles expériences</h2>
+          <CaseAnnonces accepte={annonces?.accepte === true} />
         </section>
 
         <section className="espace-suite">

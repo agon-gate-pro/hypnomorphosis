@@ -421,6 +421,13 @@ header.site nav .pastille .initiale { display: grid; place-items: center; width:
   .espace-carnet .couv-mini { width: 120px; }
 }
 .espace-suite { background: var(--papier); border-top: 1px solid var(--filet); }
+/* choix des annonces par e-mail, dans Mon espace */
+.espace-annonces { padding-top: 0; }
+.annonces { max-width: 620px; }
+.annonces label { display: flex; gap: 14px; align-items: flex-start; cursor: pointer; color: var(--encre); }
+.annonces input { flex: none; width: 22px; height: 22px; margin-top: 3px; accent-color: var(--olive); cursor: pointer; }
+.annonces-message { min-height: 1.6em; margin: 10px 0 0 36px; color: var(--olive); font-size: 15px; }
+.annonces-message.erreur { color: #8a4b36; }
 .espace-grille { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 22px; }
 .espace-suggestion { display: grid; grid-template-columns: 96px 1fr; gap: 22px; align-items: center; padding: 18px; border: 1px solid var(--filet); transition: background .2s, border-color .2s; }
 .espace-suggestion:hover { background: #fff; border-color: #d9d4c4; }
