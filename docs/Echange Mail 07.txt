@@ -1,0 +1,73 @@
+Mail d'Alexis à Bérénice du 2026-11-06, en réponse à ses retours (docs/Echange Mail 06.txt), copié par Alexis dans la conversation. « image.png » : capture jointe par Alexis (la case des annonces dans Mon espace).
+
+Bonsoir Béré,
+
+Merci pour tes retours, ils étaient très clairs. Tout est en ligne sur le même lien : https://hypnomorphosis.vercel.app. Je reprends point par point (au cas ou j'ai mal compris certaines choses).
+
+1. Page d'accueil
+
+« Trop blanc », la vidéo à la place du logo.
+
+Le premier bloc est maintenant sur fond olive foncé, avec les touches dorées de ton logo. À la place du logo qui tournait, il y a un cadre pour ta vidéo de présentation. En attendant la tienne, une vidéo d'exemple tourne dedans, pour que tu voies le rendu : elle se lance seule, sans le son et en boucle, comme sur les réseaux, avec un bouton pour activer le son.
+
+Pour ta vidéo, quand tu auras le matériel :
+
+au format paysage (horizontal) ;
+courte, entre 15 et 30 secondes, pour qu'elle se charge vite sur téléphone
+un début qui fonctionne sans le son, puisque la plupart des gens la verront d'abord muette.
+Dis-moi ce que tu penses de ce nouveau premier bloc.
+
+Le bouton « Je découvre HypnoMorphosis gratuitement »
+
+Il mène maintenant directement à la création de compte. Le bloc de l'expérience découverte reste plus bas pour ceux qui veulent lire avant de se lancer.
+
+Création du compte : découverte ou achat direct
+
+Les deux chemins sont possibles : on peut acheter une expérience sans passer par l'expérience découverte. Chaque personne qui crée un compte reçoit quand même l'expérience découverte en cadeau, ça ne coûte rien et ça donne envie d'aller plus loin.
+
+J'ai repris ton texte : « Créer mon espace HypnoMorphosis » et « Retrouvez vos carnets et accédez à vos expériences audio. »
+
+Pour l'image, oui, j'en ai besoin. Format portrait, environ 800 × 1300 pixels, sans texte dans l'image, dans les tons de tes couvertures. En attendant, c'est toujours la couverture de l'expérience découverte qui s'affiche.
+
+2. Expérience découverte
+
+Rien de changé, elle est validé.
+
+3. Les expériences
+
+« Carnet à remplir sur tablette » est ajouté à côté des audios et du carnet à imprimer, sur l'accueil, sur les fiches et dans l'espace client.
+Les titres des couvertures sont en majuscules (LE NŒUD, APRÈS NOUS). Tu as raison, c'est plus élégant.
+« 21 jours » n'apparaît plus sur les couvertures : la durée reste dans la phrase juste en dessous.
+4. Derrière HypnoMorphosis
+
+La photo
+
+J'ai mis la photo du studio en entier, comme tu me l'as demandé. Pour être honnête, elle montre elle aussi le plafond, l'anneau lumineux et le bureau au premier plan. Si tu as l'occasion, une nouvelle photo prise à la lumière du jour, sans l'anneau ni le bureau, et centrée sur les deux fauteuils, l'affiche et l'étagère, mettrait vraiment le lieu en valeur. Rien d'urgent, celle-ci fait l'affaire en attendant.
+
+Le texte
+
+Je suis d'accord avec toi : il était un peu long. Je l'ai raccourci d'environ un tiers, en gardant tes phrases et le fil de ton histoire : les urgences, la découverte de l'hypnose, le cabinet, puis HypnoMorphosis. J'ai aussi retiré le petit encadré « Parcours / Aujourd'hui / Création » à côté de la photo, qui faisait doublon. C'est ton histoire, donc relis-la et dis-moi si quelque chose te manque ou ne sonne pas juste.
+
+À mon avis, cette présentation compte vraiment. Les gens qui achètent veulent savoir qui leur parle dans les audios, et ton parcours d'infirmière urgentiste rassure.
+
+5. Les types d'expériences
+
+Je suis d'accord avec toi. Le texte qui s'affichait était l'explication de la catégorie, et on le lisait comme la description de l'expérience. Avec deux expériences, le classement n'apporte pas grand-chose. J'ai donc retiré les catégories partout : chaque expérience apparaît simplement avec son titre et sa description. Si un jour tu en as beaucoup, on pourra toujours les regrouper.
+
+6. Tes questions
+
+Google Business
+Oui, et c'est une très bonne idée avec deux visites par jour. Il suffit d'ajouter l'adresse du site dans ta fiche Google. Je te conseille de le faire au lancement, quand le site sera sur hypnomorphosis.com, pour ne pas mettre l'adresse provisoire.
+
+Une précision : Google réserve ces fiches aux lieux où l'on reçoit réellement du public. il faudra adapter la fiche pour éviter que Google la suspende.
+
+Un mail à chaque nouvelle expérience
+Oui, c'est prévu, et c'est déjà en place. Dans « Mon espace », une case non cochée par défaut (c'est la loi) propose de recevoir l'annonce des nouvelles expériences et les offres. Si tu as créé ton compte, tu peux la voir sous tes expériences. À chaque sortie, on rédige le mail ensemble et je l'envoie à toutes les personnes qui ont coché la case. Chaque mail contient un lien pour se désinscrire.
+
+image.png
+Le carnet et les audios de Le Nœud
+Oui, envoie-les-moi, ils me serviront pour mettre en place l'achat des expériences. Les fichiers audio étant lourds, le plus simple est un lien WeTransfer ou Google Drive. Ils resteront privés et ne seront accessibles qu'aux personnes qui ont acheté l'expérience.
+
+Pour l'appel, avec plaisir. Dis-moi quand tu es disponible, surtout si tu veux qu'on parcourt le texte ou le premier bloc ensemble.
+
+Bonne soirée.
