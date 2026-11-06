@@ -27,7 +27,7 @@ export default async function Espace() {
           <div className="wrap">
             <span className="caps">Mon espace</span>
             <h1>Bonjour{prenom ? <>, <em>{prenom}</em></> : null}</h1>
-            <p>Retrouvez ici vos expériences : les audios à écouter et le carnet à imprimer.</p>
+            <p>Retrouvez ici vos expériences : les audios à écouter et le carnet à imprimer ou à remplir sur tablette.</p>
             <div className="espace-actions">
               <Link className="btn btn-trait" href="/espace/compte">Gérer mon compte</Link>
               <BoutonDeconnexion className="lien-discret" />
@@ -44,12 +44,13 @@ export default async function Espace() {
                   <Image src={e.couverture} alt="" fill sizes="140px" />
                 </div>
                 <div className="espace-carnet-texte">
-                  <span className="caps">{e.categorie} · {e.duree}</span>
+                  <span className="caps">{e.prix === null ? "Offerte" : "Expérience"} · {e.duree}</span>
                   <h3>{e.titre}</h3>
                   <p>{e.resume}</p>
                   <div className="formats">
                     <span><Icone nom="casque" />Audios</span>
                     <span><Icone nom="carnet" />Carnet à imprimer</span>
+                    <span><Icone nom="ecran" />Sur tablette</span>
                   </div>
                   {e.contenus
                     ? <Link className="btn btn-plein" href={`/espace/experiences/${e.slug}`}>Ouvrir mon expérience</Link>
@@ -71,7 +72,7 @@ export default async function Espace() {
                       <Image src={e.couverture} alt="" fill sizes="96px" />
                     </div>
                     <div>
-                      <span className="caps">{e.categorie}</span>
+                      <span className="caps">{e.duree}</span>
                       <h3>{e.titre}</h3>
                       <p>{e.resume}</p>
                       <span className="prix">{e.prix}</span>

@@ -105,24 +105,27 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--dore); outline-
 .js .revele.visible { opacity: 1; transform: none; }
 
 /* ---------- Ouverture ---------- */
-.ouverture { padding: 56px 0 72px; overflow: hidden; } /* les cercles qui tournent ne doivent pas élargir la page */
+/* fond olive foncé et logo doré : l'arrivée sur le site, souvent depuis les réseaux, ne doit pas paraître « trop blanche » (Bérénice, 2026-11-06) */
+.ouverture { padding: 56px 0 72px; overflow: hidden; background: var(--olive-nuit); color: #f6f1e4; } /* les cercles qui tournent ne doivent pas élargir la page */
 .ouverture .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
 .ouverture h1 { font: 300 66px/1.02 var(--titre); margin: 0 0 28px; }
-.ouverture h1 em { font-style: italic; color: var(--olive); }
+.ouverture h1 em { font-style: italic; color: var(--dore); }
 .accroche { max-width: 500px; margin-bottom: 34px; }
-.accroche .forte { font: 400 23px/1.35 var(--titre); color: var(--encre); }
+.accroche .forte { font: 400 23px/1.35 var(--titre); color: #f6f1e4; }
 .accroche p + p { margin-top: 12px; }
-.accroche .douce { color: var(--gris); }
+.accroche .douce { color: rgba(246, 241, 228, .72); }
 .ouverture .actions { display: flex; flex-wrap: wrap; gap: 14px; }
-/* le logo en grand, sur le papier, avec un halo doré discret et sa boussole prolongée */
+.ouverture .btn-plein { background: var(--dore); color: var(--olive-nuit); }
+.ouverture .btn-plein:hover { background: #dcbb85; }
+/* le logo doré en grand, avec un halo doré discret et sa boussole prolongée */
 .logo-hero { position: relative; aspect-ratio: 1; width: 100%; max-width: 500px; justify-self: center; color: var(--filet);
-  background: radial-gradient(closest-side, rgba(228, 190, 120, .55) 0%, rgba(228, 190, 120, .22) 55%, rgba(232, 200, 140, 0) 100%); }
+  background: radial-gradient(closest-side, rgba(228, 190, 120, .26) 0%, rgba(228, 190, 120, .1) 55%, rgba(232, 200, 140, 0) 100%); }
 .logo-hero .boussole { inset: 0; width: 100%; }
 .logo-hero .boussole.petite { inset: 9%; width: auto; opacity: .8; }
 .logo-hero .boussole.petite::after { display: none; }
 .logo-hero .scarabee { position: absolute; inset: 15%; width: 70%; height: 70%; }
 /* mouvement : les cercles de la boussole tournent en sens contraires ; leurs points dorés rendent la rotation visible */
-.logo-hero .boussole { animation: tourne 40s linear infinite; color: #d6cdb5; }
+.logo-hero .boussole { animation: tourne 40s linear infinite; color: rgba(201, 164, 106, .45); }
 .logo-hero .boussole.petite { animation-duration: 28s; animation-direction: reverse; }
 .logo-hero .point { position: absolute; width: 9px; height: 9px; margin: -4.5px; border-radius: 50%; background: var(--dore); box-shadow: 0 0 10px 2px rgba(201, 164, 106, .55); }
 .logo-hero .point.haut { left: 50%; top: 0; }
@@ -171,17 +174,15 @@ ul.acces b { font-weight: 500; color: var(--encre); }
 /* deux carnets au lancement : centrés, à la largeur qu'ils avaient sur trois colonnes */
 .carnets { display: grid; grid-template-columns: repeat(2, minmax(0, 360px)); justify-content: center; gap: 28px; margin-top: 40px; }
 @media (max-width: 620px) { .carnets { grid-template-columns: minmax(0, 420px); } }
-/* la couverture de Bérénice en fond, voilée en haut et en bas pour lire la catégorie et le titre */
-.carnet .couv { position: relative; aspect-ratio: 3 / 4; border-radius: 3px 10px 10px 3px; overflow: hidden; padding: 28px 26px; display: flex; flex-direction: column; justify-content: space-between;
+/* la couverture de Bérénice en fond, voilée en bas pour lire le titre */
+.carnet .couv { position: relative; aspect-ratio: 3 / 4; border-radius: 3px 10px 10px 3px; overflow: hidden; padding: 28px 26px; display: flex; flex-direction: column; justify-content: flex-end;
   background: var(--olive); color: #f6f1e4; box-shadow: inset 6px 0 0 rgba(0,0,0,.08), 0 22px 40px -28px rgba(40,40,25,.6); transition: transform .3s; }
 .carnet .couv img { object-fit: cover; }
 .carnet .couv::before { content: ""; position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(34,36,24,.5) 0%, rgba(34,36,24,0) 30%, rgba(34,36,24,0) 50%, rgba(34,36,24,.75) 100%); }
-.carnet .couv > span, .carnet .couv > div { position: relative; z-index: 2; }
+  background: linear-gradient(180deg, rgba(34,36,24,0) 50%, rgba(34,36,24,.75) 100%); }
 .carnet:hover .couv { transform: translateY(-4px); }
-.carnet .couv .cat { font-family: var(--capitales); font-size: 11px; letter-spacing: .24em; text-transform: uppercase; opacity: .9; }
-.carnet .couv h3 { font: 400 38px/1.05 var(--titre); position: relative; }
-.carnet .couv .duree { font-family: var(--titre); font-style: italic; font-size: 18px; opacity: .9; }
+/* titres en capitales, comme sur les carnets de Bérénice (le texte reste écrit normalement pour Google et les lecteurs d'écran) */
+.carnet .couv h3 { font: 400 34px/1.1 var(--titre); letter-spacing: .08em; text-transform: uppercase; position: relative; z-index: 2; }
 /* prix alignés en bas, même si une description passe sur deux lignes */
 .carnet { display: flex; flex-direction: column; }
 .carnet .infos { padding: 18px 4px 0; flex: 1; display: flex; flex-direction: column; }
@@ -267,7 +268,6 @@ ul.acces b { font-weight: 500; color: var(--encre); }
 .fiche-couv img { object-fit: cover; }
 .fiche-ouverture h1 { font: 300 68px/1.05 var(--titre); margin: 12px 0 10px; }
 .fiche-ouverture .sous-titre, .fiche-fin .sous-titre { font: 300 italic 26px/1.35 var(--titre); color: var(--olive); }
-.fiche-ouverture .categorie { margin-top: 18px; max-width: 520px; color: var(--gris); font-size: 15.5px; }
 .fiche-achat { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px; margin-top: 30px; }
 .fiche-achat .prix { font: 400 36px var(--titre); }
 @media (max-width: 820px) {

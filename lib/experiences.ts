@@ -19,7 +19,6 @@ export type Contenus = {
 export type Experience = {
   slug: string;
   titre: string;
-  categorie: string;
   duree: string;
   jours: number;
   resume: string;
@@ -29,17 +28,10 @@ export type Experience = {
   contenus?: Contenus;
 };
 
-// descriptions des catégories, mot pour mot du brief (section 4)
-export const categories: Record<string, string> = {
-  "Expérience universelle": "Des expériences générales qui explorent des mécanismes humains que nous partageons tous, pour mieux comprendre ce qui nous anime et découvrir ce qui, en nous, ne demande qu’à être révélé.",
-  "Expérience miroir": "Des expériences qui partent de situations de vie particulières pour vous permettre de vous reconnaître, de mieux vous comprendre et peut-être de découvrir votre histoire sous un autre angle.",
-};
-
 export const experiences: Experience[] = [
   {
     slug: "decouverte",
     titre: "L’expérience découverte",
-    categorie: "Offerte",
     duree: "5 jours",
     jours: 5,
     resume: "5 jours pour ouvrir le champ de vos possibles.",
@@ -56,7 +48,6 @@ export const experiences: Experience[] = [
   {
     slug: "le-noeud",
     titre: "Le Nœud",
-    categorie: "Expérience universelle",
     duree: "21 jours",
     jours: 21,
     resume: "21 jours pour dénouer, comprendre et se reconnecter à soi.",
@@ -79,7 +70,6 @@ export const experiences: Experience[] = [
   {
     slug: "apres-nous",
     titre: "Après nous",
-    categorie: "Expérience miroir",
     duree: "21 jours",
     jours: 21,
     resume: "21 jours pour revenir à soi après une séparation.",

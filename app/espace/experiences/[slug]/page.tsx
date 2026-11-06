@@ -31,7 +31,7 @@ export default async function MonExperience({ params }: PageProps<"/espace/exper
             </div>
             <div>
               <Link className="retour" href="/espace">← Mon espace</Link>
-              <span className="caps">{e.categorie} · {e.duree}</span>
+              <span className="caps">{e.prix === null ? "Offerte" : "Expérience"} · {e.duree}</span>
               <h1>{e.titre}</h1>
               <p>{e.resume}</p>
               <a className="btn btn-plein" href={fichier(e.contenus.carnet)} target="_blank" rel="noopener">

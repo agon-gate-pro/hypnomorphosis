@@ -77,7 +77,7 @@ const textesClerk = {
   },
   signUp: {
     ...frFR.signUp,
-    start: { ...frFR.signUp!.start, title: "Créer mon espace", subtitle: "Pour recevoir l’expérience découverte et retrouver vos carnets." },
+    start: { ...frFR.signUp!.start, title: "Créer mon espace HypnoMorphosis", subtitle: "Retrouvez vos carnets et accédez à vos expériences audio." },
     emailCode: { ...frFR.signUp!.emailCode, subtitle: "Code envoyé par e-mail. Rien reçu ? Regardez dans vos spams." },
   },
 };

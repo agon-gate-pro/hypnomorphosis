@@ -38,7 +38,8 @@ export default function Accueil() {
       <EnTete />
 
       <main>
-        {/* Brief : en haut le logo, puis « Ouvrir le champ de vos possibles » (vouvoiement sur le site), puis le texte d'introduction */}
+        {/* Brief : en haut le logo, puis « Ouvrir le champ de vos possibles » (vouvoiement sur le site), puis le texte d'introduction.
+            Fond olive foncé et logo doré à la demande de Bérénice (accueil « trop blanc »), en attendant sa vidéo de présentation. */}
         <section className="ouverture grain">
           <div className="wrap">
             <div>
@@ -49,13 +50,13 @@ export default function Accueil() {
                 <p className="forte">À travers l’hypnose, venez à la rencontre de vous-même et découvrez tout ce qui peut encore s’ouvrir à vous.</p>
               </div>
               <div className="actions">
-                <a className="btn btn-plein" href="#decouverte">Je découvre HypnoMorphosis gratuitement</a>
+                <Link className="btn btn-plein" href="/inscription">Je découvre HypnoMorphosis gratuitement</Link>
               </div>
             </div>
             <div className="logo-hero" aria-hidden="true">
               <div className="boussole"><span className="point haut" /><span className="point bas" /></div>
               <div className="boussole petite"><span className="point haut" /></div>
-              <Image className="scarabee" src="/logo/hypnomorphosis-embleme.svg" alt="" width={350} height={350} priority />
+              <Image className="scarabee" src="/logo/hypnomorphosis-embleme-dore.svg" alt="" width={350} height={350} priority />
             </div>
           </div>
         </section>
@@ -96,19 +97,20 @@ export default function Accueil() {
             <div className="formats revele" style={delai(1)}>
               <span><Icone nom="casque" />Audios dans votre espace</span>
               <span><Icone nom="carnet" />Carnet à imprimer</span>
+              <span><Icone nom="ecran" />Carnet à remplir sur tablette</span>
             </div>
             <div className="carnets">
               <Link className="carnet revele" href="/experiences/le-noeud">
                 <div className="couv">
                   <Image src="/images/couverture-noeud.jpg" alt="" fill sizes="(max-width: 620px) 92vw, 360px" />
-                  <span className="cat">Expérience universelle</span><div><h3>Le Nœud</h3><span className="duree">21 jours</span></div>
+                  <h3>Le Nœud</h3>
                 </div>
                 <div className="infos"><p>21 jours pour dénouer, comprendre et se reconnecter à soi.</p><div className="ligne"><span className="prix">49&nbsp;€</span><span className="lien">Découvrir</span></div></div>
               </Link>
               <Link className="carnet revele" href="/experiences/apres-nous" style={delai(1)}>
                 <div className="couv">
                   <Image src="/images/couverture-apres-nous.jpg" alt="" fill sizes="(max-width: 620px) 92vw, 360px" />
-                  <span className="cat">Expérience miroir</span><div><h3>Après nous</h3><span className="duree">21 jours</span></div>
+                  <h3>Après nous</h3>
                 </div>
                 <div className="infos"><p>21 jours pour revenir à soi après une séparation.</p><div className="ligne"><span className="prix">49&nbsp;€</span><span className="lien">Découvrir</span></div></div>
               </Link>

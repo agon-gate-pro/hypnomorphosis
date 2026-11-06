@@ -8,7 +8,7 @@ import DonneesStructurees from "@/components/DonneesStructurees";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import { Icone, SpriteIcones } from "@/components/Icones";
-import { categories, experience, experiencesADecouvrir } from "@/lib/experiences";
+import { experience, experiencesADecouvrir } from "@/lib/experiences";
 import { metaPage, organisation, urlSite } from "@/lib/site";
 
 const delai = (rang: number) => ({ "--delai": `${rang * 0.25}s` }) as CSSProperties;
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps<"/experiences/[slug
   const e = experience((await params).slug);
   if (!e) return {};
   return metaPage({
-    titre: `${e.titre} · ${e.categorie} HypnoMorphosis`,
+    titre: `${e.titre} · Expérience HypnoMorphosis`,
     description: `${e.resume} Une expérience d’hypnose de ${e.jours} jours à vivre chez soi : carnet à imprimer, 5 audios guidés et ${e.jours} exercices, par Bérénice, hypnothérapeute.`,
     chemin: `/experiences/${e.slug}`,
   });
@@ -48,11 +48,10 @@ export default async function FicheExperience({ params }: PageProps<"/experience
   const donnees = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: `${e.titre} · ${e.categorie} HypnoMorphosis`,
+    name: `${e.titre} · Expérience HypnoMorphosis`,
     description: `${e.resume} ${fiche.explorer[0].replaceAll("**", "")}`,
     image: `${urlSite}${e.couverture}`,
     url: `${urlSite}/experiences/${e.slug}`,
-    category: e.categorie,
     brand: { "@type": "Brand", name: "HypnoMorphosis" },
     offers: {
       "@type": "Offer",
@@ -83,10 +82,9 @@ export default async function FicheExperience({ params }: PageProps<"/experience
               <Image src={e.couverture} alt={`Couverture du carnet ${e.titre}`} fill sizes="(max-width: 820px) 80vw, 400px" priority />
             </div>
             <div className="revele" style={delai(1)}>
-              <span className="caps">{e.categorie} · {e.duree}</span>
+              <span className="caps">Expérience · {e.duree}</span>
               <h1>{e.titre}</h1>
               <p className="sous-titre">{e.resume}</p>
-              {categories[e.categorie] && <p className="categorie">{categories[e.categorie]}</p>}
               {achat}
             </div>
           </div>
@@ -109,7 +107,7 @@ export default async function FicheExperience({ params }: PageProps<"/experience
               <h2 className="section">Votre expérience en un coup d’œil</h2>
               <ul className="acces">
                 <li><Icone nom="sablier" /><span><b>{e.jours} jours</b> d’expérience</span></li>
-                <li><Icone nom="carnet" /><span><b>Un cahier d’accompagnement{fiche.pages ? ` de ${fiche.pages} pages` : ""}</b> à imprimer</span></li>
+                <li><Icone nom="carnet" /><span><b>Un cahier d’accompagnement{fiche.pages ? ` de ${fiche.pages} pages` : ""}</b> à imprimer ou à remplir sur tablette</span></li>
                 <li><Icone nom="casque" /><span><b>5 expériences audio guidées</b></span></li>
                 <li><Icone nom="plume" /><span><b>{e.jours} exercices</b>, un par jour</span></li>
                 <li><Icone nom="spirale" /><span><b>Des expériences hypnotiques</b> et des exercices d’introspection</span></li>
@@ -119,7 +117,7 @@ export default async function FicheExperience({ params }: PageProps<"/experience
               <h2 className="section">Comment cela fonctionne&nbsp;?</h2>
               <ol className="etapes">
                 <li><b>Vous achetez votre expérience</b><span>Après votre achat, vous recevez vos accès personnels à votre espace privé HypnoMorphosis.</span></li>
-                <li><b>Vous téléchargez votre cahier</b><span>Votre cahier d’accompagnement est disponible dans votre espace. Vous pouvez le télécharger, l’imprimer et y réaliser directement les différents exercices.</span></li>
+                <li><b>Vous téléchargez votre cahier</b><span>Votre cahier d’accompagnement est disponible dans votre espace. Vous pouvez l’imprimer ou l’ouvrir sur votre tablette, et y réaliser directement les différents exercices.</span></li>
                 <li><b>Vous vivez l’expérience, jour après jour</b><span>Pendant {e.jours} jours, vous avancez à votre rythme à travers les exercices, les expériences hypnotiques et les audios guidés accessibles directement depuis votre espace privé.</span></li>
                 <li><b>Vous laissez l’expérience faire son chemin</b><span>Chaque étape vous invite à expérimenter, observer et avancer progressivement au fil des {e.jours} jours.</span></li>
               </ol>

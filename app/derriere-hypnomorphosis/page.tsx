@@ -52,27 +52,24 @@ export default function DerriereHypnoMorphosis() {
         <section className="histoire-recit">
           <div className="colonne revele">
             <p>J’ai toujours cru profondément en la médecine d’urgence. Dans l’urgence, il faut agir, soulager, trouver des solutions. Mais lorsque j’ai ensuite exercé comme infirmière à domicile, j’ai découvert une autre réalité.</p>
-            <p>Des personnes que l’on orientait d’un spécialiste à l’autre. Des symptômes qui persistaient. Des réponses qui ne venaient pas toujours. Et parfois, cette impression qu’il manquait quelque chose.</p>
-            <p>C’est dans ce contexte, pour des raisons à la fois personnelles et professionnelles, que je me suis formée à l’hypnose.</p>
-            <p>Et puis j’ai commencé à l’utiliser. D’abord sur moi, puis auprès de certaines personnes que j’accompagnais dans le cadre de mon activité d’infirmière.</p>
+            <p>Des symptômes qui persistaient, des réponses qui ne venaient pas toujours. Et parfois, cette impression qu’il manquait quelque chose.</p>
+            <p>C’est dans ce contexte que je me suis formée à l’hypnose, et que j’ai commencé à l’utiliser&nbsp;: d’abord sur moi, puis auprès de certaines personnes que j’accompagnais.</p>
             <p>Je dois être honnête&nbsp;: <strong>je ne m’attendais pas à ça.</strong></p>
-            <p>J’ai observé des changements qui m’ont moi-même surprise. Des résultats que je n’aurais pas imaginé possibles avant de les voir se produire. Comme si, quelque part, l’hypnose venait me dire&nbsp;:</p>
+            <p>J’ai observé des changements qui m’ont moi-même surprise. Comme si, quelque part, l’hypnose venait me dire&nbsp;:</p>
           </div>
           <blockquote className="histoire-citation revele">«&nbsp;Oui. C’est possible. Et oui, ça existe.&nbsp;»</blockquote>
           <div className="colonne revele">
-            <p>J’ai alors choisi d’aller plus loin. Pendant plusieurs années, j’ai exercé en cabinet, en accompagnant des personnes avec l’hypnose et en continuant à me former.</p>
-            <p>Aujourd’hui, HypnoMorphosis est une nouvelle étape.</p>
-            <p>Je souhaite pouvoir transmettre cette approche au-delà du cabinet, à travers des expériences accessibles en ligne, pour permettre à davantage de personnes de découvrir ce que l’hypnose peut réellement ouvrir.</p>
+            <p>J’ai alors exercé plusieurs années en cabinet. Aujourd’hui, avec HypnoMorphosis, je souhaite transmettre cette approche au-delà du cabinet, pour permettre à davantage de personnes de découvrir ce que l’hypnose peut réellement ouvrir.</p>
           </div>
         </section>
 
         {/* Le studio où Bérénice enregistre : montrer une vraie personne et un vrai lieu (idée d'Alexis, 2026-10-29).
-            Photo du fauteuil et texte provisoires, en attendant sa photo dans le fauteuil et ses propres mots. */}
+            Photo du studio en entier choisie par Bérénice (2026-11-06) ; texte provisoire en attendant ses propres mots. */}
         <section className="studio fond-pierre" id="studio">
           <div className="wrap">
             <div className="studio-photo revele">
-              <Image src="/images/studio-fauteuil.jpg" alt="Le fauteuil du studio où Bérénice enregistre ses audios" fill sizes="(max-width: 820px) 92vw, 460px" />
-              <span className="legende">Le fauteuil où naissent les audios</span>
+              <Image src="/images/studio.jpg" alt="Le studio où Bérénice enregistre ses audios : deux fauteuils, une affiche et une étagère" fill sizes="(max-width: 820px) 92vw, 460px" />
+              <span className="legende">Le studio où naissent les audios</span>
             </div>
             <div className="revele" style={delai(1)}>
               <span className="caps">Là où naissent vos audios</span>
@@ -91,10 +88,9 @@ export default function DerriereHypnoMorphosis() {
           <div className="colonne revele">
             <h2 className="section">Une autre façon d’expérimenter l’hypnose</h2>
             <p>Au fil des années, j’ai compris que l’hypnose n’était pas seulement une technique ou un outil parmi d’autres.</p>
-            <p>Ce qui m’intéresse, c’est ce qu’elle peut provoquer dans l’expérience que nous faisons d’une situation. Parce qu’une situation peut rester exactement la même, et pourtant, quelque chose peut changer.</p>
-            <p>Une perception. Une sensation. Une réaction. Une certitude que l’on croyait immuable. Parfois même, la façon dont on se perçoit soi-même ou dont on appréhende ce qui nous entoure.</p>
+            <p>Une situation peut rester exactement la même, et pourtant, quelque chose peut changer&nbsp;: une perception, une réaction, une certitude que l’on croyait immuable.</p>
             <p>C’est cette possibilité qui est au cœur d’HypnoMorphosis&nbsp;: <strong>transformer l’expérience, sans forcément avoir besoin de transformer ce qui nous entoure.</strong></p>
-            <p>Et finalement, après toutes ces années à l’expérimenter, je crois que je pourrais résumer ce que l’hypnose représente pour moi en une seule phrase&nbsp;:</p>
+            <p>Si je devais résumer ce que l’hypnose représente pour moi en une seule phrase&nbsp;:</p>
           </div>
         </section>
 
