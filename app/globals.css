@@ -117,13 +117,23 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--dore); outline-
 .ouverture .actions { display: flex; flex-wrap: wrap; gap: 14px; }
 .ouverture .btn-plein { background: var(--dore); color: var(--olive-nuit); }
 .ouverture .btn-plein:hover { background: #dcbb85; }
-/* le logo doré en grand, avec un halo doré discret et sa boussole prolongée */
+/* la boussole qui tourne, avec un halo doré discret, autour du cadre paysage de la vidéo de présentation */
 .logo-hero { position: relative; aspect-ratio: 1; width: 100%; max-width: 500px; justify-self: center; color: var(--filet);
   background: radial-gradient(closest-side, rgba(228, 190, 120, .26) 0%, rgba(228, 190, 120, .1) 55%, rgba(232, 200, 140, 0) 100%); }
 .logo-hero .boussole { inset: 0; width: 100%; }
 .logo-hero .boussole.petite { inset: 9%; width: auto; opacity: .8; }
 .logo-hero .boussole.petite::after { display: none; }
-.logo-hero .scarabee { position: absolute; inset: 15%; width: 70%; height: 70%; }
+.video-cadre { position: absolute; left: 50%; top: 50%; z-index: 1; transform: translate(-50%, -50%); width: 94%; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden;
+  border: 1px solid rgba(201, 164, 106, .55); background: #23271b; box-shadow: 0 30px 60px -28px rgba(0, 0, 0, .75); }
+.video-cadre video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video-attente { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; height: 100%; padding: 16px; text-align: center;
+  color: var(--dore); font: 300 italic 18px/1.3 var(--titre); }
+.video-attente img { width: auto; height: 52%; }
+.video-exemple { position: absolute; left: 10px; top: 10px; z-index: 1; padding: 5px 12px; border-radius: 99px; background: rgba(47, 52, 37, .78); color: #f6f1e4;
+  font: 400 10px var(--texte); letter-spacing: .14em; text-transform: uppercase; }
+.video-son { position: absolute; right: 10px; bottom: 10px; min-height: 44px; padding: 0 14px; border: 1px solid rgba(201, 164, 106, .6); border-radius: 99px; cursor: pointer;
+  background: rgba(47, 52, 37, .78); color: #f6f1e4; font: 400 11px var(--texte); letter-spacing: .12em; text-transform: uppercase; }
+.video-son:hover { background: var(--olive-nuit); }
 /* mouvement : les cercles de la boussole tournent en sens contraires ; leurs points dorés rendent la rotation visible */
 .logo-hero .boussole { animation: tourne 40s linear infinite; color: rgba(201, 164, 106, .45); }
 .logo-hero .boussole.petite { animation-duration: 28s; animation-direction: reverse; }
@@ -135,6 +145,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--dore); outline-
   .ouverture .wrap { grid-template-columns: 1fr; gap: 40px; }
   .ouverture h1 { font-size: 46px; }
   .logo-hero { max-width: 340px; grid-row: 1; }
+  .video-attente { font-size: 15px; padding: 12px; }
 }
 
 /* ---------- Expérience découverte ---------- */

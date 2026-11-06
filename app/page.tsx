@@ -6,9 +6,10 @@ import Apparitions from "@/components/Apparitions";
 import DonneesStructurees from "@/components/DonneesStructurees";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
+import VideoAccueil from "@/components/VideoAccueil";
 import { Icone, SpriteIcones } from "@/components/Icones";
 import { experiencesADecouvrir } from "@/lib/experiences";
-import { berenice, descriptionSite, lienFigaro, metaPage, organisation, reseaux, urlSite } from "@/lib/site";
+import { berenice, descriptionSite, lienFigaro, metaPage, organisation, reseaux, urlSite, videoAccueil } from "@/lib/site";
 
 // décalage d'apparition du n-ième élément d'une même rangée
 const delai = (rang: number) => ({ "--delai": `${rang * 0.25}s` }) as CSSProperties;
@@ -39,7 +40,7 @@ export default function Accueil() {
 
       <main>
         {/* Brief : en haut le logo, puis « Ouvrir le champ de vos possibles » (vouvoiement sur le site), puis le texte d'introduction.
-            Fond olive foncé et logo doré à la demande de Bérénice (accueil « trop blanc »), en attendant sa vidéo de présentation. */}
+            Fond olive foncé à la demande de Bérénice (accueil « trop blanc ») ; sa vidéo de présentation à la place du logo, dans un cadre paysage. */}
         <section className="ouverture grain">
           <div className="wrap">
             <div>
@@ -53,10 +54,19 @@ export default function Accueil() {
                 <Link className="btn btn-plein" href="/inscription">Je découvre HypnoMorphosis gratuitement</Link>
               </div>
             </div>
-            <div className="logo-hero" aria-hidden="true">
-              <div className="boussole"><span className="point haut" /><span className="point bas" /></div>
-              <div className="boussole petite"><span className="point haut" /></div>
-              <Image className="scarabee" src="/logo/hypnomorphosis-embleme-dore.svg" alt="" width={350} height={350} priority />
+            <div className="logo-hero">
+              <div className="boussole" aria-hidden="true"><span className="point haut" /><span className="point bas" /></div>
+              <div className="boussole petite" aria-hidden="true"><span className="point haut" /></div>
+              <div className="video-cadre">
+                {videoAccueil ? (
+                  <VideoAccueil {...videoAccueil} />
+                ) : (
+                  <div className="video-attente">
+                    <Image src="/logo/hypnomorphosis-embleme-dore.svg" alt="" width={160} height={160} priority />
+                    <span>Vidéo de présentation à venir</span>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>

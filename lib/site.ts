@@ -32,6 +32,12 @@ export function metaPage({ titre, description, chemin }: { titre: string; descri
 // article consacré à Bérénice : mention « Vu dans Madame Figaro », sans reprise des photos du magazine
 export const lienFigaro = "https://adresses-incontournables.madame.lefigaro.fr/prendre-soin-soi/berenice-hervet/";
 
+// vidéo de présentation de Bérénice, au format paysage (16:9), à la place du logo dans le premier bloc de l'accueil.
+// null : le cadre affiche le logo et « Vidéo de présentation à venir ». Vidéo courte et légère (quelques Mo), avec si possible une
+// image fixe (`affiche`) montrée pendant le chargement. `exemple` affiche l'étiquette « Vidéo d'exemple ».
+// En attendant la sienne : une vidéo libre de droits (CC0, exemple de MDN) pour montrer le rendu à Bérénice.
+export const videoAccueil: { src: string; affiche?: string; exemple?: boolean } | null = { src: "/videos/exemple-paysage.mp4", exemple: true };
+
 // sujets du formulaire de contact
 export const sujetsContact = ["Une expérience", "Mon compte", "Autre"];
 
