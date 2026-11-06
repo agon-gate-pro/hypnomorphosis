@@ -75,11 +75,6 @@ export default function DerriereHypnoMorphosis() {
               <span className="caps">Là où naissent vos audios</span>
               <h2 className="section">Une vraie voix, <em>un vrai lieu</em></h2>
               <p>Chaque carnet est écrit par moi, et chaque audio est enregistré ici, dans mon studio, avec ma propre voix.</p>
-              <ul className="preuves">
-                <li><b>Parcours</b><span>Ancienne infirmière urgentiste</span></li>
-                <li><b>Aujourd’hui</b><span>Hypnothérapeute</span></li>
-                <li><b>Création</b><span>Textes, exercices et voix&nbsp;: tout est de Bérénice</span></li>
-              </ul>
             </div>
           </div>
         </section>
