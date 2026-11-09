@@ -1,4 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
+import { accesDuCompte } from "@/lib/acces";
 import { lienSigne } from "@/lib/contenus";
 import { experienceOuverte } from "@/lib/experiences";
 
@@ -10,7 +11,7 @@ export async function GET(_requete: Request, { params }: RouteContext<"/espace/e
   if (!userId) return new Response("Connexion requise", { status: 401 });
 
   const { slug, fichier } = await params;
-  const contenus = experienceOuverte(slug)?.contenus;
+  const contenus = experienceOuverte(slug, await accesDuCompte())?.contenus;
   // seuls les fichiers déclarés dans lib/experiences.ts sont servis : aucun autre chemin du store n'est atteignable
   const connu = contenus && (contenus.carnet === fichier || contenus.audios.some((a) => a.fichier === fichier));
   if (!connu) return new Response("Introuvable", { status: 404 });

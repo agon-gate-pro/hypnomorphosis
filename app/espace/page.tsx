@@ -7,6 +7,7 @@ import PiedDePage from "@/components/PiedDePage";
 import BoutonDeconnexion from "@/components/BoutonDeconnexion";
 import CaseAnnonces from "@/components/CaseAnnonces";
 import { Icone, SpriteIcones } from "@/components/Icones";
+import { accesDuCompte } from "@/lib/acces";
 import { experiencesADecouvrir, experiencesOuvertes } from "@/lib/experiences";
 import type { ChoixAnnonces } from "./actions";
 
@@ -18,8 +19,10 @@ export default async function Espace() {
   const utilisatrice = await currentUser();
   const prenom = utilisatrice?.firstName?.trim();
   const annonces = utilisatrice?.privateMetadata.annonces as ChoixAnnonces | undefined;
-  const ouvertes = experiencesOuvertes();
-  const aDecouvrir = experiencesADecouvrir();
+  const acces = await accesDuCompte();
+  const ouvertes = experiencesOuvertes(acces);
+  // une expérience déjà ouverte ne figure plus dans les suggestions
+  const aDecouvrir = experiencesADecouvrir().filter((e) => !acces.includes(e.slug));
 
   return (
     <>

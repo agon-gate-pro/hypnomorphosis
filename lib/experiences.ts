@@ -1,5 +1,8 @@
+import type { NomIcone } from "@/components/Icones";
+
 // Liste provisoire des expériences, en attendant la base de données (étape boutique et achats).
-// Chaque compte a accès à l'expérience découverte ; les achats ne sont pas encore enregistrés.
+// Chaque compte a accès à l'expérience découverte ; les expériences payantes s'ouvrent par la liste d'accès du compte
+// (lib/acces.ts), posée à la main tant que les achats ne sont pas enregistrés.
 
 // Texte d'une fiche : paragraphes, avec les passages en gras entre ** (repris du brief de Bérénice)
 export type Fiche = {
@@ -14,6 +17,8 @@ export type Fiche = {
 export type Contenus = {
   carnet: string;
   audios: { titre: string; fichier: string }[];
+  // points propres à l'expérience, ajoutés au guide « Pendant ces … jours » (ex. l'ordalie de la découverte)
+  points?: { icone: NomIcone; gras: string; texte: string }[];
 };
 
 export type Experience = {
@@ -43,6 +48,10 @@ export const experiences: Experience[] = [
         { titre: "Expérience audio 1", fichier: "audio-1.mp3" },
         { titre: "Expérience audio 2", fichier: "audio-2.mp3" },
       ],
+      points: [
+        { icone: "chemin", gras: "Une ordalie", texte: "pour expérimenter plutôt que simplement réfléchir" },
+        { icone: "sceau", gras: "Un engagement à signer", texte: "pour marquer votre décision d’aller jusqu’au bout" },
+      ],
     },
   },
   {
@@ -53,6 +62,11 @@ export const experiences: Experience[] = [
     resume: "21 jours pour dénouer, comprendre et se reconnecter à soi.",
     couverture: "/images/couverture-noeud.jpg",
     prix: "49 €",
+    // reçus de Bérénice le 2026-11-09 ; titres des audios à recevoir
+    contenus: {
+      carnet: "carnet-le-noeud.pdf",
+      audios: [1, 2, 3, 4, 5].map((n) => ({ titre: `Expérience audio ${n}`, fichier: `audio-${n}.mp3` })),
+    },
     fiche: {
       reconnaitre: [
         "**Quelque chose semble se nouer en vous.** Vous savez parfois ce que vous devriez faire, ce que vous aimeriez faire… et pourtant, quelque chose vous retient. Vous recommencez les mêmes schémas, repoussez certaines décisions ou vous retrouvez dans des situations que vous pensiez avoir dépassées.",
@@ -100,14 +114,14 @@ export function experience(slug: string) {
   return experiences.find((e) => e.slug === slug);
 }
 
-// expériences ouvertes à la cliente connectée (aujourd'hui : la découverte, pour tout compte)
-export function experiencesOuvertes() {
-  return experiences.filter((e) => e.prix === null);
+// expériences ouvertes à la cliente connectée : la découverte pour tout compte, et les expériences de sa liste d'accès
+export function experiencesOuvertes(acces: string[]) {
+  return experiences.filter((e) => e.prix === null || acces.includes(e.slug));
 }
 
 // expérience ouverte à la cliente connectée, ou undefined (seule porte vers les fichiers privés)
-export function experienceOuverte(slug: string) {
-  return experiencesOuvertes().find((e) => e.slug === slug);
+export function experienceOuverte(slug: string, acces: string[]) {
+  return experiencesOuvertes(acces).find((e) => e.slug === slug);
 }
 
 export function experiencesADecouvrir() {

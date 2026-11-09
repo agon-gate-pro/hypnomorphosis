@@ -7,6 +7,7 @@ import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import LecteurAudio from "@/components/LecteurAudio";
 import { Icone, SpriteIcones } from "@/components/Icones";
+import { accesDuCompte } from "@/lib/acces";
 import { experienceOuverte } from "@/lib/experiences";
 
 export const metadata: Metadata = { title: "Mon expérience · HypnoMorphosis", robots: { index: false } };
@@ -15,7 +16,7 @@ export const metadata: Metadata = { title: "Mon expérience · HypnoMorphosis", 
 // qui revérifie les droits à chaque chargement.
 export default async function MonExperience({ params }: PageProps<"/espace/experiences/[slug]">) {
   await auth.protect();
-  const e = experienceOuverte((await params).slug);
+  const e = experienceOuverte((await params).slug, await accesDuCompte());
   if (!e?.contenus) notFound();
   const fichier = (nom: string) => `/espace/experiences/${e.slug}/fichiers/${nom}`;
 
@@ -55,11 +56,12 @@ export default async function MonExperience({ params }: PageProps<"/espace/exper
           <aside className="experience-guide">
             <h2 className="espace-titre">Pendant ces {e.duree}</h2>
             <ul className="acces">
-              <li><Icone nom="carnet" /><span><b>Imprimez votre carnet</b> : vous y réaliserez directement les exercices</span></li>
-              <li><Icone nom="casque" /><span><b>2 expériences audio guidées</b> pour vous laisser guider autrement</span></li>
-              <li><Icone nom="chemin" /><span><b>Une ordalie</b>, pour expérimenter plutôt que simplement réfléchir</span></li>
+              <li><Icone nom="carnet" /><span><b>Imprimez votre carnet</b> ou ouvrez-le sur votre tablette : vous y réaliserez directement les exercices</span></li>
+              <li><Icone nom="casque" /><span><b>{e.contenus.audios.length} expériences audio guidées</b> pour vous laisser guider autrement</span></li>
               <li><Icone nom="plume" /><span><b>Un exercice chaque jour</b>, pour avancer pas à pas dans l’expérience</span></li>
-              <li><Icone nom="sceau" /><span><b>Un engagement à signer</b>, pour marquer votre décision d’aller jusqu’au bout</span></li>
+              {e.contenus.points?.map((p) => (
+                <li key={p.gras}><Icone nom={p.icone} /><span><b>{p.gras}</b>, {p.texte}</span></li>
+              ))}
             </ul>
           </aside>
         </section>
