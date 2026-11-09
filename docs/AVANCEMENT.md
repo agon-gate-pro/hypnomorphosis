@@ -59,6 +59,7 @@
 - 2026-11-09 : documents de `docs/` rangés par Alexis dans `docs/Photos/` et `docs/PDF/` ; chemins mis à jour dans ce journal et dans la spécification.
 - 2026-11-09 : analyse des fonds de l'accueil demandée par Alexis après le passage du premier bloc en olive foncé : site cohérent et lisible, mais le sauge pâle de l'expérience découverte paraissait gris sous l'olive foncé, les sections claires du milieu sont très proches en clarté et le doré disparaît après le premier bloc. Essai retenu par Alexis : expérience découverte sur beige pierre au lieu du sauge (le sauge reste sur la fin de Derrière HypnoMorphosis et le détail des fiches). Avis de Bérénice à demander.
 - 2026-11-09 : Le Nœud ouvert au compte d'Alexis (bagarry13@hotmail.com) pour qu'il teste les audios et le carnet. Carnet et 5 audios déposés dans le store Blob privé (`le-noeud/carnet-le-noeud.pdf`, `le-noeud/audio-1.mp3` à `audio-5.mp3`, tailles vérifiées), branchés dans `lib/experiences.ts` (titres « Expérience audio 1 » à « 5 » en attendant ceux de Bérénice ; durées de 23 à 28 min). Accès par compte : liste `acces` dans les métadonnées privées Clerk, posée avec `outils/acces-experience.cjs`, lue par Mon espace, la page de l'expérience et la route des fichiers ; Le Nœud quitte alors les suggestions de Mon espace. Guide « Pendant ces … jours » rendu propre à chaque expérience (nombre d'audios, ordalie et engagement seulement pour la découverte). Testé en local avec le compte de test : avec l'accès, page, carnet et audios servis par morceaux, lecture et avance au milieu d'un audio ; sans l'accès, page et fichiers en 404. Accès du compte de test retiré ensuite.
+- 2026-11-09 : compte de test créé pour que Bérénice essaie elle-même : `berenice+clerk_test@example.com` (prénom Bérénice, nom Test), connexion par le code fixe 424242 des adresses de test Clerk (instance de développement), avec l'accès à Le Nœud. Connexion, Mon espace et lecture d'un audio vérifiées sur hypnomorphosis.vercel.app. Temporaire, à supprimer.
 
 ## État par module
 
@@ -85,7 +86,7 @@ Réglages faits sur l'instance Clerk de développement, à reproduire à l'ident
 - E-mails : vérifier hypnomorphosis.com dans Resend, poser `EMAIL_FROM` sur une adresse du domaine et `CONTACT_DESTINATAIRE` sur l'adresse de contact de Bérénice.
 - Vidéo de l'accueil : remplacer la vidéo d'exemple par celle de Bérénice et supprimer `public/videos/exemple-paysage.mp4` ; si elle n'est pas prête, retirer le cadre et remettre le logo seul.
 - Accès posés à la main (`privateMetadata.acces`, compte d'Alexis) : ils restent dans l'instance de développement ; en production, les accès viendront des achats.
-- Supprimer l'utilisateur de test `alexis+clerk_test@example.com` (instance de développement seulement).
+- Supprimer les utilisateurs de test `alexis+clerk_test@example.com` et `berenice+clerk_test@example.com` (instance de développement seulement).
 
 ## Questions ouvertes
 
