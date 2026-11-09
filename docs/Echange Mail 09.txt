@@ -1,0 +1,31 @@
+Mail d'Alexis à Bérénice du 2026-11-09, en réponse à son mail du même jour (docs/Echange Mail 08.txt), copié par Alexis dans la conversation (retours à la ligne rétablis, texte inchangé).
+
+Bonsoir Béré,
+
+Merci pour les photos et les fichiers de Le Nœud, tout est bien arrivé. Voici ce que j'ai fait.
+
+Ce qui a changé sur le site (https://hypnomorphosis.vercel.app)
+Page de connexion et de création de compte : ta photo de la porte ouverte sur le chemin remplace la couverture de l'expérience découverte. Elle va très bien avec l'univers du site.
+Derrière HypnoMorphosis : la photo retouchée du studio est en ligne, ça change tout. J'ai aussi assombri la petite légende « Le studio où naissent les audios », qui se perdait sur le bureau blanc.
+Expérience découverte sur l'accueil : j'ai remplacé le fond vert clair par un beige plus chaud. Sous le vert foncé du haut, le vert clair paraissait un peu gris.
+Fiche de Le Nœud : elle annonce maintenant 63 pages, comme ton carnet (on avait 59 dans le brief).
+
+Le Nœud est prêt à tester
+J'ai mis en ligne le carnet et les 5 audios, dans un espace privé : seules les personnes qui ont accès à l'expérience peuvent les ouvrir. Je t'ai créé un compte de test pour que tu voies exactement ce que verront tes clients :
+Va sur https://hypnomorphosis.vercel.app/connexion
+Saisis l'adresse berenice+clerk_test@example.com
+Le site te demande un code : tape 424242. Aucun e-mail n'est envoyé, c'est un code de test.
+Dans « Mon espace », tu trouveras l'expérience découverte et Le Nœud, avec le carnet et les 5 audios.
+Ce compte est temporaire, je le supprimerai avant le lancement.
+
+Mes questions
+Le fond beige de l'expérience découverte : tu préfères ce beige ou l'ancien vert clair ?
+Les titres des audios : pour l'instant, ils s'appellent « Expérience audio 1 », « Expérience audio 2 », etc. Peux-tu me donner le titre de chacun ? Les 5 de Le Nœud et les 2 de l'expérience découverte.
+Le guide de Le Nœud : à côté des audios, un encadré « Pendant ces 21 jours » rappelle l'essentiel : imprimer le carnet ou l'ouvrir sur tablette, les 5 audios, un exercice par jour. Pour l'expérience découverte, on y mentionne aussi l'ordalie et l'engagement à signer. Y a-t-il des éléments propres à Le Nœud que tu veux y faire apparaître ?
+La phrase de sécurité sous les audios : « Installez-vous confortablement, dans un endroit calme, de préférence avec un casque. N'écoutez jamais ces audios en conduisant ou pendant une activité qui demande votre attention. » Elle te convient, ou tu veux la formuler autrement ?
+Le texte de Derrière HypnoMorphosis : as-tu pu relire la version raccourcie ? Si tu n'as rien à changer, je la considère comme validée.
+
+Pour la suite
+Je peux maintenant attaquer le gros chantier : le paiement, l'ouverture automatique des expériences après l'achat, les e-mails et les pages légales. Pour Après nous, envoie-moi le carnet et les audios quand ils seront prêts, de la même façon que pour Le Nœud.
+
+Bonne soirée,
