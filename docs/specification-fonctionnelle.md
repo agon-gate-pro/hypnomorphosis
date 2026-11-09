@@ -2,9 +2,9 @@
 
 Sources :
 
-- brief de Bérénice, `docs/SITE INTERNET.pdf` (octobre 2026) : les textes du site (accueil, fiches produits, à propos) y sont fournis et seront repris tels quels, après correction orthographique ;
+- brief de Bérénice, `docs/PDF/SITE INTERNET.pdf` (octobre 2026) : les textes du site (accueil, fiches produits, à propos) y sont fournis et seront repris tels quels, après correction orthographique ;
 - sa réponse au premier mail d'Agon Gate, `docs/Echange Mail 01.txt` (2026-10-26) ;
-- le carnet de l'expérience découverte, `docs/HYPNOMORPHOSIS.pdf`, son logo et sa photo (voir section 10).
+- le carnet de l'expérience découverte, `docs/PDF/HYPNOMORPHOSIS.pdf`, son logo et sa photo (voir section 10).
 
 Ce document décrit ce que le site doit faire ; les questions encore ouvertes sont regroupées à la fin.
 
@@ -188,17 +188,17 @@ Les e-mails d'annonce et de promotion sont de la prospection : ils demandent l'a
 
 | Élément | Fichier | Remarques |
 | --- | --- | --- |
-| Logo vert olive sur fond blanc | `docs/1787297365435.jpg` (renvoyé le 2026-10-27 sous le nom `docs/Logo officiel.jpg`, fichier identique) | **Version officielle.** Scarabée ailé dans un cercle de boussole, au trait, avec « HYPNOMORPHOSIS / Ouvrir le champ de tes possibles ». Créé avec Gemini : pas de fichier d'origine |
+| Logo vert olive sur fond blanc | `docs/Photos/1787297365435.jpg` (renvoyé le 2026-10-27 sous le nom `docs/Logo officiel.jpg`, fichier identique) | **Version officielle.** Scarabée ailé dans un cercle de boussole, au trait, avec « HYPNOMORPHOSIS / Ouvrir le champ de tes possibles ». Créé avec Gemini : pas de fichier d'origine |
 | Logo vectorisé par Agon Gate | `docs/logo/hypnomorphosis-logo.svg`, `docs/logo/hypnomorphosis-embleme.svg` | Tracé automatique du logo officiel (potrace), même dessin, fond transparent. Logo complet et emblème seul, en vert olive `#555a40` |
-| Logo vert olive, faux fond transparent | `docs/1787297506412.jpg` | Le damier est dessiné dans l'image (un JPG ne peut pas être transparent) : inutilisable sur un fond coloré |
-| Logo blanc, faux fond transparent | `docs/1787305085342.jpg` | Même problème. Dessin plein, différent de la version au trait |
-| Logo blanc sur fond vert sauge | `docs/1787832286697.jpg` | Variante où le corps du scarabée est quadrillé |
-| Photo de Bérénice | `docs/Photo_Berenice.jpg` | Selfie, environ 800 px de large, diplômes encadrés en arrière-plan |
-| Deuxième photo de Bérénice | `docs/Photo Bérénice 02.jpg` | Photo professionnelle 4200 × 2800, en pied, veste olive, mur blanc, diplômes à droite (recadrage possible). Origine et droits à confirmer |
-| Carnet de l'expérience découverte | `docs/HYPNOMORPHOSIS.pdf` | Couverture photo en garrigue (rochers, lavande, lumière dorée), pages blanches, titres en capitales gris-vert, logo en bas de page |
-| Couverture de l'expérience découverte | `docs/couverture-decouverte.jpg` | Extraite du PDF (800 × 1301). Image générée avec ChatGPT, utilisable sur le site |
-| Couverture de LE NŒUD | `docs/LE NOEUD.png` | Reçue le 2026-10-28, portrait 848 × 1264. Logo Gemini en bas à droite retiré par recadrage : `public/images/couverture-noeud.jpg` (832 × 1110, format 3:4 des cartes) |
-| Couverture d'APRÈS NOUS | `docs/APRES NOUS.jpg` | Reçue le 2026-10-28, paysage 1376 × 768. Recadrée en portrait sur la femme assise : `public/images/couverture-apres-nous.jpg` (576 × 768). Assez pour les cartes de l'accueil ; une version plus grande serait utile pour une fiche en grand |
+| Logo vert olive, faux fond transparent | `docs/Photos/1787297506412.jpg` | Le damier est dessiné dans l'image (un JPG ne peut pas être transparent) : inutilisable sur un fond coloré |
+| Logo blanc, faux fond transparent | `docs/Photos/1787305085342.jpg` | Même problème. Dessin plein, différent de la version au trait |
+| Logo blanc sur fond vert sauge | `docs/Photos/1787832286697.jpg` | Variante où le corps du scarabée est quadrillé |
+| Photo de Bérénice | `docs/Photos/Photo_Berenice.jpg` | Selfie, environ 800 px de large, diplômes encadrés en arrière-plan |
+| Deuxième photo de Bérénice | `docs/Photos/Photo Bérénice 02.jpg` | Photo professionnelle 4200 × 2800, en pied, veste olive, mur blanc, diplômes à droite (recadrage possible). Origine et droits à confirmer |
+| Carnet de l'expérience découverte | `docs/PDF/HYPNOMORPHOSIS.pdf` | Couverture photo en garrigue (rochers, lavande, lumière dorée), pages blanches, titres en capitales gris-vert, logo en bas de page |
+| Couverture de l'expérience découverte | `docs/Photos/couverture-decouverte.jpg` | Extraite du PDF (800 × 1301). Image générée avec ChatGPT, utilisable sur le site |
+| Couverture de LE NŒUD | `docs/Photos/LE NOEUD.png` | Reçue le 2026-10-28, portrait 848 × 1264. Logo Gemini en bas à droite retiré par recadrage : `public/images/couverture-noeud.jpg` (832 × 1110, format 3:4 des cartes) |
+| Couverture d'APRÈS NOUS | `docs/Photos/APRES NOUS.jpg` | Reçue le 2026-10-28, paysage 1376 × 768. Recadrée en portrait sur la femme assise : `public/images/couverture-apres-nous.jpg` (576 × 768). Assez pour les cartes de l'accueil ; une version plus grande serait utile pour une fiche en grand |
 | Audios de l'expérience découverte | Hors dépôt | Bérénice les retravaille (balance gauche-droite voulue, effet hypnotique) et les renvoie en MP3 |
 
 ### Remarques pour la direction artistique
@@ -259,7 +259,7 @@ Réponses reçues le 2026-10-31 (`docs/Echange Mail 05.txt`) : prolongation à 5
 
 1. ~~Logo : fichier d'origine et version officielle ?~~ Répondu : version au trait, faite avec Gemini, pas d'autre fichier. Agon Gate l'a vectorisée.
 2. ~~Photo de couverture du carnet ?~~ Répondu : générée avec ChatGPT, utilisable. Couvertures de LE NŒUD et APRÈS NOUS reçues le 2026-10-28 et en place sur l'accueil.
-3. Une deuxième photo est arrivée (`docs/Photo Bérénice 02.jpg`) : d'où vient-elle et peut-on l'utiliser ? Les visuels des expériences sont leurs couvertures.
+3. Une deuxième photo est arrivée (`docs/Photos/Photo Bérénice 02.jpg`) : d'où vient-elle et peut-on l'utiliser ? Les visuels des expériences sont leurs couvertures.
 4. ~~Tutoiement ou vouvoiement ?~~ Répondu : vouvoiement sur le site. Slogan « Ouvrir le champ de vos possibles » à lui faire confirmer.
 5. ~~Nombre de pages du carnet d'Après nous.~~ Répondu : environ 60 pages, comme toutes les expériences.
 6. Les adresses de vos comptes TikTok, Instagram et YouTube. Réponse partielle (2026-10-29) : pas encore de compte YouTube ni Instagram ; TikTok non précisé. Vidéo de présentation proposée par Bérénice.

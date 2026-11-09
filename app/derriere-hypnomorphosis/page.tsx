@@ -64,11 +64,11 @@ export default function DerriereHypnoMorphosis() {
         </section>
 
         {/* Le studio où Bérénice enregistre : montrer une vraie personne et un vrai lieu (idée d'Alexis, 2026-10-29).
-            Photo du studio en entier choisie par Bérénice (2026-11-06) ; texte provisoire en attendant ses propres mots. */}
+            Photo du studio retouchée, envoyée par Bérénice (2026-11-09) ; texte provisoire en attendant ses propres mots. */}
         <section className="studio fond-pierre" id="studio">
           <div className="wrap">
             <div className="studio-photo revele">
-              <Image src="/images/studio.jpg" alt="Le studio où Bérénice enregistre ses audios : deux fauteuils, une affiche et une étagère" fill sizes="(max-width: 820px) 92vw, 460px" />
+              <Image src="/images/studio-2.jpg" alt="Le studio où Bérénice enregistre ses audios : deux fauteuils, une affiche et une étagère" fill sizes="(max-width: 820px) 92vw, 460px" />
               <span className="legende">Le studio où naissent les audios</span>
             </div>
             <div className="revele" style={delai(1)}>

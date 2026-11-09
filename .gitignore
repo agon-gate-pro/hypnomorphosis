@@ -45,3 +45,8 @@ next-env.d.ts
 
 # réglages Claude Code propres à chaque poste
 .claude/settings.local.json
+
+# contenus payants et photos non publiées de Bérénice : jamais dans le dépôt
+docs/Le noeud/
+docs/Photos/Cabinet *.jpg
+docs/Photos/Photo Bérénice 02.jpg

@@ -64,7 +64,7 @@ export const experiences: Experience[] = [
       retrouver: [
         "Plus de **clarté**, de **liberté** et la sensation que quelque chose peut enfin bouger. Pas en devenant quelqu’un d’autre, mais en découvrant que ce qui semblait bloqué ne l’est peut-être pas autant que vous le pensiez.",
       ],
-      pages: 59,
+      pages: 63, // compté sur le carnet reçu le 2026-11-09 (59 dans le brief)
     },
   },
   {

@@ -4,7 +4,7 @@ import EnTete from "@/components/EnTete";
 import GardeClerk from "@/components/GardeClerk";
 
 /**
- * Écran partagé par la connexion et l'inscription : à gauche la couverture de l'expérience découverte
+ * Écran partagé par la connexion et l'inscription : à gauche la photo choisie par Bérénice, une porte ouverte sur un chemin
  * (masquée sur téléphone), à droite le formulaire Clerk sur le papier. Le titre de la page est celui
  * du formulaire Clerk, réglé dans les textes de app/layout.tsx.
  */
@@ -15,7 +15,7 @@ export default function CadreConnexion({ children }: { children: ReactNode }) {
       <main className="acces-page grain">
         <div className="acces-cadre">
           <aside className="acces-visuel" aria-hidden="true">
-            <Image src="/images/couverture-decouverte.jpg" alt="" fill sizes="(max-width: 900px) 0px, 480px" priority />
+            <Image src="/images/inscription.jpg" alt="" fill sizes="(max-width: 900px) 0px, 480px" priority />
             <div className="boussole" />
             <div className="acces-mots">
               <span className="caps">Mon espace HypnoMorphosis</span>
