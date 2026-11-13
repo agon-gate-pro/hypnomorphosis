@@ -1,10 +1,16 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
+import { and, eq, gt, isNull, or } from "drizzle-orm";
+import { db, schema } from "@/lib/db";
 
-// Expériences payantes ouvertes au compte connecté : liste de slugs dans ses métadonnées privées Clerk
-// (`privateMetadata.acces`, ex. ["le-noeud"]), posée à la main par Agon Gate en attendant les achats en base.
-// Le chantier des achats remplacera cette lecture par celle des achats enregistrés, sans changer les appels.
+// Expériences payantes ouvertes au compte connecté : celles qui ont une ligne d'accès en cours dans la base
+// (achat, renouvellement ou accès offert, sans fin ou avec une fin dans le futur).
 export async function accesDuCompte(): Promise<string[]> {
-  const compte = await currentUser();
-  const acces = compte?.privateMetadata.acces;
-  return Array.isArray(acces) ? acces.filter((slug): slug is string => typeof slug === "string") : [];
+  const { userId } = await auth();
+  if (!userId) return [];
+  const { acces } = schema;
+  const lignes = await db
+    .selectDistinct({ experience: acces.experience })
+    .from(acces)
+    .where(and(eq(acces.clerkUserId, userId), or(isNull(acces.fin), gt(acces.fin, new Date()))));
+  return lignes.map((l) => l.experience);
 }
