@@ -305,6 +305,11 @@ ul.acces b { font-weight: 500; color: var(--encre); }
 .fiche-fin { padding: 80px 0; text-align: center; }
 .fiche-fin .sous-titre { margin-top: 8px; }
 .fiche-fin .fiche-achat { justify-content: center; }
+/* renonciation au droit de rétractation, à cocher avant le paiement */
+.fiche-achat .renonciation { flex-basis: 100%; display: flex; gap: 12px; align-items: flex-start; max-width: 560px; font-size: 14.5px; color: var(--gris); cursor: pointer; text-align: left; }
+.fiche-achat .renonciation input { flex: none; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--olive); cursor: pointer; }
+.fiche-achat .achat-erreur { flex-basis: 100%; color: #8a4b36; font-size: 15px; }
+.fiche-fin .fiche-achat .renonciation { margin: 0 auto; }
 .fiche-fin .essai { margin-top: 26px; color: var(--gris); font-size: 15.5px; }
 .fiche-fin .essai a { color: var(--olive); border-bottom: 1px solid var(--dore); }
 

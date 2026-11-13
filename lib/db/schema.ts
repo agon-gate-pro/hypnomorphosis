@@ -19,6 +19,8 @@ export const acces = pgTable(
     fin: timestamp({ withTimezone: true }), // vide : sans limite (accès offert) ; un an après l'achat sinon
     stripeSessionId: text().unique(), // achats seulement, pour ne jamais enregistrer deux fois le même paiement
     montantCentimes: integer(),
+    // achats : moment où la cliente a coché la renonciation au droit de rétractation (contenu ouvert dès le paiement)
+    renonciationLe: timestamp({ withTimezone: true }),
     creeLe: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [index("acces_compte_experience_idx").on(t.clerkUserId, t.experience)],

@@ -27,7 +27,8 @@ export type Experience = {
   jours: number;
   resume: string;
   couverture: string;
-  prix: string | null; // null : gratuite
+  prix: string | null; // null : gratuite ; affiché tel quel
+  prixCentimes?: number; // montant TTC envoyé à Stripe (IVA comprise, factures faites par Cédric hors du site)
   fiche?: Fiche;
   contenus?: Contenus;
 };
@@ -55,6 +56,7 @@ export const experiences: Experience[] = [
     resume: "21 jours pour dénouer, comprendre et se reconnecter à soi.",
     couverture: "/images/couverture-noeud.jpg",
     prix: "49 €",
+    prixCentimes: 4900,
     // reçus de Bérénice le 2026-11-09
     contenus: {
       carnet: "carnet-le-noeud.pdf",
@@ -82,6 +84,7 @@ export const experiences: Experience[] = [
     resume: "21 jours pour revenir à soi après une séparation.",
     couverture: "/images/couverture-apres-nous.jpg",
     prix: "49 €",
+    prixCentimes: 4900,
     // reçus de Bérénice le 2026-11-13 ; audios en AAC (.m4a), lus par tous les navigateurs actuels
     contenus: {
       carnet: "carnet-apres-nous.pdf",

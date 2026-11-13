@@ -1,0 +1,1 @@
+ALTER TABLE "acces" ADD COLUMN "renonciation_le" timestamp with time zone;

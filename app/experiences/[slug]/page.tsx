@@ -6,10 +6,13 @@ import { notFound } from "next/navigation";
 import Apparitions from "@/components/Apparitions";
 import DonneesStructurees from "@/components/DonneesStructurees";
 import EnTete from "@/components/EnTete";
+import FormulaireAchat from "@/components/FormulaireAchat";
 import PiedDePage from "@/components/PiedDePage";
 import { Icone } from "@/components/Icones";
 import { experience, experiencesADecouvrir } from "@/lib/experiences";
 import { metaPage, organisation, urlSite } from "@/lib/site";
+import { achatOuvert } from "@/lib/stripe";
+import { acheter } from "./actions";
 
 const delai = (rang: number) => ({ "--delai": `${rang * 0.25}s` }) as CSSProperties;
 
@@ -29,8 +32,6 @@ export async function generateMetadata({ params }: PageProps<"/experiences/[slug
   });
 }
 
-// l'achat n'est pas encore ouvert (Stripe) : l'offre est annoncée en précommande, à passer en InStock à l'ouverture
-const disponibilite = "https://schema.org/PreOrder";
 
 // passages entre ** du brief, mis en valeur
 function Paragraphe({ texte }: { texte: string }) {
@@ -38,11 +39,12 @@ function Paragraphe({ texte }: { texte: string }) {
 }
 
 // Textes de Bérénice, repris mot pour mot de son brief (docs/SITE INTERNET.pdf, section 5), typographie corrigée.
-// L'achat arrive avec Stripe : en attendant, le bouton est inactif.
+// L'achat s'ouvre quand les clés Stripe sont posées (lib/stripe.ts, lu à la construction du site) ; avant, bouton inactif.
 export default async function FicheExperience({ params }: PageProps<"/experiences/[slug]">) {
   const e = experience((await params).slug);
   if (!e?.fiche || !e.prix) notFound();
   const { fiche } = e;
+  const ouvert = achatOuvert();
 
   // l'expérience comme produit numérique de la marque, avec son prix
   const donnees = {
@@ -57,13 +59,16 @@ export default async function FicheExperience({ params }: PageProps<"/experience
       "@type": "Offer",
       price: e.prix.replace(/[^\d,.]/g, "").replace(",", "."),
       priceCurrency: "EUR",
-      availability: disponibilite,
+      // précommande tant que l'achat n'est pas ouvert
+      availability: ouvert ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
       url: `${urlSite}/experiences/${e.slug}`,
       seller: { "@id": organisation["@id"] },
     },
   };
 
-  const achat = (
+  const achat = ouvert ? (
+    <FormulaireAchat action={acheter.bind(null, e.slug)} prix={e.prix} />
+  ) : (
     <div className="fiche-achat">
       <span className="prix">{e.prix}</span>
       <span className="btn btn-plein inactif" aria-disabled="true">Achat bientôt disponible</span>
