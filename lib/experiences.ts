@@ -1,5 +1,3 @@
-import type { NomIcone } from "@/components/Icones";
-
 // Liste provisoire des expériences, en attendant la base de données (étape boutique et achats).
 // Chaque compte a accès à l'expérience découverte ; les expériences payantes s'ouvrent par la liste d'accès du compte
 // (lib/acces.ts), posée à la main tant que les achats ne sont pas enregistrés.
@@ -16,9 +14,10 @@ export type Fiche = {
 // fichiers rangés dans le store Vercel Blob privé, sous le dossier du slug (ex. decouverte/audio-1.mp3)
 export type Contenus = {
   carnet: string;
-  audios: { titre: string; fichier: string }[];
-  // points propres à l'expérience, ajoutés au guide « Pendant ces … jours » (ex. l'ordalie de la découverte)
-  points?: { icone: NomIcone; gras: string; texte: string }[];
+  // fichiers audio, dans l'ordre ; affichés « <titre de l'expérience> – Audio <n> », comme dans les carnets de Bérénice,
+  // qui ne veut pas dévoiler le contenu des audios par leur titre
+  audios: string[];
+  titreAudios?: string; // nom de l'expérience dans ces titres, si différent de `titre`
 };
 
 export type Experience = {
@@ -44,14 +43,8 @@ export const experiences: Experience[] = [
     prix: null,
     contenus: {
       carnet: "carnet-decouverte.pdf",
-      audios: [
-        { titre: "Expérience audio 1", fichier: "audio-1.mp3" },
-        { titre: "Expérience audio 2", fichier: "audio-2.mp3" },
-      ],
-      points: [
-        { icone: "chemin", gras: "Une ordalie", texte: "pour expérimenter plutôt que simplement réfléchir" },
-        { icone: "sceau", gras: "Un engagement à signer", texte: "pour marquer votre décision d’aller jusqu’au bout" },
-      ],
+      audios: ["audio-1.mp3", "audio-2.mp3"],
+      titreAudios: "Expérience découverte",
     },
   },
   {
@@ -62,10 +55,10 @@ export const experiences: Experience[] = [
     resume: "21 jours pour dénouer, comprendre et se reconnecter à soi.",
     couverture: "/images/couverture-noeud.jpg",
     prix: "49 €",
-    // reçus de Bérénice le 2026-11-09 ; titres des audios à recevoir
+    // reçus de Bérénice le 2026-11-09
     contenus: {
       carnet: "carnet-le-noeud.pdf",
-      audios: [1, 2, 3, 4, 5].map((n) => ({ titre: `Expérience audio ${n}`, fichier: `audio-${n}.mp3` })),
+      audios: [1, 2, 3, 4, 5].map((n) => `audio-${n}.mp3`),
     },
     fiche: {
       reconnaitre: [
@@ -89,6 +82,11 @@ export const experiences: Experience[] = [
     resume: "21 jours pour revenir à soi après une séparation.",
     couverture: "/images/couverture-apres-nous.jpg",
     prix: "49 €",
+    // reçus de Bérénice le 2026-11-13 ; audios en AAC (.m4a), lus par tous les navigateurs actuels
+    contenus: {
+      carnet: "carnet-apres-nous.pdf",
+      audios: [1, 2, 3, 4, 5].map((n) => `audio-${n}.m4a`),
+    },
     fiche: {
       reconnaitre: [
         "La séparation est actée, pourtant quelque chose continue. De la colère, de l’injustice, du ressentiment, parfois de la haine, ou simplement cette sensation de ne pas réussir à tourner la page.",
@@ -105,7 +103,7 @@ export const experiences: Experience[] = [
         "Un apaisement, mais aussi quelque chose de plus profond, une nouvelle façon de vous regarder, de vous choisir et d’avancer.",
         "Et si cette histoire, aussi douloureuse soit-elle, pouvait devenir un point de bascule, pour comprendre ce que cette étape vient révéler de vous et ouvrir une suite qui vous ressemble davantage.",
       ],
-      pages: null,
+      pages: 60, // compté sur le carnet reçu le 2026-11-13
     },
   },
 ];

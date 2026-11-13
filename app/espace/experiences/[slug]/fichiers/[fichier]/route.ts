@@ -13,7 +13,7 @@ export async function GET(_requete: Request, { params }: RouteContext<"/espace/e
   const { slug, fichier } = await params;
   const contenus = experienceOuverte(slug, await accesDuCompte())?.contenus;
   // seuls les fichiers déclarés dans lib/experiences.ts sont servis : aucun autre chemin du store n'est atteignable
-  const connu = contenus && (contenus.carnet === fichier || contenus.audios.some((a) => a.fichier === fichier));
+  const connu = contenus && (contenus.carnet === fichier || contenus.audios.includes(fichier));
   if (!connu) return new Response("Introuvable", { status: 404 });
 
   return new Response(null, {

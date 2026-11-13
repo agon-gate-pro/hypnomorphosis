@@ -72,28 +72,31 @@ export default async function Espace() {
           <CaseAnnonces accepte={annonces?.accepte === true} />
         </section>
 
-        <section className="espace-suite">
-          <div className="wrap espace-bloc">
-            <h2 className="espace-titre">Pour continuer le chemin</h2>
-            <ul className="espace-grille">
-              {aDecouvrir.map((e) => (
-                <li key={e.slug}>
-                  <Link className="espace-suggestion" href={`/experiences/${e.slug}`}>
-                    <div className="couv-mini">
-                      <Image src={e.couverture} alt="" fill sizes="96px" />
-                    </div>
-                    <div>
-                      <span className="caps">{e.duree}</span>
-                      <h3>{e.titre}</h3>
-                      <p>{e.resume}</p>
-                      <span className="prix">{e.prix}</span>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+        {/* rien à proposer quand toutes les expériences sont déjà ouvertes */}
+        {aDecouvrir.length > 0 && (
+          <section className="espace-suite">
+            <div className="wrap espace-bloc">
+              <h2 className="espace-titre">Pour continuer le chemin</h2>
+              <ul className="espace-grille">
+                {aDecouvrir.map((e) => (
+                  <li key={e.slug}>
+                    <Link className="espace-suggestion" href={`/experiences/${e.slug}`}>
+                      <div className="couv-mini">
+                        <Image src={e.couverture} alt="" fill sizes="96px" />
+                      </div>
+                      <div>
+                        <span className="caps">{e.duree}</span>
+                        <h3>{e.titre}</h3>
+                        <p>{e.resume}</p>
+                        <span className="prix">{e.prix}</span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
       </main>
       <PiedDePage />
     </>
