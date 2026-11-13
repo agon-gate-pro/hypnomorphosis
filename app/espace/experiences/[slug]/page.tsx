@@ -6,7 +6,7 @@ import { auth } from "@clerk/nextjs/server";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import LecteurAudio from "@/components/LecteurAudio";
-import { Icone, SpriteIcones } from "@/components/Icones";
+import { Icone } from "@/components/Icones";
 import { accesDuCompte } from "@/lib/acces";
 import { experienceOuverte } from "@/lib/experiences";
 
@@ -23,7 +23,6 @@ export default async function MonExperience({ params }: PageProps<"/espace/exper
 
   return (
     <>
-      <SpriteIcones />
       <EnTete />
       <main className="espace">
         <section className="experience-tete grain">
@@ -39,6 +38,7 @@ export default async function MonExperience({ params }: PageProps<"/espace/exper
               <a className="btn btn-plein" href={fichier(e.contenus.carnet)} target="_blank" rel="noopener">
                 <Icone nom="carnet" />Ouvrir mon carnet (PDF)
               </a>
+              <Link className="lien-aide" href="/aide/tablette">Le remplir sur tablette, sans l’imprimer&nbsp;?</Link>
             </div>
           </div>
         </section>

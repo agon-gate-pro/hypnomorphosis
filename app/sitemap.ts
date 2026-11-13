@@ -9,5 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...experiencesADecouvrir().map((e) => ({ url: `${urlSite}/experiences/${e.slug}`, changeFrequency: "monthly" as const, priority: 0.9 })),
     { url: `${urlSite}/derriere-hypnomorphosis`, changeFrequency: "yearly", priority: 0.7 },
     { url: `${urlSite}/contact`, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${urlSite}/aide/tablette`, changeFrequency: "yearly", priority: 0.3 },
   ];
 }

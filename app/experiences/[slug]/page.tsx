@@ -7,7 +7,7 @@ import Apparitions from "@/components/Apparitions";
 import DonneesStructurees from "@/components/DonneesStructurees";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
-import { Icone, SpriteIcones } from "@/components/Icones";
+import { Icone } from "@/components/Icones";
 import { experience, experiencesADecouvrir } from "@/lib/experiences";
 import { metaPage, organisation, urlSite } from "@/lib/site";
 
@@ -73,7 +73,6 @@ export default async function FicheExperience({ params }: PageProps<"/experience
   return (
     <>
       <DonneesStructurees donnees={donnees} />
-      <SpriteIcones />
       <EnTete />
       <main>
         <section className="fiche-ouverture grain">

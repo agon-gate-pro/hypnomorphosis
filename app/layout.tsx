@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Jost, Marcellus } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { frFR } from "@clerk/localizations";
+import { SpriteIcones } from "@/components/Icones";
 import { descriptionSite as description, urlSite } from "@/lib/site";
 import "./globals.css";
 
@@ -93,6 +94,8 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body>
+        {/* dessins des icônes, une seule fois pour tout le site : le pied de page (réseaux) en a besoin sur chaque page */}
+        <SpriteIcones />
         <ClerkProvider
           localization={textesClerk}
           appearance={apparenceClerk}

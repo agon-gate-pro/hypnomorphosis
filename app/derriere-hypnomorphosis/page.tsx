@@ -5,7 +5,6 @@ import Link from "next/link";
 import Apparitions from "@/components/Apparitions";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
-import { SpriteIcones } from "@/components/Icones";
 import DonneesStructurees from "@/components/DonneesStructurees";
 import { berenice, lienFigaro, metaPage, organisation, urlSite } from "@/lib/site";
 
@@ -33,7 +32,6 @@ export default function DerriereHypnoMorphosis() {
   return (
     <>
       <DonneesStructurees donnees={donnees} />
-      <SpriteIcones />
       <EnTete />
       <main>
         <section className="histoire-ouverture grain">

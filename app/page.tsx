@@ -7,7 +7,7 @@ import DonneesStructurees from "@/components/DonneesStructurees";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import VideoAccueil from "@/components/VideoAccueil";
-import { Icone, SpriteIcones } from "@/components/Icones";
+import { Icone } from "@/components/Icones";
 import { experiencesADecouvrir } from "@/lib/experiences";
 import { berenice, descriptionSite, lienFigaro, metaPage, organisation, reseaux, urlSite, videoAccueil } from "@/lib/site";
 
@@ -35,7 +35,6 @@ export default function Accueil() {
   return (
     <>
       <DonneesStructurees donnees={donnees} />
-      <SpriteIcones />
       <EnTete />
 
       <main>
@@ -107,7 +106,7 @@ export default function Accueil() {
             <div className="formats revele" style={delai(1)}>
               <span><Icone nom="casque" />Audios dans votre espace</span>
               <span><Icone nom="carnet" />Carnet à imprimer</span>
-              <span><Icone nom="ecran" />Carnet à remplir sur tablette</span>
+              <Link href="/aide/tablette"><Icone nom="ecran" />Carnet à remplir sur tablette</Link>
             </div>
             <div className="carnets">
               <Link className="carnet revele" href="/experiences/le-noeud">

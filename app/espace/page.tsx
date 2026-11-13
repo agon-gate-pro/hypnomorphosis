@@ -6,7 +6,7 @@ import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import BoutonDeconnexion from "@/components/BoutonDeconnexion";
 import CaseAnnonces from "@/components/CaseAnnonces";
-import { Icone, SpriteIcones } from "@/components/Icones";
+import { Icone } from "@/components/Icones";
 import { accesDuCompte } from "@/lib/acces";
 import { experiencesADecouvrir, experiencesOuvertes } from "@/lib/experiences";
 import type { ChoixAnnonces } from "./actions";
@@ -26,7 +26,6 @@ export default async function Espace() {
 
   return (
     <>
-      <SpriteIcones />
       <EnTete />
       <main className="espace">
         <section className="espace-tete grain">

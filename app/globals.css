@@ -181,7 +181,9 @@ ul.acces b { font-weight: 500; color: var(--encre); }
 /* ---------- Expériences ---------- */
 .experiences { padding: 88px 0; }
 .formats { display: flex; flex-wrap: wrap; gap: 10px 34px; margin-top: 22px; color: var(--olive); font-size: 15px; }
-.formats span { display: inline-flex; align-items: center; gap: 10px; }
+.formats span, .formats a { display: inline-flex; align-items: center; gap: 10px; }
+.formats a { text-decoration: underline; text-decoration-color: rgba(85, 90, 64, .35); text-underline-offset: 4px; }
+.formats a:hover { text-decoration-color: currentColor; }
 .formats .icone { width: 22px; height: 22px; }
 /* deux carnets au lancement : centrés, à la largeur qu'ils avaient sur trois colonnes */
 .carnets { display: grid; grid-template-columns: repeat(2, minmax(0, 360px)); justify-content: center; gap: 28px; margin-top: 40px; }
@@ -322,6 +324,23 @@ ul.acces b { font-weight: 500; color: var(--encre); }
 .contact-tete h1 { font: 300 56px/1.05 var(--titre); margin: 12px 0 10px; }
 .contact-tete p { font: 300 italic 24px/1.4 var(--titre); color: var(--olive); }
 .contact-corps { padding-top: 56px; padding-bottom: 80px; }
+
+/* ---------- Aide : remplir le carnet sur tablette ---------- */
+.aide-tete { background: var(--pierre); padding: 64px 0 56px; border-bottom: 1px solid var(--filet); }
+.aide-tete h1 { font: 300 52px/1.08 var(--titre); margin: 12px 0 10px; }
+.aide-tete p { max-width: 640px; font: 300 italic 23px/1.4 var(--titre); color: var(--olive); }
+.aide-corps { padding-top: 56px; padding-bottom: 80px; }
+.aide-appareils { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.aide-appareil { background: #fff; border: 1px solid var(--filet); padding: 28px 26px 18px; }
+.aide-appareil h2, .aide-bon-a-savoir h2 { font: 300 30px/1.2 var(--titre); margin-bottom: 18px; }
+.aide-bon-a-savoir { max-width: 720px; margin-top: 56px; }
+.aide-bon-a-savoir ul { list-style: none; margin-bottom: 22px; }
+.aide-bon-a-savoir li { padding: 12px 0; border-top: 1px solid var(--filet); color: #57584a; }
+.aide-bon-a-savoir li:last-child { border-bottom: 1px solid var(--filet); }
+.aide-bon-a-savoir b { font-weight: 500; color: var(--encre); }
+.aide-bon-a-savoir a { color: var(--olive); text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 980px) { .aide-appareils { grid-template-columns: minmax(0, 1fr); max-width: 640px; } }
+@media (max-width: 640px) { .aide-tete h1 { font-size: 40px; } .aide-appareil { padding: 22px 18px 12px; } }
 .contact-formulaire, .contact-merci { max-width: 720px; }
 .contact-formulaire { display: grid; gap: 22px; }
 .contact-formulaire .deux-colonnes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
@@ -447,6 +466,7 @@ header.site nav .pastille .initiale { display: grid; place-items: center; width:
 .experience-tete h1 { font: 300 52px/1.05 var(--titre); margin: 10px 0 8px; }
 .experience-tete p { font: 300 italic 22px/1.4 var(--titre); color: var(--olive); margin-bottom: 24px; }
 .experience-tete .btn .icone { width: 20px; height: 20px; }
+.experience-tete .lien-aide { display: block; width: fit-content; margin-top: 14px; padding: 6px 0; font-size: 15px; color: var(--olive); text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 640px) {
   .experience-tete .wrap { grid-template-columns: 1fr; gap: 26px; }
   .experience-tete .couv-mini { width: 130px; }
