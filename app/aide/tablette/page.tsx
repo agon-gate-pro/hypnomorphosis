@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import { metaPage } from "@/lib/site";
@@ -36,8 +35,8 @@ const appareils: { nom: string; etapes: [string, string][] }[] = [
     etapes: [
       ["Ouvrez votre carnet", "Dans Mon espace, ouvrez votre expérience et cliquez sur « Ouvrir mon carnet (PDF) » : il s’ouvre dans votre navigateur."],
       ["Enregistrez-le", "Cliquez sur l’icône de téléchargement ou d’enregistrement en haut du carnet, et rangez-le dans vos documents."],
-      ["Écrivez dedans", "Sous Windows, ouvrez le carnet enregistré avec Microsoft Edge et utilisez « Dessiner » ou « Ajouter du texte ». Sur Mac, ouvrez-le avec Aperçu et cliquez sur le crayon (Annoter)."],
-      ["Terminez", "Dans Edge, enregistrez avec Ctrl + S. Aperçu, lui, enregistre tout seul."],
+      ["Écrivez dedans", "Ouvrez le carnet enregistré avec Chrome, Firefox ou Edge (clic droit sur le fichier, puis « Ouvrir avec »). En haut du carnet, le crayon permet d’écrire et de surligner ; Firefox et Edge proposent aussi un outil pour taper du texte. Sur Mac, Aperçu convient aussi (crayon Annoter)."],
+      ["Terminez", "Cliquez sur l’icône d’enregistrement ou de téléchargement en haut du carnet (ou Ctrl + S) et gardez vos modifications. Aperçu, lui, enregistre tout seul."],
     ],
   },
 ];
@@ -76,7 +75,6 @@ export default function AideTablette() {
               <li><b>Un stylet change tout</b> : écrire et dessiner devient bien plus agréable qu’au doigt.</li>
               <li><b>Vous préférez le papier ?</b> Le même carnet s’imprime très bien, page par page.</li>
             </ul>
-            <p>Une difficulté ? <Link href="/contact">Écrivez-moi</Link>, je vous aide.</p>
           </div>
         </section>
       </main>
