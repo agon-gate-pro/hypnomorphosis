@@ -1,0 +1,39 @@
+Mail d'Alexis à Bérénice du 2026-11-13, en réponse à son mail du même jour (docs/Echange Mail 10.txt), copié par Alexis dans la conversation (retours à la ligne rétablis ; un passage en double dans la partie « L'achat est prêt », signalé à Alexis, n'est pas repris).
+
+Bonsoir Béré,
+
+J'espère que tu te sens mieux ! Merci pour la qualité de tes retours : c'est propre, clair et pratique, j'adore. Ça me permet d'avancer vite et sans me tromper.
+
+Ce que j'ai fait suite à ton mail
+Le fond beige de l'expérience découverte reste comme il est.
+Les titres des audios suivent maintenant ta présentation, pour toutes les expériences : « Le Nœud – Audio 1 », « Après nous – Audio 1 », etc. Je comprends tout à fait ton choix de ne rien dévoiler à l'avance.
+L'encadré « Pendant ces 21 jours » est identique dans toutes les expériences : le carnet, les audios, l'ordalie, un exercice par jour et l'engagement à signer.
+La phrase de sécurité et le texte de Derrière HypnoMorphosis restent tels quels.
+Après nous est en ligne : le carnet de 60 pages et les 5 audios. Tu peux tout tester avec ton compte de test, comme pour Le Nœud.
+Une page d'aide pour remplir le carnet sans l'imprimer : https://hypnomorphosis.vercel.app/aide/tablette. Elle explique pas à pas comment faire sur iPad, sur tablette Android et sur ordinateur. Un lien y mène depuis chaque expérience, juste sous le bouton du carnet. Tu peux même t'en servir pour essayer toi-même !
+La rubrique « Pour continuer le chemin » qui te plaît tant : je l'ai gardée, bien sûr. Elle ne propose que les expériences qu'on n'a pas encore. Comme ton compte de test a maintenant toutes les expériences, tu ne la verras plus, mais tes clients, eux, la verront.
+
+En coulisses
+Les accès sont maintenant enregistrés dans une base de données : qui a accès à quelle expérience, et jusqu'à quand (un an après l'achat).
+L'achat est prêt sur le site : bouton « Acheter cette expérience » sur chaque fiche, case à cocher pour la renonciation au droit de rétractation (obligatoire pour du contenu accessible immédiatement), paiement sécurisé par Stripe, puis ouverture automatique de l'expérience dans l'espace du client. Pour l'instant, tu vois encore « Achat bientôt disponible » sur les fiches : le bouton apparaîtra dès que ton compte Stripe sera relié.
+
+Stripe : Guillaume va te contacter
+Mon collègue Guillaume va te contacter pour paramétrer ton compte Stripe avec toi. Il s'occupe de toute la partie technique, et on fera d'abord des achats de test, sans vrai paiement, pour vérifier que tout fonctionne avant le lancement.
+
+Le nom de domaine
+Es-tu d'accord pour que j'achète hypnomorphosis.com dès maintenant ? Ça nous permet de le réserver avant que quelqu'un d'autre ne le prenne, et de préparer l'adresse e-mail d'envoi du site. Comme prévu dans le contrat, il te sera refacturé 30 € HT par an.
+
+Ce qu'il me reste à faire
+Les e-mails automatiques : l'accès à l'expérience découverte après l'inscription ; la confirmation d'achat ; le petit mot de soutien 15 jours après l'achat ; les annonces des nouvelles expériences.
+Le renouvellement à 5,99 € au bout d'un an.
+Les pages légales : mentions légales, conditions de vente, confidentialité, et l'avertissement sur le fait que les expériences ne remplacent pas un suivi médical.
+La mise en ligne sur hypnomorphosis.com.
+
+Ce dont j'aurai besoin de ton côté
+Pour les pages légales, de la part de Cédric : le numéro d'inscription au Registro Mercantil et la confirmation de l'inscription au ROI.
+L'adresse e-mail de contact du site, celle qui recevra les messages du formulaire de contact.
+La vidéo de présentation, quand tu auras le matériel. Rien ne presse.
+
+Merci encore pour ta confiance, ça avance bien !
+
+Bonne soirée,

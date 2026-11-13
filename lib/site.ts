@@ -38,6 +38,18 @@ export const lienFigaro = "https://adresses-incontournables.madame.lefigaro.fr/p
 // En attendant la sienne : une vidéo libre de droits (CC0, exemple de MDN) pour montrer le rendu à Bérénice.
 export const videoAccueil: { src: string; affiche?: string; exemple?: boolean } | null = { src: "/videos/exemple-paysage.mp4", exemple: true };
 
+// Société qui porte l'activité, reprise par les pages légales. null : information à recevoir de Bérénice ou de Cédric,
+// affichée « à compléter » sur le site tant qu'elle manque.
+export const societe = {
+  raisonSociale: "Patrimonio Hervet Inmeuble SL",
+  sigle: "PHI",
+  adresse: "Paseo Albert, 13, 43850 Cambrils (Tarragone), Espagne",
+  cif: "B75995084",
+  registre: null as string | null, // inscription au Registro Mercantil (tome, folio, feuille)
+  representant: "Cédric Hervet, administrateur",
+  email: null as string | null, // adresse de contact du site, aussi destinataire du formulaire au lancement
+};
+
 // sujets du formulaire de contact
 export const sujetsContact = ["Une expérience", "Mon compte", "Autre"];
 

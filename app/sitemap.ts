@@ -10,5 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${urlSite}/derriere-hypnomorphosis`, changeFrequency: "yearly", priority: 0.7 },
     { url: `${urlSite}/contact`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${urlSite}/aide/tablette`, changeFrequency: "yearly", priority: 0.3 },
+    ...["mentions-legales", "cgv", "confidentialite", "avertissement"].map((p) => ({ url: `${urlSite}/${p}`, changeFrequency: "yearly" as const, priority: 0.2 })),
   ];
 }

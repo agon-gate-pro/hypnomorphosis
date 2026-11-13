@@ -30,7 +30,12 @@ export default function PiedDePage() {
             </div>
           )}
         </div>
-        <div className="bas">Mentions légales · CGV · Politique de confidentialité · Paiement et vente en ligne</div>
+        <div className="bas">
+          <Link href="/mentions-legales">Mentions légales</Link>
+          <Link href="/cgv">Conditions générales de vente</Link>
+          <Link href="/confidentialite">Confidentialité</Link>
+          <Link href="/avertissement">Avertissement santé</Link>
+        </div>
       </div>
     </footer>
   );

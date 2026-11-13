@@ -307,6 +307,7 @@ ul.acces b { font-weight: 500; color: var(--encre); }
 .fiche-fin .fiche-achat { justify-content: center; }
 /* renonciation au droit de rétractation, à cocher avant le paiement */
 .fiche-achat .renonciation { flex-basis: 100%; display: flex; gap: 12px; align-items: flex-start; max-width: 560px; font-size: 14.5px; color: var(--gris); cursor: pointer; text-align: left; }
+.fiche-achat .renonciation a { color: var(--olive); text-decoration: underline; text-underline-offset: 3px; }
 .fiche-achat .renonciation input { flex: none; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--olive); cursor: pointer; }
 .fiche-achat .achat-erreur { flex-basis: 100%; color: #8a4b36; font-size: 15px; }
 .fiche-fin .fiche-achat .renonciation { margin: 0 auto; }
@@ -330,9 +331,22 @@ ul.acces b { font-weight: 500; color: var(--encre); }
 .contact-tete p { font: 300 italic 24px/1.4 var(--titre); color: var(--olive); }
 .contact-corps { padding-top: 56px; padding-bottom: 80px; }
 
-/* ---------- Aide : remplir le carnet sur tablette ---------- */
-.aide-tete { background: var(--pierre); padding: 64px 0 56px; border-bottom: 1px solid var(--filet); }
-.aide-tete h1 { font: 300 52px/1.08 var(--titre); margin: 12px 0 10px; }
+/* ---------- Aide (carnet sur tablette) et pages légales ---------- */
+.aide-tete, .legal-tete { background: var(--pierre); padding: 64px 0 56px; border-bottom: 1px solid var(--filet); }
+.aide-tete h1, .legal-tete h1 { font: 300 52px/1.08 var(--titre); margin: 12px 0 10px; }
+.legal-tete p { color: var(--gris); font-size: 15px; }
+.legal { max-width: 760px; padding-top: 48px; padding-bottom: 80px; }
+.legal h2 { font: 300 30px/1.2 var(--titre); margin: 40px 0 12px; }
+.legal h2:first-child { margin-top: 0; }
+.legal p, .legal li { color: #4a4b3e; }
+.legal p + p { margin-top: 12px; }
+.legal ul { margin: 12px 0 0 1.2em; }
+.legal li + li { margin-top: 6px; }
+.legal a { color: var(--olive); text-decoration: underline; text-underline-offset: 3px; }
+.legal strong { font-weight: 500; color: var(--encre); }
+/* information pas encore fournie : visible tant qu'elle manque */
+.a-completer { background: #f6e7c8; color: #6b4e16; padding: 1px 6px; border-radius: 3px; font-size: .92em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.legal ul + p { margin-top: 16px; }
 .aide-tete p { max-width: 640px; font: 300 italic 23px/1.4 var(--titre); color: var(--olive); }
 .aide-corps { padding-top: 56px; padding-bottom: 80px; }
 .aide-appareils { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
@@ -345,7 +359,7 @@ ul.acces b { font-weight: 500; color: var(--encre); }
 .aide-bon-a-savoir b { font-weight: 500; color: var(--encre); }
 .aide-bon-a-savoir a { color: var(--olive); text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 980px) { .aide-appareils { grid-template-columns: minmax(0, 1fr); max-width: 640px; } }
-@media (max-width: 640px) { .aide-tete h1 { font-size: 40px; } .aide-appareil { padding: 22px 18px 12px; } }
+@media (max-width: 640px) { .aide-tete h1, .legal-tete h1 { font-size: 38px; } .aide-appareil { padding: 22px 18px 12px; } }
 .contact-formulaire, .contact-merci { max-width: 720px; }
 .contact-formulaire { display: grid; gap: 22px; }
 .contact-formulaire .deux-colonnes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
@@ -387,7 +401,9 @@ footer.site ul { list-style: none; font-size: 15px; line-height: 2; }
 footer.site ul a:hover { color: #fff; }
 footer.site .icones { display: flex; gap: 16px; color: #ece6d6; }
 footer.site .icones .icone { width: 22px; height: 22px; }
-footer.site .bas { margin-top: 48px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; font-size: 13px; color: #9fa385; }
+footer.site .bas { margin-top: 48px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 10px; font-size: 13px; color: #9fa385; display: flex; flex-wrap: wrap; column-gap: 22px; }
+footer.site .bas a { padding: 8px 0; }
+footer.site .bas a:hover { color: #f6f1e4; }
 
 /* ---------- Comptes clients : connexion, inscription, Mon espace, Mon compte ---------- */
 /* pastille de l'en-tête quand la cliente est connectée */
