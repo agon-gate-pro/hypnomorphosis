@@ -7,8 +7,9 @@ import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
 import LecteurAudio from "@/components/LecteurAudio";
 import { Icone } from "@/components/Icones";
-import { accesDuCompte } from "@/lib/acces";
-import { experienceOuverte } from "@/lib/experiences";
+import { situationsDuCompte } from "@/lib/acces";
+import { dateLongue } from "@/lib/dates";
+import { experienceOuverte, prolongation } from "@/lib/experiences";
 
 export const metadata: Metadata = { title: "Mon expérience · HypnoMorphosis", robots: { index: false } };
 
@@ -16,8 +17,11 @@ export const metadata: Metadata = { title: "Mon expérience · HypnoMorphosis", 
 // qui revérifie les droits à chaque chargement.
 export default async function MonExperience({ params }: PageProps<"/espace/experiences/[slug]">) {
   await auth.protect();
-  const e = experienceOuverte((await params).slug, await accesDuCompte());
+  const situations = await situationsDuCompte();
+  const acces = [...situations.values()].filter((s) => s.ouverte).map((s) => s.experience);
+  const e = experienceOuverte((await params).slug, acces);
   if (!e?.contenus) notFound();
+  const situation = situations.get(e.slug);
   const fichier = (nom: string) => `/espace/experiences/${e.slug}/fichiers/${nom}`;
   const nomAudios = e.contenus.titreAudios ?? e.titre;
 
@@ -39,6 +43,13 @@ export default async function MonExperience({ params }: PageProps<"/espace/exper
                 <Icone nom="carnet" />Ouvrir mon carnet (PDF)
               </a>
               <Link className="lien-aide" href="/aide/tablette">Le remplir sur tablette, sans l’imprimer&nbsp;?</Link>
+              {/* dans les 30 derniers jours d'un accès acheté */}
+              {situation?.prolongeable && situation.fin && (
+                <div className="prolonger-encart">
+                  <p>Votre accès se termine le {dateLongue(situation.fin)}.</p>
+                  <Link className="btn btn-trait" href={`/espace/prolonger/${e.slug}`}>Prolonger d’un an · {prolongation.prix}</Link>
+                </div>
+              )}
             </div>
           </div>
         </section>

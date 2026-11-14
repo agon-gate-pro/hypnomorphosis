@@ -34,7 +34,7 @@ export const emails = pgTable(
   {
     id: uuid().primaryKey().defaultRandom(),
     clerkUserId: text(),
-    type: text().notNull(), // bienvenue, confirmation_achat, soutien (lib/email/modeles.ts)
+    type: text().notNull(), // bienvenue, confirmation_achat, confirmation_prolongation, soutien, rappel_fin (lib/email/modeles.ts)
     reference: text(), // compte pour la bienvenue, ligne d'accès pour les e-mails d'un achat
     destinataire: text().notNull(),
     sujet: text().notNull(),

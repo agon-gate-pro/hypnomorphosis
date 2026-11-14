@@ -111,6 +111,9 @@ export const experiences: Experience[] = [
   },
 ];
 
+// Prolongation d'un an d'une expérience achetée (CGV, article sur la durée d'accès)
+export const prolongation = { prix: "5,99 €", prixCentimes: 599 };
+
 export function experience(slug: string) {
   return experiences.find((e) => e.slug === slug);
 }

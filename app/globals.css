@@ -522,3 +522,13 @@ header.site nav .pastille .initiale { display: grid; place-items: center; width:
 .compte { padding: 44px 0 80px; min-height: calc(100vh - 76px); }
 .compte .retour { font-size: 14px; letter-spacing: .06em; color: var(--olive); }
 .compte h1 { font: 300 48px/1.1 var(--titre); margin: 14px 0 28px; }
+
+/* Fin d'accès et prolongation (Mon espace, page de l'expérience, page Prolonger) */
+.fin-acces { margin: -6px 0 18px; font-size: 14.5px; color: var(--gris); }
+.espace-carnet.terminee .couv-mini { opacity: .55; filter: grayscale(.4); }
+.espace-carnet.terminee .fin-acces { margin-top: 10px; font-size: 15.5px; color: var(--encre); }
+.prolonger-encart { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 20px; padding: 16px 20px; background: var(--sauge-clair); border-left: 3px solid var(--dore); }
+.prolonger-encart p { margin: 0; font: 400 15.5px/1.4 var(--texte); color: var(--encre); }
+.experience-tete .prolonger-encart p { font: 400 15.5px/1.4 var(--texte); color: var(--encre); margin: 0; }
+.prolonger-texte p, .experience-tete .prolonger-texte p { font: 400 17px/1.55 var(--texte); color: var(--encre); margin: 0; max-width: 560px; }
+.experience-tete .fiche-achat { margin-top: 24px; }

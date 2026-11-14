@@ -5,7 +5,9 @@ import type Stripe from "stripe";
 import { auth } from "@clerk/nextjs/server";
 import EnTete from "@/components/EnTete";
 import PiedDePage from "@/components/PiedDePage";
+import { situationsDu } from "@/lib/acces";
 import { enregistrerAchat } from "@/lib/achats";
+import { dateLongue } from "@/lib/dates";
 import { experience } from "@/lib/experiences";
 import { stripe } from "@/lib/stripe";
 
@@ -29,6 +31,8 @@ export default async function RetourAchat({ searchParams }: PageProps<"/espace/a
 
   const ouverte = await enregistrerAchat(session);
   const e = experience(session.metadata?.experience ?? "");
+  const prolongation = session.metadata?.type === "renouvellement";
+  const fin = ouverte ? (await situationsDu(userId)).get(ouverte)?.fin : null;
 
   return (
     <>
@@ -37,7 +41,16 @@ export default async function RetourAchat({ searchParams }: PageProps<"/espace/a
         <section className="espace-tete grain">
           <div className="wrap">
             <span className="caps">Merci</span>
-            {ouverte && e ? (
+            {ouverte && e && prolongation ? (
+              <>
+                <h1>{e.titre} <em>est prolongée</em></h1>
+                <p>Votre accès est prolongé{fin ? ` jusqu’au ${dateLongue(fin)}` : ""}. Vous retrouvez votre carnet et vos audios dans votre espace.</p>
+                <div className="espace-actions">
+                  <Link className="btn btn-plein" href={`/espace/experiences/${e.slug}`}>Retrouver mon expérience</Link>
+                  <Link className="lien-discret" href="/espace">Mon espace</Link>
+                </div>
+              </>
+            ) : ouverte && e ? (
               <>
                 <h1>{e.titre} <em>est ouverte</em></h1>
                 <p>Votre expérience vous attend dans votre espace, pour un an. Prenez le temps de vous installer avant de commencer.</p>

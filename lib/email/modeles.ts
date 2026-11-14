@@ -1,10 +1,10 @@
-import type { Experience } from "@/lib/experiences";
+import { prolongation, type Experience } from "@/lib/experiences";
+import { dateLongue } from "@/lib/dates";
 import { lienSite, type ContenuEmail } from "./mise-en-page";
 
 // Textes des e-mails automatiques (spécification, section 8), en vouvoiement comme le site.
 // Première rédaction par Agon Gate dans le ton de Bérénice, à faire valider par elle.
 
-const dateLongue = (d: Date) => new Intl.DateTimeFormat("fr-FR", { dateStyle: "long", timeZone: "Europe/Paris" }).format(d);
 const euros = (centimes: number) => new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(centimes / 100);
 const bonjour = (prenom: string | null | undefined, sinon: string) => (prenom?.trim() ? `${sinon}, ${prenom.trim()}` : sinon);
 
@@ -31,25 +31,45 @@ export function emailBienvenue(prenom: string | null | undefined): ContenuEmail 
   };
 }
 
-// À l'enregistrement d'un achat : récapitulatif, durée d'accès et rappel de l'accord sur le droit de rétractation
-// (support durable exigé pour la renonciation, annoncé par les CGV)
-export function emailConfirmationAchat(a: { prenom: string | null | undefined; experience: Experience; montantCentimes: number | null; fin: Date; renonciationLe: Date | null }): ContenuEmail {
+// À l'enregistrement d'un achat ou d'une prolongation : récapitulatif, durée d'accès et rappel de l'accord sur le droit
+// de rétractation (support durable exigé pour la renonciation, annoncé par les CGV)
+export function emailConfirmationAchat(a: { prenom: string | null | undefined; experience: Experience; montantCentimes: number | null; fin: Date; renonciationLe: Date | null; prolongation?: boolean }): ContenuEmail {
   const { experience: e } = a;
   return {
-    sujet: `${e.titre} : votre expérience est ouverte`,
+    sujet: a.prolongation ? `${e.titre} : votre accès est prolongé` : `${e.titre} : votre expérience est ouverte`,
     titre: bonjour(a.prenom, "Merci"),
     blocs: [
-      { type: "p", texte: `Votre achat est confirmé : ${e.titre} vous attend dans votre espace.` },
+      a.prolongation
+        ? { type: "p", texte: `Votre prolongation est confirmée : ${e.titre} reste ouverte dans votre espace pour une année de plus.` }
+        : { type: "p", texte: `Votre achat est confirmé : ${e.titre} vous attend dans votre espace.` },
       { type: "encadre", lignes: [
         `${e.titre} · ${e.duree}`,
         ...(a.montantCentimes !== null ? [`Montant payé : ${euros(a.montantCentimes)} TTC`] : []),
         `Accès ouvert jusqu’au ${dateLongue(a.fin)}`,
       ] },
-      { type: "p", texte: "Prenez le temps de vous installer avant de commencer : imprimez votre carnet, puis avancez à votre rythme, un exercice par jour." },
-      { type: "lien", avant: "Vous préférez écrire sur tablette ? ", libelle: "Tout est expliqué ici", chemin: "/aide/tablette", apres: "." },
+      ...(a.prolongation ? [] : [
+        { type: "p", texte: "Prenez le temps de vous installer avant de commencer : imprimez votre carnet, puis avancez à votre rythme, un exercice par jour." } as const,
+        { type: "lien", avant: "Vous préférez écrire sur tablette ? ", libelle: "Tout est expliqué ici", chemin: "/aide/tablette", apres: "." } as const,
+      ]),
       { type: "p", discret: true, texte: `Pour mémoire : avant le paiement${a.renonciationLe ? `, le ${dateLongue(a.renonciationLe)}` : ""}, vous avez accepté nos conditions générales de vente (${lienSite("/cgv")}), demandé l’accès immédiat à votre expérience et reconnu perdre votre droit de rétractation dès cet accès.` },
     ],
-    bouton: { libelle: "Commencer mon expérience", chemin: `/espace/experiences/${e.slug}` },
+    bouton: { libelle: a.prolongation ? "Retrouver mon expérience" : "Commencer mon expérience", chemin: `/espace/experiences/${e.slug}` },
+    piedDePage: piedAchat,
+  };
+}
+
+// Quinze jours avant la fin d'un accès acheté : rappel, avec la prolongation d'un an
+export function emailRappelFin(a: { prenom: string | null | undefined; experience: Experience; fin: Date }): ContenuEmail {
+  const { experience: e } = a;
+  return {
+    sujet: `Votre accès à ${e.titre} se termine le ${dateLongue(a.fin)}`,
+    titre: bonjour(a.prenom, "Bonjour"),
+    blocs: [
+      { type: "p", texte: `Votre accès à ${e.titre} se termine le ${dateLongue(a.fin)}. Après cette date, le carnet et les audios ne seront plus disponibles dans votre espace.` },
+      { type: "p", texte: `Si vous souhaitez continuer à les retrouver, vous pouvez prolonger votre accès d’une année pour ${prolongation.prix}. L’année s’ajoute à la date de fin : vous ne perdez aucun jour en prolongeant dès maintenant.` },
+      { type: "p", texte: "Et si vous ne prolongez pas, ce n’est pas grave : vous pourrez le faire plus tard, au même prix, et retrouver votre expérience là où vous l’aviez laissée." },
+    ],
+    bouton: { libelle: `Prolonger d’un an · ${prolongation.prix}`, chemin: `/espace/prolonger/${e.slug}` },
     piedDePage: piedAchat,
   };
 }
