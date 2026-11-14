@@ -1,4 +1,5 @@
-import { index, integer, pgEnum, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
+import { index, integer, pgEnum, pgTable, text, timestamp, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 
 // Toute modification passe par ce fichier, puis `pnpm db:generate` (fichier SQL dans drizzle/) et `pnpm db:migrate`.
 // Les colonnes sont écrites en camelCase ici et en snake_case dans la base (option `casing`).
@@ -24,4 +25,23 @@ export const acces = pgTable(
     creeLe: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [index("acces_compte_experience_idx").on(t.clerkUserId, t.experience)],
+);
+
+// Journal des e-mails envoyés par le site. La ligne est réservée avant l'envoi : l'index unique sur (type, référence)
+// empêche d'envoyer deux fois le même e-mail (deux webhooks, deux passages de la tâche planifiée).
+export const emails = pgTable(
+  "emails",
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    clerkUserId: text(),
+    type: text().notNull(), // bienvenue, confirmation_achat, soutien (lib/email/modeles.ts)
+    reference: text(), // compte pour la bienvenue, ligne d'accès pour les e-mails d'un achat
+    destinataire: text().notNull(),
+    sujet: text().notNull(),
+    statut: text().notNull(), // en_cours, envoye, echec, ignore (pas de clé Resend)
+    idResend: text(),
+    erreur: text(),
+    creeLe: timestamp({ withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [uniqueIndex("emails_type_reference_idx").on(t.type, t.reference).where(sql`${t.reference} is not null`)],
 );

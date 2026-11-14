@@ -1,7 +1,9 @@
 import "server-only";
 
+import { after } from "next/server";
 import type Stripe from "stripe";
 import { db, schema } from "@/lib/db";
+import { envoyerConfirmationAchat } from "@/lib/email/automatiques";
 import { experience } from "@/lib/experiences";
 
 // Durée d'accès d'un achat : un an (renouvelable à 5,99 €, étape suivante)
@@ -23,7 +25,7 @@ export async function enregistrerAchat(session: Stripe.Checkout.Session): Promis
   }
 
   const renonciation = session.metadata?.renonciation_le;
-  await db
+  const [ligne] = await db
     .insert(schema.acces)
     .values({
       clerkUserId,
@@ -35,6 +37,9 @@ export async function enregistrerAchat(session: Stripe.Checkout.Session): Promis
       montantCentimes: session.amount_total,
       renonciationLe: renonciation ? new Date(renonciation) : null,
     })
-    .onConflictDoNothing({ target: schema.acces.stripeSessionId });
+    .onConflictDoNothing({ target: schema.acces.stripeSessionId })
+    .returning();
+  // première fois que cet achat est enregistré : e-mail de confirmation, après la réponse (webhook ou page de retour)
+  if (ligne) after(() => envoyerConfirmationAchat(ligne, session.customer_details?.email ?? session.customer_email));
   return e.slug;
 }
