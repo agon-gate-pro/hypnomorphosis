@@ -9,7 +9,9 @@ export type BlocEmail =
   | { type: "encadre"; lignes: string[] }
   | { type: "liste"; elements: string[] }
   // lien au fil du texte : avant, lien, après
-  | { type: "lien"; avant: string; libelle: string; chemin: string; apres?: string };
+  | { type: "lien"; avant: string; libelle: string; chemin: string; apres?: string }
+  // paragraphe avec plusieurs liens : morceaux de texte et liens (chemin du site ou adresse complète)
+  | { type: "riche"; morceaux: (string | { libelle: string; url: string })[] };
 
 export type ContenuEmail = {
   sujet: string;
@@ -17,24 +19,32 @@ export type ContenuEmail = {
   blocs: BlocEmail[];
   bouton?: { libelle: string; chemin: string };
   piedDePage: string;
+  // fin de l'e-mail, à la place de « Belle expérience, Bérénice, HypnoMorphosis »
+  signature?: string[];
 };
 
 const couleurs = { papier: "#fbf9f4", pierre: "#f1ece1", olive: "#555a40", oliveNuit: "#2f3425", dore: "#c9a46a", encre: "#33352a", gris: "#6d6c5d", filet: "#e3dfd2" };
 const serif = "font-family:Georgia,'Times New Roman',serif;";
 const texte = "font-family:Arial,Helvetica,sans-serif;";
 
-const signature = ["Belle expérience,", "Bérénice", "HypnoMorphosis"];
+const signatureParDefaut = ["Belle expérience,", "Bérénice", "HypnoMorphosis"];
 
-// lien absolu vers le site (boutons et liens)
+// lien absolu vers le site (boutons et liens) ; une adresse complète est gardée telle quelle
 export function lienSite(chemin: string) {
   return new URL(chemin, urlSite).toString();
 }
 
+// espaces insécables de la typographie française (avant : ; ? ! », après «) : aucun signe ne passe seul à la ligne
+function fine(t: string) {
+  return t.replace(/ ([:;?!»])/g, " $1").replace(/« /g, "« ");
+}
+
 function echapper(t: string) {
-  return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  return fine(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
 export function rendreEmail(c: ContenuEmail): { html: string; text: string } {
+  const signature = c.signature ?? signatureParDefaut;
   const p = (contenu: string, discret = false) =>
     `<p style="${texte}margin:0 0 16px;font-size:${discret ? 13 : 16}px;line-height:1.6;color:${discret ? couleurs.gris : couleurs.encre};">${contenu}</p>`;
   const lien = (libelle: string, chemin: string) => `<a href="${lienSite(chemin)}" style="color:${couleurs.olive};text-decoration:underline;">${echapper(libelle)}</a>`;
@@ -49,6 +59,8 @@ export function rendreEmail(c: ContenuEmail): { html: string; text: string } {
         return `<ul style="${texte}margin:0 0 16px;padding-left:20px;font-size:16px;line-height:1.6;color:${couleurs.encre};">${b.elements.map((e) => `<li style="margin:0 0 6px;">${echapper(e)}</li>`).join("")}</ul>`;
       case "lien":
         return p(`${echapper(b.avant)}${lien(b.libelle, b.chemin)}${echapper(b.apres ?? "")}`);
+      case "riche":
+        return p(b.morceaux.map((m) => (typeof m === "string" ? echapper(m) : lien(m.libelle, m.url))).join(""));
     }
   }).join("");
 
@@ -84,6 +96,8 @@ ${blocsHtml}${bouton}
           return [...b.elements.map((e) => `- ${e}`), ""];
         case "lien":
           return [`${b.avant}${b.libelle} (${lienSite(b.chemin)})${b.apres ?? ""}`, ""];
+        case "riche":
+          return [b.morceaux.map((m) => (typeof m === "string" ? m : `${m.libelle} (${lienSite(m.url)})`)).join(""), ""];
       }
     }),
     ...(c.bouton ? [`${c.bouton.libelle} : ${lienSite(c.bouton.chemin)}`, ""] : []),

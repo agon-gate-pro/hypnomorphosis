@@ -1,0 +1,45 @@
+Mail d'Alexis à Bérénice du 2026-11-14 (pages légales, e-mails automatiques, prolongation), copié par Alexis dans la conversation (retours à la ligne rétablis). Les 5 e-mails automatiques lui ont été transférés à part depuis contact@agon-gate.com (aperçus avec des données d'exemple, Resend n'écrivant qu'à l'adresse du compte tant que hypnomorphosis.com n'est pas vérifié). Note : la phrase « Je te mets les textes à la fin de ce mail » est restée, mais les textes n'y sont pas ; ce sont les e-mails transférés qui en tiennent lieu.
+
+Bonsoir Béré,
+
+Voici les nouveautés depuis mon dernier mail. Le site s'est bien étoffé : il est maintenant presque complet.
+
+Les pages légales
+Les quatre pages sont en ligne, avec un lien en bas de chaque page du site :
+Mentions légales : https://hypnomorphosis.vercel.app/mentions-legales
+Conditions générales de vente : https://hypnomorphosis.vercel.app/cgv
+Confidentialité : https://hypnomorphosis.vercel.app/confidentialite
+Avertissement : https://hypnomorphosis.vercel.app/avertissement
+Elles s'appuient sur le droit espagnol, puisque ta société est en Espagne, tout en protégeant les clients des autres pays, comme le veut la loi européenne. Les CGV expliquent l'accès d'un an, la prolongation à 5,99 € et la renonciation au droit de rétractation. Comme tu l'as souhaité, il n'y a pas de médiateur.
+Il reste deux mentions « à compléter » : le numéro au Registro Mercantil et l'e-mail de contact.
+
+Les e-mails automatiques
+Le site envoie maintenant cinq e-mails tout seul, à tes couleurs et signés de ton prénom :
+Bienvenue, dès la création du compte, avec un bouton pour commencer l'expérience découverte.
+Confirmation d'achat : l'expérience, le montant, la date de fin d'accès, le lien vers l'aide pour la tablette et le rappel de la renonciation au droit de rétractation. Ce rappel est obligatoire.
+Un petit mot de soutien, 15 jours après l'achat, pour prendre des nouvelles, sans pression.
+Un rappel 15 jours avant la fin de l'accès, avec la possibilité de prolonger.
+La confirmation de prolongation, avec la nouvelle date de fin.
+Je les ai rédigés en m'inspirant de ton ton. Je te mets les textes à la fin de ce mail : dis-moi ce que tu veux changer, ou si tu les valides tels quels.
+Ils partiront vers tes clients dès que le site sera sur hypnomorphosis.com. D'ici là, les e-mails ne peuvent partir que vers une adresse de test.
+
+La prolongation à 5,99 €
+Un mois avant la fin de son accès, le client voit dans son espace un encadré « Prolonger d'un an · 5,99 € ». L'année s'ajoute à sa date de fin, donc il ne perd aucun jour s'il prolonge en avance. Si son accès a pris fin, l'expérience reste visible dans son espace, grisée, avec le même bouton pour la retrouver.
+
+Stripe
+Guillaume va te contacter prochainement pour relier ton compte Stripe. Tout est prêt côté site : dès que ce sera fait, on testera l'achat et la prolongation avec de faux paiements.
+
+Mes questions
+La prolongation après la fin de l'accès : pour l'instant, un client peut prolonger à 5,99 € quand il veut, même un an après la fin. Ça te convient ? Ou préfères-tu un délai, par exemple 3 mois, au-delà duquel il faudrait racheter l'expérience à 49 € ?
+La facture : faut-il en parler dans l'e-mail de confirmation d'achat, par exemple « Votre facture vous sera envoyée par e-mail » ? Je ne sais pas comment Cédric les envoie.
+L'avertissement : peux-tu relire la liste des situations où je conseille de demander l'avis d'un médecin ? Tu connais ce sujet bien mieux que moi. Et est-ce que tes expériences sont réservées aux adultes ?
+Le nom de domaine : es-tu d'accord pour que j'achète hypnomorphosis.com (30 € HT par an, comme prévu au contrat) ? C'est lui qui permettra d'envoyer les e-mails à tes clients.
+
+De ton côté, quand tu pourras
+Faire relire les pages légales par Cédric, et lui demander le numéro au Registro Mercantil et la confirmation de l'inscription au ROI.
+M'envoyer l'adresse e-mail de contact du site.
+La vidéo, toujours sans urgence.
+
+Je te transfère également mes 5 mails pour que tu puisses me faire un retour dessus.
+
+Merci encore, on approche du but !

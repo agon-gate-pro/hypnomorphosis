@@ -45,9 +45,9 @@ export const societe = {
   sigle: "PHI",
   adresse: "Paseo Albert, 13, 43850 Cambrils (Tarragone), Espagne",
   cif: "B75995084",
-  registre: null as string | null, // inscription au Registro Mercantil (tome, folio, feuille)
+  registre: "Registro Mercantil de Tarragona, feuille T-63579, inscription 1re (IRUS 1000441123350)" as string | null, // extrait de l'acte envoyé par Bérénice le 2026-11-15
   representant: "Cédric Hervet, administrateur",
-  email: null as string | null, // adresse de contact du site, aussi destinataire du formulaire au lancement
+  email: "hypnomorphosis.contact@gmail.com" as string | null, // adresse de contact du site (Bérénice, 2026-11-15), aussi destinataire du formulaire au lancement (CONTACT_DESTINATAIRE)
 };
 
 // sujets du formulaire de contact
