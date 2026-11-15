@@ -1,0 +1,34 @@
+Mail d'Alexis à Bérénice du 2026-11-15, en réponse à son mail du même jour (docs/Echange Mail 13.txt). Texte préparé avec Claude et envoyé par Alexis (version envoyée non recopiée : c'est le brouillon validé). Juste après, Alexis lui a transféré depuis contact@agon-gate.com les 5 aperçus « v2 » des e-mails automatiques (bienvenue, confirmation d'achat, mot d'encouragement, rappel de fin d'accès, confirmation de prolongation).
+
+Objet : HypnoMorphosis : tes retours sont intégrés
+
+Bonjour Béré,
+
+Merci pour ta réponse, tout est clair. Voici ce que j'ai fait :
+
+Les pages légales
+Le numéro du Registro Mercantil et l'adresse hypnomorphosis.contact@gmail.com sont maintenant sur les mentions légales, les CGV et la page confidentialité. Il n'y a plus aucun « à compléter » sur le site. Les messages du formulaire de contact arriveront sur cette adresse dès que le site sera sur hypnomorphosis.com.
+
+Tes réponses
+- La prolongation reste à 5,99 € par an pour toute expérience déjà achetée : c'est exactement ce qui est en place.
+- Aucune mention de facture, ni dans les e-mails ni sur le site.
+
+Les e-mails
+J'ai repris tes textes :
+- le nom de l'expérience est en majuscules : « LE NŒUD », « APRÈS NOUS » ;
+- dans la confirmation d'achat : « Pour commencer, imprimez votre carnet ou téléchargez-le sur tablette » ;
+- ton mot d'encouragement à 15 jours, en entier, sans le nom de l'expérience. YouTube, TikTok et Instagram sont cliquables, et l'e-mail se termine par ton « À bientôt » ;
+- tes phrases pour le rappel de fin d'accès et pour la confirmation de prolongation.
+
+Je te transfère les nouveaux e-mails de test juste après celui-ci, pour que tu voies le rendu final. Dis-moi s'ils te conviennent.
+
+Le nom de domaine
+Guillaume s'occupe de l'achat de hypnomorphosis.com. Il te contactera aussi pour Stripe.
+
+Une dernière question
+Tes expériences sont-elles réservées aux adultes ? Si oui, je l'ajoute dans les conditions de vente.
+
+Bon courage pour la vidéo, j'ai hâte de la voir !
+
+À bientôt,
+Alexis
