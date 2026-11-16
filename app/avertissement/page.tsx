@@ -16,7 +16,8 @@ export default function Avertissement() {
       <h2>Ce que sont les expériences HypnoMorphosis</h2>
       <p>
         Les expériences HypnoMorphosis sont des parcours d’hypnose et d’introspection à vivre chez soi : un carnet d’exercices et
-        des audios guidés. Elles invitent à explorer votre façon de vivre certaines situations.
+        des audios guidés. Elles invitent à explorer votre façon de vivre certaines situations. Elles s’adressent aux adultes (18
+        ans et plus).
       </p>
       <p>
         <strong>Elles ne constituent ni un diagnostic, ni un traitement médical ou psychologique, et ne remplacent pas l’avis

@@ -19,6 +19,10 @@ export default function Confidentialite() {
         {societe.raisonSociale} ({societe.sigle}), {societe.adresse}, CIF {societe.cif}. Pour toute question sur vos données :{" "}
         <Contact email={societe.email} /> ou le <Link href="/contact">formulaire de contact</Link>.
       </p>
+      <p>
+        Le site ne s’adresse pas aux mineurs et nous ne collectons pas sciemment leurs données. Si un compte a été créé par une
+        personne mineure, écrivez-nous : nous le supprimerons.
+      </p>
 
       <h2>Les données que nous utilisons, et pourquoi</h2>
       <ul>

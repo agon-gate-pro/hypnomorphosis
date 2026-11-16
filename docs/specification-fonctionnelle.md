@@ -102,7 +102,7 @@ Validé par Bérénice : le client coche une case pour confirmer qu'il a pris co
 
 Un achat en ligne ouvre normalement un délai de 14 jours pour changer d'avis et être remboursé. Les contenus numériques fournis immédiatement en sont exclus, à trois conditions cumulatives. La règle vient d'une directive européenne (2011/83/UE, article 16) : elle est la même en France (article L221-28 13° du Code de la consommation) et en Espagne, où est rattachée l'activité. Si l'une des conditions manque, le client peut se faire rembourser, et le délai passe à 12 mois si l'information sur la rétractation n'a pas été donnée.
 
-1. **Accord exprès avant le paiement** : une case à cocher, jamais cochée par défaut, sans laquelle le bouton de paiement reste inactif. Texte proposé : « Je demande l'accès immédiat à mon expérience et je reconnais perdre mon droit de rétractation dès cet accès. »
+1. **Accord exprès avant le paiement** : une case à cocher, jamais cochée par défaut, sans laquelle le bouton de paiement reste inactif. Texte en place : « J'ai 18 ans ou plus, j'accepte les conditions générales de vente. Je demande l'accès immédiat à mon expérience et je reconnais perdre mon droit de rétractation dès cet accès. »
 2. **Confirmation sur un support durable** : l'e-mail de confirmation d'achat reprend cet accord.
 3. **Information dans les CGV** : un article dédié à l'absence de droit de rétractation pour les expériences.
 
@@ -181,6 +181,7 @@ Les e-mails d'annonce et de promotion sont de la prospection : ils demandent l'a
 - Politique de confidentialité (RGPD) : données collectées, durée de conservation, droits des personnes, liste d'envoi des e-mails
 - Bandeau cookies seulement si des outils de mesure d'audience non exemptés sont ajoutés
 - Avertissement recommandé : les expériences ne remplacent pas un avis ou un traitement médical ou psychologique
+- Public adulte (réponse de Bérénice du 2026-11-15) : expériences, compte et achat réservés aux personnes majeures (18 ans ou plus), écrit dans les CGV, l'avertissement et la confidentialité ; majorité confirmée par la case à cocher avant l'achat ; ni date de naissance ni justificatif
 
 ## 10. Identité visuelle et éléments fournis
 

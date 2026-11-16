@@ -31,11 +31,17 @@ export default function Cgv() {
         expérience sont décrits sur sa fiche.
       </p>
       <p>L’expérience découverte est gratuite et reste accessible avec un compte, sans limite de durée.</p>
+      {/* public adulte confirmé par Bérénice le 2026-11-15 */}
+      <p>Les expériences sont réservées aux personnes majeures (18 ans ou plus).</p>
 
       <h2>3. Le compte</h2>
       <p>
         Un compte est nécessaire pour recevoir l’expérience découverte et pour acheter une expérience. Il est personnel : vous
         êtes responsable de la confidentialité de vos accès et ne devez pas les partager.
+      </p>
+      <p>
+        La création d’un compte et l’achat sont réservés aux personnes majeures. En créant un compte, vous confirmez avoir au
+        moins 18 ans.
       </p>
 
       <h2>4. Les prix</h2>
