@@ -3,16 +3,19 @@ import "server-only";
 import { eq } from "drizzle-orm";
 import { Resend } from "resend";
 import { db, schema } from "@/lib/db";
+import { societe } from "@/lib/site";
 import { rendreEmail, type ContenuEmail } from "./mise-en-page";
 
 // Envoi par Resend (compte direct, équipe agon-gate).
-// - Expéditeur : EMAIL_FROM, par défaut l'adresse de test de Resend, qui n'écrit qu'à l'adresse du compte Resend
-//   tant que hypnomorphosis.com n'est pas vérifié.
+// - Expéditeur : EMAIL_FROM (HypnoMorphosis <bonjour@hypnomorphosis.com>, domaine vérifié dans Resend le 2026-11-16) ;
+//   à défaut, l'adresse de test de Resend, qui n'écrit qu'à l'adresse du compte Resend.
 // - EMAIL_TEST_RECIPIENT : si renseignée, tout part à cette adresse (la base est partagée avec le site en ligne).
 // - Sans clé Resend, rien ne part : l'e-mail est journalisé « ignore ».
 // Un envoi raté ne fait jamais échouer ce qui l'a déclenché (achat, inscription) : l'erreur va au journal `emails`.
 
 const expediteur = process.env.EMAIL_FROM || "HypnoMorphosis <onboarding@resend.dev>";
+// les réponses des clientes arrivent sur l'adresse de contact de Bérénice (l'adresse d'envoi n'a pas de boîte)
+const reponses = societe.email ?? undefined;
 
 let client: Resend | null = null;
 function resend() {
@@ -51,7 +54,7 @@ export async function envoyerEmail({ a, type, reference, clerkUserId = null, con
   if (api) {
     try {
       const { html, text } = rendreEmail(contenu);
-      const r = await api.emails.send({ from: expediteur, to: destinataire, subject: sujet, html, text }, { idempotencyKey: `email/${ligne.id}` });
+      const r = await api.emails.send({ from: expediteur, to: destinataire, replyTo: reponses, subject: sujet, html, text }, { idempotencyKey: `email/${ligne.id}` });
       if (r.error) {
         statut = "echec";
         erreur = `${r.error.name}: ${r.error.message}`;
