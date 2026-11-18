@@ -35,6 +35,9 @@ export async function ouvrirPaiement(a: {
       customer_email: a.email,
       metadata: { experience: a.experience.slug, type: a.type, renonciation_le: new Date().toISOString() },
       payment_intent_data: { metadata: { experience: a.experience.slug, type: a.type, clerk_user_id: a.clerkUserId } },
+      // Managed Payments (Stripe vendeur officiel, TVA et remboursements gérés par Stripe) est activé par défaut sur le
+      // compte : refusé ici, la société reste le vendeur (CGV, IVA comprise, factures par Cédric)
+      managed_payments: { enabled: false },
       allow_promotion_codes: true,
       locale: "fr",
       success_url: `${origine}/espace/achat?session_id={CHECKOUT_SESSION_ID}`,
