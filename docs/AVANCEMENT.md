@@ -106,7 +106,8 @@ Réglages faits sur l'instance Clerk de développement, à reproduire à l'ident
 - Stripe : vérification d'identité de Bérénice faite (compte réel suspendu sinon) ; clés live créées dans le compte réel comme en test (clé restreinte avec le seul droit d'écriture sur Checkout Sessions, destination webhook avec les 3 événements `checkout.session.*`) ; les clés de test restent en Preview et Development. Clés live (clé restreinte et secret du webhook live) en Production seulement, en variables Sensitive ; point de terminaison live vers `https://hypnomorphosis.com/api/stripe/webhook` ; redéployer (les fiches lisent les clés à la construction).
 - Pages légales : `registre` et `email` de `societe` renseignés le 2026-11-15 ; vérifier qu'aucun « à compléter » n'est revenu.
 - E-mails : webhook Clerk de l'instance de production vers `https://hypnomorphosis.com/api/clerk/webhook` (`user.created`) et son `CLERK_WEBHOOK_SIGNING_SECRET` en Production ; ne jamais poser `EMAIL_TEST_RECIPIENT` en Production.
-- Supprimer les utilisateurs de test `alexis+clerk_test@example.com` et `berenice+clerk_test@example.com` (instance de développement seulement).
+- Supprimer les utilisateurs de test `alexis+clerk_test@example.com`, `berenice+clerk_test@example.com` et `hypnomorphosis+clerk_test@agon-gate.com` (créé le 2026-11-18 pour les paiements de test ; instance de développement seulement), ainsi que les deux lignes de paiement de test de ce dernier dans la table `acces` (achat de 49 € et renouvellement de 5,99 € du 2026-11-18).
+- Tests à faire avant d'ouvrir les achats : achat et prolongation depuis le site déployé (testés seulement en local le 2026-11-18) ; code promo, paiement refusé et paiement différé (jamais testés) ; après la pose des clés live, un vrai achat de contrôle, remboursé ensuite ; contrôle sur de vrais téléphones et tablettes (jamais fait).
 
 ## Questions ouvertes
 
